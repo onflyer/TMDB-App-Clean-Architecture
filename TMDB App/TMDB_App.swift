@@ -8,10 +8,14 @@
 import SwiftUI
 
 @main
-struct TMDB_AppApp: App {
+struct TMDB_App: App {
+    
+    @StateObject private var viewModel = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ViewModel())
         }
     }
 }

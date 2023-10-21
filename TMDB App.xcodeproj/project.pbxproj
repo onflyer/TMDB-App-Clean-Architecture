@@ -7,18 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B8782882AE4261C0098C228 /* TMDB_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782872AE4261C0098C228 /* TMDB_AppApp.swift */; };
+		3B8782882AE4261C0098C228 /* TMDB_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782872AE4261C0098C228 /* TMDB_App.swift */; };
 		3B87828A2AE4261C0098C228 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782892AE4261C0098C228 /* ContentView.swift */; };
 		3B87828C2AE4261D0098C228 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B87828B2AE4261D0098C228 /* Assets.xcassets */; };
 		3B87828F2AE4261D0098C228 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B87828E2AE4261D0098C228 /* Preview Assets.xcassets */; };
+		3B87829D2AE427230098C228 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782982AE427230098C228 /* Endpoint.swift */; };
+		3B87829E2AE427230098C228 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782992AE427230098C228 /* NetworkingError.swift */; };
+		3B87829F2AE427230098C228 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87829A2AE427230098C228 /* NetworkingService.swift */; };
+		3B8782A02AE427230098C228 /* ResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87829B2AE427230098C228 /* ResourceLoader.swift */; };
+		3B8782A12AE427230098C228 /* HTTPMethodHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B87829C2AE427230098C228 /* HTTPMethodHelper.swift */; };
+		3B8782A32AE427E70098C228 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782A22AE427E70098C228 /* Constants.swift */; };
+		3B8782AC2AE42A780098C228 /* NowPlaying.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B8782AB2AE42A780098C228 /* NowPlaying.json */; };
+		3B8782AF2AE42BEC0098C228 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782AE2AE42BEC0098C228 /* MovieResponse.swift */; };
+		3B8782B32AE42F510098C228 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782B22AE42F510098C228 /* ViewModel.swift */; };
+		3B8782B52AE438E70098C228 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782B42AE438E70098C228 /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3B8782842AE4261C0098C228 /* TMDB App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMDB App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B8782872AE4261C0098C228 /* TMDB_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_AppApp.swift; sourceTree = "<group>"; };
+		3B8782872AE4261C0098C228 /* TMDB_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_App.swift; sourceTree = "<group>"; };
 		3B8782892AE4261C0098C228 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3B87828B2AE4261D0098C228 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B87828E2AE4261D0098C228 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3B8782982AE427230098C228 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		3B8782992AE427230098C228 /* NetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		3B87829A2AE427230098C228 /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		3B87829B2AE427230098C228 /* ResourceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceLoader.swift; sourceTree = "<group>"; };
+		3B87829C2AE427230098C228 /* HTTPMethodHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethodHelper.swift; sourceTree = "<group>"; };
+		3B8782A22AE427E70098C228 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3B8782AB2AE42A780098C228 /* NowPlaying.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NowPlaying.json; sourceTree = "<group>"; };
+		3B8782AE2AE42BEC0098C228 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		3B8782B22AE42F510098C228 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		3B8782B42AE438E70098C228 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +55,7 @@
 		3B87827B2AE4261C0098C228 = {
 			isa = PBXGroup;
 			children = (
-				3B8782862AE4261C0098C228 /* TMDB App */,
+				3B8782A82AE4291D0098C228 /* TMDB App */,
 				3B8782852AE4261C0098C228 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,23 +68,89 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3B8782862AE4261C0098C228 /* TMDB App */ = {
+		3B87828D2AE4261D0098C228 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				3B8782872AE4261C0098C228 /* TMDB_AppApp.swift */,
-				3B8782892AE4261C0098C228 /* ContentView.swift */,
+				3B8782AA2AE42A490098C228 /* JSON Files */,
+				3B87828E2AE4261D0098C228 /* Preview Assets.xcassets */,
 				3B87828B2AE4261D0098C228 /* Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3B8782952AE4264D0098C228 /* HTTP Client */ = {
+			isa = PBXGroup;
+			children = (
+				3B87829C2AE427230098C228 /* HTTPMethodHelper.swift */,
+				3B8782992AE427230098C228 /* NetworkingError.swift */,
+				3B87829A2AE427230098C228 /* NetworkingService.swift */,
+				3B87829B2AE427230098C228 /* ResourceLoader.swift */,
+				3B8782982AE427230098C228 /* Endpoint.swift */,
+				3B8782A22AE427E70098C228 /* Constants.swift */,
+			);
+			path = "HTTP Client";
+			sourceTree = "<group>";
+		};
+		3B8782A52AE428530098C228 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3B8782892AE4261C0098C228 /* ContentView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3B8782A62AE428590098C228 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B8782B42AE438E70098C228 /* ImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3B8782A82AE4291D0098C228 /* TMDB App */ = {
+			isa = PBXGroup;
+			children = (
+				3B8782B02AE42E140098C228 /* App */,
+				3B8782872AE4261C0098C228 /* TMDB_App.swift */,
+				3B8782952AE4264D0098C228 /* HTTP Client */,
+				3B8782B12AE42F330098C228 /* Agregate Model */,
+				3B8782A52AE428530098C228 /* Screens */,
+				3B8782A62AE428590098C228 /* Views */,
+				3B8782AD2AE42BCE0098C228 /* Models */,
 				3B87828D2AE4261D0098C228 /* Preview Content */,
 			);
 			path = "TMDB App";
 			sourceTree = "<group>";
 		};
-		3B87828D2AE4261D0098C228 /* Preview Content */ = {
+		3B8782AA2AE42A490098C228 /* JSON Files */ = {
 			isa = PBXGroup;
 			children = (
-				3B87828E2AE4261D0098C228 /* Preview Assets.xcassets */,
+				3B8782AB2AE42A780098C228 /* NowPlaying.json */,
 			);
-			path = "Preview Content";
+			path = "JSON Files";
+			sourceTree = "<group>";
+		};
+		3B8782AD2AE42BCE0098C228 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3B8782AE2AE42BEC0098C228 /* MovieResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3B8782B02AE42E140098C228 /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3B8782B12AE42F330098C228 /* Agregate Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B8782B22AE42F510098C228 /* ViewModel.swift */,
+			);
+			path = "Agregate Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B8782AC2AE42A780098C228 /* NowPlaying.json in Resources */,
 				3B87828F2AE4261D0098C228 /* Preview Assets.xcassets in Resources */,
 				3B87828C2AE4261D0098C228 /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +224,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B8782B32AE42F510098C228 /* ViewModel.swift in Sources */,
 				3B87828A2AE4261C0098C228 /* ContentView.swift in Sources */,
-				3B8782882AE4261C0098C228 /* TMDB_AppApp.swift in Sources */,
+				3B8782A12AE427230098C228 /* HTTPMethodHelper.swift in Sources */,
+				3B87829D2AE427230098C228 /* Endpoint.swift in Sources */,
+				3B8782B52AE438E70098C228 /* ImageView.swift in Sources */,
+				3B87829F2AE427230098C228 /* NetworkingService.swift in Sources */,
+				3B8782882AE4261C0098C228 /* TMDB_App.swift in Sources */,
+				3B87829E2AE427230098C228 /* NetworkingError.swift in Sources */,
+				3B8782AF2AE42BEC0098C228 /* MovieResponse.swift in Sources */,
+				3B8782A02AE427230098C228 /* ResourceLoader.swift in Sources */,
+				3B8782A32AE427E70098C228 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +376,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +406,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
