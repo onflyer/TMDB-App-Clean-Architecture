@@ -14,7 +14,7 @@ struct ImageView: View {
     var body: some View {
         AsyncImage(url: movie.posterURL) { image in
             image.resizable()
-                .scaledToFit()
+                .scaledToFill()
         } placeholder: {
             Image(systemName: "heart")
         }

@@ -6,8 +6,29 @@
 //
 
 import Foundation
+import UIKit
 
 struct HTTPClient {
+    
+    private let cache = NSCache <NSString,UIImage>()
+    
+    func downloadImage(fromURLString urlString: String) async throws -> UIImage? {
+        let cacheKey = NSString(string: urlString)
+        if let image = cache.object(forKey: cacheKey) {
+            return image
+        }
+        guard let url = URL(string: urlString) else {
+            return nil
+        }
+        let (data, _ ) = try await URLSession.shared.data(for: URLRequest(url: url))
+        
+        guard let image = UIImage(data: data) else {
+            return nil
+        }
+        self.cache.setObject(image, forKey: cacheKey)
+        
+        return image
+    }
     
         static func testResponse() async throws {
             let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing")
