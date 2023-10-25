@@ -72,23 +72,12 @@ struct Movie: Codable,Identifiable,Hashable {
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath )")!
     }
     
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.adult = try container.decode(Bool.self, forKey: .adult)
-        self.backdropPath = try container.decode(String.self, forKey: .backdropPath)
-        self.genreIDS = try container.decode([Int].self, forKey: .genreIDS)
-        self.id = try container.decode(Int.self, forKey: .id)
-        self.originalLanguage = try container.decode(OriginalLanguage.self, forKey: .originalLanguage)
-        self.originalTitle = try container.decode(String.self, forKey: .originalTitle)
-        self.overview = try container.decode(String.self, forKey: .overview)
-        self.popularity = try container.decode(Double.self, forKey: .popularity)
-        self.posterPath = try container.decode(String.self, forKey: .posterPath)
-        self.releaseDate = try container.decode(String.self, forKey: .releaseDate)
-        self.title = try container.decode(String.self, forKey: .title)
-        self.video = try container.decode(Bool.self, forKey: .video)
-        self.voteAverage = try container.decode(Double.self, forKey: .voteAverage)
-        self.voteCount = try container.decode(Int.self, forKey: .voteCount)
-    }
+    static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        return dateFormatter
+    }()
+    
 }
 
 enum OriginalLanguage: String, Codable {

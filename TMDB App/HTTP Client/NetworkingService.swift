@@ -12,7 +12,7 @@ struct HTTPClient {
     
     private let cache = NSCache <NSString,UIImage>()
     
-    func downloadImage(fromURLString urlString: String) async throws -> UIImage? {
+    func downloadImage(_ urlString: String) async throws -> UIImage? {
         let cacheKey = NSString(string: urlString)
         if let image = cache.object(forKey: cacheKey) {
             return image
@@ -51,6 +51,7 @@ struct HTTPClient {
         case .get(let queryItems):
             var components = URLComponents(url: resource.url, resolvingAgainstBaseURL: false)
             components?.queryItems = queryItems
+            
             guard let url = components?.url else {
                 throw NetworkError.badRequest
             }

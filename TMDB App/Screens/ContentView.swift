@@ -23,11 +23,10 @@ struct ContentView: View {
         VStack {
             List {
                 ForEach(viewModel.nowPlayingMovies) { movie in
-                    HStack(content: {
+                    HStack {
                         Text(movie.title)
                         ImageView(movie: movie)
-                            
-                    })
+                    }
                    
                     
                 }

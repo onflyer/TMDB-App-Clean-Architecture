@@ -15,8 +15,18 @@ class ViewModel: ObservableObject {
     @Published var nowPlayingMovies: [Movie] = []
     @Published var image: Image? = nil
     
-     let httpClient = HTTPClient()
+    
+    
+    
+    let httpClient = HTTPClient()
    
+    
+    func loadImage(fromUrlString urlString: String) async {
+        guard let uiImage = try? await httpClient.downloadImage(urlString) else {
+            return
+        }
+        self.image = Image(uiImage: uiImage)
+    }
     
     func fetchNowPlayingMovies() async throws {
         let resource = Resource(url: Constants.Urls.nowPlaying,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: MovieResponse.self)

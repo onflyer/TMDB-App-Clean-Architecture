@@ -16,7 +16,7 @@ struct ImageView: View {
             image.resizable()
                 .scaledToFill()
         } placeholder: {
-            Image(systemName: "heart")
+            Image(systemName: "doc.text.image")
         }
 
     }
