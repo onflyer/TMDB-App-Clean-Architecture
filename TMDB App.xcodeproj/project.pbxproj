@@ -21,6 +21,8 @@
 		3B8782AF2AE42BEC0098C228 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782AE2AE42BEC0098C228 /* MovieResponse.swift */; };
 		3B8782B32AE42F510098C228 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782B22AE42F510098C228 /* ViewModel.swift */; };
 		3B8782B52AE438E70098C228 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782B42AE438E70098C228 /* ImageView.swift */; };
+		3B8987F22AE97061000EE05D /* ImageViewResizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8987F12AE97061000EE05D /* ImageViewResizable.swift */; };
+		3B8987F62AE971C7000EE05D /* MovieThumbnailPosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8987F52AE971C7000EE05D /* MovieThumbnailPosterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		3B8782AE2AE42BEC0098C228 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		3B8782B22AE42F510098C228 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		3B8782B42AE438E70098C228 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		3B8987F12AE97061000EE05D /* ImageViewResizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewResizable.swift; sourceTree = "<group>"; };
+		3B8987F52AE971C7000EE05D /* MovieThumbnailPosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieThumbnailPosterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				3B8782B42AE438E70098C228 /* ImageView.swift */,
+				3B8987F12AE97061000EE05D /* ImageViewResizable.swift */,
+				3B8987F52AE971C7000EE05D /* MovieThumbnailPosterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,10 +236,12 @@
 				3B87829D2AE427230098C228 /* Endpoint.swift in Sources */,
 				3B8782B52AE438E70098C228 /* ImageView.swift in Sources */,
 				3B87829F2AE427230098C228 /* NetworkingService.swift in Sources */,
+				3B8987F22AE97061000EE05D /* ImageViewResizable.swift in Sources */,
 				3B8782882AE4261C0098C228 /* TMDB_App.swift in Sources */,
 				3B87829E2AE427230098C228 /* NetworkingError.swift in Sources */,
 				3B8782AF2AE42BEC0098C228 /* MovieResponse.swift in Sources */,
 				3B8782A02AE427230098C228 /* ResourceLoader.swift in Sources */,
+				3B8987F62AE971C7000EE05D /* MovieThumbnailPosterView.swift in Sources */,
 				3B8782A32AE427E70098C228 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

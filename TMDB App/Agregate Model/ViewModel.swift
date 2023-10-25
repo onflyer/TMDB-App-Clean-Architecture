@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 @MainActor
 class ViewModel: ObservableObject {
     
     @Published var movie: Movie? = nil
     @Published var nowPlayingMovies: [Movie] = []
+    @Published var image: Image? = nil
     
      let httpClient = HTTPClient()
    
