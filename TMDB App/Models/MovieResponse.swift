@@ -83,4 +83,5 @@ struct Movie: Codable,Identifiable,Hashable {
 enum OriginalLanguage: String, Codable {
     case en = "en"
     case ru = "ru"
+    case uk = "uk"
 }

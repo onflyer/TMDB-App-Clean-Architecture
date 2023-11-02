@@ -31,10 +31,11 @@ struct HTTPClient {
     }
     
         static func testResponse() async throws {
-            let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing")
+            let baseUrl = URL(string: "https://api.themoviedb.org/3/movie/now_playing")
+            let url = baseUrl?.appending(queryItems: [URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")])
             var request = URLRequest(url: url!)
-            request.addValue("Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMDNjYTA1NTNjMzdjZDlkNmU2YTVjZmNjYzc2NDZjZiIsInN1YiI6IjY0OGVmNWE0NDJiZjAxMDBhZTMxZTM2YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qQ7vuvcsHdiwVYYI8NVWnBbss6R7RXQOgTCUlsXIblQ", forHTTPHeaderField: "Authorization")
-            request.addValue("application/json", forHTTPHeaderField: "accept")
+        
+            
     
             let (data, _ ) = try! await URLSession.shared.data(for: request)
     

@@ -93,8 +93,8 @@
 			children = (
 				3B87829C2AE427230098C228 /* HTTPMethodHelper.swift */,
 				3B8782992AE427230098C228 /* NetworkingError.swift */,
-				3B87829A2AE427230098C228 /* NetworkingService.swift */,
 				3B87829B2AE427230098C228 /* ResourceLoader.swift */,
+				3B87829A2AE427230098C228 /* NetworkingService.swift */,
 				3B8782982AE427230098C228 /* Endpoint.swift */,
 				3B8782A22AE427E70098C228 /* Constants.swift */,
 			);
