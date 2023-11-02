@@ -16,6 +16,7 @@ struct MovieThumbnailView: View {
         } placeholder: {
             Image(systemName: "doc.text.image")
         }
+        .frame(width: 200, height: 200)
 
     }
 }
