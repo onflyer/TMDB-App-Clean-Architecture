@@ -29,10 +29,12 @@ class ViewModel: ObservableObject {
     }
     
     func fetchSingleMovie(movieId: Int) async throws {
-        let resource = Resource(url: Constants.Urls.singleMovie(movieId: movieId), method: .get([URLQueryItem(name: "append_to_response", value: "videos,credits")]), modelType: Movie.self)
+        let resource = Resource(url: Constants.Urls.singleMovie(movieId: movieId), method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "append_to_response", value: "videos,credits")]), modelType: Movie.self)
         
         movie = try await httpClient.load(resource)
     }
+    
+    
     
     
 }

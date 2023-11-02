@@ -25,11 +25,8 @@ struct ContentView: View {
                 ForEach(viewModel.nowPlayingMovies) { movie in
                     HStack {
                         Text(movie.title)
-                        CachedAsyncImage(url: movie.posterURL) { image in
-                            image.resizable()
-                        } placeholder: {
-                            Image(systemName: "doc.text.image")
-                        }
+                       MovieThumbnailView(movie: movie)
+                            
 
                     }
                    
