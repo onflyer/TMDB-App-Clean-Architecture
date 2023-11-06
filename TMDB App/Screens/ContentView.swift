@@ -20,23 +20,27 @@ struct ContentView: View {
     }
     
     var body: some View {
-        VStack {
-            List {
-                ForEach(viewModel.nowPlayingMovies) { movie in
-                    HStack {
-                        Text(movie.title)
-                       MovieThumbnailView(movie: movie)
-                            
-
+        VStack(alignment: .leading, spacing: 16) {
+                
+                Text("Now playing")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.horizontal)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(alignment: .top, spacing: 16) {
+                        ForEach(viewModel.nowPlayingMovies) { movie in
+                            MovieThumbnailPosterView(movie: movie)
+                        }
                     }
-                   
-                    
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
                 }
             }
-            .task {
-                await loadMovies()
-            }
-        }
+        
+        .task {
+            await loadMovies()
+    }
     }
 }
 
