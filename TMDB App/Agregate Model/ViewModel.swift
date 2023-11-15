@@ -13,6 +13,9 @@ class ViewModel: ObservableObject {
     
     @Published var movie: Movie? = nil
     @Published var nowPlayingMovies: [Movie] = []
+    @Published var upcomingMovies: [Movie] = []
+    @Published var topRatedMovies: [Movie] = []
+    @Published var popularMovies: [Movie] = []
     
     
     let httpClient = HTTPClient()
@@ -24,6 +27,33 @@ class ViewModel: ObservableObject {
         
         let movieResults = try await httpClient.load(resource)
         nowPlayingMovies = movieResults.results
+        
+        
+    }
+    
+    func fetchUpcomingMovies() async throws {
+        let resource = Resource(url: Constants.Urls.upcoming,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: MovieResponse.self)
+        
+        let movieResults = try await httpClient.load(resource)
+        upcomingMovies = movieResults.results
+        
+        
+    }
+    
+    func fetchTopRatedMovies() async throws {
+        let resource = Resource(url: Constants.Urls.topRated,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: MovieResponse.self)
+        
+        let movieResults = try await httpClient.load(resource)
+        topRatedMovies = movieResults.results
+        
+        
+    }
+    
+    func fetchPopularMovies() async throws {
+        let resource = Resource(url: Constants.Urls.popular,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: MovieResponse.self)
+        
+        let movieResults = try await httpClient.load(resource)
+        popularMovies = movieResults.results
         
         
     }

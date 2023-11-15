@@ -11,7 +11,8 @@ struct TabViewScreen: View {
     var body: some View {
         TabView {
             NavigationStack {
-               MovieHomeScreen()
+               ContentView()
+                    .navigationTitle("TMDB Movies")
             }
             .tabItem {
                 Label("Home", systemImage: "film")

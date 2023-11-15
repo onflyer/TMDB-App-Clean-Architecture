@@ -14,7 +14,7 @@ import Foundation
 
 // MARK: - MovieResponse
 struct MovieResponse: Codable {
-    let dates: Dates
+    let dates: Dates?
     let page: Int
     let results: [Movie]
     let totalPages, totalResults: Int
@@ -71,6 +71,9 @@ struct Movie: Codable,Identifiable,Hashable {
     var posterURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath )")!
     }
+    var backdropURL: URL {
+        return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath )")!
+    }
     
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -85,4 +88,10 @@ enum OriginalLanguage: String, Codable {
     case ru = "ru"
     case uk = "uk"
     case es = "es"
+    case fr = "fr"
+    case ja = "ja"
+    case hi = "hi"
+    case ko = "ko"
+    case it = "it"
+    case cn = "cn"
 }

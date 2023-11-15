@@ -1,13 +1,13 @@
 //
-//  MoviePosterCarouselView.swift
+//  MovieBackdropCarouselView.swift
 //  TMDB App
 //
-//  Created by Aleksandar Milidrag on 11/6/23.
+//  Created by Aleksandar Milidrag on 11/15/23.
 //
 
 import SwiftUI
 
-struct MoviePosterCarouselView: View {
+struct MovieBackdropCarouselView: View {
     
     let title: String
     let movie: [Movie]
@@ -23,7 +23,7 @@ struct MoviePosterCarouselView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 16) {
                     ForEach(movie) { movie in
-                       MovieThumbnailPosterView(movie: movie)
+                       MovieThumbnailBackdropView(movie: movie)
                     }
                 }
                 .padding(.horizontal)
@@ -34,6 +34,5 @@ struct MoviePosterCarouselView: View {
 }
 
 //#Preview {
-//    MoviePosterCarouselView()
-//        
+//    MovieBackdropCarouselView()
 //}

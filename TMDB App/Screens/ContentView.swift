@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @EnvironmentObject var viewModel: ViewModel
     
-    func loadMovies() async {
+    func loadNowPlayingMovies() async {
         do {
             try await viewModel.fetchNowPlayingMovies()
         } catch {
@@ -19,28 +19,52 @@ struct ContentView: View {
         }
     }
     
+    func loadUpcomingMovies() async {
+        do {
+            try await viewModel.fetchUpcomingMovies()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func loadTopRatedMovies() async {
+        do {
+            try await viewModel.fetchTopRatedMovies()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func loadPopularMovies() async {
+        do {
+            try await viewModel.fetchPopularMovies()
+        } catch {
+            print(error)
+        }
+    }
+    
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        ScrollView {
+            VStack {
+                MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
                 
-                Text("Now playing")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.horizontal)
+                MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(alignment: .top, spacing: 16) {
-                        ForEach(viewModel.nowPlayingMovies) { movie in
-                            MovieThumbnailPosterView(movie: movie)
-                        }
-                    }
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-                }
+                MovieBackdropCarouselView(title: "Top Rated", movie: viewModel.topRatedMovies)
+                
+                MovieBackdropCarouselView(title: "Popular", movie: viewModel.popularMovies)
             }
+        }
         
         .task {
-            await loadMovies()
-    }
+            await loadNowPlayingMovies()
+            await loadUpcomingMovies()
+            await loadTopRatedMovies()
+            await loadPopularMovies()
+            
+        }
+        
     }
 }
 
