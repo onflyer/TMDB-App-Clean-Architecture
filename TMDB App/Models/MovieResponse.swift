@@ -24,6 +24,15 @@ struct MovieResponse: Codable {
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.dates = try container.decodeIfPresent(Dates.self, forKey: .dates)
+        self.page = try container.decode(Int.self, forKey: .page)
+        self.results = try container.decode([Movie].self, forKey: .results)
+        self.totalPages = try container.decode(Int.self, forKey: .totalPages)
+        self.totalResults = try container.decode(Int.self, forKey: .totalResults)
+    }
 }
 
 // MARK: - Dates
@@ -46,7 +55,7 @@ struct Movie: Codable,Identifiable,Hashable {
     let backdropPath: String
     let genreIDS: [Int]
     let id: Int
-    let originalLanguage: OriginalLanguage?
+//    let originalLanguage: OriginalLanguage?
     let originalTitle, overview: String
     let popularity: Double
     let posterPath, releaseDate, title: String
@@ -59,7 +68,7 @@ struct Movie: Codable,Identifiable,Hashable {
         case backdropPath = "backdrop_path"
         case genreIDS = "genre_ids"
         case id
-        case originalLanguage = "original_language"
+//        case originalLanguage = "original_language"
         case originalTitle = "original_title"
         case overview, popularity
         case posterPath = "poster_path"
@@ -81,17 +90,37 @@ struct Movie: Codable,Identifiable,Hashable {
         return dateFormatter
     }()
     
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.adult = try container.decode(Bool.self, forKey: .adult)
+        self.backdropPath = try container.decode(String.self, forKey: .backdropPath)
+        self.genreIDS = try container.decode([Int].self, forKey: .genreIDS)
+        self.id = try container.decode(Int.self, forKey: .id)
+//        self.originalLanguage = try container.decodeIfPresent(OriginalLanguage.self, forKey: .originalLanguage)
+        self.originalTitle = try container.decode(String.self, forKey: .originalTitle)
+        self.overview = try container.decode(String.self, forKey: .overview)
+        self.popularity = try container.decode(Double.self, forKey: .popularity)
+        self.posterPath = try container.decode(String.self, forKey: .posterPath)
+        self.releaseDate = try container.decode(String.self, forKey: .releaseDate)
+        self.title = try container.decode(String.self, forKey: .title)
+        self.video = try container.decode(Bool.self, forKey: .video)
+        self.voteAverage = try container.decode(Double.self, forKey: .voteAverage)
+        self.voteCount = try container.decode(Int.self, forKey: .voteCount)
+    }
+    
 }
 
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-    case ru = "ru"
-    case uk = "uk"
-    case es = "es"
-    case fr = "fr"
-    case ja = "ja"
-    case hi = "hi"
-    case ko = "ko"
-    case it = "it"
-    case cn = "cn"
-}
+//enum OriginalLanguage: String, Codable {
+////    case en = "en"
+//    case ru = "en"
+//    case uk = "uk"
+//    case es = "es"
+//    case fr = "fr"
+//    case ja = "ja"
+//    case hi = "hi"
+//    case ko = "ko"
+//    case it = "it"
+//    case cn = "cn"
+//
+//}
+
