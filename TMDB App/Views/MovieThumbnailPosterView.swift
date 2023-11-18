@@ -33,6 +33,6 @@ struct MovieThumbnailPosterView: View {
     }
 }
 
-//#Preview {
-//    MovieThumbnailPosterView()
-//}
+#Preview {
+    MovieThumbnailPosterView(movie: Movie.stubbedMovie)
+}

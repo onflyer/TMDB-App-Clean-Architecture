@@ -33,6 +33,6 @@ struct MovieBackdropCarouselView: View {
     }
 }
 
-//#Preview {
-//    MovieBackdropCarouselView()
-//}
+#Preview {
+    MovieBackdropCarouselView(title: "PreviewBackdrop", movie: Movie.stubbedMovies)
+}

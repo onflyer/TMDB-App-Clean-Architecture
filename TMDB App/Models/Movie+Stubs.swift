@@ -19,6 +19,14 @@ extension Movie {
         stubbedMovies[0]
     }
     
+    static func testofflineResponse() async throws {
+        let url = Bundle.main.url(forResource: "NowPlaying", withExtension: "json")
+        let data = try? Data(contentsOf: url!)
+        let response = try! JSONDecoder().decode(MovieResponse.self, from: data!)
+        
+        print(response)
+    }
+    
 }
 
 extension Bundle {
@@ -37,6 +45,7 @@ extension Bundle {
         let data = try Data(contentsOf: url)
         let jsonDecoder = Bundle.jsonDecoder
         let decodedModel = try jsonDecoder.decode(D.self, from: data)
+        print(decodedModel)
         return decodedModel
     }
 }

@@ -33,7 +33,7 @@ struct MoviePosterCarouselView: View {
     }
 }
 
-//#Preview {
-//    MoviePosterCarouselView()
-//        
-//}
+#Preview {
+    MoviePosterCarouselView(title: "Preview Poster", movie: Movie.stubbedMovies)
+        
+}

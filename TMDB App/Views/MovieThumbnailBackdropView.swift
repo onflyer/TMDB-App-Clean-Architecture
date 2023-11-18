@@ -40,6 +40,6 @@ struct MovieThumbnailBackdropView: View {
     }
 }
 
-//#Preview {
-//    MovieThumbnailBackdropView()
-//}
+#Preview {
+    MovieThumbnailBackdropView(movie: Movie.stubbedMovie)
+}
