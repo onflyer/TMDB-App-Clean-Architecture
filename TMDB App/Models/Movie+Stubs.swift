@@ -11,12 +11,12 @@ import Foundation
 extension Movie {
     
     static var stubbedMovies: [Movie] {
-        let response: MovieResponse? = try? Bundle.main.loadAndDecodeJSON(filename: "NowPlaying")
+        let response: MovieResponse? = try? Bundle.main.loadFromBundle(filename: "NowPlaying")
         return response!.results
     }
     
     static var stubbedMovie: Movie {
-        stubbedMovies[1]
+        stubbedMovies[0]
     }
     
 }
@@ -26,11 +26,11 @@ extension Bundle {
     static let jsonDecoder: JSONDecoder = {
         let jsonDecoder = JSONDecoder()
 //        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-//        jsonDecoder.dateDecodingStrategy = .formatted(Movie.dateFormatter)
+        jsonDecoder.dateDecodingStrategy = .formatted(Movie.dateFormatter)
         return jsonDecoder
     }()
     
-    func loadAndDecodeJSON<D: Decodable>(filename: String) throws -> D? {
+    func loadFromBundle<D: Decodable>(filename: String) throws -> D? {
         guard let url = self.url(forResource: filename, withExtension: "json") else {
             return nil
         }

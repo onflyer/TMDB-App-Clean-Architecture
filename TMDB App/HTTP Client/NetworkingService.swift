@@ -10,26 +10,6 @@ import UIKit
 
 struct HTTPClient {
     
-    private let cache = NSCache <NSString,UIImage>()
-    
-    func downloadImage(_ urlString: String) async throws -> UIImage? {
-        let cacheKey = NSString(string: urlString)
-        if let image = cache.object(forKey: cacheKey) {
-            return image
-        }
-        guard let url = URL(string: urlString) else {
-            return nil
-        }
-        let (data, _ ) = try await URLSession.shared.data(for: URLRequest(url: url))
-        
-        guard let image = UIImage(data: data) else {
-            return nil
-        }
-        self.cache.setObject(image, forKey: cacheKey)
-        
-        return image
-    }
-    
         static func testResponse() async throws {
             let baseUrl = URL(string: "https://api.themoviedb.org/3/movie/now_playing")
             let url = baseUrl?.appending(queryItems: [URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")])
