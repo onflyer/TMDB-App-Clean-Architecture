@@ -34,7 +34,7 @@ struct TabViewScreen: View {
 struct TabViewScreen_Previews: PreviewProvider {
     static var previews: some View {
             TabViewScreen()
-            .environmentObject(ViewModel())
+            .environmentObject(ViewModel(httpClient: HTTPClient()))
         }
     }
 

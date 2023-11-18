@@ -11,6 +11,8 @@ import SwiftUI
 @MainActor
 class ViewModel: ObservableObject {
     
+    private var httpClient: HTTPClient
+    
     @Published var movie: Movie? = nil
     @Published var nowPlayingMovies: [Movie] = []
     @Published var upcomingMovies: [Movie] = []
@@ -18,7 +20,9 @@ class ViewModel: ObservableObject {
     @Published var popularMovies: [Movie] = []
     
     
-    let httpClient = HTTPClient()
+    init(httpClient: HTTPClient) {
+        self.httpClient = httpClient
+    }
    
     
     

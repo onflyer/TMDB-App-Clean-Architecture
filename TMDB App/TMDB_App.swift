@@ -32,12 +32,12 @@ struct TMDB_App: App {
 //        print(response)
 //    }
     
-    @StateObject private var viewModel = ViewModel()
+    @StateObject private var viewModel = ViewModel(httpClient: HTTPClient())
     
     var body: some Scene {
         WindowGroup {
             TabViewScreen()
-                .environmentObject(ViewModel())
+                .environmentObject(ViewModel(httpClient: HTTPClient()))
         }
     }
 }
