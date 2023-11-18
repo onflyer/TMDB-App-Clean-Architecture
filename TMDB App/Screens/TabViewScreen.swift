@@ -8,20 +8,31 @@
 import SwiftUI
 
 struct TabViewScreen: View {
+    @State private var routes: [Route] = []
+    
     var body: some View {
         TabView {
-            NavigationStack {
-               ContentView()
-                    .navigationTitle("TMDB Movies")
+            NavigationStack(path: $routes) {
+                ContentView()
+                    .navigationTitle("TMDB App")
+                    .environment(\.navigate) { route in
+                        routes.append(route)
+                    }
+                    .navigationDestination(for: Route.self) { route in
+                        switch route {
+                        case .detailView(let movie):
+                            Text(movie.title)
+                        }
+                    }
             }
             .tabItem {
                 Label("Home", systemImage: "film")
             }
             .tag(0)
             
+            
             NavigationStack {
-               MovieSearchScreen()
-
+                MovieSearchScreen()
             }
             .tabItem {
                 Label("Search", systemImage: "magnifyingglass")
@@ -33,8 +44,8 @@ struct TabViewScreen: View {
 
 struct TabViewScreen_Previews: PreviewProvider {
     static var previews: some View {
-            TabViewScreen()
+        TabViewScreen()
             .environmentObject(ViewModel(httpClient: HTTPClient()))
-        }
     }
+}
 

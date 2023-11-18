@@ -72,3 +72,4 @@ struct ContentView: View {
     ContentView()
         .environmentObject(ViewModel(httpClient: HTTPClient()))
 }
+
