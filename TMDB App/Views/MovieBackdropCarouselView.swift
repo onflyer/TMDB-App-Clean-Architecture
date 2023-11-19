@@ -23,7 +23,10 @@ struct MovieBackdropCarouselView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 16) {
                     ForEach(movie) { movie in
-                       MovieThumbnailBackdropView(movie: movie)
+                        NavigationLink(value: Route.detailView(movie), label: {
+                            MovieThumbnailBackdropView(movie: movie)
+                        })
+                        .foregroundStyle(.primary)
                     }
                 }
                 .padding(.horizontal)
