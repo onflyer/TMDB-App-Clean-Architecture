@@ -23,7 +23,9 @@ struct MoviePosterCarouselView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 16) {
                     ForEach(movie) { movie in
-                       MovieThumbnailPosterView(movie: movie)
+                        NavigationLink(value: Route.detailView(movie), label: {
+                            MovieThumbnailPosterView(movie: movie)
+                        }) 
                     }
                 }
                 .padding(.horizontal)
@@ -32,7 +34,6 @@ struct MoviePosterCarouselView: View {
         }
     }
 }
-
 #Preview {
     MoviePosterCarouselView(title: "Preview Poster", movie: Movie.stubbedMovies)
         

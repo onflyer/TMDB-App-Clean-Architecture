@@ -38,6 +38,7 @@ struct TMDB_App: App {
     var body: some Scene {
         WindowGroup {
             TabViewScreen()
+                .environmentObject(viewModel)
         }
     }
 }
