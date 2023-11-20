@@ -51,7 +51,51 @@ struct SingleMovieResponse: Codable, Identifiable {
         case videos, credits
     }
     
-}
+    static private let yearFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy"
+        return formatter
+    }()
+    
+    static private let durationFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .full
+        formatter.allowedUnits = [.hour, .minute]
+        return formatter
+    }()
+    
+    static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        return dateFormatter
+    }()
+    
+    var ratingText: String {
+        let rating = Int(voteAverage)
+        let ratingText = (0..<rating).reduce("") { (acc, _) -> String in
+            return acc + "★"
+        }
+        return ratingText
+    }
+    var scoreText: String {
+        guard ratingText.count > 0 else {
+            return "n/a"
+        }
+        return "\(ratingText.count)/10"
+    }
+    
+    var yearText: String {
+        guard let date = SingleMovieResponse.dateFormatter.date(from: releaseDate) else {
+            return "n/a"
+        }
+        return SingleMovieResponse.yearFormatter.string(from: date)
+    }
+    
+    var durationText: String {
+        
+    return SingleMovieResponse.durationFormatter.string(from: TimeInterval(runtime) * 60) ?? "n/a"
+        }
+    }
 
 // MARK: - Credits
 struct Credits: Codable {
@@ -88,7 +132,7 @@ struct Cast: Codable {
 }
 
 // MARK: - Genre
-struct Genre: Codable {
+struct Genre: Codable, Identifiable {
     let id: Int
     let name: String
 }
