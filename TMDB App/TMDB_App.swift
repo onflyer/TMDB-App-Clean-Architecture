@@ -32,6 +32,14 @@ struct TMDB_App: App {
 //        print(response)
 //    }
     
+//    static func main() async throws {
+//        let url = Bundle.main.url(forResource: "SingleMovieResponse", withExtension: "json")
+//        let data = try? Data(contentsOf: url!)
+//        let response = try! JSONDecoder().decode(SingleMovieResponse.self, from: data!)
+//        
+//        print(response)
+//    }
+    
     @StateObject private var viewModel = ViewModel(httpClient: HTTPClient())
     
     

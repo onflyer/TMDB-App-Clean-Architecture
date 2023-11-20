@@ -50,6 +50,7 @@ struct SingleMovieResponse: Codable {
         case voteCount = "vote_count"
         case videos, credits
     }
+    
 }
 
 // MARK: - Credits
@@ -82,6 +83,8 @@ struct Cast: Codable {
         case creditID = "credit_id"
         case order, department, job
     }
+    
+    
 }
 
 // MARK: - Genre
@@ -100,9 +103,16 @@ struct MovieVideo: Codable {
     let name, key: String
     let site: String
     let id: String
-
+    
+    var youtubeURL: URL? {
+        guard site == "YouTube" else {
+            return nil
+        }
+        return URL(string: "https://youtube.com/watch?v=\(key)")
+    }
     enum CodingKeys: String, CodingKey {
         case name, key, site
         case id
     }
+    
 }

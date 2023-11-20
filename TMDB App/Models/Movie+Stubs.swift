@@ -19,10 +19,23 @@ extension Movie {
         stubbedMovies[0]
     }
     
+    static var stubbedSingleMovieResponse: SingleMovieResponse {
+        let response: SingleMovieResponse? = try? Bundle.main.loadFromBundle(filename: "SingleMovieResponse")
+        return response!
+    }
+    
     static func testofflineResponse() async throws {
         let url = Bundle.main.url(forResource: "NowPlaying", withExtension: "json")
         let data = try? Data(contentsOf: url!)
         let response = try! JSONDecoder().decode(MovieResponse.self, from: data!)
+        
+        print(response)
+    }
+    
+    static func testofflineSingleMovieResponse() async throws {
+        let url = Bundle.main.url(forResource: "SingleMovieResponse", withExtension: "json")
+        let data = try? Data(contentsOf: url!)
+        let response = try! JSONDecoder().decode(SingleMovieResponse.self, from: data!)
         
         print(response)
     }
