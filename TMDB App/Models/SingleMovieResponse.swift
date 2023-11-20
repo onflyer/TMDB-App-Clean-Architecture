@@ -100,10 +100,22 @@ struct SingleMovieResponse: Codable, Identifiable {
 // MARK: - Credits
 struct Credits: Codable {
     let cast, crew: [Cast]
+    
+    var directors: [Cast] {
+        crew.filter { $0.job?.lowercased() == "director" }
+    }
+    
+    var producers: [Cast] {
+        crew.filter { $0.job?.lowercased() == "producer" }
+    }
+    
+    var screenWriters: [Cast] {
+        crew.filter { $0.job?.lowercased() == "story" }
+    }
 }
 
 // MARK: - Cast
-struct Cast: Codable {
+struct Cast: Codable, Identifiable {
     let adult: Bool
     let gender, id: Int
     let knownForDepartment, name, originalName: String
