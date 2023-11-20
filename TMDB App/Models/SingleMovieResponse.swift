@@ -15,7 +15,7 @@ import Foundation
 import Foundation
 
 // MARK: - SingleMovieResponse
-struct SingleMovieResponse: Codable {
+struct SingleMovieResponse: Codable, Identifiable {
     let adult: Bool
     let backdropPath: String
     let budget: Int
@@ -99,7 +99,7 @@ struct MovieVideoResponse: Codable {
 }
 
 // MARK: - Result
-struct MovieVideo: Codable {
+struct MovieVideo: Codable, Identifiable {
     let name, key: String
     let site: String
     let id: String
