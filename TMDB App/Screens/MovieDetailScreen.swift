@@ -9,13 +9,22 @@ import SwiftUI
 
 struct MovieDetailScreen: View {
     
+    let movieId: Int
+ 
     @EnvironmentObject var viewModel: ViewModel
     
-    let movie: SingleMovieResponse
+    func loadMoviebyId() async {
+        do {
+            try await viewModel.fetchSingleMovie(movieId: movieId)
+        } catch {
+            print(error)
+        }
+    }
     
     var body: some View {
         NavigationStack {
             ScrollView {
+                if let movie = viewModel.movie {
                 MovieDetailImage(movie: movie)
                     .padding(.bottom)
                 MovieDetailTrailersSection(movie: movie)
@@ -25,13 +34,18 @@ struct MovieDetailScreen: View {
                 Divider()
                     .padding(.horizontal)
                 MovieCastSection(movie: movie)
+                    .navigationTitle(movie.title)
             }
-            .navigationTitle(movie.title)
+            }
+            .task {
+                await loadMoviebyId()
+            }
         }
         
     }
 }
 
 #Preview {
-    MovieDetailScreen(movie: Movie.stubbedSingleMovieResponse)
+    MovieDetailScreen(movieId: Movie.stubbedSingleMovieResponse.id)
+        .environmentObject(ViewModel(httpClient: HTTPClient()))
 }

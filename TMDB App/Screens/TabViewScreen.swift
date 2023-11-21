@@ -27,14 +27,13 @@ struct TabViewScreen: View {
                         switch navType {
                         case .push(let route):
                             routes.append(route)
-                        case .unwind(let route):
-                            
-                            if route == .home {
-                                routes = []
-                            } else {
-                                guard let index = routes.firstIndex(where: { $0 == route })  else { return }
-                                routes = Array(routes.prefix(upTo: index + 1))
-                            }
+//                        case .unwind(let route):
+//                            if route == .home {
+//                                routes = []
+//                            } else {
+//                                guard let index = routes.firstIndex(where: { $0 == route })  else { return }
+//                                routes = Array(routes.prefix(upTo: index + 1))
+//                            }
                         }
                     }
             }
