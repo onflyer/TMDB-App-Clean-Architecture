@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MovieDetailImage: View {
-    let movie: Movie
+    let movie: SingleMovieResponse
     
     var body: some View {
         ZStack {
@@ -26,5 +26,5 @@ struct MovieDetailImage: View {
 
 
 #Preview {
-    MovieDetailImage(movie: Movie.stubbedMovie)
+    MovieDetailImage(movie: Movie.stubbedSingleMovieResponse)
 }

@@ -51,6 +51,13 @@ struct SingleMovieResponse: Codable, Identifiable {
         case videos, credits
     }
     
+    var posterURL: URL {
+        return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath )")!
+    }
+    var backdropURL: URL {
+        return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath )")!
+    }
+    
     static private let yearFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
@@ -110,7 +117,7 @@ struct Credits: Codable {
     }
     
     var screenWriters: [Cast] {
-        crew.filter { $0.job?.lowercased() == "story" }
+        crew.filter { $0.job?.lowercased() == "writer" }
     }
 }
 

@@ -9,11 +9,11 @@ import Foundation
 import SwiftUI
 
 @MainActor
-class ViewModel: ObservableObject {
+final class ViewModel: ObservableObject {
     
     private var httpClient: HTTPClient
     
-    @Published var movie: Movie? = nil
+    @Published var movie: SingleMovieResponse? = nil
     @Published var nowPlayingMovies: [Movie] = []
     @Published var upcomingMovies: [Movie] = []
     @Published var topRatedMovies: [Movie] = []
@@ -63,7 +63,7 @@ class ViewModel: ObservableObject {
     }
     
     func fetchSingleMovie(movieId: Int) async throws {
-        let resource = Resource(url: Constants.Urls.singleMovie(movieId: movieId), method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "append_to_response", value: "videos,credits")]), modelType: Movie.self)
+        let resource = Resource(url: Constants.Urls.singleMovie(movieId: movieId), method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "append_to_response", value: "videos,credits")]), modelType: SingleMovieResponse.self)
         
         movie = try await httpClient.load(resource)
     }

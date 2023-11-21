@@ -21,6 +21,8 @@ struct MovieDescriptionSection: View {
             .font(.headline)
             Text("Release date: \(movie.yearText)")
                 .font(.headline)
+            Text("Duration: \(movie.durationText)")
+                .font(.headline)
             Text(movie.overview)
                 .padding(.vertical, 1)
             HStack {
