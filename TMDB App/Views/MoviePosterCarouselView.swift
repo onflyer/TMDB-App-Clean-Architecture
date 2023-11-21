@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MoviePosterCarouselView: View {
     
+   
     let title: String
     let movie: [Movie]
     
@@ -23,9 +24,12 @@ struct MoviePosterCarouselView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 16) {
                     ForEach(movie) { movie in
-                        NavigationLink(value: Route.detailView(movie), label: {
+                        NavigationLink(destination: MovieDetailScreen(movieId: movie.id)) {
                             MovieThumbnailPosterView(movie: movie)
-                        }) 
+                        }
+//                        NavigationLink(value: Route.detailView(movie), label: {
+//                            MovieThumbnailPosterView(movie: movie)
+//                        }) 
                     }
                 }
                 .padding(.horizontal)

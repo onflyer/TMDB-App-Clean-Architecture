@@ -14,7 +14,7 @@ enum Route: Hashable {
 }
 enum NavigationType: Hashable {
     case push(Route)
-//    case unwind(Route)
+    case unwind(Route)
 }
 
 struct NavigateAction {

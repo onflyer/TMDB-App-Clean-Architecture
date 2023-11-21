@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    
     @EnvironmentObject var viewModel: ViewModel
     
     func loadNowPlayingMovies() async {
