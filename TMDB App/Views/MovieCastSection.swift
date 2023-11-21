@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieCastSection: View {
     let movie: SingleMovieResponse
+    
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
