@@ -83,6 +83,30 @@ struct Movie: Codable,Identifiable,Hashable {
     var backdropURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath )")!
     }
+    var yearText: String {
+        guard let date = SingleMovieResponse.dateFormatter.date(from: releaseDate) else {
+            return "n/a"
+        }
+        return Movie.yearFormatter.string(from: date)
+    }
+    var ratingText: String {
+        let rating = Int(voteAverage)
+        let ratingText = (0..<rating).reduce("") { (acc, _) -> String in
+            return acc + "★"
+        }
+        return ratingText
+    }
+    var scoreText: String {
+        guard ratingText.count > 0 else {
+            return "n/a"
+        }
+        return "\(ratingText.count)/10"
+    }
+    static private let yearFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy"
+        return formatter
+    }()
     
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -93,7 +117,7 @@ struct Movie: Codable,Identifiable,Hashable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.adult = try container.decode(Bool.self, forKey: .adult)
-        self.backdropPath = try container.decode(String.self, forKey: .backdropPath)
+        self.backdropPath = try container.decodeIfPresent(String.self, forKey: .backdropPath) ?? "No image present"
         self.genreIDS = try container.decode([Int].self, forKey: .genreIDS)
         self.id = try container.decode(Int.self, forKey: .id)
 //        self.originalLanguage = try container.decodeIfPresent(OriginalLanguage.self, forKey: .originalLanguage)
