@@ -24,24 +24,17 @@ struct MovieSearchRowView: View {
                 ProgressView()
             }
             
-            
-            
             VStack(alignment: .leading) {
                 Text(movie.title)
                     .font(.headline)
                 
                 Text(movie.yearText)
                     .font(.subheadline)
-                
-                
-                
+               
                 Text(movie.ratingText)
                     .foregroundColor(.yellow)
             }
         }
-        
-        
-        
     }
 }
 
