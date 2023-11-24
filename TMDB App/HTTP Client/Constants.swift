@@ -19,7 +19,7 @@ struct Constants {
         static let popular = URL(string: "\(baseUrl)/movie/popular")!
         static func singleMovie(movieId: Int) -> URL {
             return URL(string: "\(baseUrl)/movie/\(movieId)")!
-            
         }
+        static let searchURL = URL(string: "\(baseUrl)/search/movie")!
     }
 }
