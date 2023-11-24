@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct MovieSearchScreen: View {
+    @EnvironmentObject var viewModel: ViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       
+            MovieSearchListView(movies: viewModel.searchedMovies)
+                
+                .searchable(text: $viewModel.query, prompt: "Search movies")
+                .task {
+                    viewModel.addSubscribers()
+                }
+        }
     }
-}
+
 
 #Preview {
-    MovieSearchScreen()
+    NavigationStack {
+        MovieSearchScreen()
+            .environmentObject(ViewModel(httpClient: HTTPClient()))
+    }
+    
 }

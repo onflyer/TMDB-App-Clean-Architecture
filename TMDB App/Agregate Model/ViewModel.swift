@@ -28,7 +28,7 @@ final class ViewModel: ObservableObject {
         self.httpClient = httpClient
     }
     
-    private func addSubscribers() {
+     func addSubscribers() {
         $query
             .debounce(for: 0.3, scheduler: DispatchQueue.main)
             .sink { [weak self] query in
@@ -57,7 +57,7 @@ final class ViewModel: ObservableObject {
     }
     
     func searchMovie(query: String) async throws {
-        let resource = Resource(url: Constants.Urls.searchURL, method: .get([URLQueryItem(name: "language", value: "en-US"),URLQueryItem(name: "include_adult", value: "false"),URLQueryItem(name: "region", value: "US"),URLQueryItem(name: "query", value: query)]), modelType: MovieResponse.self)
+        let resource = Resource(url: Constants.Urls.searchURL, method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"),URLQueryItem(name: "language", value: "en-US"),URLQueryItem(name: "include_adult", value: "false"),URLQueryItem(name: "region", value: "US"),URLQueryItem(name: "query", value: query)]), modelType: MovieResponse.self)
         
         let searchResults = try await httpClient.load(resource)
         searchedMovies = searchResults.results

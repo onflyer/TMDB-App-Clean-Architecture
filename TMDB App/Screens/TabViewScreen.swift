@@ -47,6 +47,7 @@ struct TabViewScreen: View {
             
             NavigationStack {
                 MovieSearchScreen()
+                    .navigationTitle("Search")
             }
             .tabItem {
                 Label("Search", systemImage: "magnifyingglass")
