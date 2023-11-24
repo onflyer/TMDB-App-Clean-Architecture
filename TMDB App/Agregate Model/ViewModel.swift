@@ -29,12 +29,13 @@ final class ViewModel: ObservableObject {
     }
     
      func addSubscribers() {
+        
         $query
             .debounce(for: 0.3, scheduler: DispatchQueue.main)
-            .sink { [weak self] query in
-                Task { [weak self] in
-                    guard let self = self else { return }
-                   try await self.search(query: query)
+            .sink { query in
+                Task {
+                   
+                    try await self.search(query: query)
                 }
             }
             .store(in: &cancellables)
@@ -44,7 +45,7 @@ final class ViewModel: ObservableObject {
         let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !query.isEmpty else {
-           searchedMovies = []
+            searchedMovies = []
             return
         }
         

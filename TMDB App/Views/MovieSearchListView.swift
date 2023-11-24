@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovieSearchListView: View {
+    
     let movies: [Movie]
     
     var body: some View {
