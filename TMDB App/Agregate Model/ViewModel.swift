@@ -23,7 +23,7 @@ final class ViewModel: ObservableObject {
     @Published var topRatedMovies: [Movie] = []
     @Published var popularMovies: [Movie] = []
     @Published var searchedMovies: [Movie] = []
-    private var page = 0
+    private var page = 1
    
     init(httpClient: HTTPClient) {
         self.httpClient = httpClient

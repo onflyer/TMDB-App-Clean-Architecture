@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct MoviePosterCarouselView: View {
-    
+   
+    @EnvironmentObject var viewModel: ViewModel
    
     let title: String
     let movie: [Movie]
+    
+    func loadNextSetOfNowPlayingMovies() async {
+        do {
+            try await viewModel.fetchNextPageOfNowPlayingMovies()
+        } catch {
+            print(error)
+        }
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -27,6 +36,13 @@ struct MoviePosterCarouselView: View {
                         NavigationLink(destination: MovieDetailScreen(movieId: movie.id)) {
                             MovieThumbnailPosterView(movie: movie)
                         }
+                        .onAppear(perform: {
+                            if self.movie.last?.id == movie.id {
+                                Task {
+                                    await loadNextSetOfNowPlayingMovies()
+                                }
+                            }
+                        })
 //                        NavigationLink(value: Route.detailView(movie), label: {
 //                            MovieThumbnailPosterView(movie: movie)
 //                        }) 
@@ -34,11 +50,15 @@ struct MoviePosterCarouselView: View {
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 8)
+                
+              
             }
+            
         }
     }
 }
 #Preview {
     MoviePosterCarouselView(title: "Preview Poster", movie: Movie.stubbedMovies)
+        .environmentObject(ViewModel(httpClient: HTTPClient()))
         
 }

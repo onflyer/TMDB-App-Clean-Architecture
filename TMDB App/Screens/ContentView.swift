@@ -19,19 +19,7 @@ struct ContentView: View {
             print(error)
         }
     }
-    
-    func loadNextSetOfNowPlayingMovies() async {
-        do {
-            try await viewModel.fetchNextPageOfNowPlayingMovies()
-        } catch {
-            print(error)
-        }
-    }
-    
-    func hasReachedTheEndOf(of movie: Movie) -> Bool {
-        viewModel.nowPlayingMovies.last?.id == movie.id
-    }
-    
+   
     func loadUpcomingMovies() async {
         do {
             try await viewModel.fetchUpcomingMovies()
