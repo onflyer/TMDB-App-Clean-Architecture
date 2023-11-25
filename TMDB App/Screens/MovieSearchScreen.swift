@@ -12,15 +12,16 @@ struct MovieSearchScreen: View {
     @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
-       
-            MovieSearchListView(movies: viewModel.searchedMovies)
-                
-                .searchable(text: $viewModel.query, prompt: "Search movies")
-                .task {
-                    viewModel.addSubscribers()
-                }
-        }
+        
+        MovieSearchListView(movies: viewModel.searchedMovies)
+            .searchable(text: $viewModel.query, prompt: "Search movies")
+            .task {
+                viewModel.addSubscribers()
+            }
     }
+}
+
+
 
 
 #Preview {

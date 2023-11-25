@@ -14,9 +14,7 @@ struct MovieSearchListView: View {
     var body: some View {
         List {
             ForEach(movies) { movie in
-                NavigationLink {
-                    MovieDetailScreen(movieId: movie.id)
-                } label: {
+                NavigationLink(destination: MovieDetailScreen(movieId: movie.id)) {
                     MovieSearchRowView(movie: movie)
                 }
 

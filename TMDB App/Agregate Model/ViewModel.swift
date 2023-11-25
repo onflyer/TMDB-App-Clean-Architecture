@@ -23,6 +23,7 @@ final class ViewModel: ObservableObject {
     @Published var topRatedMovies: [Movie] = []
     @Published var popularMovies: [Movie] = []
     @Published var searchedMovies: [Movie] = []
+    private var page = 0
    
     init(httpClient: HTTPClient) {
         self.httpClient = httpClient
@@ -69,6 +70,15 @@ final class ViewModel: ObservableObject {
         
         let movieResults = try await httpClient.load(resource)
         nowPlayingMovies = movieResults.results
+        
+        
+    }
+    func fetchNextPageOfNowPlayingMovies() async throws {
+        page += 1
+        let resource = Resource(url: Constants.Urls.nowPlaying,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "page", value: String(page))]), modelType: MovieResponse.self)
+        
+        let movieResults = try await httpClient.load(resource)
+        nowPlayingMovies.append(contentsOf: movieResults.results) 
         
         
     }
