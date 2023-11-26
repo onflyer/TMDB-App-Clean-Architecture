@@ -60,10 +60,12 @@ struct ContentView: View {
         }
         
         .task {
-            await loadNowPlayingMovies()
-            await loadUpcomingMovies()
-            await loadTopRatedMovies()
-            await loadPopularMovies()
+            async let nowPlayingMovies: Void = loadNowPlayingMovies()
+            async let upcomingMovies: Void = loadUpcomingMovies()
+            async let topRatedMovies: Void = loadTopRatedMovies()
+            async let popularMovies: Void = loadPopularMovies()
+            
+            let (_, _, _, _) = await (nowPlayingMovies, upcomingMovies, topRatedMovies, popularMovies)
             
         }
         

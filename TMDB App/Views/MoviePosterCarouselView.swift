@@ -36,13 +36,13 @@ struct MoviePosterCarouselView: View {
                         NavigationLink(destination: MovieDetailScreen(movieId: movie.id)) {
                             MovieThumbnailPosterView(movie: movie)
                         }
-                        .onAppear(perform: {
+                        .onAppear {
                             if self.movie.last?.id == movie.id {
                                 Task {
                                     await loadNextSetOfNowPlayingMovies()
                                 }
                             }
-                        })
+                        }
 //                        NavigationLink(value: Route.detailView(movie), label: {
 //                            MovieThumbnailPosterView(movie: movie)
 //                        }) 
