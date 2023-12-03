@@ -21,6 +21,7 @@ struct MovieDetailTrailersSection: View {
                         Link(destination: trailer.youtubeURL!, label: {
                             HStack {
                                 Text(trailer.name)
+                                    .multilineTextAlignment(.leading)
                                 Spacer()
                                 Image(systemName: "play.circle.fill")
                                     .foregroundColor(Color(UIColor.systemBlue))
