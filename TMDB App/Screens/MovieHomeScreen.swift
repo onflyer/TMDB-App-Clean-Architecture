@@ -14,7 +14,6 @@ struct MovieHomeScreen: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    
                     MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
                     
                     MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)
