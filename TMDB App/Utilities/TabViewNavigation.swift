@@ -34,7 +34,7 @@ extension AppScreen {
     var destination: some View {
         switch self {
             case .homeScreen:
-                ContentView()
+                MovieHomeScreen()
             case .searchScreen:
                 MovieSearchScreen()
             

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AppTabView: View {
+struct AppTabScreen: View {
     @Binding var selection: AppScreen?
     
     var body: some View {
@@ -22,5 +22,5 @@ struct AppTabView: View {
 }
 
 #Preview {
-    AppTabView(selection: .constant(.homeScreen))
+    AppTabScreen(selection: .constant(.homeScreen))
 }

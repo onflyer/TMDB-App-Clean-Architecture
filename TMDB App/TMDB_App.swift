@@ -57,11 +57,11 @@ struct TMDB_App: App {
 //    }
     
     @StateObject private var viewModel = ViewModel(httpClient: HTTPClient())
-    
+  
     
     var body: some Scene {
         WindowGroup {
-            TabViewScreen()
+            ContentView()
                 .environmentObject(viewModel)
         }
     }

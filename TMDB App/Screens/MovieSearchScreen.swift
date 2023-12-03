@@ -13,11 +13,14 @@ struct MovieSearchScreen: View {
     
     var body: some View {
         
-        MovieSearchListView(movies: viewModel.searchedMovies)
-            .searchable(text: $viewModel.query, prompt: "Search movies")
-            .task {
-                viewModel.addSubscribers()
+        NavigationStack {
+            MovieSearchListView(movies: viewModel.searchedMovies)
+                .searchable(text: $viewModel.query, prompt: "Search movies")
+                .task {
+                    viewModel.addSubscribers()
             }
+                .navigationTitle("Search")
+        }
     }
 }
 

@@ -8,71 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    
-    @EnvironmentObject var viewModel: ViewModel
-    
-    func loadNowPlayingMovies() async {
-        do {
-            try await viewModel.fetchNowPlayingMovies()
-        } catch {
-            print(error)
-        }
-    }
-   
-    func loadUpcomingMovies() async {
-        do {
-            try await viewModel.fetchUpcomingMovies()
-        } catch {
-            print(error)
-        }
-    }
-    
-    func loadTopRatedMovies() async {
-        do {
-            try await viewModel.fetchTopRatedMovies()
-        } catch {
-            print(error)
-        }
-    }
-    
-    func loadPopularMovies() async {
-        do {
-            try await viewModel.fetchPopularMovies()
-        } catch {
-            print(error)
-        }
-    }
-    
+    @State private var selection: AppScreen? = .homeScreen
     
     var body: some View {
-        ScrollView {
-            VStack {
-                
-                MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
-                
-                MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)
-                
-                MovieBackdropCarouselView(title: "Top Rated", movie: viewModel.topRatedMovies)
-                
-                MovieBackdropCarouselView(title: "Popular", movie: viewModel.popularMovies)
-            }
-        }
-        
-        .task {
-            await loadNowPlayingMovies()
-            await loadUpcomingMovies()
-            await loadTopRatedMovies()
-            await loadPopularMovies()
-            
-            
-        }
+        AppTabScreen(selection: $selection)
         
     }
+    
 }
 
 #Preview {
-    ContentView()
-        .environmentObject(ViewModel(httpClient: HTTPClient()))
+ 
+        AppTabScreen(selection: .constant(.homeScreen))
+            .environmentObject(ViewModel(httpClient: HTTPClient()))
+    
 }
-
