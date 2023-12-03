@@ -23,6 +23,7 @@ struct MovieHomeScreen: View {
                     MovieBackdropCarouselView(title: "Popular", movie: viewModel.popularMovies)
                 }
             }
+            .scrollIndicators(.hidden)
             .task {
                 await loadNowPlayingMovies()
                 await loadUpcomingMovies()
@@ -30,6 +31,7 @@ struct MovieHomeScreen: View {
                 await loadPopularMovies()
             }
             .navigationTitle("TMDB App")
+            
         }
     }
     

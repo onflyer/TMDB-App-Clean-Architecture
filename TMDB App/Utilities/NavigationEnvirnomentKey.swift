@@ -1,5 +1,5 @@
 //
-//  AppState.swift
+//  NavigationEnvirnomentKey.swift
 //  TMDB App
 //
 //  Created by Aleksandar Milidrag on 11/18/23.

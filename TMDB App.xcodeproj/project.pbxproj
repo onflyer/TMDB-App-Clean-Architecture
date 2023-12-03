@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B20E7BC2B0930A3001F373B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20E7BB2B0930A3001F373B /* AppState.swift */; };
+		3B20E7BC2B0930A3001F373B /* NavigationEnvirnomentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20E7BB2B0930A3001F373B /* NavigationEnvirnomentKey.swift */; };
 		3B26B8472B1C944300334385 /* TabViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26B8462B1C944300334385 /* TabViewNavigation.swift */; };
 		3B26B8492B1C953100334385 /* AppTabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26B8482B1C953100334385 /* AppTabScreen.swift */; };
 		3B62919F2B0FF3C50010E395 /* MovieSearchRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62919E2B0FF3C50010E395 /* MovieSearchRowView.swift */; };
@@ -44,7 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B20E7BB2B0930A3001F373B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		3B20E7BB2B0930A3001F373B /* NavigationEnvirnomentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationEnvirnomentKey.swift; sourceTree = "<group>"; };
 		3B26B8462B1C944300334385 /* TabViewNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewNavigation.swift; sourceTree = "<group>"; };
 		3B26B8482B1C953100334385 /* AppTabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabScreen.swift; sourceTree = "<group>"; };
 		3B62919E2B0FF3C50010E395 /* MovieSearchRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchRowView.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 			children = (
 				3BF243CC2AEAA7A50068FA85 /* CachedAsyncImage.swift */,
 				3B26B8462B1C944300334385 /* TabViewNavigation.swift */,
-				3B26B8482B1C953100334385 /* AppTabScreen.swift */,
+				3B20E7BB2B0930A3001F373B /* NavigationEnvirnomentKey.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -144,6 +144,7 @@
 		3B8782A52AE428530098C228 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3B26B8482B1C953100334385 /* AppTabScreen.swift */,
 				3BFFE6652AF97998007A8CAA /* TabViewScreen.swift */,
 				3B8782892AE4261C0098C228 /* ContentView.swift */,
 				3BFFE66B2AF979DD007A8CAA /* MovieHomeScreen.swift */,
@@ -216,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				3B8782B22AE42F510098C228 /* ViewModel.swift */,
-				3B20E7BB2B0930A3001F373B /* AppState.swift */,
 			);
 			path = "Agregate Model";
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 				3BFFE66E2AF979FD007A8CAA /* MovieSearchScreen.swift in Sources */,
 				3B87829F2AE427230098C228 /* NetworkingService.swift in Sources */,
 				3BEA10732B01738300DAD668 /* MovieThumbnailBackdropView.swift in Sources */,
-				3B20E7BC2B0930A3001F373B /* AppState.swift in Sources */,
+				3B20E7BC2B0930A3001F373B /* NavigationEnvirnomentKey.swift in Sources */,
 				3BFFE66C2AF979DD007A8CAA /* MovieHomeScreen.swift in Sources */,
 				3B8782882AE4261C0098C228 /* TMDB_App.swift in Sources */,
 				3B87829E2AE427230098C228 /* NetworkingError.swift in Sources */,
