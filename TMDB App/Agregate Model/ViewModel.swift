@@ -17,6 +17,9 @@ final class ViewModel: ObservableObject {
     @Published var query = ""
     private var cancellables = Set<AnyCancellable>()
     
+    @Published var alert: CustomAlert? = nil
+    @Published var showAlert: Bool = false
+    
     @Published var movie: SingleMovieResponse? = nil
     @Published var nowPlayingMovies: [Movie] = []
     @Published var upcomingMovies: [Movie] = []

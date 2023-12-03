@@ -31,6 +31,14 @@ struct MovieHomeScreen: View {
                 await loadPopularMovies()
             }
             .navigationTitle("TMDB App")
+            .alert(viewModel.alert?.title ?? "Error", isPresented: Binding(projectedValue: $viewModel.showAlert)) {
+                viewModel.alert?.getButtonsForAlert
+            } message: {
+                if let subtitle = viewModel.alert?.subtitle {
+                    Text(subtitle)
+                }
+            }
+
             
         }
     }
@@ -39,6 +47,14 @@ struct MovieHomeScreen: View {
         do {
             try await viewModel.fetchNowPlayingMovies()
         } catch {
+            viewModel.showAlert = true
+            viewModel.alert = .noInternetConnection(onOkPressed: {
+                
+            }, onRetryPressed: {
+                Task {
+                    try await viewModel.fetchNowPlayingMovies()
+                }
+            })
             print(error)
         }
     }
