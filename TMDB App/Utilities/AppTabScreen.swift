@@ -23,4 +23,5 @@ struct AppTabScreen: View {
 
 #Preview {
     AppTabScreen(selection: .constant(.homeScreen))
+        .environmentObject(ViewModel(httpClient: HTTPClient()))
 }
