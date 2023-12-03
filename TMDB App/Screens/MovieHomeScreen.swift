@@ -10,6 +10,30 @@ import SwiftUI
 struct MovieHomeScreen: View {
     @EnvironmentObject var viewModel: ViewModel
     
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack {
+                    
+                    MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
+                    
+                    MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)
+                    
+                    MovieBackdropCarouselView(title: "Top Rated", movie: viewModel.topRatedMovies)
+                    
+                    MovieBackdropCarouselView(title: "Popular", movie: viewModel.popularMovies)
+                }
+            }
+            .task {
+                await loadNowPlayingMovies()
+                await loadUpcomingMovies()
+                await loadTopRatedMovies()
+                await loadPopularMovies()
+            }
+            .navigationTitle("TMDB App")
+        }
+    }
+    
     func loadNowPlayingMovies() async {
         do {
             try await viewModel.fetchNowPlayingMovies()
@@ -17,7 +41,7 @@ struct MovieHomeScreen: View {
             print(error)
         }
     }
-   
+    
     func loadUpcomingMovies() async {
         do {
             try await viewModel.fetchUpcomingMovies()
@@ -41,36 +65,7 @@ struct MovieHomeScreen: View {
             print(error)
         }
     }
-    
-    
-    var body: some View {
-        NavigationStack {
-            ScrollView {
-                    VStack {
-                        
-                        MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
-                        
-                        MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)
-                        
-                        MovieBackdropCarouselView(title: "Top Rated", movie: viewModel.topRatedMovies)
-                        
-                        MovieBackdropCarouselView(title: "Popular", movie: viewModel.popularMovies)
-                    }
-                }
-                
-                .task {
-                    await loadNowPlayingMovies()
-                    await loadUpcomingMovies()
-                    await loadTopRatedMovies()
-                    await loadPopularMovies()
-                    
-                    
-            }
-            .navigationTitle("TMDB App")
-        }
-        }
-        
-    }
+}
 
 
 #Preview {
