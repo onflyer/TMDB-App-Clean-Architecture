@@ -20,6 +20,8 @@ final class ViewModel: ObservableObject {
     @Published var alert: CustomAlert? = nil
     @Published var showAlert: Bool = false
     
+    @Published var isLoading: Bool = false
+    
     @Published var movie: SingleMovieResponse? = nil
     @Published var nowPlayingMovies: [Movie] = []
     @Published var upcomingMovies: [Movie] = []
@@ -45,10 +47,11 @@ final class ViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    private func search(query: String) async throws {
+     func search(query: String) async throws {
         let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !query.isEmpty else {
+            searchedMovies.removeAll()
             return
         }
         
