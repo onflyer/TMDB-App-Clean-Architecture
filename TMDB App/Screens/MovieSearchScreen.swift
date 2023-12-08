@@ -23,6 +23,9 @@ struct MovieSearchScreen: View {
                 .searchable(text: $viewModel.query, prompt: "Search movies")
                 .navigationTitle("Search")
                 .overlay {
+                    if viewModel.searchedMovies.isEmpty {
+                        EmptyPlaceholderView(text: "Search your favourite movie", image: Image(systemName: "magnifyingglass"))
+                    }
                     if viewModel.isLoading {
                         ZStack(content: {
                             Color(uiColor: .systemBackground)

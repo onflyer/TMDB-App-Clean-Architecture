@@ -14,7 +14,11 @@ struct MovieHomeScreen: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
+                    if viewModel.isLoading {
+                       CarouselPosterProgressView()
+                    } else {
+                        MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
+                    }
                     
                     MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)
                     
@@ -44,6 +48,8 @@ struct MovieHomeScreen: View {
     }
     
     func loadNowPlayingMovies() async {
+        viewModel.isLoading = true
+       
         do {
             try await viewModel.fetchNowPlayingMovies()
         } catch {
@@ -57,6 +63,8 @@ struct MovieHomeScreen: View {
             })
             print(error)
         }
+        viewModel.isLoading = false
+        
     }
     
     func loadUpcomingMovies() async {
