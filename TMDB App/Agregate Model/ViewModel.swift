@@ -54,12 +54,13 @@ final class ViewModel: ObservableObject {
             searchedMovies.removeAll()
             return
         }
-        
+        isLoading = true
         do {
             try await self.searchMovie(query: trimmedQuery)
         } catch {
             print(error)
         }
+        isLoading = false
         
     }
     

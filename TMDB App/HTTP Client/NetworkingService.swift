@@ -13,7 +13,7 @@ struct HTTPClient {
         static func testResponse() async throws {
             let baseUrl = URL(string: "https://api.themoviedb.org/3/movie/now_playing")
             let url = baseUrl?.appending(queryItems: [URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")])
-            var request = URLRequest(url: url!)
+            let request = URLRequest(url: url!)
         
             
     

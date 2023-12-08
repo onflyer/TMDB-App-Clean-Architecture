@@ -14,11 +14,13 @@ struct MovieDetailScreen: View {
     @EnvironmentObject var viewModel: ViewModel
     
     func loadMoviebyId() async {
+        viewModel.isLoading = true
         do {
             try await viewModel.fetchSingleMovie(movieId: movieId)
         } catch {
             print(error)
         }
+        viewModel.isLoading = false
     }
     
     var body: some View {
@@ -35,7 +37,17 @@ struct MovieDetailScreen: View {
                     .padding(.horizontal)
                 MovieCastSection(movie: movie)
                     .navigationTitle(movie.title)
+                
             }
+            }
+            .overlay{
+                if viewModel.isLoading {
+                    ZStack(content: {
+                        Color(uiColor: .systemBackground)
+                      ProgressView()
+                    })
+                    
+                }
             }
             .task {
                 await loadMoviebyId()
