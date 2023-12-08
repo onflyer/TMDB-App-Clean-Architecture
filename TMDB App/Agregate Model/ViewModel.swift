@@ -49,7 +49,6 @@ final class ViewModel: ObservableObject {
         let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !query.isEmpty else {
-            searchedMovies = []
             return
         }
         
