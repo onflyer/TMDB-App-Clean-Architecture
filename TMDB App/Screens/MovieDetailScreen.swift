@@ -17,10 +17,11 @@ struct MovieDetailScreen: View {
         viewModel.isLoading = true
         do {
             try await viewModel.fetchSingleMovie(movieId: movieId)
+            viewModel.isLoading = false
         } catch {
             print(error)
         }
-        viewModel.isLoading = false
+        
     }
     
     var body: some View {
