@@ -19,12 +19,21 @@ struct MovieHomeScreen: View {
                     } else {
                         MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
                     }
-                    
-                    MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)
-                    
-                    MovieBackdropCarouselView(title: "Top Rated", movie: viewModel.topRatedMovies)
-                    
-                    MovieBackdropCarouselView(title: "Popular", movie: viewModel.popularMovies)
+                    if viewModel.isLoading {
+                        CarouselBackdropProgressView()
+                    } else {
+                        MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)
+                    }
+                    if viewModel.isLoading {
+                        CarouselBackdropProgressView()
+                    } else {
+                        MovieBackdropCarouselView(title: "Top Rated", movie: viewModel.topRatedMovies)
+                    }
+                    if viewModel.isLoading {
+                        CarouselBackdropProgressView()
+                    } else {
+                        MovieBackdropCarouselView(title: "Popular", movie: viewModel.popularMovies)
+                    }
                 }
             }
             .scrollIndicators(.hidden)
@@ -68,27 +77,33 @@ struct MovieHomeScreen: View {
     }
     
     func loadUpcomingMovies() async {
+        viewModel.isLoading = true
         do {
             try await viewModel.fetchUpcomingMovies()
         } catch {
             print(error)
         }
+        viewModel.isLoading = false
     }
     
     func loadTopRatedMovies() async {
+        viewModel.isLoading = true
         do {
             try await viewModel.fetchTopRatedMovies()
         } catch {
             print(error)
         }
+        viewModel.isLoading = false
     }
     
     func loadPopularMovies() async {
+        viewModel.isLoading = true
         do {
             try await viewModel.fetchPopularMovies()
         } catch {
             print(error)
         }
+        viewModel.isLoading = false
     }
 }
 
