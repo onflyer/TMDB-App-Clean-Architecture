@@ -13,7 +13,7 @@ struct MovieHomeScreen: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack {
+                LazyVStack {
                     MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
                     
                     MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)

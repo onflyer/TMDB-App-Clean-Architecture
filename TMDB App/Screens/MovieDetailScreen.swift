@@ -10,7 +10,7 @@ import SwiftUI
 struct MovieDetailScreen: View {
     
     let movieId: Int
- 
+    
     @EnvironmentObject var viewModel: ViewModel
     
     func loadMoviebyId() async {
@@ -25,35 +25,34 @@ struct MovieDetailScreen: View {
     }
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
+        ScrollView {
                 if let movie = viewModel.movie {
-                MovieDetailImage(movie: movie)
-                    .padding(.bottom)
-                MovieDetailTrailersSection(movie: movie)
-                    .padding(.horizontal)
-                MovieDescriptionSection(movie: movie)
-                    .padding(.horizontal)
-                Divider()
-                    .padding(.horizontal)
-                MovieCastSection(movie: movie)
-                    .navigationTitle(movie.title)
+                    MovieDetailImage(movie: movie)
+                        .padding(.bottom)
+                    MovieDetailTrailersSection(movie: movie)
+                        .padding(.horizontal)
+                    MovieDescriptionSection(movie: movie)
+                        .padding(.horizontal)
+                    Divider()
+                        .padding(.horizontal)
+                    MovieCastSection(movie: movie)
+                        .navigationTitle(movie.title)
+                        
+                }
+        }
+        .overlay{
+            if viewModel.isLoading {
+                ZStack(content: {
+                    Color(uiColor: .systemBackground)
+                    ProgressView()
+                })
                 
             }
-            }
-            .overlay{
-                if viewModel.isLoading {
-                    ZStack(content: {
-                        Color(uiColor: .systemBackground)
-                      ProgressView()
-                    })
-                    
-                }
-            }
-            .task {
-                await loadMoviebyId()
-            }
         }
+        .task {
+            await loadMoviebyId()
+        }
+        
         
     }
 }

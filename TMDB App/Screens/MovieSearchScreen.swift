@@ -14,7 +14,9 @@ struct MovieSearchScreen: View {
     var body: some View {
         
         NavigationStack {
-            MovieSearchListView(movies: viewModel.searchedMovies)
+           
+                MovieSearchListView(movies: viewModel.searchedMovies)
+            
                 .onChange(of: viewModel.query, perform: { value in
                     Task {
                         try await viewModel.search(query:value)

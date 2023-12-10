@@ -12,15 +12,18 @@ struct MovieSearchListView: View {
     let movies: [Movie]
     
     var body: some View {
-        List {
-            ForEach(movies) { movie in
-                NavigationLink(destination: MovieDetailScreen(movieId: movie.id)) {
-                    MovieSearchRowView(movie: movie)
-                }
+        VStack {
+            List {
+                ForEach(movies) { movie in
+                        NavigationLink(destination: MovieDetailScreen(movieId: movie.id)) {
+                            MovieSearchRowView(movie: movie)
+                        
+                    }
 
+                }
             }
+            .listStyle(.plain)
         }
-        .listStyle(.plain)
     }
 }
 
