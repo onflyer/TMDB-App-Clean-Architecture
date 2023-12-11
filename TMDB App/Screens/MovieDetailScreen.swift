@@ -52,8 +52,9 @@ struct MovieDetailScreen: View {
         .task {
             await loadMoviebyId()
         }
-        
-        
+        .onDisappear {
+            viewModel.movie = nil
+        }
     }
 }
 

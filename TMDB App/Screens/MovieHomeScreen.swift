@@ -14,13 +14,30 @@ struct MovieHomeScreen: View {
         NavigationStack {
             ScrollView {
                 LazyVStack {
-                    MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
-                    
-                    MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)
-                    
-                    MovieBackdropCarouselView(title: "Top Rated", movie: viewModel.topRatedMovies)
-                    
-                    MovieBackdropCarouselView(title: "Popular", movie: viewModel.popularMovies)
+                    if viewModel.nowPlayingMovies.isEmpty {
+                        CarouselPosterProgressView()
+                    } else {
+                        MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
+                    }
+
+                    if viewModel.upcomingMovies.isEmpty {
+                        CarouselPosterProgressView()
+                    } else {
+                        MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)
+                    }
+
+                    if viewModel.topRatedMovies.isEmpty {
+                        CarouselPosterProgressView()
+                    } else {
+                        MovieBackdropCarouselView(title: "Top Rated", movie: viewModel.topRatedMovies)
+                    }
+
+                    if viewModel.popularMovies.isEmpty {
+                        CarouselPosterProgressView()
+                    } else {
+                        MovieBackdropCarouselView(title: "Popular", movie: viewModel.popularMovies)
+                    }
+
                 }
             }
             .navigationTitle("TMDB App")
