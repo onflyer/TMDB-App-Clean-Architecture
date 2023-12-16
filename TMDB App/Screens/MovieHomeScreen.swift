@@ -17,25 +17,25 @@ struct MovieHomeScreen: View {
                     if viewModel.nowPlayingMovies.isEmpty {
                         CarouselPosterProgressView()
                     } else {
-                        MoviePosterCarouselView(title: "Now Playing", movie: viewModel.nowPlayingMovies)
+                        MoviePosterCarouselView1(title: "Now Playing", movie: viewModel.nowPlayingMovies)
                     }
 
                     if viewModel.upcomingMovies.isEmpty {
                         CarouselPosterProgressView()
                     } else {
-                        MovieBackdropCarouselView(title: "Upcoming", movie: viewModel.upcomingMovies)
+                        MovieBackdropCarouselView1(title: "Upcoming", movie: viewModel.upcomingMovies)
                     }
 
                     if viewModel.topRatedMovies.isEmpty {
                         CarouselPosterProgressView()
                     } else {
-                        MovieBackdropCarouselView(title: "Top Rated", movie: viewModel.topRatedMovies)
+                        MovieBackdropCarouselView1(title: "Top Rated", movie: viewModel.topRatedMovies)
                     }
 
                     if viewModel.popularMovies.isEmpty {
                         CarouselPosterProgressView()
                     } else {
-                        MovieBackdropCarouselView(title: "Popular", movie: viewModel.popularMovies)
+                        MovieBackdropCarouselView1(title: "Popular", movie: viewModel.popularMovies)
                     }
 
                 }

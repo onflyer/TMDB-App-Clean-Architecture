@@ -27,7 +27,7 @@ struct MovieDetailScreen: View {
     var body: some View {
         ScrollView {
                 if let movie = viewModel.movie {
-                    MovieDetailImage(movie: movie)
+                    MovieDetailImage1(movie: movie)
                         .padding(.bottom)
                     MovieDetailTrailersSection(movie: movie)
                         .padding(.horizontal)

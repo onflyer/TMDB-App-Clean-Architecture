@@ -57,6 +57,12 @@ struct SingleMovieResponse: Codable, Identifiable {
     var backdropURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath )")!
     }
+    var posterURLString: String {
+        return "https://image.tmdb.org/t/p/w500\(posterPath )"
+    }
+    var backdropURLString: String {
+        return "https://image.tmdb.org/t/p/w500\(backdropPath )"
+    }
     
     static private let yearFormatter: DateFormatter = {
         let formatter = DateFormatter()

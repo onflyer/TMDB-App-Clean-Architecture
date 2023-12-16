@@ -14,15 +14,26 @@ struct MovieSearchRowView: View {
     var body: some View {
         
         HStack(alignment: .top, spacing: 16) {
-            AsyncImage(url: movie.posterURL) { image in
-                image.resizable()
-                    .scaledToFit()
-                    .frame(width: 61, height: 92)
-                    .cornerRadius(8)
-                    .shadow(radius: 4)
-            } placeholder: {
-                ProgressView()
+            
+            CachedImage(url: movie.posterURLString) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 61, height: 92)
+                        .cornerRadius(8)
+                        .shadow(radius: 4)
+                case .failure(_):
+                    Image(systemName: "xmark")
+                        .resizable()
+                @unknown default:
+                    EmptyView()
+                }
             }
+
             
             VStack(alignment: .leading) {
                 Text(movie.title)
