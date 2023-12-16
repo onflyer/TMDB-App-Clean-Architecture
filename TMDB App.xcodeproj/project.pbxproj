@@ -22,6 +22,7 @@
 		3B7109FF2B2DC25F00A9395E /* CachedImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7109FE2B2DC25F00A9395E /* CachedImageManager.swift */; };
 		3B710A012B2DC36E00A9395E /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B710A002B2DC36E00A9395E /* CachedImage.swift */; };
 		3B710A052B2DCED600A9395E /* MovieThumbnailPosterView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B710A042B2DCED600A9395E /* MovieThumbnailPosterView1.swift */; };
+		3B710A092B2E039C00A9395E /* MoviePosterCarouselView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B710A082B2E039C00A9395E /* MoviePosterCarouselView1.swift */; };
 		3B72EDE52AE97906000AB2BA /* Movie+Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B72EDE42AE97906000AB2BA /* Movie+Stubs.swift */; };
 		3B8782882AE4261C0098C228 /* TMDB_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782872AE4261C0098C228 /* TMDB_App.swift */; };
 		3B87828A2AE4261C0098C228 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782892AE4261C0098C228 /* ContentView.swift */; };
@@ -70,6 +71,7 @@
 		3B7109FE2B2DC25F00A9395E /* CachedImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageManager.swift; sourceTree = "<group>"; };
 		3B710A002B2DC36E00A9395E /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
 		3B710A042B2DCED600A9395E /* MovieThumbnailPosterView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieThumbnailPosterView1.swift; sourceTree = "<group>"; };
+		3B710A082B2E039C00A9395E /* MoviePosterCarouselView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterCarouselView1.swift; sourceTree = "<group>"; };
 		3B72EDE42AE97906000AB2BA /* Movie+Stubs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+Stubs.swift"; sourceTree = "<group>"; };
 		3B8782842AE4261C0098C228 /* TMDB App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMDB App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8782872AE4261C0098C228 /* TMDB_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_App.swift; sourceTree = "<group>"; };
@@ -135,8 +137,16 @@
 			isa = PBXGroup;
 			children = (
 				3B710A042B2DCED600A9395E /* MovieThumbnailPosterView1.swift */,
+				3B710A082B2E039C00A9395E /* MoviePosterCarouselView1.swift */,
 			);
 			path = "MVVM Views";
+			sourceTree = "<group>";
+		};
+		3B710A062B2E02BD00A9395E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		3B72EDE82AE9AAB7000AB2BA /* Utilities */ = {
@@ -188,7 +198,6 @@
 				3B87829A2AE427230098C228 /* NetworkingService.swift */,
 				3B8782982AE427230098C228 /* Endpoint.swift */,
 				3B8782A22AE427E70098C228 /* Constants.swift */,
-				3B7109FB2B2DBF3600A9395E /* Cache */,
 			);
 			path = "HTTP Client";
 			sourceTree = "<group>";
@@ -234,6 +243,7 @@
 				3B8782B02AE42E140098C228 /* App */,
 				3B8782872AE4261C0098C228 /* TMDB_App.swift */,
 				3B8782952AE4264D0098C228 /* HTTP Client */,
+				3B7109FB2B2DBF3600A9395E /* Cache */,
 				3B72EDE82AE9AAB7000AB2BA /* Utilities */,
 				3B8782B12AE42F330098C228 /* Agregate Model */,
 				3B8782A52AE428530098C228 /* Screens */,
@@ -274,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				3B8782B22AE42F510098C228 /* ViewModel.swift */,
+				3B710A062B2E02BD00A9395E /* ViewModels */,
 			);
 			path = "Agregate Model";
 			sourceTree = "<group>";
@@ -358,6 +369,7 @@
 				3BFFE6662AF97998007A8CAA /* TabViewScreen.swift in Sources */,
 				3B87828A2AE4261C0098C228 /* ContentView.swift in Sources */,
 				3B8782A12AE427230098C228 /* HTTPMethodHelper.swift in Sources */,
+				3B710A092B2E039C00A9395E /* MoviePosterCarouselView1.swift in Sources */,
 				3B87829D2AE427230098C228 /* Endpoint.swift in Sources */,
 				3B62919F2B0FF3C50010E395 /* MovieSearchRowView.swift in Sources */,
 				3BE55C392B0AB85E0092360B /* MovieDetailTrailersSection.swift in Sources */,
