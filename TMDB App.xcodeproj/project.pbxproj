@@ -131,7 +131,6 @@
 				3B26B84B2B1CF6E300334385 /* DelayAppereanceModifier.swift */,
 				3B26B84D2B1D218D00334385 /* CustomAlert.swift */,
 				3B4171A72B2327970093F7CE /* ShimmerEffectBox.swift */,
-				3B710A002B2DC36E00A9395E /* CachedImage.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -254,6 +253,7 @@
 		3B8782B12AE42F330098C228 /* Agregate Model */ = {
 			isa = PBXGroup;
 			children = (
+				3B710A002B2DC36E00A9395E /* CachedImage.swift */,
 				3B8782B22AE42F510098C228 /* ViewModel.swift */,
 			);
 			path = "Agregate Model";

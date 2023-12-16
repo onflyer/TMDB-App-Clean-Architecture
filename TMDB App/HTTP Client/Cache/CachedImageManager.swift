@@ -9,13 +9,11 @@ import Foundation
 
 final class CachedImageManager: ObservableObject {
     
-    let imageRetriever: ImageRetriever
+    private let imageRetriever = ImageRetriever()
     
     @Published private (set) var data: Data?
     
-    init(imageRetriever: ImageRetriever) {
-        self.imageRetriever = imageRetriever
-    }
+    
     
     @MainActor
     func loadImage(_ imgUrl: String) async {

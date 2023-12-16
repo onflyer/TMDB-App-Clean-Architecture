@@ -20,11 +20,10 @@ struct MovieThumbnailPosterView: View {
             AsyncImage(url: movie.posterURL) { image in
                 image
                     .resizable()
-                    .scaledToFill()
-                    .layoutPriority(-1)
             } placeholder: {
                 ProgressView()
             }
+
 
         }
         .frame(width: 204, height: 306)

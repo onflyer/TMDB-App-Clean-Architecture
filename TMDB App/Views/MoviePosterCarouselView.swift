@@ -61,4 +61,5 @@ struct MoviePosterCarouselView: View {
     MoviePosterCarouselView(title: "Preview Poster", movie: Movie.stubbedMovies)
         .environmentObject(ViewModel(httpClient: HTTPClient()))
         
+        
 }

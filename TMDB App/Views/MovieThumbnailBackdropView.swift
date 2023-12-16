@@ -21,8 +21,6 @@ struct MovieThumbnailBackdropView: View {
                 AsyncImage(url: movie.backdropURL) { image in
                     image
                         .resizable()
-                        .scaledToFill()
-                        .layoutPriority(-1)
                 } placeholder: {
                     ProgressView()
                 }
@@ -42,4 +40,5 @@ struct MovieThumbnailBackdropView: View {
 
 #Preview {
     MovieThumbnailBackdropView(movie: Movie.stubbedMovie)
+        
 }

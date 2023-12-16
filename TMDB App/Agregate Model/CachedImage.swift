@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CachedImage: View {
-    @EnvironmentObject private var manager: CachedImageManager
+    @StateObject private var manager = CachedImageManager()
     
     let url: String
     
@@ -28,5 +28,5 @@ struct CachedImage: View {
 
 #Preview {
     CachedImage(url: Movie.stubbedMovie.posterURLString)
-        .environmentObject(CachedImageManager(imageRetriever: ImageRetriever()))
+        
 }

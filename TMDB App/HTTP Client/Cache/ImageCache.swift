@@ -11,9 +11,8 @@ class ImageCache {
     typealias CacheType = NSCache<NSString, NSData>
     static let shared = ImageCache()
     
-    private init() {
-        
-    }
+    private init() {}
+    
     private lazy var cache: CacheType = {
         let cache = CacheType()
         cache.countLimit = 300
