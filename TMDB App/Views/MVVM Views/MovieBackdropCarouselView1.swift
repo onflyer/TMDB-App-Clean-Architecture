@@ -1,5 +1,5 @@
 //
-//  MoviePosterCarouselView1.swift
+//  MovieBackdropCarouselView1.swift
 //  TMDB App
 //
 //  Created by Aleksandar Milidrag on 12/16/23.
@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct MoviePosterCarouselView1: View {
-    
+struct MovieBackdropCarouselView1: View {
     let title: String
     let movie: [Movie]
     
@@ -23,20 +22,19 @@ struct MoviePosterCarouselView1: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 16) {
                     ForEach(movie) { movie in
-                        NavigationLink(destination: MovieDetailScreen(movieId: movie.id)) {
-                            MovieThumbnailPosterView1(movie: movie)
-                        }
+                        NavigationLink(destination: MovieDetailScreen(movieId: movie.id), label: {
+                            MovieThumbnailBackdropView1(movie: movie)
+                        })
+                        .foregroundStyle(.primary)
                     }
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 8)
-                
-              
             }
         }
     }
 }
 
 #Preview {
-    MoviePosterCarouselView1(title: "Preview Title", movie: Movie.stubbedMovies)
+    MovieBackdropCarouselView1(title: "Preview Backdrop", movie: Movie.stubbedMovies)
 }

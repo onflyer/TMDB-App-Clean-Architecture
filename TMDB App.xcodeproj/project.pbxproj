@@ -23,6 +23,8 @@
 		3B710A012B2DC36E00A9395E /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B710A002B2DC36E00A9395E /* CachedImage.swift */; };
 		3B710A052B2DCED600A9395E /* MovieThumbnailPosterView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B710A042B2DCED600A9395E /* MovieThumbnailPosterView1.swift */; };
 		3B710A092B2E039C00A9395E /* MoviePosterCarouselView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B710A082B2E039C00A9395E /* MoviePosterCarouselView1.swift */; };
+		3B710A0B2B2E24F700A9395E /* MovieThumbnailBackdropView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B710A0A2B2E24F700A9395E /* MovieThumbnailBackdropView1.swift */; };
+		3B710A0F2B2E261C00A9395E /* MovieBackdropCarouselView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B710A0E2B2E261C00A9395E /* MovieBackdropCarouselView1.swift */; };
 		3B72EDE52AE97906000AB2BA /* Movie+Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B72EDE42AE97906000AB2BA /* Movie+Stubs.swift */; };
 		3B8782882AE4261C0098C228 /* TMDB_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782872AE4261C0098C228 /* TMDB_App.swift */; };
 		3B87828A2AE4261C0098C228 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782892AE4261C0098C228 /* ContentView.swift */; };
@@ -72,6 +74,8 @@
 		3B710A002B2DC36E00A9395E /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
 		3B710A042B2DCED600A9395E /* MovieThumbnailPosterView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieThumbnailPosterView1.swift; sourceTree = "<group>"; };
 		3B710A082B2E039C00A9395E /* MoviePosterCarouselView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterCarouselView1.swift; sourceTree = "<group>"; };
+		3B710A0A2B2E24F700A9395E /* MovieThumbnailBackdropView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieThumbnailBackdropView1.swift; sourceTree = "<group>"; };
+		3B710A0E2B2E261C00A9395E /* MovieBackdropCarouselView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBackdropCarouselView1.swift; sourceTree = "<group>"; };
 		3B72EDE42AE97906000AB2BA /* Movie+Stubs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+Stubs.swift"; sourceTree = "<group>"; };
 		3B8782842AE4261C0098C228 /* TMDB App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMDB App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8782872AE4261C0098C228 /* TMDB_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_App.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 			children = (
 				3B710A042B2DCED600A9395E /* MovieThumbnailPosterView1.swift */,
 				3B710A082B2E039C00A9395E /* MoviePosterCarouselView1.swift */,
+				3B710A0A2B2E24F700A9395E /* MovieThumbnailBackdropView1.swift */,
+				3B710A0E2B2E261C00A9395E /* MovieBackdropCarouselView1.swift */,
 			);
 			path = "MVVM Views";
 			sourceTree = "<group>";
@@ -383,6 +389,7 @@
 				3BEA10732B01738300DAD668 /* MovieThumbnailBackdropView.swift in Sources */,
 				3B20E7BC2B0930A3001F373B /* NavigationEnvirnomentKey.swift in Sources */,
 				3B26B84C2B1CF6E300334385 /* DelayAppereanceModifier.swift in Sources */,
+				3B710A0F2B2E261C00A9395E /* MovieBackdropCarouselView1.swift in Sources */,
 				3B4171AC2B2334230093F7CE /* CarouselBackdropProgressView.swift in Sources */,
 				3BFFE66C2AF979DD007A8CAA /* MovieHomeScreen.swift in Sources */,
 				3B8782882AE4261C0098C228 /* TMDB_App.swift in Sources */,
@@ -402,6 +409,7 @@
 				3B8782A32AE427E70098C228 /* Constants.swift in Sources */,
 				3B26B84E2B1D218D00334385 /* CustomAlert.swift in Sources */,
 				3B710A052B2DCED600A9395E /* MovieThumbnailPosterView1.swift in Sources */,
+				3B710A0B2B2E24F700A9395E /* MovieThumbnailBackdropView1.swift in Sources */,
 				3B4171A82B2327970093F7CE /* ShimmerEffectBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
