@@ -24,7 +24,7 @@ class ImageCache {
         return cache.object(forKey: key) as? Data
     }
     // Save an image
-    func st(object: NSData, forKey key: NSString) {
+    func set(object: NSData, forKey key: NSString) {
         return cache.setObject(object, forKey: key)
     }
 }

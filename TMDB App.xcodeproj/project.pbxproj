@@ -21,6 +21,7 @@
 		3B7109FD2B2DBF4B00A9395E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7109FC2B2DBF4B00A9395E /* ImageCache.swift */; };
 		3B7109FF2B2DC25F00A9395E /* CachedImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7109FE2B2DC25F00A9395E /* CachedImageManager.swift */; };
 		3B710A012B2DC36E00A9395E /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B710A002B2DC36E00A9395E /* CachedImage.swift */; };
+		3B710A052B2DCED600A9395E /* MovieThumbnailPosterView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B710A042B2DCED600A9395E /* MovieThumbnailPosterView1.swift */; };
 		3B72EDE52AE97906000AB2BA /* Movie+Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B72EDE42AE97906000AB2BA /* Movie+Stubs.swift */; };
 		3B8782882AE4261C0098C228 /* TMDB_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782872AE4261C0098C228 /* TMDB_App.swift */; };
 		3B87828A2AE4261C0098C228 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782892AE4261C0098C228 /* ContentView.swift */; };
@@ -68,6 +69,7 @@
 		3B7109FC2B2DBF4B00A9395E /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		3B7109FE2B2DC25F00A9395E /* CachedImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageManager.swift; sourceTree = "<group>"; };
 		3B710A002B2DC36E00A9395E /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
+		3B710A042B2DCED600A9395E /* MovieThumbnailPosterView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieThumbnailPosterView1.swift; sourceTree = "<group>"; };
 		3B72EDE42AE97906000AB2BA /* Movie+Stubs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+Stubs.swift"; sourceTree = "<group>"; };
 		3B8782842AE4261C0098C228 /* TMDB App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMDB App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8782872AE4261C0098C228 /* TMDB_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDB_App.swift; sourceTree = "<group>"; };
@@ -122,6 +124,21 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
+		3B710A022B2DCEAC00A9395E /* MV Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "MV Views";
+			sourceTree = "<group>";
+		};
+		3B710A032B2DCEB200A9395E /* MVVM Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B710A042B2DCED600A9395E /* MovieThumbnailPosterView1.swift */,
+			);
+			path = "MVVM Views";
+			sourceTree = "<group>";
+		};
 		3B72EDE82AE9AAB7000AB2BA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +148,7 @@
 				3B26B84B2B1CF6E300334385 /* DelayAppereanceModifier.swift */,
 				3B26B84D2B1D218D00334385 /* CustomAlert.swift */,
 				3B4171A72B2327970093F7CE /* ShimmerEffectBox.swift */,
+				3B710A002B2DC36E00A9395E /* CachedImage.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -191,6 +209,8 @@
 		3B8782A62AE428590098C228 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3B710A032B2DCEB200A9395E /* MVVM Views */,
+				3B710A022B2DCEAC00A9395E /* MV Views */,
 				3B4171A92B232A8D0093F7CE /* CarouselPosterProgressView.swift */,
 				3B4171AB2B2334230093F7CE /* CarouselBackdropProgressView.swift */,
 				3BDBC9E82B2353410056F7BE /* EmptyPlaceholderView.swift */,
@@ -253,7 +273,6 @@
 		3B8782B12AE42F330098C228 /* Agregate Model */ = {
 			isa = PBXGroup;
 			children = (
-				3B710A002B2DC36E00A9395E /* CachedImage.swift */,
 				3B8782B22AE42F510098C228 /* ViewModel.swift */,
 			);
 			path = "Agregate Model";
@@ -370,6 +389,7 @@
 				3B26B8472B1C944300334385 /* TabViewNavigation.swift in Sources */,
 				3B8782A32AE427E70098C228 /* Constants.swift in Sources */,
 				3B26B84E2B1D218D00334385 /* CustomAlert.swift in Sources */,
+				3B710A052B2DCED600A9395E /* MovieThumbnailPosterView1.swift in Sources */,
 				3B4171A82B2327970093F7CE /* ShimmerEffectBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
