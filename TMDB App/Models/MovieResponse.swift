@@ -83,6 +83,12 @@ struct Movie: Codable,Identifiable,Hashable {
     var backdropURL: URL {
         return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath )")!
     }
+    var posterURLString: String {
+        return "https://image.tmdb.org/t/p/w500\(posterPath )"
+    }
+    var backdropURLString: String {
+        return "https://image.tmdb.org/t/p/w500\(backdropPath )"
+    }
     var yearText: String {
         guard let date = SingleMovieResponse.dateFormatter.date(from: releaseDate) else {
             return "n/a"

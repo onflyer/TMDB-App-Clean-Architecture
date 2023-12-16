@@ -11,7 +11,7 @@ struct ImageRetriever {
     
     func fetch(_ imgUrl: String) async throws -> Data {
         guard let url = URL(string: imgUrl) else {
-            throw NetworkError.invalidResponse
+            throw NetworkError.badRequest
         }
         let (data, _) = try await URLSession.shared.data(from: url)
         return data

@@ -57,6 +57,7 @@ struct TMDB_App: App {
 //    }
     
     @StateObject private var viewModel = ViewModel(httpClient: HTTPClient())
+    @StateObject private var cachedImageManager = CachedImageManager(imageRetriever: ImageRetriever())
   
     
     var body: some Scene {
