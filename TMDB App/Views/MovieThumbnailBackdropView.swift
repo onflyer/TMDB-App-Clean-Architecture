@@ -18,7 +18,7 @@ struct MovieThumbnailBackdropView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                     .lineLimit(4)
-                CachedAsyncImage(url: movie.backdropURL) { image in
+                AsyncImage(url: movie.backdropURL) { image in
                     image
                         .resizable()
                         .scaledToFill()

@@ -14,7 +14,7 @@ struct MovieSearchRowView: View {
     var body: some View {
         
         HStack(alignment: .top, spacing: 16) {
-            CachedAsyncImage(url: movie.posterURL) { image in
+            AsyncImage(url: movie.posterURL) { image in
                 image.resizable()
                     .scaledToFit()
                     .frame(width: 61, height: 92)

@@ -17,7 +17,7 @@ struct MovieThumbnailPosterView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
                 .lineLimit(4)
-            CachedAsyncImage(url: movie.posterURL) { image in
+            AsyncImage(url: movie.posterURL) { image in
                 image
                     .resizable()
                     .scaledToFill()
