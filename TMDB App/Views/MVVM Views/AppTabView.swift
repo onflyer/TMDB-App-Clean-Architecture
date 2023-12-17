@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AppTabScreen: View {
+struct AppTabView: View {
     @Binding var selection: AppScreen?
     
     var body: some View {
@@ -23,6 +23,6 @@ struct AppTabScreen: View {
 }
 
 #Preview {
-    AppTabScreen(selection: .constant(.homeScreen))
+    AppTabView(selection: .constant(.homeScreen))
         .environmentObject(ViewModel(httpClient: HTTPClient()))
 }

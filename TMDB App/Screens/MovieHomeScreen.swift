@@ -62,8 +62,6 @@ struct MovieHomeScreen: View {
     
     
     func loadNowPlayingMovies() async {
-        
-        
         do {
             try await viewModel.fetchNowPlayingMovies()
         } catch {

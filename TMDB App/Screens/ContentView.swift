@@ -11,7 +11,7 @@ struct ContentView: View {
     @State private var selection: AppScreen? = .homeScreen
     
     var body: some View {
-        AppTabScreen(selection: $selection)
+        AppTabView(selection: $selection)
         
     }
     
@@ -19,7 +19,7 @@ struct ContentView: View {
 
 #Preview {
  
-        AppTabScreen(selection: .constant(.homeScreen))
+        AppTabView(selection: .constant(.homeScreen))
             .environmentObject(ViewModel(httpClient: HTTPClient()))
     
 }
