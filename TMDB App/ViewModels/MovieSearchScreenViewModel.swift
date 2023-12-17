@@ -45,4 +45,18 @@ final class MovieSearchScreenViewModel: ObservableObject {
        isLoading = false
        
    }
+    
+    //    private var cancellables = Set<AnyCancellable>()
+    //     func addSubscribers() {
+    //
+    //        $query
+    //            .debounce(for: 0.3, scheduler: DispatchQueue.main)
+    //            .sink { query in
+    //                Task {
+    //
+    //                    try await self.search(query: query)
+    //                }
+    //            }
+    //            .store(in: &cancellables)
+    //    }
 }
