@@ -55,14 +55,11 @@ struct TMDB_App: App {
 //        
 //        print(response)
 //    }
-    
-    @StateObject private var viewModel = ViewModel(httpClient: HTTPClient())
-  
+      
     
     var body: some Scene {
         WindowGroup {
             ContentView1()
-                .environmentObject(viewModel)
         }
     }
 }
