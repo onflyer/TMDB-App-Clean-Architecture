@@ -12,11 +12,10 @@ import Foundation
 final class MovieDetailScreenViewModel: ObservableObject {
     
     let httpClient: HTTPClient
-    let movieId: Int
     
-    init(httpClient: HTTPClient, movieId: Int) {
+    
+    init(httpClient: HTTPClient) {
         self.httpClient = httpClient
-        self.movieId = movieId
     }
     
     
@@ -29,8 +28,7 @@ final class MovieDetailScreenViewModel: ObservableObject {
         
         movie = try await httpClient.load(resource)
     }
-    
-    func loadMoviebyId() async {
+    func loadMoviebyId(movieId: Int) async {
         self.isLoading = true
         do {
             try await self.fetchSingleMovie(movieId: movieId)
@@ -39,4 +37,5 @@ final class MovieDetailScreenViewModel: ObservableObject {
             print(error)
         }
     }
+    
 }
