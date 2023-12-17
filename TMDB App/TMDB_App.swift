@@ -61,7 +61,7 @@ struct TMDB_App: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView1()
                 .environmentObject(viewModel)
         }
     }

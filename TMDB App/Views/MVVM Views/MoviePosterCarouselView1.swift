@@ -23,7 +23,7 @@ struct MoviePosterCarouselView1: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 16) {
                     ForEach(movie) { movie in
-                        NavigationLink(destination: MovieDetailScreen(movieId: movie.id)) {
+                        NavigationLink(destination: MovieDetailScreen1(movieId: movie.id)) {
                             MovieThumbnailPosterView1(movie: movie)
                         }
                     }

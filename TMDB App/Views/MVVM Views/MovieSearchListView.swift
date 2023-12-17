@@ -15,7 +15,7 @@ struct MovieSearchListView: View {
         VStack {
             List {
                 ForEach(movies) { movie in
-                        NavigationLink(destination: MovieDetailScreen(movieId: movie.id)) {
+                        NavigationLink(destination: MovieDetailScreen1(movieId: movie.id)) {
                             MovieSearchRowView(movie: movie)
                         
                     }
