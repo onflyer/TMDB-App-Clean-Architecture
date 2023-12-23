@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct TMDB_App: App {
-    
+
 //    static func main() async throws {
 //        let baseUrl = URL(string: "https://api.themoviedb.org/3/movie/popular")
 //        let url = baseUrl?.appending(queryItems: [URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")])

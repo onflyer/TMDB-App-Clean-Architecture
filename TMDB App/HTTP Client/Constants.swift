@@ -12,7 +12,6 @@ struct Constants {
     private static let baseUrl = "https://api.themoviedb.org/3"
     
     struct Urls {
-        
         static let nowPlaying = URL(string: "\(baseUrl)/movie/now_playing")!
         static let upcoming = URL(string: "\(baseUrl)/movie/upcoming")!
         static let topRated = URL(string: "\(baseUrl)/movie/top_rated")!
@@ -21,5 +20,8 @@ struct Constants {
             return URL(string: "\(baseUrl)/movie/\(movieId)")!
         }
         static let searchURL = URL(string: "\(baseUrl)/search/movie")!
+        static let fetchRequestToken = URL(string: "https://api.themoviedb.org/3/authentication/token/new")!
+                
+       
     }
 }
