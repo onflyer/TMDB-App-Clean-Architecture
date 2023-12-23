@@ -8,22 +8,29 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    
     @StateObject var viewModel = LoginScreenViewModel(httpClient: HTTPClient())
     
-    
+        
     var body: some View {
         VStack {
             Text("Welcome to tmdb, please tap the button and approve your session ")
             
-            Button("Fetch token") {
+            if let link = viewModel.validateURL {
+                Link("LINK", destination: link)
+            }
+            
+            Button("SessionID") {
                 Task {
-                    await viewModel.loadRequestToken()
+                    await viewModel.loadSessionId()
                 }
             }
             
         }
-        
+        .task {
+            await viewModel.loadRequestToken()
+            
+        }
+       
     }
 }
 

@@ -17,23 +17,56 @@ class LoginScreenViewModel: ObservableObject {
         
     }
     
-    var requestToken = ""
+        @Published var validateURL: URL?
         
-        func fetchRequestToken() async throws {
+        var requestToken: String?
+        
+        func fetchRequestTokenURL() async throws {
             let resource = Resource(url: Constants.Urls.fetchRequestToken,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: RequestTokenDTO.self)
             
             let requestTokenDTO = try await httpClient.load(resource)
-            requestToken = requestTokenDTO.requestToken
-            print(requestToken)
             
+            let validateTokenURL = Constants.Urls.validateRequestToken.appending(component: requestTokenDTO.requestToken)
+            print(validateTokenURL)
+            
+            requestToken = requestTokenDTO.requestToken
+            validateURL = validateTokenURL
         }
     
     func loadRequestToken() async {
         do {
-            try await fetchRequestToken()
+            try await fetchRequestTokenURL()
         } catch {
             print(error)
         }
     }
+    
+    func fetchSessionId() async throws {
+        guard requestToken != nil else {
+            return
+        }
+
+        let data = ["request_token" : requestToken]
+        
+        let resource = try Resource(url: Constants.Urls.sessionId, method: .post(JSONEncoder().encode(data)), modelType: SessionIdDTO.self)
+        
+        
+        let sessionIdDTO = try await httpClient.load(resource)
+        
+        print(sessionIdDTO)
+    }
+    
+    func loadSessionId() async {
+        do {
+            try await fetchSessionId()
+        } catch {
+            print(error)
+        }
+    }
+    
+    
+   
+    
+    
    
 }
