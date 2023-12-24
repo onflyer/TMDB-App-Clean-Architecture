@@ -18,3 +18,15 @@ struct FavoriteRequestDTO: Codable {
         case favorite
     }
 }
+
+struct FavoriteResponseDTO: Codable {
+    let success: Bool
+    let statusCode: Int
+    let statusMessage: String
+
+    enum CodingKeys: String, CodingKey {
+        case success
+        case statusCode = "status_code"
+        case statusMessage = "status_message"
+    }
+}

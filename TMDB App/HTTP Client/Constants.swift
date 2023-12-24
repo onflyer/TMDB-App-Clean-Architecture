@@ -16,6 +16,7 @@ struct Constants {
         static let upcoming = URL(string: "\(baseUrl)/movie/upcoming")!
         static let topRated = URL(string: "\(baseUrl)/movie/top_rated")!
         static let popular = URL(string: "\(baseUrl)/movie/popular")!
+        static let favoriteMovies = URL(string: "https://api.themoviedb.org/3/account/20029223/favorite/movies")!
         static func singleMovie(movieId: Int) -> URL {
             return URL(string: "\(baseUrl)/movie/\(movieId)")!
         }
@@ -23,5 +24,8 @@ struct Constants {
         static let fetchRequestToken = URL(string: "https://api.themoviedb.org/3/authentication/token/new")!
         static let validateRequestToken = URL(string: "https://www.themoviedb.org/authenticate")!
         static let sessionId = URL(string: "https://api.themoviedb.org/3/authentication/session/new?api_key=89e4bae37305d94ef67db0a32d6e79ef")!
+        static let postToFavorites = URL(string: "https://api.themoviedb.org/3/account/20029223/favorite")!
+        
     }
+        
 }

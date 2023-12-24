@@ -38,4 +38,25 @@ final class MovieDetailScreenViewModel: ObservableObject {
         }
     }
     
+    func postToFavorites(movieId: Int) async throws {
+        
+        let data = FavoriteRequestDTO(mediaID: movieId)
+        
+        let resource = try Resource(url: Constants.Urls.postToFavorites, method: .post(JSONEncoder().encode(data), [URLQueryItem(name: "session_id", value: "954a0e7f7e9c282ade3daaab053db4e20c870209"), URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: FavoriteResponseDTO.self)
+        print(resource)
+        
+        let newFavoriteMovie = try await httpClient.load(resource)
+        print(newFavoriteMovie)
+    }
+    
+    func loadPostToFavorites(movieId: Int) async {
+        do {
+            try await self.postToFavorites(movieId: movieId)
+        } catch {
+            print(error)
+        }
+    }
+    
+    
+    
 }

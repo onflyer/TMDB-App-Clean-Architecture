@@ -124,18 +124,18 @@ struct Movie: Codable,Identifiable,Hashable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.adult = try container.decode(Bool.self, forKey: .adult)
         self.backdropPath = try container.decodeIfPresent(String.self, forKey: .backdropPath) ?? "No image present"
-        self.genreIDS = try container.decode([Int].self, forKey: .genreIDS)
+        self.genreIDS = try container.decodeIfPresent([Int].self, forKey: .genreIDS) ?? []
         self.id = try container.decode(Int.self, forKey: .id)
 //        self.originalLanguage = try container.decodeIfPresent(OriginalLanguage.self, forKey: .originalLanguage)
         self.originalTitle = try container.decode(String.self, forKey: .originalTitle)
         self.overview = try container.decode(String.self, forKey: .overview)
-        self.popularity = try container.decode(Double.self, forKey: .popularity)
+        self.popularity = try container.decodeIfPresent(Double.self, forKey: .popularity) ?? 1.0
         self.posterPath = try container.decode(String.self, forKey: .posterPath)
-        self.releaseDate = try container.decode(String.self, forKey: .releaseDate)
+        self.releaseDate = try container.decodeIfPresent(String.self, forKey: .releaseDate) ?? "No release date"
         self.title = try container.decode(String.self, forKey: .title)
-        self.video = try container.decode(Bool.self, forKey: .video)
-        self.voteAverage = try container.decode(Double.self, forKey: .voteAverage)
-        self.voteCount = try container.decode(Int.self, forKey: .voteCount)
+        self.video = try container.decodeIfPresent(Bool.self, forKey: .video) ?? false
+        self.voteAverage = try container.decodeIfPresent(Double.self, forKey: .voteAverage) ?? 1.0
+        self.voteCount = try container.decodeIfPresent(Int.self, forKey: .voteCount) ?? 1
     }
     
 }

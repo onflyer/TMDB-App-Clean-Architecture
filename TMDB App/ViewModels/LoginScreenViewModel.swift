@@ -48,7 +48,7 @@ class LoginScreenViewModel: ObservableObject {
 
         let data = ["request_token" : requestToken]
         
-        let resource = try Resource(url: Constants.Urls.sessionId, method: .post(JSONEncoder().encode(data)), modelType: SessionIdDTO.self)
+        let resource = try Resource(url: Constants.Urls.sessionId, method: .post(JSONEncoder().encode(data), ([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")])), modelType: SessionIdDTO.self)
         
         let sessionIdDTO = try await httpClient.load(resource)
         

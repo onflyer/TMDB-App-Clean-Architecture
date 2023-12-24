@@ -9,7 +9,7 @@ import Foundation
 
 enum HTTPMethod {
     case get([URLQueryItem])
-    case post(Data?)
+    case post(Data?, [URLQueryItem])
     case delete
     
     var name: String {

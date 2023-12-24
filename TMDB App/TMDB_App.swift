@@ -11,8 +11,8 @@ import SwiftUI
 struct TMDB_App: App {
 
 //    static func main() async throws {
-//        let baseUrl = URL(string: "https://api.themoviedb.org/3/movie/popular")
-//        let url = baseUrl?.appending(queryItems: [URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")])
+//        let baseUrl = URL(string: "https://api.themoviedb.org/3/account/20029223/favorite/movies")
+//        let url = baseUrl?.appending(queryItems: [URLQueryItem(name: "session_id", value: "954a0e7f7e9c282ade3daaab053db4e20c870209"), URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"),URLQueryItem(name: "page", value: String(1)),URLQueryItem(name: "language", value: "en-US")])
 //        var request = URLRequest(url: url!)
 //    
 //        
@@ -59,7 +59,7 @@ struct TMDB_App: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginScreen()
+            ContentView1()
         }
     }
 }
