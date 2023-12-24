@@ -13,6 +13,7 @@ enum AppScreen: Hashable, Identifiable, CaseIterable {
     
     case homeScreen
     case searchScreen
+    case favorites
     
     var id: AppScreen { self }
 }
@@ -26,6 +27,8 @@ extension AppScreen {
             Label("Home", systemImage: "film")
         case .searchScreen:
             Label("Search", systemImage: "magnifyingglass")
+        case .favorites:
+            Label("Favorite Movies", systemImage: "heart")
       
         }
     }
@@ -36,8 +39,9 @@ extension AppScreen {
             case .homeScreen:
             MovieHomeScreen1()
             case .searchScreen:
-           MovieSearchScreen1()
-            
+            MovieSearchScreen1()
+            case .favorites:
+            FavoriteMoviesScreen()
         }
     }
 }

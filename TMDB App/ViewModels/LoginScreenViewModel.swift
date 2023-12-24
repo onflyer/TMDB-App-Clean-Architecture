@@ -50,7 +50,6 @@ class LoginScreenViewModel: ObservableObject {
         
         let resource = try Resource(url: Constants.Urls.sessionId, method: .post(JSONEncoder().encode(data)), modelType: SessionIdDTO.self)
         
-        
         let sessionIdDTO = try await httpClient.load(resource)
         
         print(sessionIdDTO)
