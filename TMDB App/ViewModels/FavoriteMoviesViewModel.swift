@@ -35,4 +35,36 @@ class FavoriteMoviesViewModel: ObservableObject {
             print(error)
         }
     }
+    
+    func fetchDeleteFavoriteMovie(movieId: Int) async throws {
+        
+        let data = FavoriteDeleteRequestDTO(mediaID: movieId)
+        
+        let resource = try Resource(url: Constants.Urls.deleteFavoriteMovie, method: .post(JSONEncoder().encode(data), [URLQueryItem(name: "session_id", value: "954a0e7f7e9c282ade3daaab053db4e20c870209"), URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: FavoriteResponseDTO.self)
+        
+        let deletedMovie = try await httpClient.load(resource)
+        print(deletedMovie)
+        
+        favoriteMovies = favoriteMovies.filter {
+            $0.id != movieId
+        }
+        
+    }
+    
+    func loadDeleteFavoriteMovie(movieId: Int) async {
+        do {
+            try await fetchDeleteFavoriteMovie(movieId: movieId)
+        } catch {
+            print(error)
+        }
+    }
+    
+     func swipeToDelete(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let favoriteMovie = self.favoriteMovies[index]
+            Task {
+                await self.loadDeleteFavoriteMovie(movieId: favoriteMovie.id)
+            }
+        }
+    }
 }

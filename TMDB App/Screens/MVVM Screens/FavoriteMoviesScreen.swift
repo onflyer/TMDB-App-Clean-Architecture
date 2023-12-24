@@ -13,8 +13,25 @@ struct FavoriteMoviesScreen: View {
     
     var body: some View {
         NavigationStack {
-            MovieSearchListView(movies: viewModel.favoriteMovies)
-                .navigationTitle("Favorite movies")
+            VStack {
+                List {
+                    ForEach(viewModel.favoriteMovies) { movie in
+                            NavigationLink(destination: MovieDetailScreen1(movieId: movie.id)) {
+                                MovieSearchRowView(movie: movie)
+                                    
+                        }
+                    }
+                    .onDelete(perform: { indexSet in
+                        viewModel.swipeToDelete(at: indexSet)
+                    })
+                }
+                .listStyle(.plain)
+            }
+            .navigationTitle("Favorite movies")
+            .toolbar {
+                EditButton()
+                    .bold()
+            }
         }
         .refreshable {
             await viewModel.loadFavoriteMovies()

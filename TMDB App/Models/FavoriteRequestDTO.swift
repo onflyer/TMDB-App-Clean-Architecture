@@ -30,3 +30,15 @@ struct FavoriteResponseDTO: Codable {
         case statusMessage = "status_message"
     }
 }
+
+struct FavoriteDeleteRequestDTO: Codable {
+    let mediaType: String = "movie"
+    let mediaID: Int
+    let favorite: Bool = false
+
+    enum CodingKeys: String, CodingKey {
+        case mediaType = "media_type"
+        case mediaID = "media_id"
+        case favorite
+    }
+}

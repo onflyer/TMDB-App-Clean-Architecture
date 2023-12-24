@@ -25,6 +25,7 @@ struct Constants {
         static let validateRequestToken = URL(string: "https://www.themoviedb.org/authenticate")!
         static let sessionId = URL(string: "https://api.themoviedb.org/3/authentication/session/new?api_key=89e4bae37305d94ef67db0a32d6e79ef")!
         static let postToFavorites = URL(string: "https://api.themoviedb.org/3/account/20029223/favorite")!
+        static let deleteFavoriteMovie = URL(string: "https://api.themoviedb.org/3/account/20029223/favorite")!
         
     }
         
