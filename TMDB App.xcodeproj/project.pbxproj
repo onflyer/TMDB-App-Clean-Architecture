@@ -20,6 +20,9 @@
 		3B26B8492B1C953100334385 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26B8482B1C953100334385 /* AppTabView.swift */; };
 		3B26B84C2B1CF6E300334385 /* DelayAppereanceModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26B84B2B1CF6E300334385 /* DelayAppereanceModifier.swift */; };
 		3B26B84E2B1D218D00334385 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26B84D2B1D218D00334385 /* CustomAlert.swift */; };
+		3B2E63722B4197460040FA83 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2E63712B4197460040FA83 /* Dependencies */; };
+		3B2E63742B4197460040FA83 /* DependenciesMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2E63732B4197460040FA83 /* DependenciesMacros */; };
+		3B2E63762B41978A0040FA83 /* DependencyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E63752B41978A0040FA83 /* DependencyKeys.swift */; };
 		3B4171A82B2327970093F7CE /* ShimmerEffectBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4171A72B2327970093F7CE /* ShimmerEffectBox.swift */; };
 		3B4171AA2B232A8D0093F7CE /* CarouselPosterProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4171A92B232A8D0093F7CE /* CarouselPosterProgressView.swift */; };
 		3B4171AC2B2334230093F7CE /* CarouselBackdropProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4171AB2B2334230093F7CE /* CarouselBackdropProgressView.swift */; };
@@ -78,6 +81,7 @@
 		3B26B8482B1C953100334385 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		3B26B84B2B1CF6E300334385 /* DelayAppereanceModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayAppereanceModifier.swift; sourceTree = "<group>"; };
 		3B26B84D2B1D218D00334385 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		3B2E63752B41978A0040FA83 /* DependencyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyKeys.swift; sourceTree = "<group>"; };
 		3B4171A72B2327970093F7CE /* ShimmerEffectBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmerEffectBox.swift; sourceTree = "<group>"; };
 		3B4171A92B232A8D0093F7CE /* CarouselPosterProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPosterProgressView.swift; sourceTree = "<group>"; };
 		3B4171AB2B2334230093F7CE /* CarouselBackdropProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselBackdropProgressView.swift; sourceTree = "<group>"; };
@@ -128,12 +132,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2E63742B4197460040FA83 /* DependenciesMacros in Frameworks */,
+				3B2E63722B4197460040FA83 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B2E63772B4197970040FA83 /* Dependency Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3B2E63752B41978A0040FA83 /* DependencyKeys.swift */,
+			);
+			path = "Dependency Utils";
+			sourceTree = "<group>";
+		};
 		3B7109FB2B2DBF3600A9395E /* Cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +183,7 @@
 		3B7EAF642B41783A007E0A4C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3B2E63772B4197970040FA83 /* Dependency Utils */,
 				3B72EDE82AE9AAB7000AB2BA /* Utilities */,
 				3B7109FB2B2DBF3600A9395E /* Cache */,
 				3B8782952AE4264D0098C228 /* HTTP Client */,
@@ -364,6 +379,10 @@
 			dependencies = (
 			);
 			name = "TMDB App";
+			packageProductDependencies = (
+				3B2E63712B4197460040FA83 /* Dependencies */,
+				3B2E63732B4197460040FA83 /* DependenciesMacros */,
+			);
 			productName = "TMDB App";
 			productReference = 3B8782842AE4261C0098C228 /* TMDB App.app */;
 			productType = "com.apple.product-type.application";
@@ -392,6 +411,9 @@
 				Base,
 			);
 			mainGroup = 3B87827B2AE4261C0098C228;
+			packageReferences = (
+				3B2E63702B4197460040FA83 /* XCRemoteSwiftPackageReference "swift-dependencies" */,
+			);
 			productRefGroup = 3B8782852AE4261C0098C228 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -470,6 +492,7 @@
 				3B710A0B2B2E24F700A9395E /* MovieThumbnailBackdropView1.swift in Sources */,
 				3B6FC3BE2B3765FF00F58D67 /* FavoriteMoviesViewModel.swift in Sources */,
 				3B4171A82B2327970093F7CE /* ShimmerEffectBox.swift in Sources */,
+				3B2E63762B41978A0040FA83 /* DependencyKeys.swift in Sources */,
 				3B6FC3B82B37030F00F58D67 /* RequestTokenDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,6 +701,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B2E63702B4197460040FA83 /* XCRemoteSwiftPackageReference "swift-dependencies" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-dependencies";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B2E63712B4197460040FA83 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B2E63702B4197460040FA83 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = Dependencies;
+		};
+		3B2E63732B4197460040FA83 /* DependenciesMacros */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B2E63702B4197460040FA83 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = DependenciesMacros;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B87827C2AE4261C0098C228 /* Project object */;
 }
