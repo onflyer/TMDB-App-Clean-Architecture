@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MovieHomeScreen1: View {
     
-    @StateObject var viewModel = MovieHomeScreenViewModel(httpClient: HTTPClient())
+    @StateObject var viewModel = MovieHomeScreenViewModel()
     
     var body: some View {
         NavigationStack {

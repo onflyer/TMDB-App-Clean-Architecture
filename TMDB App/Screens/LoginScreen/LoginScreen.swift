@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    @StateObject var viewModel = LoginScreenViewModel(httpClient: HTTPClient())
+    @StateObject var viewModel = LoginScreenViewModel()
     
         
     var body: some View {

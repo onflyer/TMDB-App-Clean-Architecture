@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MovieDetailScreen1: View {
     
-    @StateObject var viewModel = MovieDetailScreenViewModel(httpClient: HTTPClient())
+    @StateObject var viewModel = MovieDetailScreenViewModel()
     let movieId: Int
     
     

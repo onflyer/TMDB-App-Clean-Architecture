@@ -6,16 +6,12 @@
 //
 
 import Foundation
+import Dependencies
 
 @MainActor
 class LoginScreenViewModel: ObservableObject {
     
-    let httpClient: HTTPClient
-    
-    init(httpClient: HTTPClient) {
-        self.httpClient = httpClient
-        
-    }
+    @Dependency(\.httpClient) var httpClient
     
         @Published var validateURL: URL?
         

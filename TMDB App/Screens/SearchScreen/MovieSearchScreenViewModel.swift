@@ -6,15 +6,12 @@
 //
 
 import Foundation
+import Dependencies
 
 @MainActor
 final class MovieSearchScreenViewModel: ObservableObject {
     
-    private var httpClient: HTTPClient
-    
-    init(httpClient: HTTPClient) {
-        self.httpClient = httpClient
-    }
+    @Dependency(\.httpClient) var httpClient
     
     @Published var query = ""
     @Published var isLoading: Bool = false

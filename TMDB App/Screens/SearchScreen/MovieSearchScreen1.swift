@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MovieSearchScreen1: View {
     
-    @StateObject var viewModel = MovieSearchScreenViewModel(httpClient: HTTPClient())
+    @StateObject var viewModel = MovieSearchScreenViewModel()
     
     var body: some View {
         

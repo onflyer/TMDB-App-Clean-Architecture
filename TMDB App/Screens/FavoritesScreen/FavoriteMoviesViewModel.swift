@@ -6,15 +6,12 @@
 //
 
 import Foundation
+import Dependencies
 
 @MainActor
 class FavoriteMoviesViewModel: ObservableObject {
     
-    let httpClient: HTTPClient
-    
-    init(httpClient: HTTPClient) {
-        self.httpClient = httpClient
-    }
+    @Dependency(\.httpClient) var httpClient
     
     var page = 1
     

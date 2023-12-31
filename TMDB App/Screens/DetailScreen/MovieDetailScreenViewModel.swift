@@ -6,17 +6,12 @@
 //
 
 import Foundation
-
+import Dependencies
 
 @MainActor
 final class MovieDetailScreenViewModel: ObservableObject {
     
-    let httpClient: HTTPClient
-    
-    
-    init(httpClient: HTTPClient) {
-        self.httpClient = httpClient
-    }
+    @Dependency(\.httpClient) var httpClient
     
     
     @Published var isLoading: Bool = false

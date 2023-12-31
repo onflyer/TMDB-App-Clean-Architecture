@@ -6,16 +6,13 @@
 //
 
 import Foundation
+import Dependencies
 
 
 @MainActor
 final class MovieHomeScreenViewModel: ObservableObject {
     
-    let httpClient: HTTPClient
-    
-    init(httpClient: HTTPClient) {
-        self.httpClient = httpClient
-    }
+    @Dependency(\.httpClient) var httpClient
     
     @Published var alert: CustomAlert? = nil
     @Published var showAlert: Bool = false

@@ -230,8 +230,8 @@
 		3B7EAF692B417A59007E0A4C /* FavoritesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				3B6FC3BD2B3765FF00F58D67 /* FavoriteMoviesViewModel.swift */,
 				3B6FC3BF2B37664800F58D67 /* FavoriteMoviesScreen.swift */,
+				3B6FC3BD2B3765FF00F58D67 /* FavoriteMoviesViewModel.swift */,
 			);
 			path = FavoritesScreen;
 			sourceTree = "<group>";
