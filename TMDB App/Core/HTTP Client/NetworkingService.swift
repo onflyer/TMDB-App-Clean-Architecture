@@ -40,8 +40,6 @@ struct HTTPClient {
             request.httpMethod = resource.method.name
             
         }
-      
-        
         let configuration = URLSessionConfiguration.default
         
         let session = URLSession(configuration: configuration)
