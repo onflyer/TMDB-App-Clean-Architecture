@@ -308,7 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				3B8782B02AE42E140098C228 /* App */,
-				3B8782872AE4261C0098C228 /* TMDB_App.swift */,
 				3B7EAF642B41783A007E0A4C /* Core */,
 				3B8782A52AE428530098C228 /* Screens */,
 				3B8782A62AE428590098C228 /* Views */,
@@ -344,6 +343,7 @@
 		3B8782B02AE42E140098C228 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				3B8782872AE4261C0098C228 /* TMDB_App.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
