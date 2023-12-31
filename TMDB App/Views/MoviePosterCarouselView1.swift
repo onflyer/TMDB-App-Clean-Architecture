@@ -26,6 +26,7 @@ struct MoviePosterCarouselView1: View {
                         NavigationLink(destination: MovieDetailScreen1(movieId: movie.id)) {
                             MovieThumbnailPosterView1(movie: movie)
                         }
+                        
                     }
                 }
                 .padding(.horizontal)

@@ -36,6 +36,7 @@ final class MovieHomeScreenViewModel: ObservableObject {
     func loadNowPlayingMovies() async {
         do {
             try await self.fetchNowPlayingMovies()
+            
         } catch {
             self.showAlert = true
             self.alert = .noInternetConnection(onOkPressed: {
@@ -58,6 +59,14 @@ final class MovieHomeScreenViewModel: ObservableObject {
         
         
     }
+    
+    func loadNextSetOfNowPlayingMovies() async {
+            do {
+                try await self.fetchNextPageOfNowPlayingMovies()
+            } catch {
+                print(error)
+            }
+        }
     
     func fetchUpcomingMovies() async throws {
         let resource = Resource(url: Constants.Urls.upcoming,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: MovieResponse.self)
