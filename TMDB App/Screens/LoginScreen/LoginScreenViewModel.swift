@@ -16,7 +16,8 @@ class LoginScreenViewModel: ObservableObject {
         @Published var validateURL: URL?
         
         var requestToken: String?
-        
+        var sessionId: String?
+    
         func fetchRequestTokenURL() async throws {
             let resource = Resource(url: Constants.Urls.fetchRequestToken,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: RequestTokenDTO.self)
             
@@ -47,7 +48,7 @@ class LoginScreenViewModel: ObservableObject {
         let resource = try Resource(url: Constants.Urls.sessionId, method: .post(JSONEncoder().encode(data), ([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")])), modelType: SessionIdDTO.self)
         
         let sessionIdDTO = try await httpClient.load(resource)
-        
+        sessionId = sessionIdDTO.sessionID
         print(sessionIdDTO)
     }
     

@@ -7,9 +7,9 @@
 
 import SwiftUI
 
+
 struct ContentView1: View {
-    
-    @StateObject var viewModel = ContentViewViewModel(httpClient: HTTPClient())
+
     @State private var selection: AppScreen? = .homeScreen
 
         var body: some View {

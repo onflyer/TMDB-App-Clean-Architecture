@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3B20E7BC2B0930A3001F373B /* NavigationEnvirnomentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20E7BB2B0930A3001F373B /* NavigationEnvirnomentKey.swift */; };
-		3B22E04D2B2F4F2F00AA5377 /* ContentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E04C2B2F4F2F00AA5377 /* ContentViewViewModel.swift */; };
 		3B22E04F2B2F4FA700AA5377 /* MovieHomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E04E2B2F4FA700AA5377 /* MovieHomeScreenViewModel.swift */; };
 		3B22E0512B2F527000AA5377 /* MovieSearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E0502B2F527000AA5377 /* MovieSearchScreenViewModel.swift */; };
 		3B22E0532B2F53C900AA5377 /* MovieDetailScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E0522B2F53C900AA5377 /* MovieDetailScreenViewModel.swift */; };
@@ -69,7 +68,6 @@
 
 /* Begin PBXFileReference section */
 		3B20E7BB2B0930A3001F373B /* NavigationEnvirnomentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationEnvirnomentKey.swift; sourceTree = "<group>"; };
-		3B22E04C2B2F4F2F00AA5377 /* ContentViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewViewModel.swift; sourceTree = "<group>"; };
 		3B22E04E2B2F4FA700AA5377 /* MovieHomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeScreenViewModel.swift; sourceTree = "<group>"; };
 		3B22E0502B2F527000AA5377 /* MovieSearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchScreenViewModel.swift; sourceTree = "<group>"; };
 		3B22E0522B2F53C900AA5377 /* MovieDetailScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailScreenViewModel.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				3B22E0562B2F561100AA5377 /* ContentView1.swift */,
-				3B22E04C2B2F4F2F00AA5377 /* ContentViewViewModel.swift */,
 			);
 			path = RootScreen;
 			sourceTree = "<group>";
@@ -455,7 +452,6 @@
 				3B87829D2AE427230098C228 /* Endpoint.swift in Sources */,
 				3B22E0512B2F527000AA5377 /* MovieSearchScreenViewModel.swift in Sources */,
 				3B62919F2B0FF3C50010E395 /* MovieSearchRowView.swift in Sources */,
-				3B22E04D2B2F4F2F00AA5377 /* ContentViewViewModel.swift in Sources */,
 				3BE55C392B0AB85E0092360B /* MovieDetailTrailersSection.swift in Sources */,
 				3B6291A12B0FFC110010E395 /* MovieSearchListView.swift in Sources */,
 				3B7109FF2B2DC25F00A9395E /* CachedImageManager.swift in Sources */,
