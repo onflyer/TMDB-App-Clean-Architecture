@@ -25,6 +25,9 @@ struct LoginScreen: View {
                     await viewModel.loadSessionId()
                 }
             }
+            Button("print Session id") {
+                print(viewModel.sessionId)
+            }
             
         }
         .task {

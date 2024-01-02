@@ -7,16 +7,21 @@
 
 import Foundation
 import Dependencies
+import KeychainSwift
 
 @MainActor
 class LoginScreenViewModel: ObservableObject {
     
-    @Dependency(\.httpClient) var httpClient
+   
+        @Dependency(\.httpClient) var httpClient
     
         @Published var validateURL: URL?
         
         var requestToken: String?
-        var sessionId: String?
+        
+        //MARK: Persists through launches
+        @KeychainStorage(key: "sessionId") var sessionId: String?
+    
     
         func fetchRequestTokenURL() async throws {
             let resource = Resource(url: Constants.Urls.fetchRequestToken,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: RequestTokenDTO.self)
@@ -49,7 +54,6 @@ class LoginScreenViewModel: ObservableObject {
         
         let sessionIdDTO = try await httpClient.load(resource)
         sessionId = sessionIdDTO.sessionID
-        print(sessionIdDTO)
     }
     
     func loadSessionId() async {
