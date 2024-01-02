@@ -18,7 +18,38 @@ struct MovieDetailScreen1: View {
             ScrollView {
                     if let movie = viewModel.movie {
                         MovieDetailImage1(movie: movie)
-                            .padding(.bottom)
+                            
+                        Button(action: {
+                            
+                                if !viewModel.isFavorite {
+                                    Task {
+                                        await viewModel.loadPostToFavorites(movieId: movieId)
+                                        viewModel.isFavorite = true
+                                    }
+                                    
+                                } else {
+                                    Task {
+                                        await viewModel.loadDeleteFavoriteMovie(movieId:movieId)
+                                        viewModel.isFavorite = false
+                                    }
+                                   
+                                }
+                            
+                        }, label: {
+                            HStack(alignment: .firstTextBaseline, content: {
+                                Text(viewModel.isFavorite ? "Remove from favorites" : "Add to favorites")
+                                    .bold()
+                                    .animation(.default)
+                                Spacer()
+                                Image(systemName: viewModel.isFavorite ? "heart.fill" : "heart")
+                                    .animation(.default)
+                            })
+                            .padding(.horizontal)
+                            .padding(.vertical, 5)
+                        })
+                        
+                        
+                
                         MovieDetailTrailersSection(movie: movie)
                             .padding(.horizontal)
                         MovieDescriptionSection(movie: movie)
@@ -27,6 +58,7 @@ struct MovieDetailScreen1: View {
                             .padding(.horizontal)
                         MovieCastSection(movie: movie)
                             .navigationTitle(movie.title)
+                        
                             
                     }
             }
