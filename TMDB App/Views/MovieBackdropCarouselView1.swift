@@ -30,6 +30,7 @@ struct MovieBackdropCarouselView1: View {
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 8)
+                
             }
         }
     }

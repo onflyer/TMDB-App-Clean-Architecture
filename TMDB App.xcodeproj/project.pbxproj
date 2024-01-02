@@ -55,6 +55,7 @@
 		3B8782A32AE427E70098C228 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782A22AE427E70098C228 /* Constants.swift */; };
 		3B8782AC2AE42A780098C228 /* NowPlaying.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B8782AB2AE42A780098C228 /* NowPlaying.json */; };
 		3B8782AF2AE42BEC0098C228 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8782AE2AE42BEC0098C228 /* MovieResponse.swift */; };
+		3BA31E342B4429FE009BDCB2 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3BA31E332B4429FE009BDCB2 /* KeychainSwift */; };
 		3BA7E0C12B0BC5B800A13629 /* SingleMovieResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BA7E0C02B0BC5B800A13629 /* SingleMovieResponse.json */; };
 		3BA7E0C32B0C068900A13629 /* MovieDescriptionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7E0C22B0C068900A13629 /* MovieDescriptionSection.swift */; };
 		3BA7E0C52B0C123100A13629 /* MovieCastSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7E0C42B0C123100A13629 /* MovieCastSection.swift */; };
@@ -130,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BA31E342B4429FE009BDCB2 /* KeychainSwift in Frameworks */,
 				3B2E63742B4197460040FA83 /* DependenciesMacros in Frameworks */,
 				3B2E63722B4197460040FA83 /* Dependencies in Frameworks */,
 			);
@@ -379,6 +381,7 @@
 			packageProductDependencies = (
 				3B2E63712B4197460040FA83 /* Dependencies */,
 				3B2E63732B4197460040FA83 /* DependenciesMacros */,
+				3BA31E332B4429FE009BDCB2 /* KeychainSwift */,
 			);
 			productName = "TMDB App";
 			productReference = 3B8782842AE4261C0098C228 /* TMDB App.app */;
@@ -410,6 +413,7 @@
 			mainGroup = 3B87827B2AE4261C0098C228;
 			packageReferences = (
 				3B2E63702B4197460040FA83 /* XCRemoteSwiftPackageReference "swift-dependencies" */,
+				3BA31E322B4429FE009BDCB2 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 3B8782852AE4261C0098C228 /* Products */;
 			projectDirPath = "";
@@ -707,6 +711,14 @@
 				minimumVersion = 1.1.5;
 			};
 		};
+		3BA31E322B4429FE009BDCB2 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -719,6 +731,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3B2E63702B4197460040FA83 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
 			productName = DependenciesMacros;
+		};
+		3BA31E332B4429FE009BDCB2 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BA31E322B4429FE009BDCB2 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

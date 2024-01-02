@@ -44,6 +44,7 @@ struct MovieThumbnailBackdropView1: View {
         }
         .aspectRatio(16/9, contentMode: .fit)
         .frame(height: 160)
+       
     }
 }
 
