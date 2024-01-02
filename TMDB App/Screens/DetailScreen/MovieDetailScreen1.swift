@@ -19,36 +19,7 @@ struct MovieDetailScreen1: View {
                     if let movie = viewModel.movie {
                         MovieDetailImage1(movie: movie)
                             
-                        Button(action: {
-                            
-                                if !viewModel.isFavorite {
-                                    Task {
-                                        await viewModel.loadPostToFavorites(movieId: movieId)
-                                        viewModel.isFavorite = true
-                                    }
-                                    
-                                } else {
-                                    Task {
-                                        await viewModel.loadDeleteFavoriteMovie(movieId:movieId)
-                                        viewModel.isFavorite = false
-                                    }
-                                   
-                                }
-                            
-                        }, label: {
-                            HStack(alignment: .firstTextBaseline, content: {
-                                Text(viewModel.isFavorite ? "Remove from favorites" : "Add to favorites")
-                                    .bold()
-                                    .animation(.default)
-                                Spacer()
-                                Image(systemName: viewModel.isFavorite ? "heart.fill" : "heart")
-                                    .animation(.default)
-                            })
-                            .padding(.horizontal)
-                            .padding(.vertical, 5)
-                        })
-                        
-                        
+                        favoriteButton
                 
                         MovieDetailTrailersSection(movie: movie)
                             .padding(.horizontal)
@@ -77,23 +48,42 @@ struct MovieDetailScreen1: View {
             .onDisappear {
                 viewModel.movie = nil
         }
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        Task {
-                            await viewModel.loadPostToFavorites(movieId: movieId)
-                        }
-                    }, label: {
-                     Text("Add to favorites")
-                            .bold()
-                            
-                            
-                    })
+    }
+  
+    private var favoriteButton: some View {
+        Button(action: {
+            
+                if !viewModel.isFavorite {
+                    Task {
+                        await viewModel.loadPostToFavorites(movieId: movieId)
+                        viewModel.isFavorite = true
+                    }
                     
+                } else {
+                    Task {
+                        await viewModel.loadDeleteFavoriteMovie(movieId:movieId)
+                        viewModel.isFavorite = false
+                    }
+                   
                 }
-            }
+            
+        }, label: {
+            HStack(alignment: .firstTextBaseline, content: {
+                Text(viewModel.isFavorite ? "Remove from favorites" : "Add to favorites")
+                    .bold()
+                    .animation(.default)
+                Spacer()
+                Image(systemName: viewModel.isFavorite ? "heart.fill" : "heart")
+                    .animation(.default)
+            })
+            .padding(.horizontal)
+            .padding(.vertical, 5)
+        })
+
     }
 }
+
+
 
 #Preview {
     NavigationStack {
