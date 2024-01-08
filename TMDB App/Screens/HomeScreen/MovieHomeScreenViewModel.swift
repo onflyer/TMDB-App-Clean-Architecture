@@ -81,6 +81,26 @@ final class MovieHomeScreenViewModel: ObservableObject {
         }
     }
     
+    func fetchNextPageOfUpcomingMovies() async throws {
+        page += 1
+        let resource = Resource(url: Constants.Urls.upcoming,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "page", value: String(page))]), modelType: MovieResponse.self)
+        
+        let movieResults = try await httpClient.load(resource)
+        upcomingMovies1.append(contentsOf: movieResults.results)
+        
+        
+    }
+    func loadNextSetOfUpcomingMovies() async {
+            do {
+                try await self.fetchNextPageOfUpcomingMovies()
+            } catch {
+                print(error)
+            }
+        }
+    
+    
+    
+    
     func fetchTopRatedMovies() async throws {
         let resource = Resource(url: Constants.Urls.topRated,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: MovieResponse.self)
         

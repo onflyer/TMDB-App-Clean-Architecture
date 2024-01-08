@@ -18,13 +18,13 @@ struct MovieHomeScreen1: View {
                     if viewModel.nowPlayingMovies1.isEmpty {
                         CarouselPosterProgressView()
                     } else {
-                        MoviePosterCarouselView1(title: "Now Playing", movie: viewModel.nowPlayingMovies1)
+                        nowPlayingSection
                     }
 
                     if viewModel.upcomingMovies1.isEmpty {
                         CarouselPosterProgressView()
                     } else {
-                        MovieBackdropCarouselView1(title: "Upcoming", movie: viewModel.upcomingMovies1)
+                        upcomingSection
                     }
 
                     if viewModel.topRatedMovies1.isEmpty {
@@ -60,8 +60,74 @@ struct MovieHomeScreen1: View {
         }
         
     }
+    
+    var nowPlayingSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            
+            Text("Now playing")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.horizontal)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(alignment: .top, spacing: 16) {
+                    ForEach(viewModel.nowPlayingMovies1) { movie in
+                        NavigationLink(destination: MovieDetailScreen1(movieId: movie.id)) {
+                            MovieThumbnailPosterView1(movie: movie)
+                        }
+                        .onAppear {
+                            if viewModel.nowPlayingMovies1.last?.id == movie.id {
+                                Task {
+                                    await viewModel.loadNextSetOfNowPlayingMovies()
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+            }
+        }
+    }
+    
+    var upcomingSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            
+            Text("Upcoming")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.horizontal)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(alignment: .top, spacing: 16) {
+                    ForEach(viewModel.upcomingMovies1) { movie in
+                        NavigationLink(destination: MovieDetailScreen1(movieId: movie.id), label: {
+                            MovieThumbnailBackdropView1(movie: movie)
+                        })
+                        .onAppear {
+                            if viewModel.upcomingMovies1.last?.id == movie.id {
+                                Task {
+                                    await viewModel.loadNextSetOfUpcomingMovies()
+                                }
+                            }
+                        }
+                        .foregroundStyle(.primary)
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+                
+            }
+        }
+    }
 }
 
 #Preview {
     MovieHomeScreen1()
 }
+
+
+
+
+

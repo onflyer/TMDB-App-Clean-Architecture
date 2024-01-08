@@ -27,16 +27,19 @@ struct MoviePosterCarouselView1: View {
                             MovieThumbnailPosterView1(movie: movie)
                         }
                         
+                                
+                            
+                        }
                     }
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    
+                    
                 }
-                .padding(.horizontal)
-                .padding(.vertical, 8)
-                
-              
             }
         }
     }
-}
+
 
 #Preview {
     MoviePosterCarouselView1(title: "Preview Title", movie: Movie.stubbedMovies)
