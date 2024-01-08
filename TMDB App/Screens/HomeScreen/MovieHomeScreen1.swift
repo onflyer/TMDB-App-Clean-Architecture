@@ -30,17 +30,18 @@ struct MovieHomeScreen1: View {
                     if viewModel.topRatedMovies1.isEmpty {
                         CarouselPosterProgressView()
                     } else {
-                        MovieBackdropCarouselView1(title: "Top Rated", movie: viewModel.topRatedMovies1)
+                        topRatedSection
                     }
 
                     if viewModel.popularMovies1.isEmpty {
                         CarouselPosterProgressView()
                     } else {
-                        MovieBackdropCarouselView1(title: "Popular", movie: viewModel.popularMovies1)
+                        popularSection
                     }
 
                 }
             }
+            
             .navigationTitle("TMDB App")
         }
         .scrollIndicators(.hidden)
@@ -109,6 +110,68 @@ struct MovieHomeScreen1: View {
                             if viewModel.upcomingMovies1.last?.id == movie.id {
                                 Task {
                                     await viewModel.loadNextSetOfUpcomingMovies()
+                                }
+                            }
+                        }
+                        .foregroundStyle(.primary)
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+                
+            }
+        }
+    }
+    
+    var topRatedSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            
+            Text("Top Rated")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.horizontal)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(alignment: .top, spacing: 16) {
+                    ForEach(viewModel.topRatedMovies1) { movie in
+                        NavigationLink(destination: MovieDetailScreen1(movieId: movie.id), label: {
+                            MovieThumbnailBackdropView1(movie: movie)
+                        })
+                        .onAppear {
+                            if viewModel.topRatedMovies1.last?.id == movie.id {
+                                Task {
+                                    await viewModel.loadNextSetOfTopRatedMovies()
+                                }
+                            }
+                        }
+                        .foregroundStyle(.primary)
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+                
+            }
+        }
+    }
+    
+    var popularSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            
+            Text("Popular")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.horizontal)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(alignment: .top, spacing: 16) {
+                    ForEach(viewModel.popularMovies1) { movie in
+                        NavigationLink(destination: MovieDetailScreen1(movieId: movie.id), label: {
+                            MovieThumbnailBackdropView1(movie: movie)
+                        })
+                        .onAppear {
+                            if viewModel.popularMovies1.last?.id == movie.id {
+                                Task {
+                                    await viewModel.loadNextSetOfPopularMovies()
                                 }
                             }
                         }
