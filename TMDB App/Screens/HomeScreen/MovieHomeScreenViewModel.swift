@@ -36,17 +36,13 @@ final class MovieHomeScreenViewModel: ObservableObject {
     func loadNowPlayingMovies() async {
         do {
             try await self.fetchNowPlayingMovies()
-            
         } catch {
-            self.showAlert = true
-            self.alert = .noInternetConnection(onOkPressed: {
-                
-            }, onRetryPressed: {
-                Task {
-                    try await self.fetchNowPlayingMovies()
-                }
-            })
-            print(error)
+            self.hasError = true
+            if let networkingError = error as? NetworkError {
+                self.error = networkingError
+            } else {
+                self.error = .custom(error: error)
+            }
         }
     }
     

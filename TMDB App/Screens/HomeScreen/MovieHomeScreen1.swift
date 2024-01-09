@@ -51,14 +51,25 @@ struct MovieHomeScreen1: View {
             await viewModel.loadTopRatedMovies()
             await viewModel.loadPopularMovies()
         }
-        
-        .alert(viewModel.alert?.title ?? "Error", isPresented: Binding(projectedValue: $viewModel.showAlert)) {
-            viewModel.alert?.getButtonsForAlert
-        } message: {
-            if let subtitle = viewModel.alert?.subtitle {
-                Text(subtitle)
+
+        .alert(isPresented: $viewModel.hasError, error: viewModel.error) { error in
+            Text("Error: \(error.localizedDescription)")
+            
+            Button("Cancel", role: .cancel) {
+                
             }
+            
+            Button("Retry") {
+                Task {
+                    await viewModel.loadNowPlayingMovies()
+                }
+            }
+            
+        } message: { messsage in
+            Text("Message placeholder")
         }
+
+        //MARK: ALERT place
         
     }
     
