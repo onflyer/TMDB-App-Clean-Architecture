@@ -31,7 +31,8 @@ final class CachedImageManager: ObservableObject {
             self.currentState = .success(data: data)
             cache.set(object: data as NSData , forKey: imgUrl as NSString)
             #if DEBUG
-                print("Caching image: \(imgUrl)")
+            print("Caching image: \(imgUrl)")
+                
             #endif
         } catch {
             self.currentState = .failed(error: error)

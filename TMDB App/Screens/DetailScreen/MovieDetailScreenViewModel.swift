@@ -14,7 +14,6 @@ final class MovieDetailScreenViewModel: ObservableObject {
     @Dependency(\.httpClient) var httpClient
     
     
-    @Published var isFavorite: Bool = false
     @Published var isLoading: Bool = false
     @Published var movie: SingleMovieResponse? = nil
     

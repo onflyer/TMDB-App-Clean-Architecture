@@ -64,7 +64,6 @@ struct MovieDetailScreen1: View {
                 
                     Task {
                         await viewModel.loadPostToFavorites(movieId: movieId)
-                        viewModel.isFavorite = true
                         await favoritesViewmodel.loadFavoriteMovies()
                     }
                     
@@ -72,7 +71,6 @@ struct MovieDetailScreen1: View {
                     print("this movie is favorite")
                     Task {
                         await viewModel.loadDeleteFavoriteMovie(movieId:movieId)
-                        viewModel.isFavorite = false
                         dismiss()
                         await favoritesViewmodel.loadFavoriteMovies()
                     }
