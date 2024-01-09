@@ -68,7 +68,7 @@ struct MovieHomeScreen1: View {
             Text("Message placeholder")
         }
 
-        //MARK: ALERT place
+        
         
     }
     
