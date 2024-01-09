@@ -19,7 +19,7 @@ struct MovieSearchScreen1: View {
             
                 .onChange(of: viewModel.query, perform: { value in
                     Task {
-                        try await viewModel.fetchSearchedMovie(query:value)
+                        try await viewModel.loadSearchedMovie(query:value)
                     }
                 })
                 .searchable(text: $viewModel.query, prompt: "Search movies")

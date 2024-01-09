@@ -33,9 +33,9 @@ final class MovieSearchScreenViewModel: ObservableObject {
            searchedMovies1.removeAll()
            return
        }
-       isLoading = true
+        isLoading = true
        do {
-           try await self.loadSearchedMovie(query: trimmedQuery)
+           try await self.fetchSearchedMovie(query: trimmedQuery)
        } catch {
            print(error)
        }
