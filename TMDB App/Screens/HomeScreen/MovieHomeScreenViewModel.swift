@@ -17,6 +17,9 @@ final class MovieHomeScreenViewModel: ObservableObject {
     @Published var alert: CustomAlert? = nil
     @Published var showAlert: Bool = false
     
+    @Published var error: NetworkError?
+    @Published var hasError: Bool = false
+    
     @Published var nowPlayingMovies1: [Movie] = []
     @Published var upcomingMovies1: [Movie] = []
     @Published var topRatedMovies1: [Movie] = []

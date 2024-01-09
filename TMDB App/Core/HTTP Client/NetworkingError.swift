@@ -12,6 +12,7 @@ enum NetworkError: Error {
     case serverError(String)
     case decodingError
     case invalidResponse
+    case invalidStatusCode(statusCode: Int)
 }
 
 extension NetworkError: LocalizedError {
@@ -25,6 +26,8 @@ extension NetworkError: LocalizedError {
             return NSLocalizedString("Unable to decode successfully", comment: "decodingError")
         case .invalidResponse:
             return NSLocalizedString("Invalid response", comment: "invalidResponse")
+        case .invalidStatusCode(statusCode: let statusCode):
+            return NSLocalizedString("Status code falls in the wrong range: \(statusCode)", comment: "invalidStatusCode")
         }
     }
 }

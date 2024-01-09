@@ -46,8 +46,9 @@ struct HTTPClient {
         
         let (data, response) = try await session.data(for: request)
         
-        guard let _ = response as? HTTPURLResponse else {
-            throw NetworkError.invalidResponse
+        guard let response = response as? HTTPURLResponse, (200...300) ~= response.statusCode else {
+            let statusCode = (response as! HTTPURLResponse).statusCode
+            throw NetworkError.invalidStatusCode(statusCode: statusCode)
         }
         
         
