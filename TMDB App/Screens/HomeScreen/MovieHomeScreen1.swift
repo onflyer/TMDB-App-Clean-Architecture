@@ -51,7 +51,6 @@ struct MovieHomeScreen1: View {
             await viewModel.loadTopRatedMovies()
             await viewModel.loadPopularMovies()
         }
-
         .alert(isPresented: $viewModel.hasError, error: viewModel.error) { error in
             Text("Error: \(error.localizedDescription)")
             
