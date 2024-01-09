@@ -9,8 +9,11 @@ import SwiftUI
 
 struct MovieDetailScreen1: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @StateObject var viewModel = MovieDetailScreenViewModel()
     let movieId: Int
+    @StateObject var favoritesViewmodel = FavoriteMoviesViewModel()
     
     
     var body: some View {
@@ -44,6 +47,7 @@ struct MovieDetailScreen1: View {
             }
             .task {
                 await viewModel.loadMoviebyId(movieId: movieId)
+                await favoritesViewmodel.loadFavoriteMovies()
             }
             .onDisappear {
                 viewModel.movie = nil
@@ -53,27 +57,39 @@ struct MovieDetailScreen1: View {
     private var favoriteButton: some View {
         Button(action: {
             
-                if !viewModel.isFavorite {
+            if !favoritesViewmodel.favoriteMovies.contains(where: { favotieMovie in
+                favotieMovie.id == movieId
+            }) {
+                print("This movie is not favorite")
+                
                     Task {
                         await viewModel.loadPostToFavorites(movieId: movieId)
                         viewModel.isFavorite = true
+                        await favoritesViewmodel.loadFavoriteMovies()
                     }
                     
                 } else {
+                    print("this movie is favorite")
                     Task {
                         await viewModel.loadDeleteFavoriteMovie(movieId:movieId)
                         viewModel.isFavorite = false
+                        dismiss()
+                        await favoritesViewmodel.loadFavoriteMovies()
                     }
                    
                 }
             
         }, label: {
             HStack(alignment: .firstTextBaseline, content: {
-                Text(viewModel.isFavorite ? "Remove from favorites" : "Add to favorites")
+                Text(favoritesViewmodel.favoriteMovies.contains(where: { favoriteMovie in
+                    favoriteMovie.id == movieId
+                }) ? "Remove from favorites" : "Add to favorites")
                     .bold()
                     .animation(.default)
                 Spacer()
-                Image(systemName: viewModel.isFavorite ? "heart.fill" : "heart")
+                Image(systemName: favoritesViewmodel.favoriteMovies.contains(where: { favoriteMovie in
+                    favoriteMovie.id == movieId
+                }) ? "heart.fill" : "heart")
                     .animation(.default)
             })
             .padding(.horizontal)

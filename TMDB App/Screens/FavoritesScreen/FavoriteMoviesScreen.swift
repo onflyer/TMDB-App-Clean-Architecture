@@ -25,6 +25,7 @@ struct FavoriteMoviesScreen: View {
                         viewModel.swipeToDelete(at: indexSet)
                     })
                 }
+                .animation(.default, value: viewModel.favoriteMovies)
                 .listStyle(.plain)
             }
             .navigationTitle("Favorite movies")
