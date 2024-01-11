@@ -14,7 +14,7 @@ struct MovieHomeScreen1: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack {
+                LazyVStack {
                     if viewModel.nowPlayingMovies1.isEmpty {
                         CarouselPosterProgressView()
                     } else {
