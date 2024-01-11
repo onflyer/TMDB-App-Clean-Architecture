@@ -52,6 +52,22 @@ struct MovieDetailScreen1: View {
             .onDisappear {
                 viewModel.movie = nil
         }
+            .alert(isPresented: $viewModel.hasError, error: viewModel.error) { error in
+                Text("Error: \(error.localizedDescription)")
+                
+                Button("Cancel", role: .cancel) {
+                    
+                }
+                
+                Button("Retry") {
+                    Task {
+                        await viewModel.loadMoviebyId(movieId: movieId)
+                    }
+                }
+                
+            } message: { messsage in
+                Text("Message placeholder")
+            }
     }
   
     private var favoriteButton: some View {

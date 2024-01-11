@@ -37,6 +37,7 @@ final class MovieHomeScreenViewModel: ObservableObject {
         do {
             try await self.fetchNowPlayingMovies()
         } catch {
+            print(error)
             self.hasError = true
             if let networkingError = error as? NetworkError {
                 self.error = networkingError
@@ -61,6 +62,12 @@ final class MovieHomeScreenViewModel: ObservableObject {
                 try await self.fetchNextPageOfNowPlayingMovies()
             } catch {
                 print(error)
+                self.hasError = true
+                if let networkingError = error as? NetworkError {
+                    self.error = networkingError
+                } else {
+                    self.error = .custom(error: error)
+                }
             }
         }
     
@@ -77,6 +84,12 @@ final class MovieHomeScreenViewModel: ObservableObject {
             try await self.fetchUpcomingMovies()
         } catch {
             print(error)
+            self.hasError = true
+            if let networkingError = error as? NetworkError {
+                self.error = networkingError
+            } else {
+                self.error = .custom(error: error)
+            }
         }
     }
     
@@ -94,6 +107,12 @@ final class MovieHomeScreenViewModel: ObservableObject {
                 try await self.fetchNextPageOfUpcomingMovies()
             } catch {
                 print(error)
+                self.hasError = true
+                if let networkingError = error as? NetworkError {
+                    self.error = networkingError
+                } else {
+                    self.error = .custom(error: error)
+                }
             }
         }
     
@@ -113,6 +132,12 @@ final class MovieHomeScreenViewModel: ObservableObject {
             try await self.fetchTopRatedMovies()
         } catch {
             print(error)
+            self.hasError = true
+            if let networkingError = error as? NetworkError {
+                self.error = networkingError
+            } else {
+                self.error = .custom(error: error)
+            }
         }
         
     }
@@ -131,6 +156,12 @@ final class MovieHomeScreenViewModel: ObservableObject {
                 try await self.fetchNextPageOfTopRatedMovies()
             } catch {
                 print(error)
+                self.hasError = true
+                if let networkingError = error as? NetworkError {
+                    self.error = networkingError
+                } else {
+                    self.error = .custom(error: error)
+                }
             }
         }
     
@@ -146,6 +177,12 @@ final class MovieHomeScreenViewModel: ObservableObject {
             try await self.fetchPopularMovies()
         } catch {
             print(error)
+            self.hasError = true
+            if let networkingError = error as? NetworkError {
+                self.error = networkingError
+            } else {
+                self.error = .custom(error: error)
+            }
         }
     }
     
@@ -163,6 +200,12 @@ final class MovieHomeScreenViewModel: ObservableObject {
                 try await self.fetchNextPageOfPopularMovies()
             } catch {
                 print(error)
+                self.hasError = true
+                if let networkingError = error as? NetworkError {
+                    self.error = networkingError
+                } else {
+                    self.error = .custom(error: error)
+                }
             }
         }
    

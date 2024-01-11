@@ -40,6 +40,22 @@ struct FavoriteMoviesScreen: View {
         .task {
             await viewModel.loadFavoriteMovies()
         }
+        .alert(isPresented: $viewModel.hasError, error: viewModel.error) { error in
+            Text("Error: \(error.localizedDescription)")
+            
+            Button("Cancel", role: .cancel) {
+                
+            }
+            
+            Button("Retry") {
+                Task {
+                    await viewModel.loadFavoriteMovies()
+                }
+            }
+            
+        } message: { messsage in
+            Text("Message placeholder")
+        }
     }
 }
 

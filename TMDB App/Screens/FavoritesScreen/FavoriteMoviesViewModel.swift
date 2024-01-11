@@ -13,6 +13,9 @@ class FavoriteMoviesViewModel: ObservableObject {
     
     @Dependency(\.httpClient) var httpClient
     
+    @Published var error: NetworkError?
+    @Published var hasError: Bool = false
+    
     var page = 1
     
     @Published var favoriteMovies: [Movie] = []
@@ -30,6 +33,12 @@ class FavoriteMoviesViewModel: ObservableObject {
             try await fetchFavoriteMovies()
         } catch {
             print(error)
+            self.hasError = true
+            if let networkingError = error as? NetworkError {
+                self.error = networkingError
+            } else {
+                self.error = .custom(error: error)
+            }
         }
     }
     
@@ -53,6 +62,13 @@ class FavoriteMoviesViewModel: ObservableObject {
             try await fetchDeleteFavoriteMovie(movieId: movieId)
         } catch {
             print(error)
+            self.hasError = true
+            if let networkingError = error as? NetworkError {
+                self.error = networkingError
+            } else {
+                self.error = .custom(error: error)
+            }
+            
         }
     }
     
