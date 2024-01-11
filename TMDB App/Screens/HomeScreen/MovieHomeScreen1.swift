@@ -14,7 +14,7 @@ struct MovieHomeScreen1: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVStack {
+                VStack {
                     if viewModel.nowPlayingMovies1.isEmpty {
                         CarouselPosterProgressView()
                     } else {
@@ -40,17 +40,25 @@ struct MovieHomeScreen1: View {
                     }
 
                 }
+
             }
             
             .navigationTitle("TMDB App")
         }
         .scrollIndicators(.hidden)
+        .refreshable {
+            await viewModel.loadNowPlayingMovies()
+            await viewModel.loadUpcomingMovies()
+            await viewModel.loadTopRatedMovies()
+            await viewModel.loadPopularMovies()
+        }
         .task {
             await viewModel.loadNowPlayingMovies()
             await viewModel.loadUpcomingMovies()
             await viewModel.loadTopRatedMovies()
             await viewModel.loadPopularMovies()
         }
+
         .alert(isPresented: $viewModel.hasError, error: viewModel.error) { error in
             Text("Error: \(error.localizedDescription)")
             
@@ -67,8 +75,6 @@ struct MovieHomeScreen1: View {
         } message: { messsage in
             Text("Message placeholder")
         }
-
-        
         
     }
     
