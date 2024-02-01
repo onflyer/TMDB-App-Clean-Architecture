@@ -1,5 +1,5 @@
 # Movies-TMDB-SwiftUI-MVVM
-![Simulator Screenshot - iPhone 15 Pro - 2024-02-01 at 20 30 36]()
+
 
 
 
