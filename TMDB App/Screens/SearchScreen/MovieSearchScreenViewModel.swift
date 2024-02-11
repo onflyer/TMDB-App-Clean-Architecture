@@ -11,7 +11,7 @@ import Dependencies
 @MainActor
 final class MovieSearchScreenViewModel: ObservableObject {
     
-    @Dependency(\.httpClient) var httpClient
+//    @Dependency(\.httpClient) var httpClient
     
     @Published var query = ""
     @Published var isLoading: Bool = false
@@ -22,7 +22,7 @@ final class MovieSearchScreenViewModel: ObservableObject {
     func fetchSearchedMovie(query: String) async throws {
         let resource = Resource(url: Constants.Urls.searchURL, method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"),URLQueryItem(name: "language", value: "en-US"),URLQueryItem(name: "include_adult", value: "true"),URLQueryItem(name: "region", value: "US"),URLQueryItem(name: "query", value: query)]), modelType: MovieResponse.self)
         
-        let searchResults = try await httpClient.load(resource)
+        let searchResults = try await HTTPClient.shared.load(resource)
         searchedMovies1 = searchResults.results
     }
     

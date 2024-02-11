@@ -11,7 +11,7 @@ import Dependencies
 @MainActor
 class FavoriteMoviesViewModel: ObservableObject {
     
-    @Dependency(\.httpClient) var httpClient
+//    @Dependency(\.httpClient) var httpClient
     
     @Published var error: NetworkError?
     @Published var hasError: Bool = false
@@ -24,7 +24,7 @@ class FavoriteMoviesViewModel: ObservableObject {
     func fetchFavoriteMovies() async throws {
         let resource =  Resource(url: Constants.Urls.favoriteMovies, method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "session_id", value: "954a0e7f7e9c282ade3daaab053db4e20c870209"),URLQueryItem(name: "page", value: String(page)),URLQueryItem(name: "language", value: "en-US"),URLQueryItem(name: "sort_by", value: "created_at.desc")]), modelType: MovieResponse.self)
         
-        let favoriteResults = try await httpClient.load(resource)
+        let favoriteResults = try await HTTPClient.shared.load(resource)
          favoriteMovies = favoriteResults.results
     }
     
@@ -48,7 +48,7 @@ class FavoriteMoviesViewModel: ObservableObject {
         
         let resource = try Resource(url: Constants.Urls.deleteFavoriteMovie, method: .post(JSONEncoder().encode(data), [URLQueryItem(name: "session_id", value: "954a0e7f7e9c282ade3daaab053db4e20c870209"), URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: FavoriteResponseDTO.self)
         
-        let deletedMovie = try await httpClient.load(resource)
+        let deletedMovie = try await HTTPClient.shared.load(resource)
         print(deletedMovie)
         
         favoriteMovies = favoriteMovies.filter {

@@ -12,7 +12,7 @@ import Dependencies
 @MainActor
 final class MovieHomeScreenViewModel: ObservableObject {
     
-    @Dependency(\.httpClient) var httpClient
+//    @Dependency(\.httpClient) var httpClient
     
     @Published var alert: CustomAlert? = nil
     @Published var showAlert: Bool = false
@@ -29,8 +29,10 @@ final class MovieHomeScreenViewModel: ObservableObject {
     func fetchNowPlayingMovies() async throws {
         let resource = Resource(url: Constants.Urls.nowPlaying,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: MovieResponse.self)
         
-        let movieResults = try await httpClient.load(resource)
+        let movieResults = try await HTTPClient.shared.load(resource)
         nowPlayingMovies1 = movieResults.results
+        
+        
     }
     
     func loadNowPlayingMovies() async {
@@ -51,7 +53,7 @@ final class MovieHomeScreenViewModel: ObservableObject {
         page += 1
         let resource = Resource(url: Constants.Urls.nowPlaying,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "page", value: String(page))]), modelType: MovieResponse.self)
         
-        let movieResults = try await httpClient.load(resource)
+        let movieResults = try await HTTPClient.shared.load(resource)
         nowPlayingMovies1.append(contentsOf: movieResults.results)
         
         
@@ -74,7 +76,7 @@ final class MovieHomeScreenViewModel: ObservableObject {
     func fetchUpcomingMovies() async throws {
         let resource = Resource(url: Constants.Urls.upcoming,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: MovieResponse.self)
         
-        let movieResults = try await httpClient.load(resource)
+        let movieResults = try await HTTPClient.shared.load(resource)
         upcomingMovies1 = movieResults.results
         
         
@@ -97,7 +99,7 @@ final class MovieHomeScreenViewModel: ObservableObject {
         page += 1
         let resource = Resource(url: Constants.Urls.upcoming,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "page", value: String(page))]), modelType: MovieResponse.self)
         
-        let movieResults = try await httpClient.load(resource)
+        let movieResults = try await HTTPClient.shared.load(resource)
         upcomingMovies1.append(contentsOf: movieResults.results)
         
         
@@ -122,7 +124,7 @@ final class MovieHomeScreenViewModel: ObservableObject {
     func fetchTopRatedMovies() async throws {
         let resource = Resource(url: Constants.Urls.topRated,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: MovieResponse.self)
         
-        let movieResults = try await httpClient.load(resource)
+        let movieResults = try await HTTPClient.shared.load(resource)
         topRatedMovies1 = movieResults.results
     }
     
@@ -146,7 +148,7 @@ final class MovieHomeScreenViewModel: ObservableObject {
         page += 1
         let resource = Resource(url: Constants.Urls.topRated,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "page", value: String(page))]), modelType: MovieResponse.self)
         
-        let movieResults = try await httpClient.load(resource)
+        let movieResults = try await HTTPClient.shared.load(resource)
         topRatedMovies1.append(contentsOf: movieResults.results)
         
         
@@ -168,7 +170,7 @@ final class MovieHomeScreenViewModel: ObservableObject {
     func fetchPopularMovies() async throws {
         let resource = Resource(url: Constants.Urls.popular,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: MovieResponse.self)
         
-        let movieResults = try await httpClient.load(resource)
+        let movieResults = try await HTTPClient.shared.load(resource)
         popularMovies1 = movieResults.results
     }
     func loadPopularMovies() async {
@@ -190,7 +192,7 @@ final class MovieHomeScreenViewModel: ObservableObject {
         page += 1
         let resource = Resource(url: Constants.Urls.upcoming,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "page", value: String(page))]), modelType: MovieResponse.self)
         
-        let movieResults = try await httpClient.load(resource)
+        let movieResults = try await HTTPClient.shared.load(resource)
         popularMovies1.append(contentsOf: movieResults.results)
         
         

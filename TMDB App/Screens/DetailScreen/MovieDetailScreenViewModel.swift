@@ -11,7 +11,7 @@ import Dependencies
 @MainActor
 final class MovieDetailScreenViewModel: ObservableObject {
     
-    @Dependency(\.httpClient) var httpClient
+//    @Dependency(\.httpClient) var httpClient
     
     @Published var error: NetworkError?
     @Published var hasError: Bool = false
@@ -23,7 +23,7 @@ final class MovieDetailScreenViewModel: ObservableObject {
     func fetchMovieById(movieId: Int) async throws {
         let resource = Resource(url: Constants.Urls.singleMovie(movieId: movieId), method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "append_to_response", value: "videos,credits")]), modelType: SingleMovieResponse.self)
         
-        movie = try await httpClient.load(resource)
+        movie = try await HTTPClient.shared.load(resource)
     }
     
     func loadMoviebyId(movieId: Int) async {
@@ -50,7 +50,7 @@ final class MovieDetailScreenViewModel: ObservableObject {
         let resource = try Resource(url: Constants.Urls.postToFavorites, method: .post(JSONEncoder().encode(data), [URLQueryItem(name: "session_id", value: "954a0e7f7e9c282ade3daaab053db4e20c870209"), URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: FavoriteResponseDTO.self)
         print(resource)
         
-        let newFavoriteMovie = try await httpClient.load(resource)
+        let newFavoriteMovie = try await HTTPClient.shared.load(resource)
         print(newFavoriteMovie)
     }
     
@@ -74,7 +74,7 @@ final class MovieDetailScreenViewModel: ObservableObject {
         
         let resource = try Resource(url: Constants.Urls.deleteFavoriteMovie, method: .post(JSONEncoder().encode(data), [URLQueryItem(name: "session_id", value: "954a0e7f7e9c282ade3daaab053db4e20c870209"), URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: FavoriteResponseDTO.self)
         
-        let deletedMovie = try await httpClient.load(resource)
+        let deletedMovie = try await HTTPClient.shared.load(resource)
         print(deletedMovie)
         
     }

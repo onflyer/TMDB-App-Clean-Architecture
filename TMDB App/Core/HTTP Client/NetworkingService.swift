@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-struct HTTPClient {
+class HTTPClient {
+    
+    static let shared = HTTPClient()
     
     func load<T:Codable> (_ resource: Resource<T>) async throws -> T {
         var request = URLRequest(url: resource.url)

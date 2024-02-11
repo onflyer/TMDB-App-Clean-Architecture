@@ -13,7 +13,7 @@ import KeychainSwift
 class LoginScreenViewModel: ObservableObject {
     
    
-        @Dependency(\.httpClient) var httpClient
+//        @Dependency(\.httpClient) var httpClient
     
         @Published var validateURL: URL?
         
@@ -25,8 +25,8 @@ class LoginScreenViewModel: ObservableObject {
     
         func fetchRequestTokenURL() async throws {
             let resource = Resource(url: Constants.Urls.fetchRequestToken,method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")]), modelType: RequestTokenDTO.self)
-            
-            let requestTokenDTO = try await httpClient.load(resource)
+        
+            let requestTokenDTO = try await HTTPClient.shared.load(resource)
             
             let validateTokenURL = Constants.Urls.validateRequestToken.appending(component: requestTokenDTO.requestToken)
             print(validateTokenURL)
@@ -52,7 +52,7 @@ class LoginScreenViewModel: ObservableObject {
         
         let resource = try Resource(url: Constants.Urls.sessionId, method: .post(JSONEncoder().encode(data), ([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef")])), modelType: SessionIdDTO.self)
         
-        let sessionIdDTO = try await httpClient.load(resource)
+        let sessionIdDTO = try await HTTPClient.shared.load(resource)
         sessionId = sessionIdDTO.sessionID
     }
     

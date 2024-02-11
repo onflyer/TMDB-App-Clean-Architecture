@@ -9,6 +9,7 @@ import Foundation
 
 class ImageCache {
     typealias CacheType = NSCache<NSString, NSData>
+    
     static let shared = ImageCache()
     
     private init() {}
