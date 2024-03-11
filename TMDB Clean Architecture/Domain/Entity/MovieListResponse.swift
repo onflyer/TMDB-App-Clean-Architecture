@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BaseResponse {
+struct MovieListResponse {
     let page: Int
     let results: [Movie1]?
     let total_pages: Int
