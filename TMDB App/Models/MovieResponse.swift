@@ -14,20 +14,21 @@ import Foundation
 
 // MARK: - MovieResponse
 struct MovieResponse: Codable {
-    let dates: Dates?
+//    let dates: Dates?
     let page: Int
     let results: [Movie]
     let totalPages, totalResults: Int
 
     enum CodingKeys: String, CodingKey {
-        case dates, page, results
+//        case dates
+        case page, results
         case totalPages = "total_pages"
         case totalResults = "total_results"
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.dates = try container.decodeIfPresent(Dates.self, forKey: .dates)
+//        self.dates = try container.decodeIfPresent(Dates.self, forKey: .dates)
         self.page = try container.decode(Int.self, forKey: .page)
         self.results = try container.decode([Movie].self, forKey: .results)
         self.totalPages = try container.decode(Int.self, forKey: .totalPages)
