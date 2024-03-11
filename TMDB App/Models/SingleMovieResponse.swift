@@ -12,7 +12,6 @@ import Foundation
 //
 //   let singleMovieResponse = try? JSONDecoder().decode(SingleMovieResponse.self, from: jsonData)
 
-import Foundation
 
 // MARK: - SingleMovieResponse
 struct SingleMovieResponse: Codable, Identifiable {
