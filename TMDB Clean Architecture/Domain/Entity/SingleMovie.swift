@@ -52,6 +52,10 @@ struct SingleMovie: Identifiable {
         self.credits = credits
     }
     
+    static func dummySingleMovie() -> SingleMovie {
+        return SingleMovie(adult: false, backdrop_path: "/vimaZK2bkJlePnZ1yV5eKYpQkzF.jpg", budget: 15000000, genres: [Genre1(id: 14, name: "Drama")], homepage: "homepage", id: 14, imdb_id: "tt0169547", original_language: "en", original_title: "American Beauty", overview: "Lester Burnham, a depressed suburban father in a mid-life crisis, decides to turn his hectic life around after developing an infatuation with his daughter's attractive friend.", popularity: 34.92, poster_path: "/wby9315QzVKdW9BonAefg8jGTTb.jpg", release_date: "1999-09-15", revenue: 356296601, runtime: 122, status: "Released", tagline: "Look closer.", title: "American Beauty", video: false, vote_average: 8.02, vote_count: 11379, videos: MovieVideoResponse1(results: [MovieVideo1(name: "American Beauty (1999) Trailer 2", key: "IJM3cZlqwlA", site: "YouTube", id: "5fd7d94362f3350040ffc18b")]), credits: Credits1(cast: [Cast1(adult: false, gender: 2, id: 1979, known_for_department: "Acting", name: "Kevin Spacey", original_name: "Kevin Spacey", popularity: 15.124, profile_path: "/dlVRkUYKyZdJ39AN55cY1LoyXAP.jpg", cast_id: 6, character: "Lester Burnham", credit_id: "52fe420ec3a36847f80007db", order: 0, department: "Directing", job: "Writer")], crew: [Cast1(adult: false, gender: 2, id: 153, known_for_department: "Sound", name: "Thomas Newman", original_name: "Thomas Newman", popularity: 2.721, profile_path: "/j8rIiOSdBjtDL5vji8m5BtChZou.jpg", cast_id: 6, character: "Lester Burnham", credit_id: "52fe420ec3a36847f80007db", order: 0, department: "Sound", job: "Original Music Composer")]))
+    }
+    
     }
 
 
