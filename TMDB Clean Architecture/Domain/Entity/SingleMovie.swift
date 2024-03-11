@@ -81,7 +81,7 @@ struct Cast1: Identifiable {
 }
 
 // MARK: - Genre
-struct Genre1: Codable, Identifiable {
+struct Genre1: Identifiable {
     let id: Int
     let name: String
 }
