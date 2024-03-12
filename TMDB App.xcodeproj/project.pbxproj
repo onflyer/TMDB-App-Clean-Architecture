@@ -272,6 +272,7 @@
 			children = (
 				3B84EA972B9F7F4500EDBB0F /* Core */,
 				3B84EA962B9F7F1200EDBB0F /* Domain */,
+				3BF09F7D2BA0EB4200F59F3E /* Data */,
 			);
 			path = "TMDB Clean Architecture";
 			sourceTree = "<group>";
@@ -457,6 +458,13 @@
 				3BF09F7B2BA0E80E00F59F3E /* GetFavoritesUseCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		3BF09F7D2BA0EB4200F59F3E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
