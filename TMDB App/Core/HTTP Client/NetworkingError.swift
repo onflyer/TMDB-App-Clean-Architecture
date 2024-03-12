@@ -8,6 +8,7 @@
 import Foundation
 
 enum NetworkError: Error {
+    case invalidURL
     case badRequest
     case serverError(String)
     case decodingError
@@ -31,6 +32,8 @@ extension NetworkError: LocalizedError {
             return NSLocalizedString("Status code falls in the wrong range: \(statusCode)", comment: "invalidStatusCode")
         case .custom(error: let error):
             return NSLocalizedString("Something went wrong \(error)", comment: "custom")
+        case .invalidURL:
+            return NSLocalizedString("URL string is malformed", comment: "invalidURL")
         }
     }
 }
