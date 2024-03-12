@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum RequestType: String {
+enum RequestType {
   case GET
-  case POST
+  case POST(Data?)
   case DELETE
     
     var name: String {

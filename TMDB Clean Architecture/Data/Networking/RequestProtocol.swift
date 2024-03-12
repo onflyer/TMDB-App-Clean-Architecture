@@ -32,7 +32,7 @@ extension RequestProtocol {
         [:]
     }
 
-    func request() throws -> URLRequest {
+    func request(requestType: RequestType) throws -> URLRequest {
         var components = URLComponents()
         components.scheme = "https"
         components.host = host
@@ -54,7 +54,17 @@ extension RequestProtocol {
         guard let url = components.url else { throw  NetworkError.invalidURL }
 
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = requestType.rawValue
+        urlRequest.httpMethod = requestType.name
+        
+        
+        switch requestType {
+        case .GET:
+            <#code#>
+        case .POST(let data):
+            <#code#>
+        case .DELETE:
+            <#code#>
+        }
 
         if !headers.isEmpty {
             urlRequest.allHTTPHeaderFields = headers
@@ -68,7 +78,7 @@ extension RequestProtocol {
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: params)
         }
         
-        print("🚀 [REQUEST] [\(requestType.rawValue)] \(urlRequest)")
+        print("🚀 [REQUEST] [\(requestType.name)] \(urlRequest)")
 
         return urlRequest
     }
