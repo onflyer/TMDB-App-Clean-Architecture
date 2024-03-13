@@ -20,6 +20,10 @@ class HTTPClient {
         case .get(let queryItems):
             var components = URLComponents(url: resource.url, resolvingAgainstBaseURL: false)
             components?.queryItems = queryItems
+            request.setValue("application/json", forHTTPHeaderField: "content-type")
+            request.addValue("application/json", forHTTPHeaderField: "accept")
+            request.setValue("Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OWU0YmFlMzczMDVkOTRlZjY3ZGIwYTMyZDZlNzllZiIsInN1YiI6IjY0OGVmNWE0NDJiZjAxMDBhZTMxZTM2YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7PAEwgGiWHGXPoGblvW0i-SHZQAqL2UhOmQ1zwoSvVM", forHTTPHeaderField: "Authorization")
+            
             
             guard let url = components?.url else {
                 throw NetworkError.badRequest

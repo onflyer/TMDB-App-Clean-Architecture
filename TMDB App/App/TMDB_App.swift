@@ -9,6 +9,17 @@ import SwiftUI
 
 @main
 struct TMDB_App: App {
+    
+//    static func main() {
+//        let data = AddFavoriteMovieDTO(mediaType: "type", mediaID: 12, favorite: false)
+//        if let dictionary = data.dictionary {
+//            print(dictionary)
+//
+//        }
+//        
+//        
+//        
+//    }
 
 //    static func main() async throws {
 //        let baseUrl = URL(string: "https://api.themoviedb.org/3/account/20029223/favorite/movies")
