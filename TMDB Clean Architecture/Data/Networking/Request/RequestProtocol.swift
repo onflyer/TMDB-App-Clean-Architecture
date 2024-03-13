@@ -32,7 +32,7 @@ extension RequestProtocol {
         [:]
     }
 
-    func request(httpBody: Data?) throws -> URLRequest {
+    func request() throws -> URLRequest {
         var components = URLComponents()
         components.scheme = "https"
         components.host = host
@@ -64,11 +64,10 @@ extension RequestProtocol {
 //        urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
 //        urlRequest.setValue("Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OWU0YmFlMzczMDVkOTRlZjY3ZGIwYTMyZDZlNzllZiIsInN1YiI6IjY0OGVmNWE0NDJiZjAxMDBhZTMxZTM2YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7PAEwgGiWHGXPoGblvW0i-SHZQAqL2UhOmQ1zwoSvVM", forHTTPHeaderField: "Authorization")
 
-//        if !params.isEmpty {
-//
-//        }
+        if !params.isEmpty {
+            urlRequest.httpBody = try JSONSerialization.data(withJSONObject: params)
+        }
         
-       urlRequest.httpBody = httpBody
        print("🚀 [REQUEST] [\(requestType.rawValue)] \(urlRequest), \(timeStamp)")
 
         return urlRequest
