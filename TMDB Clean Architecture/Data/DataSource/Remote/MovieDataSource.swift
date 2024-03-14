@@ -31,20 +31,40 @@ class DefaultMovieDataSource: MovieDataSource {
     func getNowPlayingMovies() async throws -> [MovieDTO] {
         let request = MoviesRequest.getNowPlayingMovies
         let response: MovieListDTO = try await requestManager.makeRequest(with: request)
-        if let unwrapedResponse = response.results {
-            return unwrapedResponse
+        guard let unwrappedResponse = response.results else {
+            print("error fetching Now Playing movies: NIL RESPONSE")
+            return []
         }
+        return unwrappedResponse
     }
     
     func getUpcomingMovies() async throws -> [MovieDTO] {
-        <#code#>
+        let request = MoviesRequest.getUpcomingMovies
+        let response: MovieListDTO = try await requestManager.makeRequest(with: request)
+        guard let unwrappedResponse = response.results else {
+            print("error fetching Upcoming movies: NIL RESPONSE")
+            return []
+        }
+        return unwrappedResponse
     }
     
     func getTopRatedMovies() async throws -> [MovieDTO] {
-        <#code#>
+        let request = MoviesRequest.getTopRatedMovies
+        let response: MovieListDTO = try await requestManager.makeRequest(with: request)
+        guard let unwrappedResponse = response.results else {
+            print("error fetching Top Rated movies: NIL RESPONSE")
+            return []
+        }
+        return unwrappedResponse
     }
     
     func getPopularMovies() async throws -> [MovieDTO] {
-        <#code#>
+        let request = MoviesRequest.getPopularMovies
+        let response: MovieListDTO = try await requestManager.makeRequest(with: request)
+        guard let unwrappedResponse = response.results else {
+            print("error fetching Top Rated movies: NIL RESPONSE")
+            return []
+        }
+        return unwrappedResponse
     }
 }
