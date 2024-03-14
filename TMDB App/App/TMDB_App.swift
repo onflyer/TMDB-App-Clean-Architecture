@@ -30,7 +30,7 @@ struct TMDB_App: App {
 //
 //        let (data, _ ) = try! await URLSession.shared.data(for: request)
 //
-//        let response = try! JSONDecoder().decode(MovieResponse.self, from: data)
+//        let response = try! JSONDecoder().decode(MovieListDTO.self, from: data)
 //        
 //        print(response)
 //    }

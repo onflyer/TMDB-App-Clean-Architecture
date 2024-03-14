@@ -46,7 +46,7 @@ struct SingleMovieDTO: Identifiable, Codable {
 }
 
 struct CreditsDTO: Codable {
-    let cast, crew: [CastDTO]
+    let cast, crew: [CastDTO]?
     
 }
 
@@ -79,18 +79,18 @@ struct CastDTO: Identifiable, Codable {
 
 // MARK: - Genre
 struct GenreDTO: Identifiable, Codable {
-    let id: Int
-    let name: String
+    let id: Int?
+    let name: String?
 }
 
 // MARK: - Videos
 struct MovieVideoResponseDTO: Codable {
-    let results: [MovieVideoDTO]
+    let results: [MovieVideoDTO]?
 }
 
 // MARK: - Result
 struct MovieVideoDTO: Identifiable, Codable {
-    let name, key: String
-    let site: String
-    let id: String
+    let name, key: String?
+    let site: String?
+    let id: String?
 }
