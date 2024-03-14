@@ -9,5 +9,5 @@ import Foundation
 
 protocol SearchMovieRepository {
     
-    func searchMovie(query: String) async -> Result<MovieListEntity,AppError>
+    func searchMovie(query: String) async -> Result<[MovieEntity],AppError>
 }

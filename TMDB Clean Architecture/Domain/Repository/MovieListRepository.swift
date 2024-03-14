@@ -9,7 +9,7 @@ import Foundation
 
 protocol MovieListRepository {
     
-    func getMovies() async -> Result<MovieListEntity,AppError> 
+    func getMovies() async -> Result<[MovieEntity],AppError> 
         
     
 }

@@ -9,5 +9,5 @@ import Foundation
 
 protocol FavoritesRepository {
     
-    func getFavorites() async -> Result<MovieListEntity,AppError>
+    func getFavorites() async -> Result<[MovieEntity],AppError>
 }
