@@ -107,14 +107,29 @@ struct SingleMovieDTO: Identifiable, Codable {
     
    
     
-    
-
-
-    
-
 
 struct CreditsDTO: Codable {
     let cast, crew: [CastDTO]?
+    
+    var directors: [CastDTO]? {
+        guard let unwrappedCrew = crew else { return nil }
+       let directors = unwrappedCrew.filter { $0.job?.lowercased() == "director" }
+        return directors
+     }
+    
+    var producers: [CastDTO]? {
+        guard let unwrappedCrew = crew else {return nil}
+       let producers = unwrappedCrew.filter { $0.job?.lowercased() == "producer" }
+        return producers
+    }
+    
+    var screenWriters: [CastDTO]? {
+        guard let unwrappedCrew = crew else {
+            return nil
+        }
+       let writers = unwrappedCrew.filter { $0.job?.lowercased() == "writer" }
+        return writers
+    }
     
 }
 
@@ -161,4 +176,18 @@ struct MovieVideoDTO: Identifiable, Codable {
     let name, key: String?
     let site: String?
     let id: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case name, key, site
+        case id
+    }
+    
+    var youtubeURL: URL? {
+        guard let unwrappedSite = site else {return nil}
+        guard unwrappedSite == "YouTube" else {
+            return nil
+        }
+        guard let unwrappedKey = key else {return nil}
+        return URL(string: "https://youtube.com/watch?v=\(unwrappedKey)")
+    }
 }

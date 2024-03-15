@@ -32,7 +32,7 @@ struct SingleMovieEntity: Identifiable {
     
     
     static func dummySingleMovie() -> SingleMovieEntity {
-        return SingleMovieEntity(adult: false, backdropPath: "/vimaZK2bkJlePnZ1yV5eKYpQkzF.jpg", budget: 15000000, genres: [GenreEntity(id: 14, name: "Drama")], homepage: "homepage", id: 14, imdbID: "tt0169547", originalLanguage: "en", originalTitle: "American Beauty", overview: "Lester Burnham, a depressed suburban father in a mid-life crisis, decides to turn his hectic life around after developing an infatuation with his daughter's attractive friend.", popularity: 34.92, posterPath: "/wby9315QzVKdW9BonAefg8jGTTb.jpg", releaseDate: "1999-09-15", revenue: 356296601, runtime: 122, status: "Released", tagline: "Look closer.", title: "American Beauty", video: false, voteAverage: 8.02, voteCount: 11379,ratingtext: "★★★★★★★", scoreText: "8/10",durationText: "n/a", videos: MovieVideoResponseEntity(results: [MovieVideoEntity(name: "American Beauty (1999) Trailer 2", key: "IJM3cZlqwlA", site: "YouTube", id: "5fd7d94362f3350040ffc18b")]), credits: CreditsEntity(cast: [CastEntity(adult: false, gender: 2, id: 1979, known_for_department: "Acting", name: "Kevin Spacey", original_name: "Kevin Spacey", popularity: 15.124, profile_path: "/dlVRkUYKyZdJ39AN55cY1LoyXAP.jpg", cast_id: 6, character: "Lester Burnham", credit_id: "52fe420ec3a36847f80007db", order: 0, department: "Directing", job: "Writer")], crew: [CastEntity(adult: false, gender: 2, id: 153, known_for_department: "Sound", name: "Thomas Newman", original_name: "Thomas Newman", popularity: 2.721, profile_path: "/j8rIiOSdBjtDL5vji8m5BtChZou.jpg", cast_id: 6, character: "Lester Burnham", credit_id: "52fe420ec3a36847f80007db", order: 0, department: "Sound", job: "Original Music Composer")]))
+        return SingleMovieEntity(adult: false, backdropPath: "/vimaZK2bkJlePnZ1yV5eKYpQkzF.jpg", budget: 15000000, genres: [GenreEntity(id: 14, name: "Drama")], homepage: "homepage", id: 14, imdbID: "tt0169547", originalLanguage: "en", originalTitle: "American Beauty", overview: "Lester Burnham, a depressed suburban father in a mid-life crisis, decides to turn his hectic life around after developing an infatuation with his daughter's attractive friend.", popularity: 34.92, posterPath: "/wby9315QzVKdW9BonAefg8jGTTb.jpg", releaseDate: "1999-09-15", revenue: 356296601, runtime: 122, status: "Released", tagline: "Look closer.", title: "American Beauty", video: false, voteAverage: 8.02, voteCount: 11379,ratingtext: "★★★★★★★", scoreText: "8/10",durationText: "n/a", videos: MovieVideoResponseEntity(results: [MovieVideoEntity(name: "American Beauty (1999) Trailer 2", key: "IJM3cZlqwlA", site: "YouTube", id: "5fd7d94362f3350040ffc18b", youtubeURL: URL(string: "IJM3cZlqwlA"))]), credits: CreditsEntity(cast: [CastEntity(adult: false, gender: 2, id: 1979, knownForDepartment: "Acting", name: "Kevin Spacey", originalName: "Kevin Spacey", popularity: 15.124, profilePath: "/dlVRkUYKyZdJ39AN55cY1LoyXAP.jpg", castID: 6, character: "Lester Burnham", creditID: "52fe420ec3a36847f80007db", order: 0, department: "Directing", job: "Writer")], crew: [CastEntity(adult: false, gender: 2, id: 153, knownForDepartment: "Sound", name: "Thomas Newman", originalName: "Thomas Newman", popularity: 2.721, profilePath: "/j8rIiOSdBjtDL5vji8m5BtChZou.jpg", castID: 6, character: "Lester Burnham", creditID: "52fe420ec3a36847f80007db", order: 0, department: "Sound", job: "Original Music Composer")], directors: nil, producers: nil, screenWriters: nil ))
     }
     
     }
@@ -42,6 +42,7 @@ struct SingleMovieEntity: Identifiable {
 // MARK: - Credits
 struct CreditsEntity {
     let cast, crew: [CastEntity]?
+    let directors, producers, screenWriters: [CastEntity]?
     
 }
 
@@ -49,12 +50,12 @@ struct CreditsEntity {
 struct CastEntity: Identifiable {
     let adult: Bool?
     let gender, id: Int?
-    let known_for_department, name, original_name: String?
+    let knownForDepartment, name, originalName: String?
     let popularity: Double?
-    let profile_path: String?
-    let cast_id: Int?
+    let profilePath: String?
+    let castID: Int?
     let character: String?
-    let credit_id: String?
+    let creditID: String?
     let order: Int?
     let department, job: String?
 }
@@ -75,5 +76,6 @@ struct MovieVideoEntity: Identifiable {
     let name, key: String?
     let site: String?
     let id: String?
+    let youtubeURL: URL?
 }
 
