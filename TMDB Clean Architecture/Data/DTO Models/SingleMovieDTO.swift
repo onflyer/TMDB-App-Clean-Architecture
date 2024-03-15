@@ -43,7 +43,75 @@ struct SingleMovieDTO: Identifiable, Codable {
         case voteCount = "vote_count"
         case videos, credits
     }
-}
+    
+    var posterURLString: String? {
+        guard let unwrappedUrl = posterPath else { return nil }
+        return "https://image.tmdb.org/t/p/w500\(unwrappedUrl)"
+    }
+    var backdropURLString: String? {
+        guard let unwrappedUrl = backdropPath else { return nil }
+        return "https://image.tmdb.org/t/p/w500\(unwrappedUrl)"
+    }
+    
+    var yearText: String? {
+        guard let unwrappedReleaseDate = releaseDate else { return nil }
+        guard let date = SingleMovieDTO.dateFormatter.date(from: unwrappedReleaseDate
+        ) else {
+            return nil
+        }
+        return SingleMovieDTO.yearFormatter.string(from: date)
+    }
+    
+    var ratingText: String? {
+        guard let unwrappedVoteAverage = voteAverage else { return nil }
+        let rating = Int(unwrappedVoteAverage)
+        let ratingText = (0..<rating).reduce("") { (acc, _) -> String in
+            return acc + "★"
+        }
+        return ratingText
+    }
+    
+    var scoreText: String? {
+        guard let unwrappedRatingText = ratingText else {return nil}
+        guard unwrappedRatingText.count > 0 else {
+            return "n/a"
+        }
+        return "\(unwrappedRatingText.count)/10"
+    }
+    
+    var durationText: String? {
+        guard let unwrappedRuntime = runtime else {return "n/a"}
+        
+        return SingleMovieDTO.durationFormatter.string(from: TimeInterval(unwrappedRuntime) * 60)
+        }
+    
+    static private let yearFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy"
+        return formatter
+    }()
+    
+    static private let durationFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .full
+        formatter.allowedUnits = [.hour, .minute]
+        return formatter
+    }()
+    
+    static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        return dateFormatter
+    }()
+    }
+    
+   
+    
+    
+
+
+    
+
 
 struct CreditsDTO: Codable {
     let cast, crew: [CastDTO]?
@@ -52,9 +120,9 @@ struct CreditsDTO: Codable {
 
 // MARK: - Cast
 struct CastDTO: Identifiable, Codable {
-    let adult: Bool
-    let gender, id: Int
-    let knownForDepartment, name, originalName: String
+    let adult: Bool?
+    let gender, id: Int?
+    let knownForDepartment, name, originalName: String?
     let popularity: Double
     let profilePath: String?
     let castID: Int?
