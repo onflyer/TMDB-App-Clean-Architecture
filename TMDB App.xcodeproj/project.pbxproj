@@ -496,13 +496,12 @@
 		3BF09F7D2BA0EB4200F59F3E /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3BF09FA32BA38EAA00F59F3E /* Mappers */,
-				3BF09F9A2BA3679E00F59F3E /* DataSource */,
-				3BF09F932BA1F40900F59F3E /* DTO Models */,
 				3BF09F7F2BA0F32900F59F3E /* Constants */,
 				3BF09F7E2BA0F31900F59F3E /* Networking */,
-				3BF09F912BA1DE4100F59F3E /* RequestManager.swift */,
-				3BF09F8F2BA1DE2600F59F3E /* NetworkManager.swift */,
+				3BF09FA32BA38EAA00F59F3E /* Mappers */,
+				3BF09F932BA1F40900F59F3E /* DTO Models */,
+				3BF09F9A2BA3679E00F59F3E /* DataSource */,
+				3BF09FAA2BA4889E00F59F3E /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -513,6 +512,8 @@
 				3BF09F9E2BA36D0700F59F3E /* Individual Requests */,
 				3BF09F892BA1D76D00F59F3E /* Request */,
 				3BF09F8A2BA1D78C00F59F3E /* Parsing */,
+				3BF09F8F2BA1DE2600F59F3E /* NetworkManager.swift */,
+				3BF09F912BA1DE4100F59F3E /* RequestManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -593,6 +594,13 @@
 				3BF09FA82BA46A7C00F59F3E /* SingleMovieDTO+DomainMapper.swift */,
 			);
 			path = Mappers;
+			sourceTree = "<group>";
+		};
+		3BF09FAA2BA4889E00F59F3E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
