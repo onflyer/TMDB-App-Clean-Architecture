@@ -22,6 +22,10 @@ struct MovieEntity: Identifiable {
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
+    let ratingText: String?
+    let scoreText: String?
+    
+    
     
     
     
@@ -29,7 +33,7 @@ struct MovieEntity: Identifiable {
         return MovieEntity(adult: false, backdropPath: "/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg", genreIDS: [
             27,
             9648
-        ], id: 507089, originalTitle: "Five Nights at Freddy's", overview: "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems.", popularity: 1355.052, posterPath: "/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg", releaseDate: "2023-10-25", title: "Five Nights at Freddy's", video: false, voteAverage: 7.964, voteCount: 2262)
+        ], id: 507089, originalTitle: "Five Nights at Freddy's", overview: "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems.", popularity: 1355.052, posterPath: "/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg", releaseDate: "2023-10-25", title: "Five Nights at Freddy's", video: false, voteAverage: 7.964, voteCount: 2262, ratingText: "★★★★★★★", scoreText: "7/10")
     }
     
 }

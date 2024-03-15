@@ -9,7 +9,7 @@ import Foundation
 
 extension MovieDTO: DomainMapper {
     func toDomain() -> MovieEntity {
-        return MovieEntity(adult: <#T##Bool?#>, backdropPath: <#T##String?#>, genreIDS: <#T##[Int]?#>, id: <#T##Int?#>, originalTitle: <#T##String?#>, overview: <#T##String?#>, popularity: <#T##Double?#>, posterPath: <#T##String?#>, releaseDate: <#T##String?#>, title: <#T##String?#>, video: <#T##Bool?#>, voteAverage: <#T##Double?#>, voteCount: <#T##Int?#>)
+        return MovieEntity(adult: adult, backdropPath: backdropURLString, genreIDS: genreIDS, id: id, originalTitle: originalTitle, overview: overview, popularity: popularity, posterPath: posterURLString, releaseDate: yearText, title: title, video: video, voteAverage: voteAverage, voteCount: voteCount,ratingText: ratingText, scoreText: scoreText)
     }
     
     
