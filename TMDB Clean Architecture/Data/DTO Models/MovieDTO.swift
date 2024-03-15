@@ -38,6 +38,52 @@ struct MovieDTO: Identifiable, Codable {
         case voteCount = "vote_count"
     }
     
+    
+    var posterURLString: String? {
+        guard let unwrappedUrl = posterPath else { return nil }
+        return "https://image.tmdb.org/t/p/w500\(unwrappedUrl)"
+    }
+    var backdropURLString: String? {
+        guard let unwrappedUrl = backdropPath else { return nil }
+        return "https://image.tmdb.org/t/p/w500\(unwrappedUrl)"
+    }
+    
+    var yearText: String? {
+        guard let unwrappedReleaseDate = releaseDate else { return nil }
+        guard let date = MovieDTO.dateFormatter.date(from: unwrappedReleaseDate
+        ) else {
+            return nil
+        }
+        return MovieDTO.yearFormatter.string(from: date)
+    }
+    var ratingText: String? {
+        guard let unwrappedVoteAverage = voteAverage else { return nil }
+        let rating = Int(unwrappedVoteAverage)
+        let ratingText = (0..<rating).reduce("") { (acc, _) -> String in
+            return acc + "★"
+        }
+        return ratingText
+    }
+    var scoreText: String? {
+        guard let unwrappedRatingText = ratingText else {return nil}
+        guard unwrappedRatingText.count > 0 else {
+            return "n/a"
+        }
+        return "\(unwrappedRatingText.count)/10"
+    }
+    static private let yearFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy"
+        return formatter
+    }()
+    
+    static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        return dateFormatter
+    }()
+
+    
 }
     
     
