@@ -9,7 +9,7 @@ import Foundation
 
 struct MovieListEntity {
     let page: Int
-    let results: [MovieEntity]
+    let results: [MovieEntity]?
     let totalPages: Int
     let totalResults: Int
 }

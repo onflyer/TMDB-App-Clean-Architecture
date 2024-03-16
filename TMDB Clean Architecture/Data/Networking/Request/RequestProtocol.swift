@@ -51,7 +51,11 @@ extension RequestProtocol {
 
         components.queryItems = queryParamsList
 
-        guard let url = components.url else { throw  NetworkError.invalidURL }
+        guard let url = components.url else {
+            print(components.url)
+            throw  NetworkError.invalidURL
+            
+        }
 
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = requestType.rawValue
@@ -69,7 +73,6 @@ extension RequestProtocol {
         }
         
        print("🚀 [REQUEST] [\(requestType.rawValue)] \(urlRequest), \(timeStamp)")
-
         return urlRequest
     }
 }

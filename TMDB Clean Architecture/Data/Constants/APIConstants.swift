@@ -8,5 +8,5 @@
 import Foundation
 
 enum APIConstants {
-    static let baseUrl = "https://api.themoviedb.org/3"
+    static let baseUrl = "api.themoviedb.org"
 }

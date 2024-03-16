@@ -21,7 +21,7 @@ enum MoviesRequest: RequestProtocol {
     var path: String {
         switch self {
         case .getNowPlayingMovies:
-           return "/movie/now_playing"
+           return "/3/movie/now_playing"
         case .getUpcomingMovies:
            return "/movie/upcoming"
         case .getTopRatedMovies:

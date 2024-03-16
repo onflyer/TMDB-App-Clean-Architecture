@@ -9,7 +9,12 @@ import SwiftUI
 
 @main
 struct TMDB_App: App {
-    
+
+//    static func main() async {
+//        let instance = DefaultMoviesRepository(moviesDatasource: DefaultMovieDataSource(requestManager: DefaultRequestManager()))
+//        let movies = await instance.getMovies()
+//        print(movies)
+//    }
 //    static func main() {
 //        let data = AddFavoriteMovieDTO(mediaType: "type", mediaID: 12, favorite: false)
 //        if let dictionary = data.dictionary {
