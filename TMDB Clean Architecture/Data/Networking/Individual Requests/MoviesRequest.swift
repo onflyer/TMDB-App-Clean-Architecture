@@ -23,11 +23,11 @@ enum MoviesRequest: RequestProtocol {
         case .getNowPlayingMovies:
            return "/3/movie/now_playing"
         case .getUpcomingMovies:
-           return "/movie/upcoming"
+           return "/3/movie/upcoming"
         case .getTopRatedMovies:
-           return "/movie/top_rated"
+           return "/3/movie/top_rated"
         case .getPopularMovies:
-           return "/movie/popular"
+           return "/3/movie/popular"
         }
     }
         
