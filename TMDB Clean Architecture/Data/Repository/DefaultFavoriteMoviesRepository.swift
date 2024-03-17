@@ -8,7 +8,7 @@
 import Foundation
 
 class DefaultFavoriteMoviesRepository: FavoritesRepository {
-    
+  
     private let moviesDatasource: FavoriteMoviesDataSource
     
     init(moviesDatasource: FavoriteMoviesDataSource) {
@@ -23,6 +23,17 @@ class DefaultFavoriteMoviesRepository: FavoritesRepository {
                 $0.toDomain()
             })
             return .success(favoriteMovies)
+        } catch {
+            print(error)
+            return .failure(.networkError(error.localizedDescription))
+        }
+    }
+    
+    func postMovieToFavorites(mediaId: Int) async -> Result<PostMovieToFavoritesResponseEntity,AppError> {
+        do {
+            let data = try await moviesDatasource.postMovieToFavorites(movieId: mediaId)
+            let postToFavoritesResponseEntity = data.toDomain()
+            return .success(postToFavoritesResponseEntity)
         } catch {
             print(error)
             return .failure(.networkError(error.localizedDescription))

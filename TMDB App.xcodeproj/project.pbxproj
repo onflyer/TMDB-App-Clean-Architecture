@@ -101,6 +101,13 @@
 		3BF09FBE2BA7203D00F59F3E /* FavoriteMoviesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FBD2BA7203D00F59F3E /* FavoriteMoviesRequest.swift */; };
 		3BF09FC02BA7223100F59F3E /* DefaultFavoriteMoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FBF2BA7223100F59F3E /* DefaultFavoriteMoviesRepository.swift */; };
 		3BF09FC22BA72C2700F59F3E /* GetMovieByIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FC12BA72C2700F59F3E /* GetMovieByIdUseCase.swift */; };
+		3BF09FC42BA7676E00F59F3E /* PostMovieToFavoritesRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FC32BA7676E00F59F3E /* PostMovieToFavoritesRequestDTO.swift */; };
+		3BF09FC62BA7682E00F59F3E /* PostMovieToFavoritesResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FC52BA7682E00F59F3E /* PostMovieToFavoritesResponseDTO.swift */; };
+		3BF09FC82BA76A9900F59F3E /* PostMovieToFavoritesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FC72BA76A9900F59F3E /* PostMovieToFavoritesEntity.swift */; };
+		3BF09FCA2BA76B1F00F59F3E /* PostMovieToFavoritesResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FC92BA76B1F00F59F3E /* PostMovieToFavoritesResponseEntity.swift */; };
+		3BF09FCC2BA76C0500F59F3E /* DTOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FCB2BA76C0500F59F3E /* DTOMapper.swift */; };
+		3BF09FCE2BA76C4900F59F3E /* PostMovieToFavorites+DTOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FCD2BA76C4900F59F3E /* PostMovieToFavorites+DTOMapper.swift */; };
+		3BF09FD22BA7741000F59F3E /* PostMovieToFavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FD12BA7741000F59F3E /* PostMovieToFavoritesUseCase.swift */; };
 		3BF6DEC32B36F00F0087778E /* AddFavoriteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF6DEC22B36F00F0087778E /* AddFavoriteDTO.swift */; };
 		3BFFE6662AF97998007A8CAA /* TabViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFFE6652AF97998007A8CAA /* TabViewScreen.swift */; };
 		3BFFE6702AF97E04007A8CAA /* MoviePosterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFFE66F2AF97E04007A8CAA /* MoviePosterCarouselView.swift */; };
@@ -199,6 +206,13 @@
 		3BF09FBD2BA7203D00F59F3E /* FavoriteMoviesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesRequest.swift; sourceTree = "<group>"; };
 		3BF09FBF2BA7223100F59F3E /* DefaultFavoriteMoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFavoriteMoviesRepository.swift; sourceTree = "<group>"; };
 		3BF09FC12BA72C2700F59F3E /* GetMovieByIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMovieByIdUseCase.swift; sourceTree = "<group>"; };
+		3BF09FC32BA7676E00F59F3E /* PostMovieToFavoritesRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMovieToFavoritesRequestDTO.swift; sourceTree = "<group>"; };
+		3BF09FC52BA7682E00F59F3E /* PostMovieToFavoritesResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMovieToFavoritesResponseDTO.swift; sourceTree = "<group>"; };
+		3BF09FC72BA76A9900F59F3E /* PostMovieToFavoritesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMovieToFavoritesEntity.swift; sourceTree = "<group>"; };
+		3BF09FC92BA76B1F00F59F3E /* PostMovieToFavoritesResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMovieToFavoritesResponseEntity.swift; sourceTree = "<group>"; };
+		3BF09FCB2BA76C0500F59F3E /* DTOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOMapper.swift; sourceTree = "<group>"; };
+		3BF09FCD2BA76C4900F59F3E /* PostMovieToFavorites+DTOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostMovieToFavorites+DTOMapper.swift"; sourceTree = "<group>"; };
+		3BF09FD12BA7741000F59F3E /* PostMovieToFavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMovieToFavoritesUseCase.swift; sourceTree = "<group>"; };
 		3BF6DEC22B36F00F0087778E /* AddFavoriteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteDTO.swift; sourceTree = "<group>"; };
 		3BFFE6652AF97998007A8CAA /* TabViewScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewScreen.swift; sourceTree = "<group>"; };
 		3BFFE66F2AF97E04007A8CAA /* MoviePosterCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterCarouselView.swift; sourceTree = "<group>"; };
@@ -493,6 +507,8 @@
 				3BF09F682B9F839200F59F3E /* MovieListEntity.swift */,
 				3BF09F6A2B9F89F600F59F3E /* MovieEntity.swift */,
 				3BF09F6C2B9F8DF900F59F3E /* SingleMovieEntity.swift */,
+				3BF09FC72BA76A9900F59F3E /* PostMovieToFavoritesEntity.swift */,
+				3BF09FC92BA76B1F00F59F3E /* PostMovieToFavoritesResponseEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -514,9 +530,10 @@
 				3BF09FAF2BA6F88100F59F3E /* GetUpcomingMoviesUseCase.swift */,
 				3BF09FB12BA6F8EE00F59F3E /* GetTopRatedMoviesUseCase.swift */,
 				3BF09FB32BA6F97500F59F3E /* GetPopularMoviesUseCase.swift */,
+				3BF09FC12BA72C2700F59F3E /* GetMovieByIdUseCase.swift */,
 				3BF09F792BA0E51D00F59F3E /* SearchMovieUseCase.swift */,
 				3BF09F7B2BA0E80E00F59F3E /* GetFavoritesUseCase.swift */,
-				3BF09FC12BA72C2700F59F3E /* GetMovieByIdUseCase.swift */,
+				3BF09FD12BA7741000F59F3E /* PostMovieToFavoritesUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -586,6 +603,8 @@
 				3BF09F942BA2F89600F59F3E /* MovieListDTO.swift */,
 				3BF09F962BA2FC0F00F59F3E /* MovieDTO.swift */,
 				3BF09F982BA2FF1500F59F3E /* SingleMovieDTO.swift */,
+				3BF09FC32BA7676E00F59F3E /* PostMovieToFavoritesRequestDTO.swift */,
+				3BF09FC52BA7682E00F59F3E /* PostMovieToFavoritesResponseDTO.swift */,
 			);
 			path = "DTO Models";
 			sourceTree = "<group>";
@@ -625,6 +644,8 @@
 				3BF09FA62BA449A000F59F3E /* MovieDTO+DomainMapper.swift */,
 				3BF09FA82BA46A7C00F59F3E /* SingleMovieDTO+DomainMapper.swift */,
 				3BF09FAD2BA5C99300F59F3E /* MovieListDTO+DomainMapper.swift */,
+				3BF09FCB2BA76C0500F59F3E /* DTOMapper.swift */,
+				3BF09FCD2BA76C4900F59F3E /* PostMovieToFavorites+DTOMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -746,11 +767,14 @@
 				3B87829D2AE427230098C228 /* Endpoint.swift in Sources */,
 				3B22E0512B2F527000AA5377 /* MovieSearchScreenViewModel.swift in Sources */,
 				3BF09FBC2BA71FB700F59F3E /* FavoriteMoviesDataSource.swift in Sources */,
+				3BF09FC62BA7682E00F59F3E /* PostMovieToFavoritesResponseDTO.swift in Sources */,
 				3B62919F2B0FF3C50010E395 /* MovieSearchRowView.swift in Sources */,
 				3BE55C392B0AB85E0092360B /* MovieDetailTrailersSection.swift in Sources */,
+				3BF09FCA2BA76B1F00F59F3E /* PostMovieToFavoritesResponseEntity.swift in Sources */,
 				3B6291A12B0FFC110010E395 /* MovieSearchListView.swift in Sources */,
 				3B7109FF2B2DC25F00A9395E /* CachedImageManager.swift in Sources */,
 				3BF09FB42BA6F97500F59F3E /* GetPopularMoviesUseCase.swift in Sources */,
+				3BF09FC82BA76A9900F59F3E /* PostMovieToFavoritesEntity.swift in Sources */,
 				3B22E0572B2F561100AA5377 /* ContentView1.swift in Sources */,
 				3B72EDE52AE97906000AB2BA /* Movie+Stubs.swift in Sources */,
 				3BF09FB82BA6FDCF00F59F3E /* SearchMoviesRequest.swift in Sources */,
@@ -773,11 +797,13 @@
 				3B710A0F2B2E261C00A9395E /* MovieBackdropCarouselView1.swift in Sources */,
 				3B4171AC2B2334230093F7CE /* CarouselBackdropProgressView.swift in Sources */,
 				3B8782882AE4261C0098C228 /* TMDB_App.swift in Sources */,
+				3BF09FD22BA7741000F59F3E /* PostMovieToFavoritesUseCase.swift in Sources */,
 				3BF09FA92BA46A7C00F59F3E /* SingleMovieDTO+DomainMapper.swift in Sources */,
 				3B87829E2AE427230098C228 /* NetworkingError.swift in Sources */,
 				3BF09F752BA0DBF300F59F3E /* FavoritesRepository.swift in Sources */,
 				3B6FC3B62B37003800F58D67 /* LoginScreenViewModel.swift in Sources */,
 				3BFFE6702AF97E04007A8CAA /* MoviePosterCarouselView.swift in Sources */,
+				3BF09FC42BA7676E00F59F3E /* PostMovieToFavoritesRequestDTO.swift in Sources */,
 				3B6FC3B42B36FF9900F58D67 /* LoginScreen.swift in Sources */,
 				3BF09FB22BA6F8EE00F59F3E /* GetTopRatedMoviesUseCase.swift in Sources */,
 				3B5452C32B2DBCC300FA6F55 /* ImageRetriever.swift in Sources */,
@@ -798,9 +824,11 @@
 				3BF09F812BA0F39B00F59F3E /* APIConstants.swift in Sources */,
 				3B26B8472B1C944300334385 /* TabViewNavigation.swift in Sources */,
 				3B8782A32AE427E70098C228 /* Constants.swift in Sources */,
+				3BF09FCE2BA76C4900F59F3E /* PostMovieToFavorites+DTOMapper.swift in Sources */,
 				3BF09F852BA0F41600F59F3E /* RequestType.swift in Sources */,
 				3B26B84E2B1D218D00334385 /* CustomAlert.swift in Sources */,
 				3BF09F692B9F839200F59F3E /* MovieListEntity.swift in Sources */,
+				3BF09FCC2BA76C0500F59F3E /* DTOMapper.swift in Sources */,
 				3B22E05F2B2F5EDF00AA5377 /* MovieDetailScreen1.swift in Sources */,
 				3B6FC3C22B376B3300F58D67 /* FavoriteRequestDTO.swift in Sources */,
 				3B710A052B2DCED600A9395E /* MovieThumbnailPosterView1.swift in Sources */,

@@ -14,4 +14,5 @@ protocol MovieListRepository {
     func getTopRatedMovies() async -> Result<[MovieEntity],AppError>
     func getPopularMovies() async -> Result<[MovieEntity],AppError>
     func getMovieById(movieId: Int) async -> Result<SingleMovieEntity?, AppError>
+    
 }

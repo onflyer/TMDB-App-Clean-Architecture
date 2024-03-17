@@ -10,11 +10,14 @@ import Foundation
 enum FavoriteMoviesRequest : RequestProtocol {
     
     case getFavoriteMovies(page: Int)
+    case postMovieToFavorites(movieId: Int)
     
     var path: String {
         switch self {
         case .getFavoriteMovies:
             return "/3/account/20029223/favorite/movies"
+        case .postMovieToFavorites(movieId: let movieId):
+            return "/3/account/20029223/favorite"
         }
     }
     
@@ -22,12 +25,35 @@ enum FavoriteMoviesRequest : RequestProtocol {
         switch self {
         case .getFavoriteMovies( let page):
             return ["session_id": "954a0e7f7e9c282ade3daaab053db4e20c870209","page": String(page), "language": "US", "sort_by": "created_at.desc"]
+        case .postMovieToFavorites(movieId: let movieId):
+            return ["session_id": "954a0e7f7e9c282ade3daaab053db4e20c870209"]
+        }
+    }
+    
+    var headers: [String : String] {
+        switch self {
+        case .getFavoriteMovies(let page):
+            return [:]
+        case .postMovieToFavorites(let movieId):
+           return ["content-type": "application/json", "accept": "application/json", "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OWU0YmFlMzczMDVkOTRlZjY3ZGIwYTMyZDZlNzllZiIsInN1YiI6IjY0OGVmNWE0NDJiZjAxMDBhZTMxZTM2YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7PAEwgGiWHGXPoGblvW0i-SHZQAqL2UhOmQ1zwoSvVM"]
+        }
+    }
+    
+    var params: [String : Any] {
+        switch self {
+        case .getFavoriteMovies(let page):
+           return [:]
+        case .postMovieToFavorites(let movieId):
+            return ["media_type": "movie", "media_id" : movieId, "favorite": true]
         }
     }
     
     var requestType: RequestType {
-        .GET
+        switch self {
+        case .getFavoriteMovies(let page):
+            return .GET
+        case .postMovieToFavorites(let movieId):
+            return .POST
+        }
     }
 }
-
-//let resource =  Resource(url: Constants.Urls.favoriteMovies, method: .get([URLQueryItem(name: "api_key", value: "89e4bae37305d94ef67db0a32d6e79ef"), URLQueryItem(name: "session_id", value: "954a0e7f7e9c282ade3daaab053db4e20c870209"),URLQueryItem(name: "page", value: String(page)),URLQueryItem(name: "language", value: "en-US"),URLQueryItem(name: "sort_by", value: "created_at.desc")]), modelType: MovieResponse.self)
