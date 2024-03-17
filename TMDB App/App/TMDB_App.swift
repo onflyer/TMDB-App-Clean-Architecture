@@ -15,6 +15,12 @@ struct TMDB_App: App {
 //        let movies = await instance.getPopularMovies()
 //        print(movies)
 //    }
+    
+//    static func main() async {
+//        let instance = DefaultSearchMoviesRepository(moviesDatasource: DefaultSearchMoviesDataSource(requestManager: DefaultRequestManager()))
+//        let movies = await instance.searchMovie(query: "fast")
+//        print(movies)
+//    }
 //    static func main() {
 //        let data = AddFavoriteMovieDTO(mediaType: "type", mediaID: 12, favorite: false)
 //        if let dictionary = data.dictionary {
