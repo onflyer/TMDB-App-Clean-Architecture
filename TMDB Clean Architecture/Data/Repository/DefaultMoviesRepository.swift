@@ -46,10 +46,26 @@ class DefaultMoviesRepository: MovieListRepository {
     }
     
     func getTopRatedMovies() async -> Result<[MovieEntity], AppError> {
-        <#code#>
+        do {
+            let data = try await moviesDatasource.getTopRatedMovies()
+            let topRatedMovies = data.map({
+                $0.toDomain()
+            })
+            return .success(topRatedMovies)
+        } catch {
+            return .failure(.networkError(error.localizedDescription))
+        }
     }
     
     func getPopularMovies() async -> Result<[MovieEntity], AppError> {
-        <#code#>
+        do {
+            let data = try await moviesDatasource.getPopularMovies()
+            let popularMovies = data.map({
+                $0.toDomain()
+            })
+            return .success(popularMovies)
+        } catch {
+            return .failure(.networkError(error.localizedDescription))
+        }
     }
 }

@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol GetMoviesUseCase {
+protocol GetNowPlayingMoviesUseCase {
     
     func execute() async -> Result<[MovieEntity],AppError>
 }
 
-class GetMoviesUseCaseImpl : GetMoviesUseCase {
+class GetMoviesUseCaseImpl : GetNowPlayingMoviesUseCase {
     private var repository: MovieListRepository
     
     init(repository: MovieListRepository) {
