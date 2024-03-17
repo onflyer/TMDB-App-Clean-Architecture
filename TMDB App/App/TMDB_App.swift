@@ -22,12 +22,12 @@ struct TMDB_App: App {
 //        print(movies)
 //    }
     
-        static func main() async {
-            let instance = DefaultFavoriteMoviesRepository(moviesDatasource: DefaultFavoriteMoviesDataSource(requestManager: DefaultRequestManager()))
-            let movies = await instance.getFavoriteMovies(page: 1)
-            print(movies)
-        }
-    
+//        static func main() async {
+//            let instance = DefaultFavoriteMoviesRepository(moviesDatasource: DefaultFavoriteMoviesDataSource(requestManager: DefaultRequestManager()))
+//            let movies = await instance.getFavoriteMovies(page: 1)
+//            print(movies)
+//        }
+//    
 //    static func main() {
 //        let data = AddFavoriteMovieDTO(mediaType: "type", mediaID: 12, favorite: false)
 //        if let dictionary = data.dictionary {
