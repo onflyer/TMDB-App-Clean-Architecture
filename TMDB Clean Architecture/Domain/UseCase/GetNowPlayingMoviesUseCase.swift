@@ -12,7 +12,7 @@ protocol GetNowPlayingMoviesUseCase {
     func execute() async -> Result<[MovieEntity],AppError>
 }
 
-class GetMoviesUseCaseImpl : GetNowPlayingMoviesUseCase {
+class GetNowPlayingMoviesUseCaseImpl : GetNowPlayingMoviesUseCase {
     private var repository: MovieListRepository
     
     init(repository: MovieListRepository) {
