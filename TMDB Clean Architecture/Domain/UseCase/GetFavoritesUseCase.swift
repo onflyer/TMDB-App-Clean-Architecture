@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetFavoritesUseCase {
-    func execute() async -> Result<[MovieEntity],AppError>
+    func execute(page: Int) async -> Result<[MovieEntity],AppError>
 }
 
 class GetFavoritesUseCaseImpl: GetFavoritesUseCase {
@@ -18,7 +18,7 @@ class GetFavoritesUseCaseImpl: GetFavoritesUseCase {
         self.repository = repository
     }
     
-    func execute() async -> Result<[MovieEntity], AppError> {
-        return await repository.getFavorites()
+    func execute(page: Int) async -> Result<[MovieEntity], AppError> {
+        return await repository.getFavoriteMovies(page: page)
     }
 }
