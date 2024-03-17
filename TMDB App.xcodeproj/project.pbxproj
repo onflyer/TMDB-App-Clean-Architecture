@@ -100,6 +100,7 @@
 		3BF09FBC2BA71FB700F59F3E /* FavoriteMoviesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FBB2BA71FB700F59F3E /* FavoriteMoviesDataSource.swift */; };
 		3BF09FBE2BA7203D00F59F3E /* FavoriteMoviesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FBD2BA7203D00F59F3E /* FavoriteMoviesRequest.swift */; };
 		3BF09FC02BA7223100F59F3E /* DefaultFavoriteMoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FBF2BA7223100F59F3E /* DefaultFavoriteMoviesRepository.swift */; };
+		3BF09FC22BA72C2700F59F3E /* GetMovieByIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FC12BA72C2700F59F3E /* GetMovieByIdUseCase.swift */; };
 		3BF6DEC32B36F00F0087778E /* AddFavoriteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF6DEC22B36F00F0087778E /* AddFavoriteDTO.swift */; };
 		3BFFE6662AF97998007A8CAA /* TabViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFFE6652AF97998007A8CAA /* TabViewScreen.swift */; };
 		3BFFE6702AF97E04007A8CAA /* MoviePosterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFFE66F2AF97E04007A8CAA /* MoviePosterCarouselView.swift */; };
@@ -197,6 +198,7 @@
 		3BF09FBB2BA71FB700F59F3E /* FavoriteMoviesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesDataSource.swift; sourceTree = "<group>"; };
 		3BF09FBD2BA7203D00F59F3E /* FavoriteMoviesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesRequest.swift; sourceTree = "<group>"; };
 		3BF09FBF2BA7223100F59F3E /* DefaultFavoriteMoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFavoriteMoviesRepository.swift; sourceTree = "<group>"; };
+		3BF09FC12BA72C2700F59F3E /* GetMovieByIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMovieByIdUseCase.swift; sourceTree = "<group>"; };
 		3BF6DEC22B36F00F0087778E /* AddFavoriteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteDTO.swift; sourceTree = "<group>"; };
 		3BFFE6652AF97998007A8CAA /* TabViewScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewScreen.swift; sourceTree = "<group>"; };
 		3BFFE66F2AF97E04007A8CAA /* MoviePosterCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterCarouselView.swift; sourceTree = "<group>"; };
@@ -511,9 +513,10 @@
 				3BF09F772BA0DF4600F59F3E /* GetNowPlayingMoviesUseCase.swift */,
 				3BF09FAF2BA6F88100F59F3E /* GetUpcomingMoviesUseCase.swift */,
 				3BF09FB12BA6F8EE00F59F3E /* GetTopRatedMoviesUseCase.swift */,
+				3BF09FB32BA6F97500F59F3E /* GetPopularMoviesUseCase.swift */,
 				3BF09F792BA0E51D00F59F3E /* SearchMovieUseCase.swift */,
 				3BF09F7B2BA0E80E00F59F3E /* GetFavoritesUseCase.swift */,
-				3BF09FB32BA6F97500F59F3E /* GetPopularMoviesUseCase.swift */,
+				3BF09FC12BA72C2700F59F3E /* GetMovieByIdUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				3BDBC9E92B2353420056F7BE /* EmptyPlaceholderView.swift in Sources */,
 				3BF09F9D2BA36A3B00F59F3E /* MovieDataSource.swift in Sources */,
 				3B22E05D2B2F5C4800AA5377 /* MovieSearchScreen1.swift in Sources */,
+				3BF09FC22BA72C2700F59F3E /* GetMovieByIdUseCase.swift in Sources */,
 				3B4171AA2B232A8D0093F7CE /* CarouselPosterProgressView.swift in Sources */,
 				3BF09F992BA2FF1500F59F3E /* SingleMovieDTO.swift in Sources */,
 				3BFFE6662AF97998007A8CAA /* TabViewScreen.swift in Sources */,

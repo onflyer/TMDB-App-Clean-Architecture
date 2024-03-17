@@ -53,6 +53,7 @@ class DefaultMoviesRepository: MovieListRepository {
             })
             return .success(topRatedMovies)
         } catch {
+            print(error)
             return .failure(.networkError(error.localizedDescription))
         }
     }
@@ -65,6 +66,18 @@ class DefaultMoviesRepository: MovieListRepository {
             })
             return .success(popularMovies)
         } catch {
+            print(error)
+            return .failure(.networkError(error.localizedDescription))
+        }
+    }
+    
+    func getMovieById(movieId: Int) async -> Result<SingleMovieEntity?, AppError> {
+        do {
+            let data = try await moviesDatasource.getMovieById(movieId: movieId)
+            let singleMovie = data?.toDomain()
+            return .success(singleMovie)
+        } catch {
+            print(error)
             return .failure(.networkError(error.localizedDescription))
         }
     }

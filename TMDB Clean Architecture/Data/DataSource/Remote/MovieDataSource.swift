@@ -15,12 +15,12 @@ protocol MovieDataSource {
     func getUpcomingMovies() async throws -> [MovieDTO]
     func getTopRatedMovies() async throws -> [MovieDTO]
     func getPopularMovies() async throws -> [MovieDTO]
+    func getMovieById(movieId: Int) async throws -> SingleMovieDTO?
 }
 
 // MARK: - Implementation -
 
 class DefaultMovieDataSource: MovieDataSource {
-    
     
     private let requestManager: RequestManager
     
@@ -62,8 +62,18 @@ class DefaultMovieDataSource: MovieDataSource {
         let request = MoviesRequest.getPopularMovies
         let response: MovieListDTO = try await requestManager.makeRequest(with: request)
         guard let unwrappedResponse = response.results else {
-            print("error fetching Top Rated movies: NIL RESPONSE")
+            print("error fetching popular movies: NIL RESPONSE")
             return []
+        }
+        return unwrappedResponse
+    }
+    
+    func getMovieById(movieId: Int) async throws -> SingleMovieDTO? {
+        let request = MoviesRequest.getMovieById(movieId: movieId)
+        let response: SingleMovieDTO? = try await requestManager.makeRequest(with: request)
+        guard let unwrappedResponse = response else {
+            print("error fetching movieByID movies: NIL RESPONSE")
+            return nil
         }
         return unwrappedResponse
     }

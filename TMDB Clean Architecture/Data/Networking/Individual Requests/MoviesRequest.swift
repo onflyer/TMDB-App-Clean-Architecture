@@ -13,6 +13,7 @@ enum MoviesRequest: RequestProtocol {
     case getUpcomingMovies
     case getTopRatedMovies
     case getPopularMovies
+    case getMovieById(movieId: Int)
     
     var requestType: RequestType {
         .GET
@@ -28,6 +29,8 @@ enum MoviesRequest: RequestProtocol {
            return "/3/movie/top_rated"
         case .getPopularMovies:
            return "/3/movie/popular"
+        case .getMovieById(movieId: let movieId):
+            return "/3/movie/\(movieId)"
         }
     }
         
@@ -41,9 +44,27 @@ enum MoviesRequest: RequestProtocol {
             return [:]
         case .getPopularMovies:
             return [:]
+        case .getMovieById(movieId: let movieId):
+            return [:]
+        }
+    }
+    
+    var urlParams: [String : String?] {
+        switch self {
+        case .getNowPlayingMovies:
+            return [:]
+        case .getUpcomingMovies:
+           return [:]
+        case .getTopRatedMovies:
+           return [:]
+        case .getPopularMovies:
+           return [:]
+        case .getMovieById(let movieId):
+            return ["append_to_response": "videos,credits"]
         }
     }
 }
+
  
 
     //MARK: HEADERS FOR POST FAVORITE
