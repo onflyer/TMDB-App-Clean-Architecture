@@ -21,6 +21,6 @@ class GetMoviesUseCaseImpl : GetMoviesUseCase {
     
     func execute() async -> Result<[MovieEntity], AppError> {
         
-        return await repository.getMovies()
+        return await repository.getNowPlayingMovies()
     }
 }

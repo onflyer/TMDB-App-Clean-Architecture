@@ -17,7 +17,7 @@ class DefaultMoviesRepository: MovieListRepository {
     }
     
     
-    func getMovies() async -> Result<[MovieEntity], AppError> {
+    func getNowPlayingMovies() async -> Result<[MovieEntity], AppError> {
         do {
             let data = try await moviesDatasource.getNowPlayingMovies()
             let nowPlayingMovies = data.map({
@@ -28,5 +28,28 @@ class DefaultMoviesRepository: MovieListRepository {
             print(error)
             return .failure(.networkError(error.localizedDescription))
         }
+    }
+    
+    func getUpcomingMovies() async -> Result<[MovieEntity], AppError> {
+        do {
+            let data = try await moviesDatasource.getUpcomingMovies()
+            let upcomingMovies = data.map({
+                $0.toDomain()
+            })
+            return .success(upcomingMovies)
+        } catch {
+            print(error)
+            return .failure(.networkError(error.localizedDescription))
+            
+        }
+        
+    }
+    
+    func getTopRatedMovies() async -> Result<[MovieEntity], AppError> {
+        <#code#>
+    }
+    
+    func getPopularMovies() async -> Result<[MovieEntity], AppError> {
+        <#code#>
     }
 }

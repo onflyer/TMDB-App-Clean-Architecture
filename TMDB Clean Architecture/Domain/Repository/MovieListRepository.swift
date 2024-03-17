@@ -9,7 +9,8 @@ import Foundation
 
 protocol MovieListRepository {
     
-    func getMovies() async -> Result<[MovieEntity],AppError> 
-        
-    
+    func getNowPlayingMovies() async -> Result<[MovieEntity],AppError> 
+    func getUpcomingMovies() async -> Result<[MovieEntity],AppError>
+    func getTopRatedMovies() async -> Result<[MovieEntity],AppError>
+    func getPopularMovies() async -> Result<[MovieEntity],AppError>
 }

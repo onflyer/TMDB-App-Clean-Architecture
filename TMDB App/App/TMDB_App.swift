@@ -12,7 +12,7 @@ struct TMDB_App: App {
 
 //    static func main() async {
 //        let instance = DefaultMoviesRepository(moviesDatasource: DefaultMovieDataSource(requestManager: DefaultRequestManager()))
-//        let movies = await instance.getMovies()
+//        let movies = await instance.getNowPlayingMovies()
 //        print(movies)
 //    }
 //    static func main() {
