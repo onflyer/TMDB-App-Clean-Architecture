@@ -44,7 +44,7 @@ enum MoviesRequest: RequestProtocol {
             return [:]
         case .getPopularMovies:
             return [:]
-        case .getMovieById(movieId: let movieId):
+        case .getMovieById(movieId: _):
             return [:]
         }
     }
@@ -59,7 +59,7 @@ enum MoviesRequest: RequestProtocol {
            return [:]
         case .getPopularMovies:
            return [:]
-        case .getMovieById(let movieId):
+        case .getMovieById( _):
             return ["append_to_response": "videos,credits"]
         }
     }
