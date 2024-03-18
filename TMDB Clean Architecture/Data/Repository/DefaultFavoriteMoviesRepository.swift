@@ -8,7 +8,7 @@
 import Foundation
 
 class DefaultFavoriteMoviesRepository: FavoritesRepository {
-  
+    
     private let moviesDatasource: FavoriteMoviesDataSource
     
     init(moviesDatasource: FavoriteMoviesDataSource) {
@@ -39,4 +39,16 @@ class DefaultFavoriteMoviesRepository: FavoritesRepository {
             return .failure(.networkError(error.localizedDescription))
         }
     }
+    
+    func deleteMovieFromFavorites(mediaId: Int) async -> Result<PostMovieToFavoritesResponseEntity, AppError> {
+        do {
+            let data = try await moviesDatasource.deleteMovieFromFavorites(movieId: mediaId)
+            let deleteMovieFromFavoritesResponseEntity = data.toDomain()
+            return .success(deleteMovieFromFavoritesResponseEntity)
+        } catch {
+            print(error)
+            return .failure(.networkError(error.localizedDescription))
+        }
+    }
+    
 }

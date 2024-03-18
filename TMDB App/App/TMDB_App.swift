@@ -9,10 +9,16 @@ import SwiftUI
 
 @main
 struct TMDB_App: App {
+    
+//        static func main() async {
+//            let instance = DefaultFavoriteMoviesRepository(moviesDatasource: DefaultFavoriteMoviesDataSource(requestManager: DefaultRequestManager()))
+//            let movies = await instance.deleteMovieFromFavorites(mediaId: 21)
+//                print(movies)
+//            }
 
 //    static func main() async {
 //        let instance = DefaultFavoriteMoviesRepository(moviesDatasource: DefaultFavoriteMoviesDataSource(requestManager: DefaultRequestManager()))
-//        let movies = await instance.postMovieToFavorites(mediaId: 6)
+//        let movies = await instance.postMovieToFavorites(mediaId: 21)
 //            print(movies)
 //        }
     

@@ -108,6 +108,7 @@
 		3BF09FCC2BA76C0500F59F3E /* DTOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FCB2BA76C0500F59F3E /* DTOMapper.swift */; };
 		3BF09FCE2BA76C4900F59F3E /* PostMovieToFavorites+DTOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FCD2BA76C4900F59F3E /* PostMovieToFavorites+DTOMapper.swift */; };
 		3BF09FD22BA7741000F59F3E /* PostMovieToFavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FD12BA7741000F59F3E /* PostMovieToFavoritesUseCase.swift */; };
+		3BF09FD42BA85EFB00F59F3E /* DeleteMovieFromFavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FD32BA85EFB00F59F3E /* DeleteMovieFromFavoritesUseCase.swift */; };
 		3BF6DEC32B36F00F0087778E /* AddFavoriteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF6DEC22B36F00F0087778E /* AddFavoriteDTO.swift */; };
 		3BFFE6662AF97998007A8CAA /* TabViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFFE6652AF97998007A8CAA /* TabViewScreen.swift */; };
 		3BFFE6702AF97E04007A8CAA /* MoviePosterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFFE66F2AF97E04007A8CAA /* MoviePosterCarouselView.swift */; };
@@ -213,6 +214,7 @@
 		3BF09FCB2BA76C0500F59F3E /* DTOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOMapper.swift; sourceTree = "<group>"; };
 		3BF09FCD2BA76C4900F59F3E /* PostMovieToFavorites+DTOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostMovieToFavorites+DTOMapper.swift"; sourceTree = "<group>"; };
 		3BF09FD12BA7741000F59F3E /* PostMovieToFavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMovieToFavoritesUseCase.swift; sourceTree = "<group>"; };
+		3BF09FD32BA85EFB00F59F3E /* DeleteMovieFromFavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMovieFromFavoritesUseCase.swift; sourceTree = "<group>"; };
 		3BF6DEC22B36F00F0087778E /* AddFavoriteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteDTO.swift; sourceTree = "<group>"; };
 		3BFFE6652AF97998007A8CAA /* TabViewScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewScreen.swift; sourceTree = "<group>"; };
 		3BFFE66F2AF97E04007A8CAA /* MoviePosterCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterCarouselView.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				3BF09F792BA0E51D00F59F3E /* SearchMovieUseCase.swift */,
 				3BF09F7B2BA0E80E00F59F3E /* GetFavoritesUseCase.swift */,
 				3BF09FD12BA7741000F59F3E /* PostMovieToFavoritesUseCase.swift */,
+				3BF09FD32BA85EFB00F59F3E /* DeleteMovieFromFavoritesUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 				3BF09F782BA0DF4600F59F3E /* GetNowPlayingMoviesUseCase.swift in Sources */,
 				3BF09F6D2B9F8DF900F59F3E /* SingleMovieEntity.swift in Sources */,
 				3B7109FD2B2DBF4B00A9395E /* ImageCache.swift in Sources */,
+				3BF09FD42BA85EFB00F59F3E /* DeleteMovieFromFavoritesUseCase.swift in Sources */,
 				3B710A112B2E26AC00A9395E /* MovieDetailImage1.swift in Sources */,
 				3B710A012B2DC36E00A9395E /* CachedImage.swift in Sources */,
 				3B26B8492B1C953100334385 /* AppTabView.swift in Sources */,

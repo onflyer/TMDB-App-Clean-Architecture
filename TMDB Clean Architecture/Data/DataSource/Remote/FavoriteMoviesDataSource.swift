@@ -11,6 +11,7 @@ import Foundation
 protocol FavoriteMoviesDataSource {
     func getFavoriteMovies(page: Int) async throws -> [MovieDTO]
     func postMovieToFavorites(movieId: Int) async throws -> PostMovieToFavoritesResponseDTO
+    func deleteMovieFromFavorites(movieId: Int) async throws -> PostMovieToFavoritesResponseDTO
     
 }
 
@@ -36,6 +37,12 @@ class DefaultFavoriteMoviesDataSource: FavoriteMoviesDataSource {
     
     func postMovieToFavorites(movieId: Int) async throws -> PostMovieToFavoritesResponseDTO {
         let request = FavoriteMoviesRequest.postMovieToFavorites(movieId: movieId)
+        let response: PostMovieToFavoritesResponseDTO = try await requestManager.makeRequest(with: request)
+        return response
+    }
+    
+    func deleteMovieFromFavorites(movieId: Int) async throws -> PostMovieToFavoritesResponseDTO {
+        let request = FavoriteMoviesRequest.deleteMovieFromFavorites(movieId: movieId)
         let response: PostMovieToFavoritesResponseDTO = try await requestManager.makeRequest(with: request)
         return response
     }
