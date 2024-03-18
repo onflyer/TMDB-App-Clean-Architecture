@@ -52,7 +52,6 @@ extension RequestProtocol {
         components.queryItems = queryParamsList
 
         guard let url = components.url else {
-            print(components.url)
             throw  NetworkError.invalidURL
             
         }
@@ -64,10 +63,6 @@ extension RequestProtocol {
             urlRequest.allHTTPHeaderFields = headers
         }
         
-//        urlRequest.setValue("application/json", forHTTPHeaderField: "content-type")
-//        urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
-//        urlRequest.setValue("Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OWU0YmFlMzczMDVkOTRlZjY3ZGIwYTMyZDZlNzllZiIsInN1YiI6IjY0OGVmNWE0NDJiZjAxMDBhZTMxZTM2YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.7PAEwgGiWHGXPoGblvW0i-SHZQAqL2UhOmQ1zwoSvVM", forHTTPHeaderField: "Authorization")
-
         if !params.isEmpty {
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: params)
         }
