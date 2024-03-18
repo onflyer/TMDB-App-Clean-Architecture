@@ -17,9 +17,9 @@ class DefaultMoviesRepository: MovieListRepository {
     }
     
     
-    func getNowPlayingMovies() async -> Result<[MovieEntity], AppError> {
+    func getNowPlayingMovies(page: Int) async -> Result<[MovieEntity], AppError> {
         do {
-            let data = try await moviesDatasource.getNowPlayingMovies()
+            let data = try await moviesDatasource.getNowPlayingMovies(page: page)
             let nowPlayingMovies = data.map({
                 $0.toDomain()
             })

@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Protocol -
 
 protocol MovieDataSource {
-    func getNowPlayingMovies() async throws -> [MovieDTO]
+    func getNowPlayingMovies(page: Int) async throws -> [MovieDTO]
     func getUpcomingMovies() async throws -> [MovieDTO]
     func getTopRatedMovies() async throws -> [MovieDTO]
     func getPopularMovies() async throws -> [MovieDTO]
@@ -28,8 +28,8 @@ class DefaultMovieDataSource: MovieDataSource {
         self.requestManager = requestManager
     }
     
-    func getNowPlayingMovies() async throws -> [MovieDTO] {
-        let request = MoviesRequest.getNowPlayingMovies
+    func getNowPlayingMovies(page: Int) async throws -> [MovieDTO] {
+        let request = MoviesRequest.getNowPlayingMovies(page: page)
         let response: MovieListDTO = try await requestManager.makeRequest(with: request)
         guard let unwrappedResponse = response.results else {
             print("error fetching Now Playing movies: NIL RESPONSE")

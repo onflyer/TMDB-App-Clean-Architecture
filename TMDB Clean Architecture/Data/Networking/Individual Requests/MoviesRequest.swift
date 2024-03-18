@@ -9,7 +9,7 @@ import Foundation
 
 enum MoviesRequest: RequestProtocol {
     
-    case getNowPlayingMovies
+    case getNowPlayingMovies(page: Int)
     case getUpcomingMovies
     case getTopRatedMovies
     case getPopularMovies
@@ -36,7 +36,7 @@ enum MoviesRequest: RequestProtocol {
         
     var headers: [String : String] {
         switch self {
-        case .getNowPlayingMovies:
+        case .getNowPlayingMovies(page: let page):
             return [:]
         case .getUpcomingMovies:
             return [:]
@@ -51,8 +51,8 @@ enum MoviesRequest: RequestProtocol {
     
     var urlParams: [String : String?] {
         switch self {
-        case .getNowPlayingMovies:
-            return [:]
+        case .getNowPlayingMovies(page: let page):
+            return ["page": String(page)]
         case .getUpcomingMovies:
            return [:]
         case .getTopRatedMovies:
