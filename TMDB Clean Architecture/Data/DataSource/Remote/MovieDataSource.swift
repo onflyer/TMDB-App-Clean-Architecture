@@ -12,9 +12,9 @@ import Foundation
 
 protocol MovieDataSource {
     func getNowPlayingMovies(page: Int) async throws -> [MovieDTO]
-    func getUpcomingMovies() async throws -> [MovieDTO]
-    func getTopRatedMovies() async throws -> [MovieDTO]
-    func getPopularMovies() async throws -> [MovieDTO]
+    func getUpcomingMovies(page: Int) async throws -> [MovieDTO]
+    func getTopRatedMovies(page: Int) async throws -> [MovieDTO]
+    func getPopularMovies(page: Int) async throws -> [MovieDTO]
     func getMovieById(movieId: Int) async throws -> SingleMovieDTO?
 }
 
@@ -38,8 +38,8 @@ class DefaultMovieDataSource: MovieDataSource {
         return unwrappedResponse
     }
     
-    func getUpcomingMovies() async throws -> [MovieDTO] {
-        let request = MoviesRequest.getUpcomingMovies
+    func getUpcomingMovies(page: Int) async throws -> [MovieDTO] {
+        let request = MoviesRequest.getUpcomingMovies(page: page)
         let response: MovieListDTO = try await requestManager.makeRequest(with: request)
         guard let unwrappedResponse = response.results else {
             print("error fetching Upcoming movies: NIL RESPONSE")
@@ -48,8 +48,8 @@ class DefaultMovieDataSource: MovieDataSource {
         return unwrappedResponse
     }
     
-    func getTopRatedMovies() async throws -> [MovieDTO] {
-        let request = MoviesRequest.getTopRatedMovies
+    func getTopRatedMovies(page: Int) async throws -> [MovieDTO] {
+        let request = MoviesRequest.getTopRatedMovies(page: page)
         let response: MovieListDTO = try await requestManager.makeRequest(with: request)
         guard let unwrappedResponse = response.results else {
             print("error fetching Top Rated movies: NIL RESPONSE")
@@ -58,8 +58,8 @@ class DefaultMovieDataSource: MovieDataSource {
         return unwrappedResponse
     }
     
-    func getPopularMovies() async throws -> [MovieDTO] {
-        let request = MoviesRequest.getPopularMovies
+    func getPopularMovies(page: Int) async throws -> [MovieDTO] {
+        let request = MoviesRequest.getPopularMovies(page: page)
         let response: MovieListDTO = try await requestManager.makeRequest(with: request)
         guard let unwrappedResponse = response.results else {
             print("error fetching popular movies: NIL RESPONSE")

@@ -10,9 +10,9 @@ import Foundation
 enum MoviesRequest: RequestProtocol {
     
     case getNowPlayingMovies(page: Int)
-    case getUpcomingMovies
-    case getTopRatedMovies
-    case getPopularMovies
+    case getUpcomingMovies(page: Int)
+    case getTopRatedMovies(page: Int)
+    case getPopularMovies(page: Int)
     case getMovieById(movieId: Int)
     
     var requestType: RequestType {
@@ -53,12 +53,12 @@ enum MoviesRequest: RequestProtocol {
         switch self {
         case .getNowPlayingMovies(page: let page):
             return ["page": String(page)]
-        case .getUpcomingMovies:
-           return [:]
-        case .getTopRatedMovies:
-           return [:]
-        case .getPopularMovies:
-           return [:]
+        case .getUpcomingMovies(page: let page):
+           return ["page": String(page)]
+        case .getTopRatedMovies(page: let page):
+           return ["page": String(page)]
+        case .getPopularMovies(page: let page):
+           return ["page": String(page)]
         case .getMovieById( _):
             return ["append_to_response": "videos,credits"]
         }

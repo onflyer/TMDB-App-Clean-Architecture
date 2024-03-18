@@ -30,9 +30,9 @@ class DefaultMoviesRepository: MovieListRepository {
         }
     }
     
-    func getUpcomingMovies() async -> Result<[MovieEntity], AppError> {
+    func getUpcomingMovies(page: Int) async -> Result<[MovieEntity], AppError> {
         do {
-            let data = try await moviesDatasource.getUpcomingMovies()
+            let data = try await moviesDatasource.getUpcomingMovies(page: page)
             let upcomingMovies = data.map({
                 $0.toDomain()
             })
@@ -45,9 +45,9 @@ class DefaultMoviesRepository: MovieListRepository {
         
     }
     
-    func getTopRatedMovies() async -> Result<[MovieEntity], AppError> {
+    func getTopRatedMovies(page: Int) async -> Result<[MovieEntity], AppError> {
         do {
-            let data = try await moviesDatasource.getTopRatedMovies()
+            let data = try await moviesDatasource.getTopRatedMovies(page: page)
             let topRatedMovies = data.map({
                 $0.toDomain()
             })
@@ -58,9 +58,9 @@ class DefaultMoviesRepository: MovieListRepository {
         }
     }
     
-    func getPopularMovies() async -> Result<[MovieEntity], AppError> {
+    func getPopularMovies(page: Int) async -> Result<[MovieEntity], AppError> {
         do {
-            let data = try await moviesDatasource.getPopularMovies()
+            let data = try await moviesDatasource.getPopularMovies(page: page)
             let popularMovies = data.map({
                 $0.toDomain()
             })

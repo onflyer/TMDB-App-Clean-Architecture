@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol GetPopularMoviesUseCase {
-    func execute() async -> Result<[MovieEntity],AppError>
+    func execute(page: Int) async -> Result<[MovieEntity],AppError>
 }
 
 class GetPopularMoviesUseCaseImpl: GetPopularMoviesUseCase {
@@ -19,7 +19,7 @@ class GetPopularMoviesUseCaseImpl: GetPopularMoviesUseCase {
         self.repository = repository
     }
     
-    func execute() async -> Result<[MovieEntity], AppError> {
-        return await repository.getPopularMovies()
+    func execute(page: Int) async -> Result<[MovieEntity], AppError> {
+        return await repository.getPopularMovies(page: page)
     }
 }
