@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Dependencies
+
 
 @MainActor
 final class MovieSearchScreenViewModel: ObservableObject {
