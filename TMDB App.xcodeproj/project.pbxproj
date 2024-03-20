@@ -104,6 +104,8 @@
 		3BF09FDB2BA86FD000F59F3E /* BaseStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FDA2BA86FD000F59F3E /* BaseStateView.swift */; };
 		3BF09FDD2BA8701800F59F3E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FDC2BA8701800F59F3E /* ViewModel.swift */; };
 		3BF09FDF2BA870B900F59F3E /* CustomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FDE2BA870B900F59F3E /* CustomListView.swift */; };
+		3BF236D62BAB0701004E1D0E /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 3BF236D52BAB0701004E1D0E /* Swinject */; };
+		3BF236D82BAB0701004E1D0E /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3BF236D72BAB0701004E1D0E /* Swinject-Dynamic */; };
 		3BF6DEC32B36F00F0087778E /* AddFavoriteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF6DEC22B36F00F0087778E /* AddFavoriteDTO.swift */; };
 		3BFFE6662AF97998007A8CAA /* TabViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFFE6652AF97998007A8CAA /* TabViewScreen.swift */; };
 		3BFFE6702AF97E04007A8CAA /* MoviePosterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFFE66F2AF97E04007A8CAA /* MoviePosterCarouselView.swift */; };
@@ -218,6 +220,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF236D62BAB0701004E1D0E /* Swinject in Frameworks */,
+				3BF236D82BAB0701004E1D0E /* Swinject-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +688,8 @@
 			);
 			name = "TMDB App";
 			packageProductDependencies = (
+				3BF236D52BAB0701004E1D0E /* Swinject */,
+				3BF236D72BAB0701004E1D0E /* Swinject-Dynamic */,
 			);
 			productName = "TMDB App";
 			productReference = 3B8782842AE4261C0098C228 /* TMDB App.app */;
@@ -714,6 +720,7 @@
 			);
 			mainGroup = 3B87827B2AE4261C0098C228;
 			packageReferences = (
+				3BF236D42BAB0701004E1D0E /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 3B8782852AE4261C0098C228 /* Products */;
 			projectDirPath = "";
@@ -1046,6 +1053,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3BF236D42BAB0701004E1D0E /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3BF236D52BAB0701004E1D0E /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BF236D42BAB0701004E1D0E /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		3BF236D72BAB0701004E1D0E /* Swinject-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BF236D42BAB0701004E1D0E /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = "Swinject-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B87827C2AE4261C0098C228 /* Project object */;
 }
