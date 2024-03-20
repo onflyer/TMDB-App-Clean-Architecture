@@ -20,11 +20,11 @@ class Resolver {
     ///
     /// > It should be called only once in the app's lifecycle.
     @MainActor func injectModules() {
-//        injectUtils()
-//        injectDataSources()
-//        injectRepositories()
-//        injectUseCases()
-//        injectViewModels()
+        injectUtils()
+        injectDataSources()
+        injectRepositories()
+        injectUseCases()
+        injectViewModels()
     }
     
     /// This method is responsible for resolving a dependency.
@@ -33,5 +33,55 @@ class Resolver {
     /// - Returns: The resolved dependency.
     func resolve<T>(_ type: T.Type) -> T {
         container.resolve(T.self)!
+    }
+}
+
+// MARK: - Injecting Utils -
+extension Resolver {
+    private func injectUtils() {
+        container.register(NetworkManager.self) { _ in
+            DefaultNetworkManager()
+        }.inObjectScope(.container)
+        container.register(RequestManager.self) { resolver in
+            DefaultRequestManager(networkManager: resolver.resolve(NetworkManager.self)!)
+        }.inObjectScope(.container)
+    }
+}
+
+// MARK: - Injecting DataSources -
+extension Resolver {
+    private func injectDataSources() {
+        container.register(MovieDataSource.self) { resolver in
+            DefaultMovieDataSource(requestManager: resolver.resolve(RequestManager.self)!)
+        }.inObjectScope(.container)
+    }
+}
+
+// MARK: - Injecting Repositories -
+extension Resolver {
+    private func injectRepositories() {
+        container.register(MovieListRepository.self) { resolver in
+            DefaultMoviesRepository(moviesDatasource: resolver.resolve(MovieDataSource.self)!)
+        }.inObjectScope(.container)
+    }
+}
+
+// MARK: - Injecting Use Cases -
+
+extension Resolver {
+    private func injectUseCases() {
+        container.register(GetNowPlayingMoviesUseCase.self) { resolver in
+            GetNowPlayingMoviesUseCaseImpl(repository: resolver.resolve(MovieListRepository.self)!)
+        }.inObjectScope(.container)
+    }
+}
+
+// MARK: - Injecting ViewModels -
+extension Resolver {
+    @MainActor
+    private func injectViewModels() {
+        container.register(HomeViewModel.self) { resolver in
+            HomeViewModel(getNowPlayingMoviesUseCase: resolver.resolve(GetNowPlayingMoviesUseCase.self)!)
+        }
     }
 }
