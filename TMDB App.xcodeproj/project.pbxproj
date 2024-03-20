@@ -709,8 +709,6 @@
 			);
 			mainGroup = 3B87827B2AE4261C0098C228;
 			packageReferences = (
-				3B2E63702B4197460040FA83 /* XCRemoteSwiftPackageReference "swift-dependencies" */,
-				3BA31E322B4429FE009BDCB2 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 3B8782852AE4261C0098C228 /* Products */;
 			projectDirPath = "";
@@ -1044,25 +1042,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		3B2E63702B4197460040FA83 /* XCRemoteSwiftPackageReference "swift-dependencies" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-dependencies";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.5;
-			};
-		};
-		3BA31E322B4429FE009BDCB2 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 20.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 3B87827C2AE4261C0098C228 /* Project object */;
 }
