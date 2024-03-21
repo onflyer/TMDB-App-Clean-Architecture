@@ -12,7 +12,20 @@ struct SearchView: View {
     
     var body: some View {
         ZStack {
-        Text("ss")
+            BaseStateView(viewModel: viewModel) {
+                List(viewModel.searchedMovies) { movie in
+                    Text(movie.title ?? "no Movie")
+                }
+                .task {
+                    
+                    await viewModel.loadSearchedMovies()
+                }
+            } emptyView: {
+                
+            } errorView: { error in
+                
+            }
+
         }
     }
 }
