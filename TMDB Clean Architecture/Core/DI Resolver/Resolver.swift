@@ -66,6 +66,7 @@ extension Resolver {
 // MARK: - Injecting Repositories -
 extension Resolver {
     private func injectRepositories() {
+        
         container.register(MovieListRepository.self) { resolver in
             DefaultMoviesRepository(moviesDatasource: resolver.resolve(MovieDataSource.self)!)
         }.inObjectScope(.container)
@@ -82,6 +83,7 @@ extension Resolver {
 
 extension Resolver {
     private func injectUseCases() {
+        
         // MARK: - MovieListUseCases -
         container.register(GetNowPlayingMoviesUseCase.self) { resolver in
             GetNowPlayingMoviesUseCaseImpl(repository: resolver.resolve(MovieListRepository.self)!)
@@ -95,10 +97,15 @@ extension Resolver {
         container.register(GetPopularMoviesUseCase.self) { resolver in
             GetPopularMoviesUseCaseImpl(repository: resolver.resolve(MovieListRepository.self)!)
         }.inObjectScope(.container)
+        container.register(GetMovieByIdUseCase.self) { resolver in
+            GetMoviebyIdUseCaseImpl(repository: resolver.resolve(MovieListRepository.self)!)
+        }.inObjectScope(.container)
+        
         // MARK: - SearchMoviesUseCases -
         container.register(SearchMovieUseCase.self) { resolver in
             SearchMovieUseCaseImpl(repository: resolver.resolve(SearchMovieRepository.self)!)
         }.inObjectScope(.container)
+        
         // MARK: - FavoriteMoviesUseCases -
         container.register(GetFavoritesUseCase.self) { resolver in
             GetFavoritesUseCaseImpl(repository: resolver.resolve(FavoritesRepository.self)!)
@@ -135,6 +142,9 @@ extension Resolver {
             FavoritesViewModel(
                 getFavoritesUseCase: resolver.resolve(GetFavoritesUseCase.self)!
             )
+        }
+        container.register(DetailViewModel.self) { resolver in
+            DetailViewModel(getMovieByIdUseCase: resolver.resolve(GetMovieByIdUseCase.self)!)
         }
     }
     
