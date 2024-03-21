@@ -19,6 +19,8 @@ final class HomeViewModel: ViewModel {
     private let getUpcomingMoviesUseCase: any GetUpcomingMoviesUseCase
     private let getTopRatedMoviesUseCase: any GetTopRatedMoviesUseCase
     private let getPopularMoviesUseCase: any GetPopularMoviesUseCase
+   
+    
     // MARK: - Properties -
     @Published var nowPlayingMovies: [MovieEntity] = []
     @Published var upcomingMovies: [MovieEntity] = []
