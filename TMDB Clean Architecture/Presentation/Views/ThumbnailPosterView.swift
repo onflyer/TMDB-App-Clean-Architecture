@@ -15,14 +15,17 @@ struct ThumbnailPosterView: View {
         ZStack {
             Color.gray.opacity(0.5)
             if let posterPath = movie.posterPath {
-                CachedImage(url: posterPath) { phase in
+                CachedImage(url: posterPath, animation: .default, transition: .opacity) { phase in
                     switch phase {
                     case .empty:
-                    Color.gray.opacity(0.5)
+                        Color.gray.opacity(0.5)
                     case .success(let image):
                         image.resizable()
                     case .failure(let error):
-                        Text(error.localizedDescription)
+                        ZStack {
+                         Color.gray.opacity(0.5)
+                            Text(error.localizedDescription)
+                        }
                     @unknown default:
                         EmptyView()
                     }

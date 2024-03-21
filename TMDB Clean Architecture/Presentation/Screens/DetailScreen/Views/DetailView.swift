@@ -31,7 +31,7 @@ struct DetailView: View {
 
         }
         .task {
-            await viewModel.loadMovieById(movieId: 3)
+            await viewModel.loadMovieById(movieId: movieId)
         }
     }
 }
