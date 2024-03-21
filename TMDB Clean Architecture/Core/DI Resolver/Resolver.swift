@@ -54,6 +54,12 @@ extension Resolver {
         container.register(MovieDataSource.self) { resolver in
             DefaultMovieDataSource(requestManager: resolver.resolve(RequestManager.self)!)
         }.inObjectScope(.container)
+        container.register(SearchMoviesDataSource.self) { resolver in
+            DefaultSearchMoviesDataSource(requestManager: resolver.resolve(RequestManager.self)!)
+        }.inObjectScope(.container)
+        container.register(FavoriteMoviesDataSource.self) { resolver in
+            DefaultFavoriteMoviesDataSource(requestManager: resolver.resolve(RequestManager.self)!)
+        }.inObjectScope(.container)
     }
 }
 
@@ -70,6 +76,7 @@ extension Resolver {
 
 extension Resolver {
     private func injectUseCases() {
+        // MARK: - MovieListUseCases -
         container.register(GetNowPlayingMoviesUseCase.self) { resolver in
             GetNowPlayingMoviesUseCaseImpl(repository: resolver.resolve(MovieListRepository.self)!)
         }.inObjectScope(.container)
@@ -82,6 +89,21 @@ extension Resolver {
         container.register(GetPopularMoviesUseCase.self) { resolver in
             GetPopularMoviesUseCaseImpl(repository: resolver.resolve(MovieListRepository.self)!)
         }.inObjectScope(.container)
+        // MARK: - SearchMoviesUseCases -
+        container.register(SearchMovieUseCase.self) { resolver in
+            SearchMovieUseCaseImpl(repository: resolver.resolve(SearchMovieRepository.self)!)
+        }.inObjectScope(.container)
+        // MARK: - FavoriteMoviesUseCases -
+        container.register(GetFavoritesUseCase.self) { resolver in
+            GetFavoritesUseCaseImpl(repository: resolver.resolve(FavoritesRepository.self)!)
+        }.inObjectScope(.container)
+        container.register(PostMovieToFavoritesUseCase.self) { resolver in
+            PostMovieToFavoriteUseCaseImpl(repository: resolver.resolve(FavoritesRepository.self)!)
+        }.inObjectScope(.container)
+        container.register(DeleteMovieFromFavoritesUseCase.self) { resolver in
+            DeleteMovieFromFavoritesUseCaseImpl(repository: resolver.resolve(FavoritesRepository.self)!)
+        }.inObjectScope(.container)
+        
     }
 }
 
