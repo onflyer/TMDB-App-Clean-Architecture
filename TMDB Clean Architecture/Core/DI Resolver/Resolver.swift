@@ -72,6 +72,9 @@ extension Resolver {
         container.register(SearchMovieRepository.self) { resolver in
             DefaultSearchMoviesRepository(moviesDatasource: resolver.resolve(SearchMoviesDataSource.self)!)
         }.inObjectScope(.container)
+        container.register(FavoritesRepository.self) { resolver in
+            DefaultFavoriteMoviesRepository(moviesDatasource: resolver.resolve(FavoriteMoviesDataSource.self)!)
+        }.inObjectScope(.container)
     }
 }
 
@@ -126,6 +129,11 @@ extension Resolver {
         container.register(SearchViewModel.self) { resolver in
             SearchViewModel(
                 searchMovieUseCase: resolver.resolve(SearchMovieUseCase.self)!
+            )
+        }
+        container.register(FavoritesViewModel.self) { resolver in
+            FavoritesViewModel(
+                getFavoritesUseCase: resolver.resolve(GetFavoritesUseCase.self)!
             )
         }
     }
