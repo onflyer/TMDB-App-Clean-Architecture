@@ -258,6 +258,7 @@
 				3B7109FE2B2DC25F00A9395E /* CachedImageManager.swift */,
 				3B7109FC2B2DBF4B00A9395E /* ImageCache.swift */,
 				3B5452C22B2DBCC300FA6F55 /* ImageRetriever.swift */,
+				3B710A002B2DC36E00A9395E /* CachedImage.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -278,8 +279,6 @@
 				3B20E7BB2B0930A3001F373B /* NavigationEnvirnomentKey.swift */,
 				3B26B84B2B1CF6E300334385 /* DelayAppereanceModifier.swift */,
 				3B26B84D2B1D218D00334385 /* CustomAlert.swift */,
-				3B4171A72B2327970093F7CE /* ShimmerEffectBox.swift */,
-				3B710A002B2DC36E00A9395E /* CachedImage.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -451,8 +450,6 @@
 				3BA7E0C42B0C123100A13629 /* MovieCastSection.swift */,
 				3B62919E2B0FF3C50010E395 /* MovieSearchRowView.swift */,
 				3B6291A02B0FFC110010E395 /* MovieSearchListView.swift */,
-				3B4171A92B232A8D0093F7CE /* CarouselPosterProgressView.swift */,
-				3B4171AB2B2334230093F7CE /* CarouselBackdropProgressView.swift */,
 				3BDBC9E82B2353410056F7BE /* EmptyPlaceholderView.swift */,
 				3B710A022B2DCEAC00A9395E /* MV Views */,
 			);
@@ -584,6 +581,15 @@
 				3BDD15C22BAC6FF100F60554 /* TabViewRouter.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		3BDD15C82BAC784900F60554 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B4171AB2B2334230093F7CE /* CarouselBackdropProgressView.swift */,
+				3B4171A92B232A8D0093F7CE /* CarouselPosterProgressView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3BF09F672B9F82A300F59F3E /* Entity */ = {
@@ -753,6 +759,7 @@
 		3BF09FD92BA86FB600F59F3E /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
+				3B4171A72B2327970093F7CE /* ShimmerEffectBox.swift */,
 				3BF09FDA2BA86FD000F59F3E /* BaseStateView.swift */,
 				3BF09FDE2BA870B900F59F3E /* CustomListView.swift */,
 				3BDD15C42BAC70BA00F60554 /* AppTabView1.swift */,
@@ -763,6 +770,7 @@
 		3BF236D22BAB01C7004E1D0E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3BDD15C82BAC784900F60554 /* Views */,
 				3BF09FD92BA86FB600F59F3E /* ReusableViews */,
 				3BF236D32BAB0291004E1D0E /* ViewModelWrapper */,
 				3BF09FD52BA86D6B00F59F3E /* Screens */,

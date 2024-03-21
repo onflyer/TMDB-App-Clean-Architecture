@@ -15,16 +15,19 @@ struct CarouselBackdropProgressView: View {
                     ForEach(0..<4) { placeholder in
                         VStack(alignment: .leading, spacing: 16) {
                             ZStack {
-                                ShimmerEffectBox()
+                            ShimmerEffectBox()
+                                    .cornerRadius(8)
+                                    .shadow(radius: 4)
                             }
                             ShimmerEffectBox()
                                 .frame(width: 204, height: 30)
+                                .cornerRadius(8)
+                                .shadow(radius: 4)
                                
                         }
                         .aspectRatio(16/9, contentMode: .fit)
                         .frame(height: 160)
-                        .cornerRadius(8)
-                        .shadow(radius: 4)
+                        
                         
                     }
                 }

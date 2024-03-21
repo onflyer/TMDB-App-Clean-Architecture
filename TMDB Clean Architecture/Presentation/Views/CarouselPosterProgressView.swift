@@ -13,6 +13,8 @@ struct CarouselPosterProgressView: View {
             
             ShimmerEffectBox()
                 .frame(width: 204, height: 40)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .shadow(radius: 4)
                 .padding(.horizontal)
                 
             

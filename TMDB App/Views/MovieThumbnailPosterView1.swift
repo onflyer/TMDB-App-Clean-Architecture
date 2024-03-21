@@ -27,10 +27,7 @@ struct MovieThumbnailPosterView1: View {
                     image
                         .resizable()
                 case .failure(_):
-                    Image(systemName: "xmark")
-                        .resizable()
-                    
-                
+                    Text("Failed to download image")
                 @unknown default:
                     EmptyView()
                 }
