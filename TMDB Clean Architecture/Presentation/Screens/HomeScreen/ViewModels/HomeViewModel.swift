@@ -26,7 +26,7 @@ final class HomeViewModel: ViewModel {
     @Published var upcomingMovies: [MovieEntity] = []
     @Published var topRatedMovies: [MovieEntity] = []
     @Published var popularMovies: [MovieEntity] = []
-    private var page = 1
+    var page = 1
     
     // MARK: - Init -
     init(getNowPlayingMoviesUseCase: any GetNowPlayingMoviesUseCase, getUpcomingMoviesUseCase: any GetUpcomingMoviesUseCase, getTopRatedMoviesUseCase: any GetTopRatedMoviesUseCase, getPopularMoviesUseCase: any GetPopularMoviesUseCase) {
@@ -109,6 +109,20 @@ extension HomeViewModel {
             print(error)
             state = .error(error.localizedDescription)
         }
+    }
+    
+    func loadMoreNowPlayingMovies(currentItem: MovieEntity) async {
+        guard nowPlayingMovies.last?.id == currentItem.id else {return}
+        page += 1
+        await loadNowPlayingMovies()
+        
+    }
+    
+    func loadMoreUpcomingMovies(currentItem: MovieEntity) async {
+        guard upcomingMovies.last?.id == currentItem.id else {return}
+        page += 1
+        await loadUpcomingMovies()
+        
     }
     
 }

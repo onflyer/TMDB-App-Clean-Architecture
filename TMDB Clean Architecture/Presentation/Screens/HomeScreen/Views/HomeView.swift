@@ -12,18 +12,22 @@ struct HomeView: View {
     
     var body: some View {
         ZStack {
-            BaseStateView(viewModel: viewModel) {
-                List(viewModel.popularMovies) { movie in
-                    Text(movie.title ?? "no title")
+            VStack {
+                BaseStateView(viewModel: viewModel) {
+                    List(viewModel.nowPlayingMovies) { movie in
+                        Text(movie.title ?? "no title")
                     
+                    .task {
+                        await viewModel.loadMoreNowPlayingMovies(currentItem: movie)
+                          }
+                    }
+                    .task {
+                        await viewModel.loadNowPlayingMovies()
+                    }
+                } emptyView: {
+                    
+                } errorView: { error in
                 }
-                .task {
-                    await viewModel.loadPopularMovies()
-                }
-            } emptyView: {
-                
-            } errorView: { error in
-                
             }
 
         }
