@@ -73,6 +73,15 @@ extension Resolver {
         container.register(GetNowPlayingMoviesUseCase.self) { resolver in
             GetNowPlayingMoviesUseCaseImpl(repository: resolver.resolve(MovieListRepository.self)!)
         }.inObjectScope(.container)
+        container.register(GetUpcomingMoviesUseCase.self) { resolver in
+            GetUpcomingMoviesUseCaseImpl(repository: resolver.resolve(MovieListRepository.self)!)
+        }.inObjectScope(.container)
+        container.register(GetTopRatedMoviesUseCase.self) { resolver in
+            GetTopRatedMoviesUseCaseImpl(repository: resolver.resolve(MovieListRepository.self)!)
+        }.inObjectScope(.container)
+        container.register(GetPopularMoviesUseCase.self) { resolver in
+            GetPopularMoviesUseCaseImpl(repository: resolver.resolve(MovieListRepository.self)!)
+        }.inObjectScope(.container)
     }
 }
 
@@ -81,7 +90,12 @@ extension Resolver {
     @MainActor
     private func injectViewModels() {
         container.register(HomeViewModel.self) { resolver in
-            HomeViewModel(getNowPlayingMoviesUseCase: resolver.resolve(GetNowPlayingMoviesUseCase.self)!)
+            HomeViewModel(
+                getNowPlayingMoviesUseCase: resolver.resolve(GetNowPlayingMoviesUseCase.self)!,
+                getUpcomingMoviesUseCase: resolver.resolve(GetUpcomingMoviesUseCase.self)!,
+                getTopRatedMoviesUseCase: resolver.resolve(GetTopRatedMoviesUseCase.self)!,
+                getPopularMoviesUseCase: resolver.resolve(GetPopularMoviesUseCase.self)!
+            )
         }
     }
 }
