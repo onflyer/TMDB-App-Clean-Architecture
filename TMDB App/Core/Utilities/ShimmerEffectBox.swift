@@ -10,9 +10,9 @@ import SwiftUI
 struct ShimmerEffectBox: View {
     
     private var gradientColors = [
-        Color(uiColor: .systemGray5),
+        Color(uiColor: .systemGray3),
         Color(uiColor: .systemGray6),
-        Color(uiColor: .systemGray5)
+        Color(uiColor: .systemGray3)
     ]
     
     @State var startPoint: UnitPoint = .init(x: -1.8, y: -1.2)
