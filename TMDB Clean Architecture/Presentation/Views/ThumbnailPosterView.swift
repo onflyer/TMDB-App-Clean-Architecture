@@ -15,7 +15,7 @@ struct ThumbnailPosterView: View {
         ZStack {
             Color.gray.opacity(0.5)
             if let posterPath = movie.posterPath {
-                CachedImage(url: posterPath, animation: .default, transition: .opacity) { phase in
+                CachedImage(url: posterPath, animation: .default.speed(2.0), transition: .opacity) { phase in
                     switch phase {
                     case .empty:
                         Color.gray.opacity(0.5)

@@ -18,7 +18,7 @@ struct ThumbnailBackdropView: View {
                 
                 if let backdropPath = movie.backdropPath {
                         
-                    CachedImage(url: backdropPath,animation: .default, transition: .opacity) { phase in
+                    CachedImage(url: backdropPath,animation: .default.speed(2.0), transition: .opacity) { phase in
                         switch phase {
                         case .empty:
                             Color.gray.opacity(0.5)
