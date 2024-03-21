@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ThumbnailPosterView: View {
     
-    let movie: SingleMovieEntity
+    let movie: MovieEntity
     
     var body: some View {
         ZStack {
@@ -37,7 +37,7 @@ struct ThumbnailPosterView: View {
 }
 
 #Preview {
-    ThumbnailPosterView(movie: SingleMovieEntity.dummySingleMovie() )
+    ThumbnailPosterView(movie: MovieEntity.dummyMovie() )
 }
 
 

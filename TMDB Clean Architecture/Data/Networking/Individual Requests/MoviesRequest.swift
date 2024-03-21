@@ -36,7 +36,7 @@ enum MoviesRequest: RequestProtocol {
         
     var headers: [String : String] {
         switch self {
-        case .getNowPlayingMovies(page: let page):
+        case .getNowPlayingMovies(page: _):
             return [:]
         case .getUpcomingMovies:
             return [:]

@@ -26,14 +26,28 @@ struct MovieEntity: Identifiable {
     let scoreText: String?
     
     
-    
+    static func dummyArrayMovie() -> [MovieEntity] {
+        return [MovieEntity(adult: false, backdropPath: "https://image.tmdb.org/t/p/w500/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg", genreIDS: [
+            27,
+            9648
+        ], id: 507089, originalTitle: "Five Nights at Freddy's", overview: "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems.", popularity: 1355.052, posterPath: "https://image.tmdb.org/t/p/w500/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg", releaseDate: "2023-10-25", title: "Five Nights at Freddy's", video: false, voteAverage: 7.964, voteCount: 2262, ratingText: "★★★★★★★", scoreText: "7/10"),MovieEntity(adult: false, backdropPath: "https://image.tmdb.org/t/p/w500/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg", genreIDS: [
+            27,
+            9648
+        ], id: 507089, originalTitle: "Five Nights at Freddy's", overview: "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems.", popularity: 1355.052, posterPath: "https://image.tmdb.org/t/p/w500/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg", releaseDate: "2023-10-25", title: "Five Nights at Freddy's", video: false, voteAverage: 7.964, voteCount: 2262, ratingText: "★★★★★★★", scoreText: "7/10"),MovieEntity(adult: false, backdropPath: "https://image.tmdb.org/t/p/w500/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg", genreIDS: [
+            27,
+            9648
+        ], id: 507089, originalTitle: "Five Nights at Freddy's", overview: "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems.", popularity: 1355.052, posterPath: "https://image.tmdb.org/t/p/w500/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg", releaseDate: "2023-10-25", title: "Five Nights at Freddy's", video: false, voteAverage: 7.964, voteCount: 2262, ratingText: "★★★★★★★", scoreText: "7/10"),MovieEntity(adult: false, backdropPath: "https://image.tmdb.org/t/p/w500/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg", genreIDS: [
+            27,
+            9648
+        ], id: 507089, originalTitle: "Five Nights at Freddy's", overview: "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems.", popularity: 1355.052, posterPath: "https://image.tmdb.org/t/p/w500/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg", releaseDate: "2023-10-25", title: "Five Nights at Freddy's", video: false, voteAverage: 7.964, voteCount: 2262, ratingText: "★★★★★★★", scoreText: "7/10")]
+    }
     
     
     static func dummyMovie() -> MovieEntity {
-        return MovieEntity(adult: false, backdropPath: "/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg", genreIDS: [
+        return MovieEntity(adult: false, backdropPath: "https://image.tmdb.org/t/p/w500/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg", genreIDS: [
             27,
             9648
-        ], id: 507089, originalTitle: "Five Nights at Freddy's", overview: "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems.", popularity: 1355.052, posterPath: "/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg", releaseDate: "2023-10-25", title: "Five Nights at Freddy's", video: false, voteAverage: 7.964, voteCount: 2262, ratingText: "★★★★★★★", scoreText: "7/10")
+        ], id: 507089, originalTitle: "Five Nights at Freddy's", overview: "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems.", popularity: 1355.052, posterPath: "https://image.tmdb.org/t/p/w500/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg", releaseDate: "2023-10-25", title: "Five Nights at Freddy's", video: false, voteAverage: 7.964, voteCount: 2262, ratingText: "★★★★★★★", scoreText: "7/10")
     }
     
 }

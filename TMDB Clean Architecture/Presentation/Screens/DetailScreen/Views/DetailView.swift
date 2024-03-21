@@ -10,10 +10,12 @@ import SwiftUI
 struct DetailView: View {
     @StateObject private var viewModel = Resolver.shared.resolve(DetailViewModel.self)
     
+    let movieId: Int
+    
     var body: some View {
         ZStack {
             BaseStateView(viewModel: viewModel) {
-                if let movie = viewModel.singleMovie {
+                if viewModel.singleMovie != nil {
                     VStack {
                         Text(viewModel.singleMovie?.title ?? "no movie")
                     }
@@ -35,5 +37,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView()
+    DetailView(movieId: 3)
 }

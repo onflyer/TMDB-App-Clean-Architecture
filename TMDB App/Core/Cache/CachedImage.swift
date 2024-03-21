@@ -93,7 +93,7 @@ struct CachedImage<Content: View>: View {
             image
                 .resizable()
             
-        case .failure(let error):
+        case .failure(_):
             Image(systemName: "xmark")
                 .resizable()
             
