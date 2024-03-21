@@ -12,13 +12,18 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVStack {
-                    nowPlayingSection
-                    upcomingSection
+            ZStack {
+                ScrollView {
+                    LazyVStack {
+                        nowPlayingSection
+                        upcomingSection
+                        topRatedSection
+                        popularSection
+                    }
                 }
+                .navigationTitle("TMDB APP")
+                
             }
-            .navigationTitle("TMDB APP")
         }
         
     }
@@ -88,6 +93,82 @@ struct HomeView: View {
                 }
                 .task {
                     await viewModel.loadUpcomingMovies()
+                }
+            }, emptyView: {
+               CarouselBackdropProgressView()
+            }, errorView: { error in
+                
+            }) {
+            }
+        }
+    }
+    
+    var topRatedSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            
+            Text("Top rated")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.horizontal)
+            
+            BaseStateView(viewModel: viewModel, successView: {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(alignment: .top, spacing: 16) {
+                        ForEach(viewModel.topRatedMovies) { movie in
+                            NavigationLink(destination: DetailView(movieId: movie.id ?? 0), label: {
+                                ThumbnailPosterView(movie: movie)
+                            })
+                            .task {
+                                await viewModel.loadMoreTopRatedMovies(currentItem: movie)
+                            }
+                            .foregroundStyle(.primary)
+                            
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    
+                }
+                .task {
+                    await viewModel.loadTopRatedMovies()
+                }
+            }, emptyView: {
+               CarouselPosterProgressView()
+            }, errorView: { error in
+                
+            }) {
+            }
+        }
+    }
+    
+    var popularSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            
+            Text("Popular")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.horizontal)
+            
+            BaseStateView(viewModel: viewModel, successView: {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(alignment: .top, spacing: 16) {
+                        ForEach(viewModel.popularMovies) { movie in
+                            NavigationLink(destination: DetailView(movieId: movie.id ?? 0), label: {
+                                ThumbnailBackdropView(movie: movie)
+                            })
+                            .task {
+                                await viewModel.loadMorePopularMovies(currentItem: movie)
+                            }
+                            .foregroundStyle(.primary)
+                            
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    
+                }
+                .task {
+                    await viewModel.loadPopularMovies()
                 }
             }, emptyView: {
                CarouselBackdropProgressView()

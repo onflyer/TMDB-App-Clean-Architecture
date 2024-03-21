@@ -125,4 +125,17 @@ extension HomeViewModel {
         
     }
     
+    func loadMoreTopRatedMovies(currentItem: MovieEntity) async {
+        guard topRatedMovies.last?.id == currentItem.id else {return}
+        page += 1
+        await loadTopRatedMovies()
+    }
+    
+    func loadMorePopularMovies(currentItem: MovieEntity) async {
+        guard popularMovies.last?.id == currentItem.id else {return}
+        page += 1
+        await loadPopularMovies()
+        
+    }
+    
 }
