@@ -13,8 +13,9 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack {
+                LazyVStack {
                     nowPlayingSection
+                    upcomingSection
                 }
             }
             .navigationTitle("TMDB APP")
@@ -51,9 +52,47 @@ struct HomeView: View {
                 }
 
             }, emptyView: {
-                
+               CarouselPosterProgressView()
             }, errorView: { error in
 
+            }) {
+            }
+        }
+    }
+    
+    var upcomingSection: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            
+            Text("Upcoming")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.horizontal)
+            
+            BaseStateView(viewModel: viewModel, successView: {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(alignment: .top, spacing: 16) {
+                        ForEach(viewModel.upcomingMovies) { movie in
+                            NavigationLink(destination: DetailView(movieId: movie.id ?? 0), label: {
+                                ThumbnailBackdropView(movie: movie)
+                            })
+                            .task {
+                                await viewModel.loadMoreUpcomingMovies(currentItem: movie)
+                            }
+                            .foregroundStyle(.primary)
+                            
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    
+                }
+                .task {
+                    await viewModel.loadUpcomingMovies()
+                }
+            }, emptyView: {
+               CarouselBackdropProgressView()
+            }, errorView: { error in
+                
             }) {
             }
         }

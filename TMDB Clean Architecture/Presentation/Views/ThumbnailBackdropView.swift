@@ -9,21 +9,16 @@ import SwiftUI
 
 struct ThumbnailBackdropView: View {
     
-    let movie: SingleMovieEntity
+    let movie: MovieEntity
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             ZStack {
                 Color.gray.opacity(0.5)
-              
-                    Text(movie.title ?? "N/A")
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                        .lineLimit(4)
                 
                 if let backdropPath = movie.backdropPath {
                         
-                    CachedImage(url: backdropPath) { phase in
+                    CachedImage(url: backdropPath,animation: .default, transition: .opacity) { phase in
                         switch phase {
                         case .empty:
                             Color.gray.opacity(0.5)
@@ -51,7 +46,7 @@ struct ThumbnailBackdropView: View {
 }
 
 #Preview {
-    ThumbnailBackdropView(movie: SingleMovieEntity.dummySingleMovie())
+    ThumbnailBackdropView(movie: MovieEntity.dummyMovie())
 }
 //struct MovieThumbnailBackdropView1: View {
 //    
