@@ -60,8 +60,9 @@ struct HomeView: View {
                CarouselPosterProgressView()
             }, errorView: { error in
 
-            }) {
-            }
+            }, loadingView: {
+               ProgressView()
+            })
         }
     }
     
@@ -98,8 +99,10 @@ struct HomeView: View {
                CarouselBackdropProgressView()
             }, errorView: { error in
                 
-            }) {
-            }
+            }, loadingView: {
+               ProgressView()
+            })
+            
         }
     }
     
@@ -136,8 +139,9 @@ struct HomeView: View {
                CarouselPosterProgressView()
             }, errorView: { error in
                 
-            }) {
-            }
+            }, loadingView: {
+                ProgressView()
+            })
         }
     }
     
@@ -174,8 +178,9 @@ struct HomeView: View {
                CarouselBackdropProgressView()
             }, errorView: { error in
                 
-            }) {
-            }
+            }, loadingView: {
+                ProgressView()
+            })
         }
     }
 }
