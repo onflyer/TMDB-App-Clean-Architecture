@@ -27,6 +27,8 @@ struct DetailView: View {
                 
             } errorView: { error in
                 
+            } loadingView: {
+                
             }
 
         }

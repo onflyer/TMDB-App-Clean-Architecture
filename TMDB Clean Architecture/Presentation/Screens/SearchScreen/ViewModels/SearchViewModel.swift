@@ -13,7 +13,7 @@ final class SearchViewModel: ViewModel {
     private let searchMovieUseCase: any SearchMovieUseCase
     
    // MARK: - Properties -
-    @Published var query = "lord"
+    @Published var query = ""
     @Published var searchedMovies: [MovieEntity] = []
     
     // MARK: - Init -
@@ -25,6 +25,7 @@ final class SearchViewModel: ViewModel {
 
 extension SearchViewModel {
     func loadSearchedMovies() async {
+        state = .empty
         let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !query.isEmpty else {
@@ -36,12 +37,10 @@ extension SearchViewModel {
         
         switch result {
         case .success(let data):
-            searchedMovies.append(contentsOf: data)
-            if searchedMovies.isEmpty {
-                state = .empty
-            } else {
-                state = .success
-            }
+            searchedMovies = data
+            
+            state = .success
+            
         case .failure(let error):
             print(error)
             state = .error(error.localizedDescription)

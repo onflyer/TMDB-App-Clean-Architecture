@@ -23,6 +23,8 @@ struct FavoritesView: View {
                 
             } errorView: { error in
                 
+            } loadingView: {
+                
             }
 
         })

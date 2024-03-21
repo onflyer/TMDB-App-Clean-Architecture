@@ -35,7 +35,7 @@ where VM: ViewModel, SuccessView: View, NoItemsView: View, ErrorView: View,
          @ViewBuilder errorView: @escaping (String) -> ErrorView
          /*= {MessageView(message: $0)}*/,
          @ViewBuilder loadingView: @escaping () -> LoadingView
-         = { ProgressView() }) {
+         /*= { ProgressView() }*/) {
         self.viewModel = viewModel
         self.successView = successView
         self.emptyView = emptyView
@@ -45,10 +45,11 @@ where VM: ViewModel, SuccessView: View, NoItemsView: View, ErrorView: View,
     
     var body: some View {
         ZStack {
-            successView()
+              successView()
             switch viewModel.state {
-            case .initial,
-                 .loading:
+            case .initial:
+                emptyView()
+            case .loading:
                 loadingView()
             case .error(let errorMessage):
                 errorView(errorMessage)
