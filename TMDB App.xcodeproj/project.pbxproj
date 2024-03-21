@@ -458,7 +458,6 @@
 				3BA7E0C42B0C123100A13629 /* MovieCastSection.swift */,
 				3B62919E2B0FF3C50010E395 /* MovieSearchRowView.swift */,
 				3B6291A02B0FFC110010E395 /* MovieSearchListView.swift */,
-				3BDBC9E82B2353410056F7BE /* EmptyPlaceholderView.swift */,
 				3B710A022B2DCEAC00A9395E /* MV Views */,
 			);
 			path = Views;
@@ -600,6 +599,7 @@
 				3BDD15CB2BAC85DB00F60554 /* ThumbnailBackdropView.swift */,
 				3BDD15CF2BACAD3E00F60554 /* DetailImageView.swift */,
 				3BDD15D12BACD2C900F60554 /* SearchRowView.swift */,
+				3BDBC9E82B2353410056F7BE /* EmptyPlaceholderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
