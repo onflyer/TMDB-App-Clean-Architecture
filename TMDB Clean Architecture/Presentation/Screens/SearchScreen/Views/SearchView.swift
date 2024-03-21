@@ -12,7 +12,7 @@ struct SearchView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
+           
                 BaseStateView(viewModel: viewModel) {
                     List {
                         ForEach(viewModel.searchedMovies) { movie in
@@ -44,7 +44,7 @@ struct SearchView: View {
                       ProgressView("Searching for movies")
                     })
                 }
-            }
+            
         }
     }
 }

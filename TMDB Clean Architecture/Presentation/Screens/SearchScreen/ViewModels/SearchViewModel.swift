@@ -38,7 +38,6 @@ extension SearchViewModel {
         switch result {
         case .success(let data):
             searchedMovies = data
-            
             state = .success
             
         case .failure(let error):
