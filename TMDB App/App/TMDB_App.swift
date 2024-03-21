@@ -21,7 +21,7 @@ struct TMDB_App: App {
     var body: some Scene {
         
         WindowGroup {
-           ContainerView()
+           ContentView1()
         }
     }
 }
