@@ -9,17 +9,17 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject private var viewModel = Resolver.shared.resolve(DetailViewModel.self)
+    @ObservedObject private var favoritesViewModel = Resolver.shared.resolve(FavoritesViewModel.self)
     
     let movieId: Int
     
     var body: some View {
-        
-
-        BaseStateView(viewModel: viewModel, 
+        BaseStateView(viewModel: viewModel,
            successView: {
             ScrollView {
                 if let movie = viewModel.singleMovie {
                     DetailImageView(movie: movie)
+                    favoriteButton
                     TrailersSection(movie: movie)
                         .padding(.horizontal)
                     DescrtiptionSection(movie: movie)
@@ -34,7 +34,8 @@ struct DetailView: View {
             .task {
                 await viewModel.loadMovieById(movieId: movieId)
             }
-        }, emptyView: {
+        },
+           emptyView: {
             EmptyPlaceholderView(text: "No movie", image: Image(systemName: "film"))
         }, errorView: { error in
             
@@ -44,7 +45,36 @@ struct DetailView: View {
         
         }
     
+    
+    var favoriteButton: some View {
+        Button(action: {
+            Task {
+                if await favoritesViewModel.movieIsFavorite(movieId: movieId) {
+                    await favoritesViewModel.deleteFromFavorites(movieId: movieId)
+                    favoritesViewModel.isFavorite = false
+                } else {
+                    await favoritesViewModel.addToFavorites(movieId: movieId)
+                    favoritesViewModel.isFavorite = true
+                }
+            }
+            
+        }, label: {
+            HStack(alignment: .firstTextBaseline, content: {
+                Text(favoritesViewModel.isFavorite ? "Remove from favorites" : "Add to favorites")
+                    .bold()
+                    .animation(.default)
+                Spacer()
+                Image(systemName: favoritesViewModel.isFavorite ? "heart.fill" : "heart")
+                    .animation(.default)
+            })
+            .padding(.horizontal)
+            .padding(.vertical, 5)
+
+        })
     }
+    
+    }
+
     
     
 
@@ -54,5 +84,6 @@ struct DetailView: View {
         DetailView(movieId: 5)
     }
 }
+
 
 

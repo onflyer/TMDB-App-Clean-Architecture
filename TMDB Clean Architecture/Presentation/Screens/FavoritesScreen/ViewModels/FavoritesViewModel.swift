@@ -11,16 +11,19 @@ import Foundation
 final class FavoritesViewModel: ViewModel {
     // MARK: - Dependencies -
     private let getFavoritesUseCase: any GetFavoritesUseCase
+    private let postMovieToFavoritesUseCase: any PostMovieToFavoritesUseCase
     private let deleteFavoriteMovieUseCase: any DeleteMovieFromFavoritesUseCase
     
    // MARK: - Properties -
     @Published var favoriteMovies: [MovieEntity] = []
     private var page = 1
+    @Published var isFavorite: Bool = false
     
     // MARK: - Init -
-    init(getFavoritesUseCase: any GetFavoritesUseCase, deleteFavoriteMovieUseCase: any DeleteMovieFromFavoritesUseCase ) {
+    init(getFavoritesUseCase: any GetFavoritesUseCase, deleteFavoriteMovieUseCase: any DeleteMovieFromFavoritesUseCase,postMovieToFavoritesUseCase: any PostMovieToFavoritesUseCase ) {
         self.getFavoritesUseCase = getFavoritesUseCase
         self.deleteFavoriteMovieUseCase = deleteFavoriteMovieUseCase
+        self.postMovieToFavoritesUseCase = postMovieToFavoritesUseCase
     }
 }
 
@@ -45,6 +48,20 @@ extension FavoritesViewModel {
         }
     }
     
+    func addToFavorites(movieId: Int) async {
+        let result = await postMovieToFavoritesUseCase.execute(mediaId: movieId)
+        
+        switch result {
+        case .success(let response):
+            state = .success
+            print(response)
+        
+        case .failure(let error):
+            print(error)
+            state = .error(error.localizedDescription)
+        }
+    }
+    
     func deleteFromFavorites(movieId: Int) async {
         let result = await deleteFavoriteMovieUseCase.execute(mediaId: movieId)
         
@@ -59,6 +76,17 @@ extension FavoritesViewModel {
         }
         favoriteMovies = favoriteMovies.filter {
             $0.id != movieId
+        }
+    }
+    
+    func movieIsFavorite(movieId: Int) async -> Bool {
+        await loadFavoriteMovies()
+        if favoriteMovies.contains(where: { movie in
+            movieId == movie.id
+        }) {
+            return true
+        } else {
+            return false
         }
     }
     

@@ -141,15 +141,13 @@ extension Resolver {
         container.register(FavoritesViewModel.self) { resolver in
             FavoritesViewModel(
                 getFavoritesUseCase: resolver.resolve(GetFavoritesUseCase.self)!, 
-                deleteFavoriteMovieUseCase: resolver.resolve(DeleteMovieFromFavoritesUseCase.self)!
+                deleteFavoriteMovieUseCase: resolver.resolve(DeleteMovieFromFavoritesUseCase.self)!,
+                postMovieToFavoritesUseCase: resolver.resolve(PostMovieToFavoritesUseCase.self)!
             )
         }
         container.register(DetailViewModel.self) { resolver in
             DetailViewModel(
-                getMovieByIdUseCase: resolver.resolve(GetMovieByIdUseCase.self)!,
-                postMovieToFavoritesUseCase: resolver.resolve(PostMovieToFavoritesUseCase.self)!,
-                deleteMovieFromFavoriesUseCase: resolver.resolve(DeleteMovieFromFavoritesUseCase.self)!,
-                getFavoritesUseCase: resolver.resolve(GetFavoritesUseCase.self)!
+                getMovieByIdUseCase: resolver.resolve(GetMovieByIdUseCase.self)!
             )
         }
     }
