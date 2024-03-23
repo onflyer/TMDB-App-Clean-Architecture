@@ -166,7 +166,11 @@ extension Resolver {
             FavoritesViewModel(
                 getFavoritesUseCase: resolver.resolve(GetFavoritesUseCase.self)!, 
                 deleteFavoriteMovieUseCase: resolver.resolve(DeleteMovieFromFavoritesUseCase.self)!,
-                postMovieToFavoritesUseCase: resolver.resolve(PostMovieToFavoritesUseCase.self)!
+                postMovieToFavoritesUseCase: resolver.resolve(PostMovieToFavoritesUseCase.self)!,
+                getFavoritesOfflineUseCase: resolver.resolve(GetFavoritesOfflineUseCase.self)!,
+                addFavoriteOfflineUseCase: resolver.resolve(AddFavoriteOfflineUseCase.self)!,
+                checkFavoriteOfflineUseCase: resolver.resolve(CheckFavoriteOfflineUseCase.self)!,
+                removeFavoriteOfflineUseCase: resolver.resolve(RemoveFavoriteOfflineUseCase.self)!
             )
         }
         container.register(DetailViewModel.self) { resolver in

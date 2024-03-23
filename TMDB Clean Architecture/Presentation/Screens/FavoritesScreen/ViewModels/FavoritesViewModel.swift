@@ -13,6 +13,10 @@ final class FavoritesViewModel: ViewModel {
     private let getFavoritesUseCase: any GetFavoritesUseCase
     private let postMovieToFavoritesUseCase: any PostMovieToFavoritesUseCase
     private let deleteFavoriteMovieUseCase: any DeleteMovieFromFavoritesUseCase
+    private let getFavoritesOfflineUseCase: GetFavoritesOfflineUseCase
+    private let addFavoriteOfflineUseCase: AddFavoriteOfflineUseCase
+    private let checkFavoriteOfflineUseCase: CheckFavoriteOfflineUseCase
+    private let removeFavoriteOfflineUseCase: RemoveFavoriteOfflineUseCase
     
    // MARK: - Properties -
     @Published var favoriteMovies: [MovieEntity] = []
@@ -20,10 +24,14 @@ final class FavoritesViewModel: ViewModel {
     @Published var isFavorite: Bool = false
     
     // MARK: - Init -
-    init(getFavoritesUseCase: any GetFavoritesUseCase, deleteFavoriteMovieUseCase: any DeleteMovieFromFavoritesUseCase,postMovieToFavoritesUseCase: any PostMovieToFavoritesUseCase ) {
+    init(getFavoritesUseCase: any GetFavoritesUseCase, deleteFavoriteMovieUseCase: any DeleteMovieFromFavoritesUseCase,postMovieToFavoritesUseCase: any PostMovieToFavoritesUseCase,getFavoritesOfflineUseCase: GetFavoritesOfflineUseCase, addFavoriteOfflineUseCase: AddFavoriteOfflineUseCase, checkFavoriteOfflineUseCase: CheckFavoriteOfflineUseCase, removeFavoriteOfflineUseCase: RemoveFavoriteOfflineUseCase) {
         self.getFavoritesUseCase = getFavoritesUseCase
         self.deleteFavoriteMovieUseCase = deleteFavoriteMovieUseCase
         self.postMovieToFavoritesUseCase = postMovieToFavoritesUseCase
+        self.getFavoritesOfflineUseCase = getFavoritesOfflineUseCase
+        self.addFavoriteOfflineUseCase = addFavoriteOfflineUseCase
+        self.checkFavoriteOfflineUseCase = checkFavoriteOfflineUseCase
+        self.removeFavoriteOfflineUseCase = removeFavoriteOfflineUseCase
     }
 }
 
