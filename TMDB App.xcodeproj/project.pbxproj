@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0E39CF2BAF7C8A00193FF7 /* FavoritesOfflineDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E39CE2BAF7C8A00193FF7 /* FavoritesOfflineDataSource.swift */; };
+		3B0E39D12BAF7F1100193FF7 /* CoreDataDTO+DomainMappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E39D02BAF7F1100193FF7 /* CoreDataDTO+DomainMappers.swift */; };
+		3B0E39D32BAF849500193FF7 /* CoreDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E39D22BAF849500193FF7 /* CoreDataMapper.swift */; };
 		3B20E7BC2B0930A3001F373B /* NavigationEnvirnomentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20E7BB2B0930A3001F373B /* NavigationEnvirnomentKey.swift */; };
 		3B22E04F2B2F4FA700AA5377 /* MovieHomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E04E2B2F4FA700AA5377 /* MovieHomeScreenViewModel.swift */; };
 		3B22E0512B2F527000AA5377 /* MovieSearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E0502B2F527000AA5377 /* MovieSearchScreenViewModel.swift */; };
@@ -134,6 +137,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B0E39CE2BAF7C8A00193FF7 /* FavoritesOfflineDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesOfflineDataSource.swift; sourceTree = "<group>"; };
+		3B0E39D02BAF7F1100193FF7 /* CoreDataDTO+DomainMappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataDTO+DomainMappers.swift"; sourceTree = "<group>"; };
+		3B0E39D22BAF849500193FF7 /* CoreDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMapper.swift; sourceTree = "<group>"; };
 		3B20E7BB2B0930A3001F373B /* NavigationEnvirnomentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationEnvirnomentKey.swift; sourceTree = "<group>"; };
 		3B22E04E2B2F4FA700AA5377 /* MovieHomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeScreenViewModel.swift; sourceTree = "<group>"; };
 		3B22E0502B2F527000AA5377 /* MovieSearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchScreenViewModel.swift; sourceTree = "<group>"; };
@@ -734,6 +740,7 @@
 			isa = PBXGroup;
 			children = (
 				3BDD15DD2BAF70EA00F60554 /* Local */,
+				3B0E39CE2BAF7C8A00193FF7 /* FavoritesOfflineDataSource.swift */,
 				3BF09F9B2BA367B100F59F3E /* Remote */,
 			);
 			path = DataSource;
@@ -768,6 +775,8 @@
 				3BF09FAD2BA5C99300F59F3E /* MovieListDTO+DomainMapper.swift */,
 				3BF09FCB2BA76C0500F59F3E /* DTOMapper.swift */,
 				3BF09FCD2BA76C4900F59F3E /* PostMovieToFavorites+DTOMapper.swift */,
+				3B0E39D02BAF7F1100193FF7 /* CoreDataDTO+DomainMappers.swift */,
+				3B0E39D22BAF849500193FF7 /* CoreDataMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -973,6 +982,7 @@
 				3BF236DF2BAB1128004E1D0E /* HomeViewModel.swift in Sources */,
 				3BDD15B72BAC563D00F60554 /* FavoritesViewModel.swift in Sources */,
 				3BF09F972BA2FC0F00F59F3E /* MovieDTO.swift in Sources */,
+				3B0E39D32BAF849500193FF7 /* CoreDataMapper.swift in Sources */,
 				3BF6DEC32B36F00F0087778E /* AddFavoriteDTO.swift in Sources */,
 				3B87829D2AE427230098C228 /* Endpoint.swift in Sources */,
 				3BF236E52BAB1743004E1D0E /* HomeView.swift in Sources */,
@@ -991,6 +1001,7 @@
 				3BF09FB42BA6F97500F59F3E /* GetPopularMoviesUseCase.swift in Sources */,
 				3BF09FC82BA76A9900F59F3E /* PostMovieToFavoritesEntity.swift in Sources */,
 				3B22E0572B2F561100AA5377 /* ContentView1.swift in Sources */,
+				3B0E39D12BAF7F1100193FF7 /* CoreDataDTO+DomainMappers.swift in Sources */,
 				3BDD15CA2BAC7BD700F60554 /* ThumbnailPosterView.swift in Sources */,
 				3B72EDE52AE97906000AB2BA /* Movie+Stubs.swift in Sources */,
 				3BF09FB82BA6FDCF00F59F3E /* SearchMoviesRequest.swift in Sources */,
@@ -1058,6 +1069,7 @@
 				3B6FC3C22B376B3300F58D67 /* FavoriteRequestDTO.swift in Sources */,
 				3B710A052B2DCED600A9395E /* MovieThumbnailPosterView1.swift in Sources */,
 				3B710A0B2B2E24F700A9395E /* MovieThumbnailBackdropView1.swift in Sources */,
+				3B0E39CF2BAF7C8A00193FF7 /* FavoritesOfflineDataSource.swift in Sources */,
 				3B6FC3BE2B3765FF00F58D67 /* FavoriteMoviesViewModel.swift in Sources */,
 				3BF09FA02BA36D7900F59F3E /* MoviesRequest.swift in Sources */,
 				3B4171A82B2327970093F7CE /* ShimmerEffectBox.swift in Sources */,

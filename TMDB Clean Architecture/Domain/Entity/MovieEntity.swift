@@ -24,7 +24,7 @@ struct MovieEntity: Identifiable {
     let voteCount: Int?
     let ratingText: String?
     let scoreText: String?
-    
+
     
     static func dummyArrayMovie() -> [MovieEntity] {
         return [MovieEntity(adult: false, backdropPath: "https://image.tmdb.org/t/p/w500/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg", genreIDS: [
@@ -61,4 +61,26 @@ extension MovieEntity: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+}
+
+extension MovieEntity {
+   
+    init (adult: Bool? = nil, backdropPath: String?, genreIDS: [Int]? = nil, id: Int?, originalTitle: String? = nil, overview: String? = nil, popularity: Double? = nil, posterPath: String?, releaseDate: String? = nil, coreDataTitle: String?, video: Bool? = nil, voteAverage: Double? = nil, voteCount: Int? = nil, ratingText: String? = nil, scoreText: String? = nil) {
+        self.adult = adult
+        self.backdropPath = backdropPath
+        self.genreIDS = genreIDS
+        self.id = id
+        self.originalTitle = originalTitle
+        self.overview = overview
+        self.popularity = popularity
+        self.posterPath = posterPath
+        self.releaseDate = releaseDate
+        self.title = coreDataTitle
+        self.video = video
+        self.voteAverage = voteAverage
+        self.voteCount = voteCount
+        self.ratingText = ratingText
+        self.scoreText = scoreText
+    }
+    
 }
