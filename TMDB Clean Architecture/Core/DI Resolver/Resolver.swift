@@ -45,6 +45,9 @@ extension Resolver {
         container.register(RequestManager.self) { resolver in
             DefaultRequestManager(networkManager: resolver.resolve(NetworkManager.self)!)
         }.inObjectScope(.container)
+        container.register(CoreDataStack.self) { _ in
+            CoreDataStack()
+        }.inObjectScope(.container)
     }
 }
 
@@ -59,6 +62,9 @@ extension Resolver {
         }.inObjectScope(.container)
         container.register(FavoriteMoviesDataSource.self) { resolver in
             DefaultFavoriteMoviesDataSource(requestManager: resolver.resolve(RequestManager.self)!)
+        }.inObjectScope(.container)
+        container.register(FavoritesOfflineDataSource.self) { resolver in
+            DefaultFavoriteOfflineDataSource(dataStack: resolver.resolve(CoreDataStack.self)!)
         }.inObjectScope(.container)
     }
 }
@@ -76,6 +82,9 @@ extension Resolver {
         container.register(FavoritesRepository.self) { resolver in
             DefaultFavoriteMoviesRepository(moviesDatasource: resolver.resolve(FavoriteMoviesDataSource.self)!)
         }.inObjectScope(.container)
+        container.register(FavoritesOfflineRepository.self) { resolver in
+            DefaultFavoriteMoviesOfflineRepository(dataSource: resolver.resolve(FavoritesOfflineDataSource.self)!)
+        }
     }
 }
 
@@ -116,6 +125,21 @@ extension Resolver {
         container.register(DeleteMovieFromFavoritesUseCase.self) { resolver in
             DeleteMovieFromFavoritesUseCaseImpl(repository: resolver.resolve(FavoritesRepository.self)!)
         }.inObjectScope(.container)
+        // MARK: - FavoriteMoviesOfflineUseCases -
+        container.register(GetFavoritesOfflineUseCase.self) { resolver in
+            GetFavoritesOfflineUseCaseImpl(favoritesOfflineRepository: resolver.resolve(FavoritesOfflineRepository.self)!)
+        }.inObjectScope(.container)
+        container.register(AddFavoriteOfflineUseCase.self) { resolver in
+            AddFavoriteOfflineUseCaseImpl(favoritesOfflineRepository: resolver.resolve(FavoritesOfflineRepository.self)!)
+        }.inObjectScope(.container)
+        container.register(CheckFavoriteOfflineUseCase.self) { resolver in
+            CheckFavoriteOfflineUseCaseImpl(favoritesOfflineRepository: resolver.resolve(FavoritesOfflineRepository.self)!)
+        }.inObjectScope(.container)
+        container.register(RemoveFavoriteOfflineUseCase.self) { resolver in
+            RemoveFavoriteOfflineUseCaseImpl(favoritesOfflineRepository: resolver.resolve(FavoritesOfflineRepository.self)!)
+        }.inObjectScope(.container)
+        
+        
         
     }
 }

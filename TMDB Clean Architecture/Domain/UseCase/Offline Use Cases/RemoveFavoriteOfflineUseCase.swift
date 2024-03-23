@@ -1,5 +1,5 @@
 //
-//  AddFavoriteOfflineUseCase.swift
+//  RemoveFavoriteOfflineUseCase.swift
 //  TMDB App
 //
 //  Created by Aleksandar Milidrag on 3/23/24.
@@ -9,13 +9,13 @@ import Foundation
 
 // MARK: - Protocol -
 
-protocol AddFavoriteOfflineUseCase {
+protocol RemoveFavoriteOfflineUseCase {
     func execute(movie: MovieEntity)
 }
 
 // MARK: - Implementation -
 
-class AddFavoriteOfflineUseCaseImpl: AddFavoriteOfflineUseCase {
+class RemoveFavoriteOfflineUseCaseImpl: RemoveFavoriteOfflineUseCase {
     private let favoritesOfflineRepository: FavoritesOfflineRepository
     
     init(favoritesOfflineRepository: FavoritesOfflineRepository) {
@@ -23,10 +23,6 @@ class AddFavoriteOfflineUseCaseImpl: AddFavoriteOfflineUseCase {
     }
     
     func execute(movie: MovieEntity) {
-        if favoritesOfflineRepository.isFavorite(movie: movie) {
-            favoritesOfflineRepository.removeFavorite(movie: movie)
-        } else {
-            favoritesOfflineRepository.addFavorite(movie: movie)
-        }
+        favoritesOfflineRepository.removeFavorite(movie: movie)
     }
 }

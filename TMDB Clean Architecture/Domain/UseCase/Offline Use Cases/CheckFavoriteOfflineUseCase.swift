@@ -15,7 +15,7 @@ protocol CheckFavoriteOfflineUseCase {
 
 // MARK: - Implementation -
 
-class DefaultCheckFavoriteOfflineUseCase: CheckFavoriteOfflineUseCase {
+class CheckFavoriteOfflineUseCaseImpl: CheckFavoriteOfflineUseCase {
     private let favoritesOfflineRepository: FavoritesOfflineRepository
     
     init(favoritesOfflineRepository: FavoritesOfflineRepository) {
