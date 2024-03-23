@@ -71,6 +71,8 @@
 		3BDD15D62BAF1C0600F60554 /* TrailersSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD15D52BAF1C0600F60554 /* TrailersSection.swift */; };
 		3BDD15D82BAF1D9600F60554 /* CastSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD15D72BAF1D9600F60554 /* CastSection.swift */; };
 		3BDD15DC2BAF21DC00F60554 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD15DB2BAF21DC00F60554 /* ViewState.swift */; };
+		3BDD15E02BAF719A00F60554 /* TMDBAppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD15DE2BAF719A00F60554 /* TMDBAppDataModel.xcdatamodeld */; };
+		3BDD15E22BAF75B300F60554 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD15E12BAF75B300F60554 /* CoreDataStack.swift */; };
 		3BE55C392B0AB85E0092360B /* MovieDetailTrailersSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE55C382B0AB85E0092360B /* MovieDetailTrailersSection.swift */; };
 		3BE55C3B2B0ABF830092360B /* SingleMovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE55C3A2B0ABF830092360B /* SingleMovieResponse.swift */; };
 		3BF09F662B9F805C00F59F3E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09F652B9F805C00F59F3E /* AppError.swift */; };
@@ -197,6 +199,8 @@
 		3BDD15D52BAF1C0600F60554 /* TrailersSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailersSection.swift; sourceTree = "<group>"; };
 		3BDD15D72BAF1D9600F60554 /* CastSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastSection.swift; sourceTree = "<group>"; };
 		3BDD15DB2BAF21DC00F60554 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		3BDD15DF2BAF719A00F60554 /* TMDBAppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMDBAppDataModel.xcdatamodel; sourceTree = "<group>"; };
+		3BDD15E12BAF75B300F60554 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3BE55C382B0AB85E0092360B /* MovieDetailTrailersSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailTrailersSection.swift; sourceTree = "<group>"; };
 		3BE55C3A2B0ABF830092360B /* SingleMovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMovieResponse.swift; sourceTree = "<group>"; };
 		3BF09F652B9F805C00F59F3E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
@@ -616,6 +620,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3BDD15DD2BAF70EA00F60554 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				3BDD15DE2BAF719A00F60554 /* TMDBAppDataModel.xcdatamodeld */,
+				3BDD15E12BAF75B300F60554 /* CoreDataStack.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
 		3BF09F672B9F82A300F59F3E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -720,6 +733,7 @@
 		3BF09F9A2BA3679E00F59F3E /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				3BDD15DD2BAF70EA00F60554 /* Local */,
 				3BF09F9B2BA367B100F59F3E /* Remote */,
 			);
 			path = DataSource;
@@ -971,6 +985,7 @@
 				3BF09FDD2BA8701800F59F3E /* ViewModel.swift in Sources */,
 				3BF09FCA2BA76B1F00F59F3E /* PostMovieToFavoritesResponseEntity.swift in Sources */,
 				3B6291A12B0FFC110010E395 /* MovieSearchListView.swift in Sources */,
+				3BDD15E02BAF719A00F60554 /* TMDBAppDataModel.xcdatamodeld in Sources */,
 				3BDD15CC2BAC85DB00F60554 /* ThumbnailBackdropView.swift in Sources */,
 				3B7109FF2B2DC25F00A9395E /* CachedImageManager.swift in Sources */,
 				3BF09FB42BA6F97500F59F3E /* GetPopularMoviesUseCase.swift in Sources */,
@@ -1038,6 +1053,7 @@
 				3BDD15D62BAF1C0600F60554 /* TrailersSection.swift in Sources */,
 				3BF09F692B9F839200F59F3E /* MovieListEntity.swift in Sources */,
 				3BF09FCC2BA76C0500F59F3E /* DTOMapper.swift in Sources */,
+				3BDD15E22BAF75B300F60554 /* CoreDataStack.swift in Sources */,
 				3B22E05F2B2F5EDF00AA5377 /* MovieDetailScreen1.swift in Sources */,
 				3B6FC3C22B376B3300F58D67 /* FavoriteRequestDTO.swift in Sources */,
 				3B710A052B2DCED600A9395E /* MovieThumbnailPosterView1.swift in Sources */,
@@ -1277,6 +1293,19 @@
 			productName = "Swinject-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		3BDD15DE2BAF719A00F60554 /* TMDBAppDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3BDD15DF2BAF719A00F60554 /* TMDBAppDataModel.xcdatamodel */,
+			);
+			currentVersion = 3BDD15DF2BAF719A00F60554 /* TMDBAppDataModel.xcdatamodel */;
+			path = TMDBAppDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3B87827C2AE4261C0098C228 /* Project object */;
 }
