@@ -11,23 +11,48 @@ struct FavoritesView: View {
     @StateObject private var viewModel = Resolver.shared.resolve(FavoritesViewModel.self)
     
     var body: some View {
-        ZStack(content: {
+        NavigationStack {
             BaseStateView(viewModel: viewModel) {
-                List(viewModel.favoriteMovies) { movie in
-                    Text(movie.title ?? "novmovie")
+                VStack {
+                    List {
+                        ForEach(viewModel.favoriteMovies) {
+                            movie in
+                            NavigationLink {
+                                DetailView(movieId: movie.id ?? 0)
+                            } label: {
+                                SearchRowView(movie: movie)
+                            }
+
+                        }
+                        .onDelete(perform: { indexSet in
+                            viewModel.swipeToDelete(at: indexSet)
+                        })
+                    }
+                    .animation(.default, value: viewModel.favoriteMovies)
+                    .listStyle(.plain)
+                    
                 }
-                .task {
-                    await viewModel.loadFavoriteMovies()
-                }
+                
             } emptyView: {
                 
             } errorView: { error in
                 
             } loadingView: {
-                
+                ZStack {
+                    ProgressView()
+                }
             }
-
-        })
+            .navigationTitle("Favorite movies")
+            .toolbar {
+                EditButton().bold()
+            }
+            .task {
+                await viewModel.loadFavoriteMovies()
+            }
+            .refreshable {
+                await viewModel.loadFavoriteMovies()
+            }
+        }
     }
 }
 

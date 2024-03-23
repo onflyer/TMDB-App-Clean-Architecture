@@ -12,7 +12,7 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
+            
                 ScrollView {
                     LazyVStack {
                         nowPlayingSection
@@ -23,7 +23,7 @@ struct HomeView: View {
                 }
                 .navigationTitle("TMDB APP")
                 
-            }
+            
         }
         
     }

@@ -140,7 +140,8 @@ extension Resolver {
         }
         container.register(FavoritesViewModel.self) { resolver in
             FavoritesViewModel(
-                getFavoritesUseCase: resolver.resolve(GetFavoritesUseCase.self)!
+                getFavoritesUseCase: resolver.resolve(GetFavoritesUseCase.self)!, 
+                deleteFavoriteMovieUseCase: resolver.resolve(DeleteMovieFromFavoritesUseCase.self)!
             )
         }
         container.register(DetailViewModel.self) { resolver in
