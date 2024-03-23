@@ -775,8 +775,8 @@
 				3BF09FAD2BA5C99300F59F3E /* MovieListDTO+DomainMapper.swift */,
 				3BF09FCB2BA76C0500F59F3E /* DTOMapper.swift */,
 				3BF09FCD2BA76C4900F59F3E /* PostMovieToFavorites+DTOMapper.swift */,
-				3B0E39D02BAF7F1100193FF7 /* CoreDataDTO+DomainMappers.swift */,
 				3B0E39D22BAF849500193FF7 /* CoreDataMapper.swift */,
+				3B0E39D02BAF7F1100193FF7 /* CoreDataDTO+DomainMappers.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
