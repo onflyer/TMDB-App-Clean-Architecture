@@ -7,6 +7,4 @@
 
 import Foundation
 
-enum ViewState: Equatable {
-    case initial, loading, error(String), success, empty
-}
+

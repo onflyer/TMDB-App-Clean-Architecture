@@ -13,7 +13,7 @@ struct SearchView: View {
     var body: some View {
         NavigationStack {
            
-                BaseStateViewVM(viewModel: viewModel) {
+                BaseStateView(viewModel: viewModel) {
                     List {
                         ForEach(viewModel.searchedMovies) { movie in
                             NavigationLink {

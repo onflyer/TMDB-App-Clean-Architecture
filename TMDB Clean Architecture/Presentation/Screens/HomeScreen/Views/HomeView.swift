@@ -29,7 +29,7 @@ struct HomeView: View {
     
     var nowPlayingSection: some View {
        
-            BaseStateViewVM(viewModel: viewModel, successView: {
+            BaseStateView(viewModel: viewModel, successView: {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Now playing")
                         .font(.title)
@@ -61,14 +61,14 @@ struct HomeView: View {
             }, errorView: { error in
 
             }, loadingView: {
-               ProgressView()
+               
             })
         
     }
     
     var upcomingSection: some View {
        
-            BaseStateViewVM(viewModel: viewModel, successView: {
+            BaseStateView(viewModel: viewModel, successView: {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Upcoming")
                         .font(.title)
@@ -107,7 +107,7 @@ struct HomeView: View {
     }
     
     var topRatedSection: some View {
-            BaseStateViewVM(viewModel: viewModel, successView: {
+            BaseStateView(viewModel: viewModel, successView: {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Top rated")
                         .font(.title)
@@ -146,7 +146,7 @@ struct HomeView: View {
     
     var popularSection: some View {
         
-            BaseStateViewVM(viewModel: viewModel, successView: {
+            BaseStateView(viewModel: viewModel, successView: {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Popular")
                         .font(.title)
