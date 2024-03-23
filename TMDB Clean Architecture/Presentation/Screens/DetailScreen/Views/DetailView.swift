@@ -15,25 +15,39 @@ struct DetailView: View {
     var body: some View {
         
 
-        ScrollView {
-            if let movie = viewModel.singleMovie {
-                DetailImageView(movie: movie)
-                TrailersSection(movie: movie)
-                DescrtiptionSection(movie: movie)
-                CastSection(movie: movie)
-                    .navigationTitle(movie.title ?? "N/A")
+        BaseStateView(viewModel: viewModel, 
+           successView: {
+            ScrollView {
+                if let movie = viewModel.singleMovie {
+                    DetailImageView(movie: movie)
+                    TrailersSection(movie: movie)
+                        .padding(.horizontal)
+                    DescrtiptionSection(movie: movie)
+                        .padding(.horizontal)
+                    Divider()
+                        .padding(.horizontal)
+                    CastSection(movie: movie)
+                        .navigationTitle(movie.title ?? "N/A")
+                }
             }
-               
-        }
-        .scrollIndicators(.hidden)
-        .task {
-            await viewModel.loadMovieById(movieId: movieId)
+            .scrollIndicators(.hidden)
+            .task {
+                await viewModel.loadMovieById(movieId: movieId)
+            }
+        }, emptyView: {
+            EmptyPlaceholderView(text: "No movie", image: Image(systemName: "film"))
+        }, errorView: { error in
+            
+        }, loadingView: {
+            ProgressView()
+        })
+        
         }
     
     }
     
     
-}
+
 
 #Preview {
     NavigationStack {
