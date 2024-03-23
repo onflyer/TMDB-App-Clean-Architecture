@@ -327,7 +327,6 @@
 				3BFFE6652AF97998007A8CAA /* TabViewScreen.swift */,
 				3B20E7BB2B0930A3001F373B /* NavigationEnvirnomentKey.swift */,
 				3B26B84B2B1CF6E300334385 /* DelayAppereanceModifier.swift */,
-				3B26B84D2B1D218D00334385 /* CustomAlert.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -395,6 +394,7 @@
 		3B84EA952B9F7E7C00EDBB0F /* TMDB Clean Architecture */ = {
 			isa = PBXGroup;
 			children = (
+				3B8782B02AE42E140098C228 /* App */,
 				3B84EA972B9F7F4500EDBB0F /* Core */,
 				3BF09F7D2BA0EB4200F59F3E /* Data */,
 				3B84EA962B9F7F1200EDBB0F /* Domain */,
@@ -463,7 +463,6 @@
 			isa = PBXGroup;
 			children = (
 				3B87829C2AE427230098C228 /* HTTPMethodHelper.swift */,
-				3B8782992AE427230098C228 /* NetworkingError.swift */,
 				3B87829B2AE427230098C228 /* ResourceLoader.swift */,
 				3B87829A2AE427230098C228 /* NetworkingService.swift */,
 				3B8782982AE427230098C228 /* Endpoint.swift */,
@@ -507,7 +506,6 @@
 		3B8782A82AE4291D0098C228 /* TMDB App */ = {
 			isa = PBXGroup;
 			children = (
-				3B8782B02AE42E140098C228 /* App */,
 				3B7EAF642B41783A007E0A4C /* Core */,
 				3B8782A52AE428530098C228 /* Screens */,
 				3B8782A62AE428590098C228 /* Views */,
@@ -628,6 +626,8 @@
 			children = (
 				3BDD15C22BAC6FF100F60554 /* TabViewRouter.swift */,
 				3BDD15DB2BAF21DC00F60554 /* ViewState.swift */,
+				3B26B84D2B1D218D00334385 /* CustomAlert.swift */,
+				3B8782992AE427230098C228 /* NetworkingError.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
