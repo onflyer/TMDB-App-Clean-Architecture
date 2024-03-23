@@ -13,6 +13,8 @@
 		3B0E39D52BAF8B5700193FF7 /* DefaultFavoriteMoviesOfflineRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E39D42BAF8B5700193FF7 /* DefaultFavoriteMoviesOfflineRepository.swift */; };
 		3B0E39D72BAF8BBA00193FF7 /* FavoritesOfflineRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E39D62BAF8BBA00193FF7 /* FavoritesOfflineRepository.swift */; };
 		3B0E39DA2BAF8E3D00193FF7 /* GetFavoritesOfflineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E39D92BAF8E3D00193FF7 /* GetFavoritesOfflineUseCase.swift */; };
+		3B0E39DC2BAF8F7900193FF7 /* AddFavoriteOfflineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E39DB2BAF8F7900193FF7 /* AddFavoriteOfflineUseCase.swift */; };
+		3B0E39DE2BAF902F00193FF7 /* CheckFavoriteOfflineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0E39DD2BAF902F00193FF7 /* CheckFavoriteOfflineUseCase.swift */; };
 		3B20E7BC2B0930A3001F373B /* NavigationEnvirnomentKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20E7BB2B0930A3001F373B /* NavigationEnvirnomentKey.swift */; };
 		3B22E04F2B2F4FA700AA5377 /* MovieHomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E04E2B2F4FA700AA5377 /* MovieHomeScreenViewModel.swift */; };
 		3B22E0512B2F527000AA5377 /* MovieSearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B22E0502B2F527000AA5377 /* MovieSearchScreenViewModel.swift */; };
@@ -146,6 +148,8 @@
 		3B0E39D42BAF8B5700193FF7 /* DefaultFavoriteMoviesOfflineRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFavoriteMoviesOfflineRepository.swift; sourceTree = "<group>"; };
 		3B0E39D62BAF8BBA00193FF7 /* FavoritesOfflineRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesOfflineRepository.swift; sourceTree = "<group>"; };
 		3B0E39D92BAF8E3D00193FF7 /* GetFavoritesOfflineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesOfflineUseCase.swift; sourceTree = "<group>"; };
+		3B0E39DB2BAF8F7900193FF7 /* AddFavoriteOfflineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavoriteOfflineUseCase.swift; sourceTree = "<group>"; };
+		3B0E39DD2BAF902F00193FF7 /* CheckFavoriteOfflineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckFavoriteOfflineUseCase.swift; sourceTree = "<group>"; };
 		3B20E7BB2B0930A3001F373B /* NavigationEnvirnomentKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationEnvirnomentKey.swift; sourceTree = "<group>"; };
 		3B22E04E2B2F4FA700AA5377 /* MovieHomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeScreenViewModel.swift; sourceTree = "<group>"; };
 		3B22E0502B2F527000AA5377 /* MovieSearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchScreenViewModel.swift; sourceTree = "<group>"; };
@@ -288,6 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				3B0E39D92BAF8E3D00193FF7 /* GetFavoritesOfflineUseCase.swift */,
+				3B0E39DB2BAF8F7900193FF7 /* AddFavoriteOfflineUseCase.swift */,
+				3B0E39DD2BAF902F00193FF7 /* CheckFavoriteOfflineUseCase.swift */,
 			);
 			path = "Offline Use Cases";
 			sourceTree = "<group>";
@@ -980,6 +986,7 @@
 				3BF09F722BA0D52800F59F3E /* SearchMovieRepository.swift in Sources */,
 				3B22E05B2B2F5B1B00AA5377 /* MovieHomeScreen1.swift in Sources */,
 				3BDBC9E92B2353420056F7BE /* EmptyPlaceholderView.swift in Sources */,
+				3B0E39DE2BAF902F00193FF7 /* CheckFavoriteOfflineUseCase.swift in Sources */,
 				3BF09F9D2BA36A3B00F59F3E /* MovieDataSource.swift in Sources */,
 				3B22E05D2B2F5C4800AA5377 /* MovieSearchScreen1.swift in Sources */,
 				3BF09FC22BA72C2700F59F3E /* GetMovieByIdUseCase.swift in Sources */,
@@ -1085,6 +1092,7 @@
 				3BF09FCC2BA76C0500F59F3E /* DTOMapper.swift in Sources */,
 				3BDD15E22BAF75B300F60554 /* CoreDataStack.swift in Sources */,
 				3B22E05F2B2F5EDF00AA5377 /* MovieDetailScreen1.swift in Sources */,
+				3B0E39DC2BAF8F7900193FF7 /* AddFavoriteOfflineUseCase.swift in Sources */,
 				3B6FC3C22B376B3300F58D67 /* FavoriteRequestDTO.swift in Sources */,
 				3B710A052B2DCED600A9395E /* MovieThumbnailPosterView1.swift in Sources */,
 				3B710A0B2B2E24F700A9395E /* MovieThumbnailBackdropView1.swift in Sources */,
