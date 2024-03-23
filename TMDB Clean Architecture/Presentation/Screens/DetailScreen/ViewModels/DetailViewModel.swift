@@ -13,15 +13,17 @@ final class DetailViewModel: ViewModel {
     private let getMovieByIdUseCase: any GetMovieByIdUseCase
     private let postMovieToFavoritesUseCase: any PostMovieToFavoritesUseCase
     private let deleteMovieFromFavoriesUseCase: any DeleteMovieFromFavoritesUseCase
+    private let getFavoritesUseCase: any GetFavoritesUseCase
     
    // MARK: - Properties -
     @Published var singleMovie: SingleMovieEntity? = nil
     
     // MARK: - Init -
-    init(getMovieByIdUseCase: any GetMovieByIdUseCase, postMovieToFavoritesUseCase: any PostMovieToFavoritesUseCase, deleteMovieFromFavoriesUseCase: any DeleteMovieFromFavoritesUseCase  ) {
+    init(getMovieByIdUseCase: any GetMovieByIdUseCase, postMovieToFavoritesUseCase: any PostMovieToFavoritesUseCase, deleteMovieFromFavoriesUseCase: any DeleteMovieFromFavoritesUseCase, getFavoritesUseCase: any GetFavoritesUseCase ) {
         self.getMovieByIdUseCase = getMovieByIdUseCase
         self.postMovieToFavoritesUseCase = postMovieToFavoritesUseCase
         self.deleteMovieFromFavoriesUseCase = deleteMovieFromFavoriesUseCase
+        self.getFavoritesUseCase = getFavoritesUseCase
     }
 }
 
@@ -69,4 +71,6 @@ extension DetailViewModel {
             state = .error(error.localizedDescription)
         }
     }
+    
+    
 }

@@ -148,7 +148,8 @@ extension Resolver {
             DetailViewModel(
                 getMovieByIdUseCase: resolver.resolve(GetMovieByIdUseCase.self)!,
                 postMovieToFavoritesUseCase: resolver.resolve(PostMovieToFavoritesUseCase.self)!,
-                deleteMovieFromFavoriesUseCase: resolver.resolve(DeleteMovieFromFavoritesUseCase.self)!
+                deleteMovieFromFavoriesUseCase: resolver.resolve(DeleteMovieFromFavoritesUseCase.self)!,
+                getFavoritesUseCase: resolver.resolve(GetFavoritesUseCase.self)!
             )
         }
     }
