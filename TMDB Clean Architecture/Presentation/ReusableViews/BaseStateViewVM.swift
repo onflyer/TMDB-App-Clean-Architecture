@@ -2,17 +2,17 @@
 //  BaseStateView.swift
 //  TMDB App
 //
-//  Created by Aleksandar Milidrag on 3/23/24.
+//  Created by Aleksandar Milidrag on 3/18/24.
 //
 
 import SwiftUI
 
 /// Handle changes in the state of the given [ViewModel] and display the appropriate view.
-struct BaseStateView<SuccessView, NoItemsView, ErrorView, LoadingView>: View
-where SuccessView: View, NoItemsView: View, ErrorView: View,
+struct BaseStateViewVM<VM, SuccessView, NoItemsView, ErrorView, LoadingView>: View
+where VM: ViewModel, SuccessView: View, NoItemsView: View, ErrorView: View,
       LoadingView: View {
     
-    let state: ViewState
+    @ObservedObject var viewModel: VM
     let successView: () -> SuccessView
     let emptyView: () -> NoItemsView
     let errorView: (String) -> ErrorView
@@ -28,7 +28,7 @@ where SuccessView: View, NoItemsView: View, ErrorView: View,
     ///  - loadingView: The view to display when the state is [ViewState.loading].
     ///
     ///  - Note: The default value for each view is nil, so you have to provide at least the successView.
-    init(state: ViewState,
+    init(viewModel: VM,
          @ViewBuilder successView: @escaping () -> SuccessView,
          @ViewBuilder emptyView: @escaping () -> NoItemsView
         /* = { MessageView(message: "noDataFound".localized()) }*/,
@@ -36,27 +36,27 @@ where SuccessView: View, NoItemsView: View, ErrorView: View,
          /*= {MessageView(message: $0)}*/,
          @ViewBuilder loadingView: @escaping () -> LoadingView
          /*= { ProgressView() }*/) {
-        self.state = state
-        self.loadingView = loadingView
+        self.viewModel = viewModel
         self.successView = successView
         self.emptyView = emptyView
         self.errorView = errorView
-        
+        self.loadingView = loadingView
     }
     
     var body: some View {
         ZStack {
-            switch state {
+              successView()
+            switch viewModel.state {
             case .initial:
                 emptyView()
             case .loading:
                 loadingView()
             case .error(let errorMessage):
                 errorView(errorMessage)
-            case .success:
-                successView()
             case .empty:
                 emptyView()
+            default:
+                EmptyView()
             }
         }
     }

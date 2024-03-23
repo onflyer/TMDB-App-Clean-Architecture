@@ -12,7 +12,7 @@ struct FavoritesView: View {
     
     var body: some View {
         NavigationStack {
-            BaseStateView(viewModel: viewModel) {
+            BaseStateViewVM(viewModel: viewModel) {
                 VStack {
                     List {
                         ForEach(viewModel.favoriteMovies) {

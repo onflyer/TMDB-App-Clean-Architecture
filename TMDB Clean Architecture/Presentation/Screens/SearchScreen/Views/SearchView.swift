@@ -13,7 +13,7 @@ struct SearchView: View {
     var body: some View {
         NavigationStack {
            
-                BaseStateView(viewModel: viewModel) {
+                BaseStateViewVM(viewModel: viewModel) {
                     List {
                         ForEach(viewModel.searchedMovies) { movie in
                             NavigationLink {
@@ -25,6 +25,7 @@ struct SearchView: View {
                         }
                         
                     }
+                    
                     
                     .navigationTitle("Search")
                     .searchable(text: $viewModel.query, prompt: "Search movies")

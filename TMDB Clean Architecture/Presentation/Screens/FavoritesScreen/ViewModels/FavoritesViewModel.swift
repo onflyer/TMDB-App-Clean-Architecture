@@ -46,7 +46,6 @@ extension FavoritesViewModel {
     }
     
     func deleteFromFavorites(movieId: Int) async {
-        
         let result = await deleteFavoriteMovieUseCase.execute(mediaId: movieId)
         
         switch result {
@@ -69,7 +68,6 @@ extension FavoritesViewModel {
             Task {
                 await deleteFromFavorites(movieId: favoriteMovie.id ?? 0 )
             }
-            
         }
     }
 }
