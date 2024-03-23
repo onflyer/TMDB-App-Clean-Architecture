@@ -39,28 +39,4 @@ struct DetailImageView: View {
     DetailImageView(movie: SingleMovieEntity.dummySingleMovie())
 }
 
-//struct MovieDetailImage1: View {
-//   
-//    let movie: SingleMovieResponse
-//    
-//    var body: some View {
-//        ZStack {
-//            Color.gray.opacity(0.3)
-//            CachedImage(url: movie.backdropURLString) { phase in
-//                switch phase {
-//                case .empty:
-//                    ProgressView()
-//                case .success(let image):
-//                    image
-//                        .resizable()
-//                case .failure(_):
-//                    Image(systemName: "xmark")
-//                        .resizable()
-//                @unknown default:
-//                    EmptyView()
-//                }
-//            }
-//        }
-//        .aspectRatio(16/9, contentMode: .fit)
-//    }
-//}
+
