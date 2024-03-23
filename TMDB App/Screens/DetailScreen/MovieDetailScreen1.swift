@@ -13,7 +13,7 @@ struct MovieDetailScreen1: View {
     
     @StateObject var viewModel = MovieDetailScreenViewModel()
     let movieId: Int
-    @StateObject var favoritesViewmodel = FavoriteMoviesViewModel()
+    @ObservedObject var favoritesViewmodel = FavoriteMoviesViewModel()
     
     
     var body: some View {

@@ -15,9 +15,10 @@ struct DetailView: View {
     var body: some View {
         
             BaseStateView(viewModel: viewModel) {
-                if viewModel.singleMovie != nil {
-                    VStack {
-                        Text(viewModel.singleMovie?.title ?? "no movie")
+                if let movie = viewModel.singleMovie {
+                    ScrollView {
+                        DetailImageView(movie: movie)
+                        trailersSection
                     }
                     
                 }
@@ -59,6 +60,7 @@ struct DetailView: View {
             }
         }
     }
+    
     
     
 }
