@@ -85,7 +85,7 @@ struct CachedImage<Content: View>: View {
 }
 
 #Preview {
-    CachedImage(url: Movie.stubbedMovie.posterURLString) { phase in
+    CachedImage(url: MovieEntity.dummyMovie().posterPath ?? "") { phase in
         switch phase {
         case .empty:
             ProgressView()
