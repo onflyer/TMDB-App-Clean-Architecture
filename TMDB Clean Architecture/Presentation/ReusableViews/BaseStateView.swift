@@ -28,7 +28,7 @@ where SuccessView: View, NoItemsView: View, ErrorView: View,
     ///  - loadingView: The view to display when the state is [ViewState.loading].
     ///
     ///  - Note: The default value for each view is nil, so you have to provide at least the successView.
-    init(state: ViewState,
+    init(state: ViewState = .initial,
          @ViewBuilder successView: @escaping () -> SuccessView,
          @ViewBuilder emptyView: @escaping () -> NoItemsView
         /* = { MessageView(message: "noDataFound".localized()) }*/,

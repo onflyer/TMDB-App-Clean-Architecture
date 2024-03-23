@@ -13,6 +13,8 @@ struct DetailView: View {
     let movieId: Int
     
     var body: some View {
+        
+
         ScrollView {
             if let movie = viewModel.singleMovie {
                 DetailImageView(movie: movie)
@@ -23,6 +25,7 @@ struct DetailView: View {
             }
                
         }
+        .scrollIndicators(.hidden)
         .task {
             await viewModel.loadMovieById(movieId: movieId)
         }
