@@ -145,7 +145,11 @@ extension Resolver {
             )
         }
         container.register(DetailViewModel.self) { resolver in
-            DetailViewModel(getMovieByIdUseCase: resolver.resolve(GetMovieByIdUseCase.self)!)
+            DetailViewModel(
+                getMovieByIdUseCase: resolver.resolve(GetMovieByIdUseCase.self)!,
+                postMovieToFavoritesUseCase: resolver.resolve(PostMovieToFavoritesUseCase.self)!,
+                deleteMovieFromFavoriesUseCase: resolver.resolve(DeleteMovieFromFavoritesUseCase.self)!
+            )
         }
     }
     

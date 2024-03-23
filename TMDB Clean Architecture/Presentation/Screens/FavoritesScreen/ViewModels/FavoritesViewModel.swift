@@ -45,7 +45,7 @@ extension FavoritesViewModel {
         }
     }
     
-    func deleteFavoriteMovie(movieId: Int) async {
+    func deleteFromFavorites(movieId: Int) async {
         
         let result = await deleteFavoriteMovieUseCase.execute(mediaId: movieId)
         
@@ -67,7 +67,7 @@ extension FavoritesViewModel {
         offsets.forEach { index in
             let favoriteMovie = self.favoriteMovies[index]
             Task {
-                await deleteFavoriteMovie(movieId: favoriteMovie.id ?? 0 )
+                await deleteFromFavorites(movieId: favoriteMovie.id ?? 0 )
             }
             
         }
