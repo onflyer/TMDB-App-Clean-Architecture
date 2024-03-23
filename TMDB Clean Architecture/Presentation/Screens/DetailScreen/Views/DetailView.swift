@@ -13,32 +13,31 @@ struct DetailView: View {
     let movieId: Int
     
     var body: some View {
-        
-            BaseStateView(viewModel: viewModel) {
-                if let movie = viewModel.singleMovie {
-                    ScrollView {
-                        DetailImageView(movie: movie)
-                        trailersSection
-                    }
-                    
-                }
-                    
-                
-            } emptyView: {
-                
-            } errorView: { error in
-                
-            } loadingView: {
-                
-            }
-
+        ScrollView {
+            imageSection
+            trailersSection
         
         .task {
             await viewModel.loadMovieById(movieId: movieId)
         }
     }
+            
+        
+    }
     
-    
+    var imageSection: some View {
+        BaseStateView(viewModel: viewModel) {
+            if let movie = viewModel.singleMovie {
+                DetailImageView(movie: movie)
+            }
+        } emptyView: {
+            
+        } errorView: { error in
+            
+        } loadingView: {
+          ProgressView()
+        }
+    }
     var trailersSection: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Trailers")
@@ -60,6 +59,7 @@ struct DetailView: View {
             }
         }
     }
+   
     
     
     
