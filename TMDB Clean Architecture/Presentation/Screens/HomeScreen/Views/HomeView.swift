@@ -61,7 +61,6 @@ struct HomeView: View {
             }, errorView: { error in
 
             }, loadingView: {
-               
             })
         
     }
@@ -100,7 +99,6 @@ struct HomeView: View {
             }, errorView: { error in
                 
             }, loadingView: {
-               ProgressView()
             })
             
         
@@ -139,7 +137,6 @@ struct HomeView: View {
             }, errorView: { error in
                 
             }, loadingView: {
-                ProgressView()
             })
         
     }
@@ -178,7 +175,7 @@ struct HomeView: View {
             }, errorView: { error in
                 
             }, loadingView: {
-                ProgressView()
+                
             })
         
     }
