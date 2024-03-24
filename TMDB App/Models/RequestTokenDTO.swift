@@ -1,22 +1,22 @@
+////
+////  RequstTokenDTO.swift
+////  TMDB App
+////
+////  Created by Aleksandar Milidrag on 12/23/23.
+////
 //
-//  RequstTokenDTO.swift
-//  TMDB App
+//import Foundation
 //
-//  Created by Aleksandar Milidrag on 12/23/23.
+//struct RequestTokenDTO: Codable {
+//    let success: Bool
+//    let expiresAt: String
+//    let requestToken: String
 //
-
-import Foundation
-
-struct RequestTokenDTO: Codable {
-    let success: Bool
-    let expiresAt: String
-    let requestToken: String
-
-    enum CodingKeys: String, CodingKey {
-        case success
-        case expiresAt = "expires_at"
-        case requestToken = "request_token"
-    }
-}
-
-
+//    enum CodingKeys: String, CodingKey {
+//        case success
+//        case expiresAt = "expires_at"
+//        case requestToken = "request_token"
+//    }
+//}
+//
+//

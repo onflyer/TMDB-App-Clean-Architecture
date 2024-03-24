@@ -1,34 +1,34 @@
+////
+////  MovieSearchListView.swift
+////  TMDB App
+////
+////  Created by Aleksandar Milidrag on 11/23/23.
+////
 //
-//  MovieSearchListView.swift
-//  TMDB App
+//import SwiftUI
 //
-//  Created by Aleksandar Milidrag on 11/23/23.
+//struct MovieSearchListView: View {
+//    
+//    let movies: [Movie]
+//    
+//    var body: some View {
+//        VStack {
+//            List {
+//                ForEach(movies) { movie in
+//                        NavigationLink(destination: MovieDetailScreen1(movieId: movie.id)) {
+//                            MovieSearchRowView(movie: movie)
+//                        
+//                    }
 //
-
-import SwiftUI
-
-struct MovieSearchListView: View {
-    
-    let movies: [Movie]
-    
-    var body: some View {
-        VStack {
-            List {
-                ForEach(movies) { movie in
-                        NavigationLink(destination: MovieDetailScreen1(movieId: movie.id)) {
-                            MovieSearchRowView(movie: movie)
-                        
-                    }
-
-                }
-            }
-            .listStyle(.plain)
-        }
-    }
-}
-
-#Preview {
-    NavigationStack {
-        MovieSearchListView(movies: Movie.stubbedMovies)
-    }
-}
+//                }
+//            }
+//            .listStyle(.plain)
+//        }
+//    }
+//}
+//
+//#Preview {
+//    NavigationStack {
+//        MovieSearchListView(movies: Movie.stubbedMovies)
+//    }
+//}

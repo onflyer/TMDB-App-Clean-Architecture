@@ -1,44 +1,44 @@
+////
+////  FavoriteRequestDTO.swift
+////  TMDB App
+////
+////  Created by Aleksandar Milidrag on 12/23/23.
+////
 //
-//  FavoriteRequestDTO.swift
-//  TMDB App
+//import Foundation
 //
-//  Created by Aleksandar Milidrag on 12/23/23.
+//struct FavoriteRequestDTO: Codable {
+//    let mediaType: String = "movie"
+//    let mediaID: Int
+//    let favorite: Bool = true
 //
-
-import Foundation
-
-struct FavoriteRequestDTO: Codable {
-    let mediaType: String = "movie"
-    let mediaID: Int
-    let favorite: Bool = true
-
-    enum CodingKeys: String, CodingKey {
-        case mediaType = "media_type"
-        case mediaID = "media_id"
-        case favorite
-    }
-}
-
-struct FavoriteResponseDTO: Codable {
-    let success: Bool
-    let statusCode: Int
-    let statusMessage: String
-
-    enum CodingKeys: String, CodingKey {
-        case success
-        case statusCode = "status_code"
-        case statusMessage = "status_message"
-    }
-}
-
-struct FavoriteDeleteRequestDTO: Codable {
-    let mediaType: String = "movie"
-    let mediaID: Int
-    let favorite: Bool = false
-
-    enum CodingKeys: String, CodingKey {
-        case mediaType = "media_type"
-        case mediaID = "media_id"
-        case favorite
-    }
-}
+//    enum CodingKeys: String, CodingKey {
+//        case mediaType = "media_type"
+//        case mediaID = "media_id"
+//        case favorite
+//    }
+//}
+//
+//struct FavoriteResponseDTO: Codable {
+//    let success: Bool
+//    let statusCode: Int
+//    let statusMessage: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case success
+//        case statusCode = "status_code"
+//        case statusMessage = "status_message"
+//    }
+//}
+//
+//struct FavoriteDeleteRequestDTO: Codable {
+//    let mediaType: String = "movie"
+//    let mediaID: Int
+//    let favorite: Bool = false
+//
+//    enum CodingKeys: String, CodingKey {
+//        case mediaType = "media_type"
+//        case mediaID = "media_id"
+//        case favorite
+//    }
+//}
