@@ -20,8 +20,10 @@ final class FavoritesViewModel: ViewModel {
     
    // MARK: - Properties -
     @Published var favoriteMovies: [MovieEntity] = []
+    @Published var coreDataFavorites: [MovieEntity] = []
     private var page = 1
     @Published var isFavorite: Bool = false
+    
     
     // MARK: - Init -
     init(getFavoritesUseCase: any GetFavoritesUseCase, deleteFavoriteMovieUseCase: any DeleteMovieFromFavoritesUseCase,postMovieToFavoritesUseCase: any PostMovieToFavoritesUseCase,getFavoritesOfflineUseCase: GetFavoritesOfflineUseCase, addFavoriteOfflineUseCase: AddFavoriteOfflineUseCase, checkFavoriteOfflineUseCase: CheckFavoriteOfflineUseCase, removeFavoriteOfflineUseCase: RemoveFavoriteOfflineUseCase) {
@@ -105,5 +107,35 @@ extension FavoritesViewModel {
                 await deleteFromFavorites(movieId: favoriteMovie.id ?? 0 )
             }
         }
+    }
+}
+
+extension FavoritesViewModel {
+    func loadFavoritesFromCoreData() {
+        state = .loading
+        let result = getFavoritesOfflineUseCase.execute()
+        switch result {
+        case .success(let data):
+            if !data.isEmpty {
+                state = .success
+                coreDataFavorites = data
+            } else {
+                state = .empty
+            }
+        case .failure(let error):
+            print(error)
+            state = .error(error.localizedDescription)
+            
+        }
+    }
+    
+    func checkFavorite(movie: MovieEntity) {
+        let result = checkFavoriteOfflineUseCase.execute(movie: movie)
+        isFavorite = result
+    }
+    
+    func toggleFavorite(movie: MovieEntity) {
+        addFavoriteOfflineUseCase.execute(movie: movie)
+        isFavorite.toggle()
     }
 }
