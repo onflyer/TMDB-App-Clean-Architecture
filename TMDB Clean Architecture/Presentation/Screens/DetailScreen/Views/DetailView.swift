@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailView: View {
     @StateObject private var viewModel = Resolver.shared.resolve(DetailViewModel.self)
     @ObservedObject private var favoritesViewModel = Resolver.shared.resolve(FavoritesViewModel.self)
-    
+    @Environment(\.dismiss) var dismiss
     let movieId: Int
     
     var body: some View {
@@ -33,6 +33,7 @@ struct DetailView: View {
             .scrollIndicators(.hidden)
             .task {
                 await viewModel.loadMovieById(movieId: movieId)
+                await favoritesViewModel.loadFavoriteMovies()
             }
         },
            emptyView: {
@@ -49,22 +50,30 @@ struct DetailView: View {
     var favoriteButton: some View {
         Button(action: {
             Task {
+               
                 if await favoritesViewModel.movieIsFavorite(movieId: movieId) {
                     await favoritesViewModel.deleteFromFavorites(movieId: movieId)
-                    favoritesViewModel.isFavorite = false
+                    dismiss()
+                    await favoritesViewModel.loadFavoriteMovies()
+                    
                 } else {
                     await favoritesViewModel.addToFavorites(movieId: movieId)
-                    favoritesViewModel.isFavorite = true
+                    await favoritesViewModel.loadFavoriteMovies()
+                   
                 }
             }
             
         }, label: {
             HStack(alignment: .firstTextBaseline, content: {
-                Text(favoritesViewModel.isFavorite ? "Remove from favorites" : "Add to favorites")
+                Text(favoritesViewModel.favoriteMovies.contains(where: { favoriteMovie in
+                    favoriteMovie.id == movieId
+                }) ? "Remove from favorites" : "Add to favorites")
                     .bold()
                     .animation(.default)
                 Spacer()
-                Image(systemName: favoritesViewModel.isFavorite ? "heart.fill" : "heart")
+                Image(systemName: favoritesViewModel.favoriteMovies.contains(where: { favoriteMovie in
+                    favoriteMovie.id == movieId
+                }) ? "heart.fill" : "heart")
                     .animation(.default)
             })
             .padding(.horizontal)

@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 extension CoreDataDTO: DomainMapper {
+    typealias EntityType = MovieEntity
     func toDomain() -> MovieEntity {
         return MovieEntity(backdropPath: backdropPath, id: Int(id), posterPath: posterPath, coreDataTitle: title)
     }

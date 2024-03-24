@@ -15,6 +15,7 @@ struct FavoritesView: View {
             BaseStateView(viewModel: viewModel) {
                 VStack {
                     List {
+                        //MARK: CHANGED TO LOCAL
                         ForEach(viewModel.favoriteMovies) {
                             movie in
                             NavigationLink {

@@ -23,10 +23,6 @@ class AddFavoriteOfflineUseCaseImpl: AddFavoriteOfflineUseCase {
     }
     
     func execute(movie: MovieEntity) {
-        if favoritesOfflineRepository.isFavorite(movie: movie) {
-            favoritesOfflineRepository.removeFavorite(movie: movie)
-        } else {
-            favoritesOfflineRepository.addFavorite(movie: movie)
-        }
+        favoritesOfflineRepository.addFavorite(movie: movie)
     }
 }
