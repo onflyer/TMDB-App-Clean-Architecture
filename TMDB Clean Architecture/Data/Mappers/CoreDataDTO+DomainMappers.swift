@@ -11,7 +11,7 @@ import CoreData
 extension CoreDataDTO: DomainMapper {
     typealias EntityType = MovieEntity
     func toDomain() -> MovieEntity {
-        return MovieEntity(backdropPath: backdropPath, id: Int(id), posterPath: posterPath, coreDataTitle: title)
+        return MovieEntity(id: Int(id), posterPath: posterPath, coreDataTitle: title)
     }
 }
 
@@ -21,11 +21,10 @@ extension MovieEntity: CoreDataMapper {
     
     func toCoreDataEntity(in context: NSManagedObjectContext) -> CoreDataDTO {
         let entity = CoreDataDTO(context: context)
-        
         entity.id = Int64(id ?? 0)
         entity.title = title
-        entity.backdropPath = backdropPath
-        entity.backdropPath = backdropPath
+        entity.posterPath = posterPath
+        
         return entity
         
     }

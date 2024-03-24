@@ -9,8 +9,6 @@ import SwiftUI
 
 @main
 struct TMDB_App: App {
-    
-
       
     init() {
         /// Injecting all dependencies

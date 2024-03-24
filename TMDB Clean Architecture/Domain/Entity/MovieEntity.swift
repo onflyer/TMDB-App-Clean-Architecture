@@ -65,7 +65,7 @@ extension MovieEntity: Hashable {
 
 extension MovieEntity {
    
-    init (adult: Bool? = nil, backdropPath: String?, genreIDS: [Int]? = nil, id: Int?, originalTitle: String? = nil, overview: String? = nil, popularity: Double? = nil, posterPath: String?, releaseDate: String? = nil, coreDataTitle: String?, video: Bool? = nil, voteAverage: Double? = nil, voteCount: Int? = nil, ratingText: String? = nil, scoreText: String? = nil) {
+    init (adult: Bool? = nil, backdropPath: String? = nil, genreIDS: [Int]? = nil, id: Int?, originalTitle: String? = nil, overview: String? = nil, popularity: Double? = nil, posterPath: String?, releaseDate: String? = nil, coreDataTitle: String?, video: Bool? = nil, voteAverage: Double? = nil, voteCount: Int? = nil, ratingText: String? = nil, scoreText: String? = nil) {
         self.adult = adult
         self.backdropPath = backdropPath
         self.genreIDS = genreIDS
