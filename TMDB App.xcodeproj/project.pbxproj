@@ -45,7 +45,6 @@
 		3BDD15D42BAF173300F60554 /* DescrtiptionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD15D32BAF173300F60554 /* DescrtiptionSection.swift */; };
 		3BDD15D62BAF1C0600F60554 /* TrailersSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD15D52BAF1C0600F60554 /* TrailersSection.swift */; };
 		3BDD15D82BAF1D9600F60554 /* CastSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD15D72BAF1D9600F60554 /* CastSection.swift */; };
-		3BDD15DC2BAF21DC00F60554 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD15DB2BAF21DC00F60554 /* ViewState.swift */; };
 		3BDD15E02BAF719A00F60554 /* TMDBAppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD15DE2BAF719A00F60554 /* TMDBAppDataModel.xcdatamodeld */; };
 		3BDD15E22BAF75B300F60554 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD15E12BAF75B300F60554 /* CoreDataStack.swift */; };
 		3BF09F662B9F805C00F59F3E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09F652B9F805C00F59F3E /* AppError.swift */; };
@@ -143,7 +142,6 @@
 		3BDD15D32BAF173300F60554 /* DescrtiptionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescrtiptionSection.swift; sourceTree = "<group>"; };
 		3BDD15D52BAF1C0600F60554 /* TrailersSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailersSection.swift; sourceTree = "<group>"; };
 		3BDD15D72BAF1D9600F60554 /* CastSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastSection.swift; sourceTree = "<group>"; };
-		3BDD15DB2BAF21DC00F60554 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		3BDD15DF2BAF719A00F60554 /* TMDBAppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TMDBAppDataModel.xcdatamodel; sourceTree = "<group>"; };
 		3BDD15E12BAF75B300F60554 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3BF09F652B9F805C00F59F3E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
@@ -242,6 +240,7 @@
 				3BF09F7D2BA0EB4200F59F3E /* Data */,
 				3B84EA962B9F7F1200EDBB0F /* Domain */,
 				3BF236D22BAB01C7004E1D0E /* Presentation */,
+				3B87828D2AE4261D0098C228 /* Preview Content */,
 			);
 			path = "TMDB Clean Architecture";
 			sourceTree = "<group>";
@@ -279,7 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				3B84EA952B9F7E7C00EDBB0F /* TMDB Clean Architecture */,
-				3B8782A82AE4291D0098C228 /* Preview */,
 				3B8782852AE4261C0098C228 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -299,14 +297,6 @@
 				3B87828B2AE4261D0098C228 /* Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		3B8782A82AE4291D0098C228 /* Preview */ = {
-			isa = PBXGroup;
-			children = (
-				3B87828D2AE4261D0098C228 /* Preview Content */,
-			);
-			path = Preview;
 			sourceTree = "<group>";
 		};
 		3B8782B02AE42E140098C228 /* App */ = {
@@ -396,7 +386,6 @@
 			isa = PBXGroup;
 			children = (
 				3BDD15C22BAC6FF100F60554 /* TabViewRouter.swift */,
-				3BDD15DB2BAF21DC00F60554 /* ViewState.swift */,
 				3B26B84D2B1D218D00334385 /* CustomAlert.swift */,
 				3B8782992AE427230098C228 /* NetworkingError.swift */,
 			);
@@ -765,7 +754,6 @@
 				3B0E39E02BAF943400193FF7 /* RemoveFavoriteOfflineUseCase.swift in Sources */,
 				3BDD15C72BAC722D00F60554 /* ContainerView.swift in Sources */,
 				3BF09FDB2BA86FD000F59F3E /* BaseStateView.swift in Sources */,
-				3BDD15DC2BAF21DC00F60554 /* ViewState.swift in Sources */,
 				3BF09F702BA0D30500F59F3E /* MovieListRepository.swift in Sources */,
 				3BDD15D22BACD2C900F60554 /* SearchRowView.swift in Sources */,
 				3BF09F8E2BA1DAB100F59F3E /* DataEncoder.swift in Sources */,
@@ -970,7 +958,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Preview/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				DEVELOPMENT_TEAM = FQWAP959Y3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1000,7 +988,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Preview/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				DEVELOPMENT_TEAM = FQWAP959Y3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
