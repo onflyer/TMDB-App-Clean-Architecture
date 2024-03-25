@@ -36,4 +36,11 @@ extension CoreDataDTO {
             posterPath_ = newValue
         }
     }
+    
+    convenience init(id: Int, title: String, posterPath: String, context: NSManagedObjectContext) {
+        self.init(context: context)
+        self.id = id
+        self.title = title
+        self.posterPath = posterPath
+    }
 }
