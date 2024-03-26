@@ -9,7 +9,12 @@ import SwiftUI
 
 @main
 struct TMDB_App: App {
-    
+//            static func main() async {
+//               let instance = DefaultFavoriteMoviesOfflineRepository(dataSource: DefaultFavoriteOfflineDataSource(dataStack: CoreDataStack()))
+//                instance.addFavorite(movie: MovieEntity(id: 3, posterPath: "MOJ FILM", coreDataTitle: "MojFiLM"))
+//                let movies = instance.getFavorites()
+//                print(movies)
+//                }
     init() {
         /// Injecting all dependencies
         Resolver.shared.injectModules()
