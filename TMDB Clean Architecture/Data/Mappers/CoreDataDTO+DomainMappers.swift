@@ -20,17 +20,10 @@ extension MovieEntity: CoreDataMapper {
     typealias EntityType = CoreDataDTO
     
     func toCoreDataEntity(in context: NSManagedObjectContext) -> CoreDataDTO {
-        let entity = CoreDataDTO(id: 3, title: "sssdds", posterPath: "ssss", context: context)
+        let entity = CoreDataDTO(id: id ?? 0, title: title ?? "NO TITLE", posterPath: posterPath ?? "NO POSTER PATH", context: context)
         entity.id = id
         entity.title = title
         entity.posterPath = posterPath
-        do {
-            try context.save()
-        } catch {
-          print(error)
-        }
-        
-        
         
         return entity
         

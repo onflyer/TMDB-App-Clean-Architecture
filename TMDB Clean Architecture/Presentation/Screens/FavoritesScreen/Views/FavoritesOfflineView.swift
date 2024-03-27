@@ -1,13 +1,13 @@
 //
-//  FavoritesView.swift
+//  FavoritesOfflineView.swift
 //  TMDB App
 //
-//  Created by Aleksandar Milidrag on 3/21/24.
+//  Created by Aleksandar Milidrag on 3/27/24.
 //
 
 import SwiftUI
 
-struct FavoritesView: View {
+struct FavoritesOfflineView: View {
     @StateObject private var viewModel = Resolver.shared.resolve(FavoritesViewModel.self)
     
     var body: some View {
@@ -16,7 +16,7 @@ struct FavoritesView: View {
                 VStack {
                     List {
                         //MARK: CHANGED TO LOCAL
-                        ForEach(viewModel.favoriteMovies) {
+                        ForEach(viewModel.coreDataFavorites) {
                             movie in
                             NavigationLink {
                                 DetailView(movieId: movie.id ?? 0)
@@ -43,20 +43,20 @@ struct FavoritesView: View {
                     ProgressView()
                 }
             }
-            .navigationTitle("Favorites online")
+            .navigationTitle("Favorites offline")
             .toolbar {
                 EditButton().bold()
             }
             .task {
-                await viewModel.loadFavoriteMovies()
+                 viewModel.loadFavoritesFromCoreData()
             }
             .refreshable {
-                await viewModel.loadFavoriteMovies()
+                 viewModel.loadFavoritesFromCoreData()
             }
         }
     }
 }
 
 #Preview {
-    FavoritesView()
+    FavoritesOfflineView()
 }

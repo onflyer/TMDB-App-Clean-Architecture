@@ -13,6 +13,7 @@ enum TabViewRouter: Hashable, Identifiable, CaseIterable {
     case homeScreen
     case searchScreen
     case favoritesScreen
+    case favoritesOffline
     
     var id: TabViewRouter { self }
 }
@@ -27,8 +28,9 @@ extension TabViewRouter {
         case .searchScreen:
             Label("Search", systemImage: "magnifyingglass")
         case .favoritesScreen:
-            Label("Favorite Movies", systemImage: "heart")
-      
+            Label("Favorite online", systemImage: "arrow.up.heart")
+        case .favoritesOffline:
+            Label("Favorites offline", systemImage: "arrow.down.heart")
         }
     }
     
@@ -41,6 +43,8 @@ extension TabViewRouter {
             SearchView()
             case .favoritesScreen:
             FavoritesView()
+        case .favoritesOffline:
+            FavoritesOfflineView()
         }
     }
 }

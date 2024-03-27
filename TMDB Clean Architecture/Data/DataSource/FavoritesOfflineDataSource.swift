@@ -37,8 +37,7 @@ class DefaultFavoriteOfflineDataSource: FavoritesOfflineDataSource {
     }
     
     func addFavorite(movie: MovieEntity) throws {
-        let coreDataMovie = movie.toCoreDataEntity(in: managedObjectContext)
-        managedObjectContext.insert(coreDataMovie)
+        _ = movie.toCoreDataEntity(in: managedObjectContext)
         dataStack.saveContext()
     }
     

@@ -11,7 +11,7 @@ import SwiftUI
 struct TMDB_App: App {
 //            static func main() async {
 //               let instance = DefaultFavoriteMoviesOfflineRepository(dataSource: DefaultFavoriteOfflineDataSource(dataStack: CoreDataStack()))
-//                instance.addFavorite(movie: MovieEntity(id: 3, posterPath: "MOJ FILM", coreDataTitle: "MojFiLM"))
+//                instance.addFavorite(movie: MovieEntity(id: 3, posterPath: "NAJNOVIJI", coreDataTitle: "NAJNOVIJI"))
 //                let movies = instance.getFavorites()
 //                print(movies)
 //                }
