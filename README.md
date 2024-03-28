@@ -1,5 +1,7 @@
 # Movies-TMDB-SwiftUI-MVVM
 
+This app is made with clean architecture approach, with decoupled layers. It has online and offline data source using network manager and core data , also it is using caching for image data. It is showcasing CRUD operations online and offline and managing dependancies using Swinject library.
+
 
 
 
