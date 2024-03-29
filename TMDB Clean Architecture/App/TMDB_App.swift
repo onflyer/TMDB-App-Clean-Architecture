@@ -25,6 +25,7 @@ struct TMDB_App: App {
         
         WindowGroup {
           ContainerView()
+                .preferredColorScheme(.dark)
         }
     }
 }
