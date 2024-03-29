@@ -38,7 +38,8 @@ class DefaultFavoriteOfflineDataSource: FavoritesOfflineDataSource {
     
     func addFavorite(movie: MovieEntity) throws {
         _ = movie.toCoreDataEntity(in: managedObjectContext)
-       try managedObjectContext.save()
+        try managedObjectContext.save()
+        dataStack.saveContext()
     }
     
     func removeFavorite(movie: MovieEntity) throws {
@@ -46,6 +47,7 @@ class DefaultFavoriteOfflineDataSource: FavoritesOfflineDataSource {
         fetchRequest.predicate = NSPredicate(format: "id_ = %d", movie.id ?? 0)
         let result = try managedObjectContext.fetch(fetchRequest)
         result.forEach({managedObjectContext.delete($0)})
+        try managedObjectContext.save()
         dataStack.saveContext()
     }
     func isFavorite(movie: MovieEntity) throws -> Bool {

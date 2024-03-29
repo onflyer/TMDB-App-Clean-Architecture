@@ -139,9 +139,7 @@ extension FavoritesViewModel {
        }
         
     }
-    func addFavorite(movieId: Int) {
-        
-    }
+    
     
     func swipeToDeleteOffline(at offsets: IndexSet) {
         offsets.forEach { index in
