@@ -61,6 +61,7 @@ struct DetailView: View {
                     await favoritesViewModel.loadFavoriteMovies()
                    
                 }
+                
             }
             
         }, label: {

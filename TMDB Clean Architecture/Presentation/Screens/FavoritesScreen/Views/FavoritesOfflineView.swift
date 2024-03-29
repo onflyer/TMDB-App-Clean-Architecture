@@ -26,7 +26,7 @@ struct FavoritesOfflineView: View {
 
                         }
                         .onDelete(perform: { indexSet in
-                            viewModel.swipeToDelete(at: indexSet)
+                            viewModel.swipeToDeleteOffline(at: indexSet)
                         })
                     }
                     .animation(.default, value: viewModel.favoriteMovies)

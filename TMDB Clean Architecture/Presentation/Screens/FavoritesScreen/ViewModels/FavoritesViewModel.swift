@@ -139,6 +139,16 @@ extension FavoritesViewModel {
        }
         
     }
+    func addFavorite(movieId: Int) {
+        
+    }
+    
+    func swipeToDeleteOffline(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let favoriteMovie = self.coreDataFavorites[index]
+            removeFavoriteOfflineUseCase.execute(movie: favoriteMovie)
+        }
+    }
     
 //    func toggleFavoriteOffline(movieId: Int) {
 //        
