@@ -9,15 +9,6 @@ import SwiftUI
 
 @main
 struct TMDB_App: App {
-            
-//    static func main() {
-//        let instance = DefaultFavoriteMoviesOfflineRepository(dataSource: DefaultFavoriteOfflineDataSource(dataStack: CoreDataStack()))
-//       let result = instance.isFavorite(movie: MovieEntity(id: 414124, posterPath: "4211231", coreDataTitle: "SALKAAAA"))
-////       let movies = instance.getFavorites()
-//        
-//        print(result)
-////        print(result)
-//    }
     
     init() {
         /// Injecting all dependencies
@@ -34,6 +25,13 @@ struct TMDB_App: App {
     }
 }
 
+//    static func main() {
+//        let instance = DefaultFavoriteMoviesOfflineRepository(dataSource: DefaultFavoriteOfflineDataSource(dataStack: CoreDataStack()))
+//       let result = instance.isFavorite(movie: MovieEntity(id: 414124, posterPath: "4211231", coreDataTitle: "SALKAAAA"))
+////       let movies = instance.getFavorites()
+//
+//        print(result)
+//    }
 
 //        static func main() async {
 //            let instance = DefaultFavoriteMoviesRepository(moviesDatasource: DefaultFavoriteMoviesDataSource(requestManager: DefaultRequestManager()))
