@@ -22,20 +22,15 @@ struct FavoritesOfflineView: View {
                                 DetailView(movieId: movie.id ?? 0)
                             } label: {
                                 SearchRowView(movie: movie)
-
                             }
-
                         }
                         .onDelete(perform: { indexSet in
                             viewModel.swipeToDeleteOffline(at: indexSet)
                         })
-                        
                     }
                     .animation(.default, value: viewModel.coreDataFavorites)
                     .listStyle(.plain)
-                    
                 }
-                
             } emptyView: {
                 
             } errorView: { error in
