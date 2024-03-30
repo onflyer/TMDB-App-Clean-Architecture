@@ -15,7 +15,7 @@ struct DetailView: View {
     
     var body: some View {
         BaseStateView(viewModel: viewModel,
-           successView: {
+                      successView: {
             ScrollView {
                 if let movie = viewModel.singleMovie {
                     DetailImageView(movie: movie)
@@ -33,11 +33,12 @@ struct DetailView: View {
             }
             .scrollIndicators(.hidden)
             .task {
+                favoritesViewModel.isFavorite(movieId: movieId, posterPath: viewModel.singleMovie?.posterPath ?? "N/A" , coreDataTitle: viewModel.singleMovie?.title ?? "N/A")
                 await viewModel.loadMovieById(movieId: movieId)
                 await favoritesViewModel.loadFavoriteMovies()
             }
         },
-           emptyView: {
+                      emptyView: {
             EmptyPlaceholderView(text: "No movie", image: Image(systemName: "film"))
         }, errorView: { error in
             
@@ -45,36 +46,36 @@ struct DetailView: View {
             ProgressView()
         })
         
-        }
+    }
     
     var favoriteButtonOffline: some View {
         Button(action: {
-            favoritesViewModel.addToFavoritesOffline(movieId: movieId, posterPath: viewModel.singleMovie?.posterPath ?? "N/A", coreDataTitle: viewModel.singleMovie?.title ?? "N/A")
-            dismiss()
-            },
+            if favoritesViewModel.isFavorite {
+                favoritesViewModel.removeFromFavoritesOffline(movieId: movieId, posterPath: viewModel.singleMovie?.posterPath ?? "N/A" , coreDataTitle: viewModel.singleMovie?.title ?? "N/A")
+            } else {
+                favoritesViewModel.addToFavoritesOffline(movieId: movieId, posterPath: viewModel.singleMovie?.posterPath ?? "N/A" , coreDataTitle: viewModel.singleMovie?.title ?? "N/A")
+            }
+            favoritesViewModel.isFavorite.toggle()
+        },
                label: {
             HStack(alignment: .firstTextBaseline, content: {
-                Text(favoritesViewModel.coreDataFavorites.contains(where: { favoriteMovie in
-                    favoriteMovie.id == movieId
-                }) ? "Remove from favorites offline" : "Add to favorites offline")
+                Text(favoritesViewModel.isFavorite ? "Remove from favorites offline" : "Add to favorites offline")
                     .bold()
                     .animation(.default)
                 Spacer()
-                Image(systemName: favoritesViewModel.coreDataFavorites.contains(where: { favoriteMovie in
-                    favoriteMovie.id == movieId
-                }) ? "heart.fill" : "heart")
+                Image(systemName: favoritesViewModel.isFavorite ? "heart.fill" : "heart")
                     .animation(.default)
             })
             .padding(.horizontal)
             .padding(.vertical, 5)
-
+            
         })
-
+        
     }
     var favoriteButton: some View {
         Button(action: {
             Task {
-               
+                
                 if await favoritesViewModel.movieIsFavorite(movieId: movieId) {
                     await favoritesViewModel.deleteFromFavorites(movieId: movieId)
                     dismiss()
@@ -83,7 +84,7 @@ struct DetailView: View {
                 } else {
                     await favoritesViewModel.addToFavorites(movieId: movieId)
                     await favoritesViewModel.loadFavoriteMovies()
-                   
+                    
                 }
                 
             }
@@ -93,25 +94,21 @@ struct DetailView: View {
                 Text(favoritesViewModel.favoriteMovies.contains(where: { favoriteMovie in
                     favoriteMovie.id == movieId
                 }) ? "Remove from favorites online" : "Add to favorites online")
-                    .bold()
-                    .animation(.default)
+                .bold()
+                .animation(.default)
                 Spacer()
                 Image(systemName: favoritesViewModel.favoriteMovies.contains(where: { favoriteMovie in
                     favoriteMovie.id == movieId
                 }) ? "heart.fill" : "heart")
-                    .animation(.default)
+                .animation(.default)
             })
             .padding(.horizontal)
             .padding(.vertical, 5)
-
+            
         })
     }
     
-    }
-
-    
-    
-
+}
 
 #Preview {
     NavigationStack {

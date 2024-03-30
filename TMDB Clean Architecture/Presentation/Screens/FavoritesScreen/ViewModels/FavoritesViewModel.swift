@@ -39,6 +39,7 @@ final class FavoritesViewModel: ViewModel {
 
 
 extension FavoritesViewModel {
+    //MARK: NETWORK FUNCTIONS
     func loadFavoriteMovies() async {
             state = .loading
             let result = await getFavoritesUseCase.execute(page: page)
@@ -56,6 +57,7 @@ extension FavoritesViewModel {
                 state = .error(error.localizedDescription)
             
         }
+        
     }
     
     func addToFavorites(movieId: Int) async {
@@ -111,6 +113,7 @@ extension FavoritesViewModel {
 }
 
 extension FavoritesViewModel {
+    //MARK: CORE DATA FUNCTIONS
     func loadFavoritesFromCoreData() {
         state = .loading
         let result = getFavoritesOfflineUseCase.execute()
@@ -127,11 +130,12 @@ extension FavoritesViewModel {
             state = .error(error.localizedDescription)
             
         }
+        coreDataFavorites.reverse()
     }
-    func isFavorite(movieId: Int, posterPath: String, coreDataTitle: String) -> Bool {
+    func isFavorite(movieId: Int, posterPath: String, coreDataTitle: String) {
         let movie: MovieEntity = MovieEntity(id: movieId, posterPath: posterPath, coreDataTitle: coreDataTitle)
         let result = checkFavoriteOfflineUseCase.execute(movie: movie)
-        return result
+        isFavorite = result
     }
     
     func addToFavoritesOffline(movieId: Int, posterPath: String, coreDataTitle: String) {
