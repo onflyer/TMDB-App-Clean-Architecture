@@ -129,15 +129,9 @@ extension FavoritesViewModel {
         }
     }
     
-    func checkFavoriteOffline(movieId: Int) {
-       if let favoriteMovie = coreDataFavorites.first(where: {
-            $0.id == movieId
-       }) {
-           let result = checkFavoriteOfflineUseCase.execute(movie: favoriteMovie)
-           isFavorite = result
-           print(result)
-       }
-        
+    func addToFavoritesOffline(movieId: Int, posterPath: String, coreDataTitle: String) {
+        let movie: MovieEntity = MovieEntity(id: movieId, posterPath: posterPath , coreDataTitle: coreDataTitle)
+        addFavoriteOfflineUseCase.execute(movie: movie)
     }
     
     
@@ -147,16 +141,4 @@ extension FavoritesViewModel {
             removeFavoriteOfflineUseCase.execute(movie: favoriteMovie)
         }
     }
-    
-//    func toggleFavoriteOffline(movieId: Int) {
-//        
-////        if let favoriteMovie = coreDataFavorites.first(where: {
-////            $0.id != movieId
-////        }) {
-//            addFavoriteOfflineUseCase.execute(movie: favoriteMovie)
-//            print(favoriteMovie)
-//            
-//        }
-//        isFavorite = true
-//    }
 }

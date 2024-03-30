@@ -20,6 +20,7 @@ struct DetailView: View {
                 if let movie = viewModel.singleMovie {
                     DetailImageView(movie: movie)
                     favoriteButton
+                    favoriteButtonOffline
                     TrailersSection(movie: movie)
                         .padding(.horizontal)
                     DescrtiptionSection(movie: movie)
@@ -46,7 +47,30 @@ struct DetailView: View {
         
         }
     
-    
+    var favoriteButtonOffline: some View {
+        Button(action: {
+            favoritesViewModel.addToFavoritesOffline(movieId: movieId, posterPath: viewModel.singleMovie?.posterPath ?? "N/A", coreDataTitle: viewModel.singleMovie?.title ?? "N/A")
+            dismiss()
+            },
+               label: {
+            HStack(alignment: .firstTextBaseline, content: {
+                Text(favoritesViewModel.coreDataFavorites.contains(where: { favoriteMovie in
+                    favoriteMovie.id == movieId
+                }) ? "Remove from favorites offline" : "Add to favorites offline")
+                    .bold()
+                    .animation(.default)
+                Spacer()
+                Image(systemName: favoritesViewModel.coreDataFavorites.contains(where: { favoriteMovie in
+                    favoriteMovie.id == movieId
+                }) ? "heart.fill" : "heart")
+                    .animation(.default)
+            })
+            .padding(.horizontal)
+            .padding(.vertical, 5)
+
+        })
+
+    }
     var favoriteButton: some View {
         Button(action: {
             Task {
@@ -68,7 +92,7 @@ struct DetailView: View {
             HStack(alignment: .firstTextBaseline, content: {
                 Text(favoritesViewModel.favoriteMovies.contains(where: { favoriteMovie in
                     favoriteMovie.id == movieId
-                }) ? "Remove from favorites" : "Add to favorites")
+                }) ? "Remove from favorites online" : "Add to favorites online")
                     .bold()
                     .animation(.default)
                 Spacer()

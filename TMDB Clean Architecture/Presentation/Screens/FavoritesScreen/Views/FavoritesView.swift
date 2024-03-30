@@ -22,8 +22,8 @@ struct FavoritesView: View {
                                 DetailView(movieId: movie.id ?? 0)
                             } label: {
                                 SearchRowView(movie: movie)
+                            
                             }
-
                         }
                         .onDelete(perform: { indexSet in
                             viewModel.swipeToDelete(at: indexSet)

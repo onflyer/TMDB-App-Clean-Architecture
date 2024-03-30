@@ -12,10 +12,11 @@ struct TMDB_App: App {
             
 //    static func main() {
 //        let instance = DefaultFavoriteMoviesOfflineRepository(dataSource: DefaultFavoriteOfflineDataSource(dataStack: CoreDataStack()))
-////        instance.addFavorite(movie: MovieEntity(id: 2432, posterPath: "3", coreDataTitle: "SALKA"))
-//       let movies = instance.getFavorites()
+//       let result = instance.isFavorite(movie: MovieEntity(id: 414124, posterPath: "4211231", coreDataTitle: "SALKAAAA"))
+////       let movies = instance.getFavorites()
 //        
-//        print(movies)
+//        print(result)
+////        print(result)
 //    }
     
     init() {
