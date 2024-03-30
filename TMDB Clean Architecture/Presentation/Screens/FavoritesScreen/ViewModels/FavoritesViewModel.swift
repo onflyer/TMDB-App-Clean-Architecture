@@ -128,10 +128,20 @@ extension FavoritesViewModel {
             
         }
     }
+    func isFavorite(movieId: Int, posterPath: String, coreDataTitle: String) -> Bool {
+        let movie: MovieEntity = MovieEntity(id: movieId, posterPath: posterPath, coreDataTitle: coreDataTitle)
+        let result = checkFavoriteOfflineUseCase.execute(movie: movie)
+        return result
+    }
     
     func addToFavoritesOffline(movieId: Int, posterPath: String, coreDataTitle: String) {
         let movie: MovieEntity = MovieEntity(id: movieId, posterPath: posterPath , coreDataTitle: coreDataTitle)
         addFavoriteOfflineUseCase.execute(movie: movie)
+    }
+    
+    func removeFromFavoritesOffline(movieId: Int, posterPath: String, coreDataTitle: String) {
+        let movie: MovieEntity = MovieEntity(id: movieId, posterPath: posterPath , coreDataTitle: coreDataTitle)
+        removeFavoriteOfflineUseCase.execute(movie: movie)
     }
     
     
