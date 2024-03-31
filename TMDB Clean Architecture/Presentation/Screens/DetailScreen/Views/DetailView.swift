@@ -56,7 +56,7 @@ struct DetailView: View {
                 favoritesViewModel.addToFavoritesOffline(movieId: movieId, posterPath: viewModel.singleMovie?.posterPath ?? "N/A" , coreDataTitle: viewModel.singleMovie?.title ?? "N/A")
             }
             favoritesViewModel.isFavorite.toggle()
-            dismiss()
+            
         },
                label: {
             HStack(alignment: .firstTextBaseline, content: {
