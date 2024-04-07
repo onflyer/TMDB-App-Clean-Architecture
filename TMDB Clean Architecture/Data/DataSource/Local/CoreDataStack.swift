@@ -11,10 +11,8 @@ import CoreData
 open class CoreDataStack {
     public static let modelName = "TMDBAppDataModel"
     public static let model: NSManagedObjectModel = {
-        // swiftlint:disable force_unwrapping
         let modelURL = Bundle.main.url(forResource: modelName, withExtension: "momd")!
         return NSManagedObjectModel(contentsOf: modelURL)!
-        // swiftlint:enable force_unwrapping
     }()
     
     public init() {
