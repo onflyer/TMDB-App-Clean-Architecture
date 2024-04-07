@@ -32,7 +32,7 @@ open class CoreDataStack {
         return container
     }()
     
-    public func newDerivedContext() -> NSManagedObjectContext {
+    public func newBackgroundContext() -> NSManagedObjectContext {
         let context = storeContainer.newBackgroundContext()
         return context
     }

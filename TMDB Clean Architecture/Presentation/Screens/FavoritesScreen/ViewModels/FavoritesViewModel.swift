@@ -138,9 +138,9 @@ extension FavoritesViewModel {
         isFavorite = result
     }
     
-    func addToFavoritesOffline(movieId: Int, posterPath: String, coreDataTitle: String) {
+    func addToFavoritesOffline(movieId: Int, posterPath: String, coreDataTitle: String) async {
         let movie: MovieEntity = MovieEntity(id: movieId, posterPath: posterPath , coreDataTitle: coreDataTitle)
-        addFavoriteOfflineUseCase.execute(movie: movie)
+       await addFavoriteOfflineUseCase.execute(movie: movie)
     }
     
     func removeFromFavoritesOffline(movieId: Int, posterPath: String, coreDataTitle: String) {

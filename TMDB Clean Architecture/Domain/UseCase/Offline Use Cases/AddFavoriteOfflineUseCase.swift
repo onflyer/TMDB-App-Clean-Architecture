@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Protocol -
 
 protocol AddFavoriteOfflineUseCase {
-    func execute(movie: MovieEntity)
+    func execute(movie: MovieEntity) async
 }
 
 // MARK: - Implementation -
@@ -22,7 +22,7 @@ class AddFavoriteOfflineUseCaseImpl: AddFavoriteOfflineUseCase {
         self.favoritesOfflineRepository = favoritesOfflineRepository
     }
     
-    func execute(movie: MovieEntity) {
-        favoritesOfflineRepository.addFavorite(movie: movie)
+    func execute(movie: MovieEntity) async {
+       await favoritesOfflineRepository.addFavorite(movie: movie)
     }
 }

@@ -34,9 +34,9 @@ class DefaultFavoriteMoviesOfflineRepository: FavoritesOfflineRepository {
         }
     }
     
-    func addFavorite(movie: MovieEntity) {
+    func addFavorite(movie: MovieEntity) async {
         do {
-            try dataSource.addFavorite(movie: movie)
+            try await dataSource.addFavorite(movie: movie)
         } catch {
             print("Local DS: \(error.localizedDescription)")
         }

@@ -16,7 +16,7 @@ protocol FavoritesOfflineRepository {
     func isFavorite(movie: MovieEntity) -> Bool
     
     /// Add movie to favorites
-    func addFavorite(movie: MovieEntity)
+    func addFavorite(movie: MovieEntity) async
     
     /// Remove movie from favorites
     func removeFavorite(movie: MovieEntity)

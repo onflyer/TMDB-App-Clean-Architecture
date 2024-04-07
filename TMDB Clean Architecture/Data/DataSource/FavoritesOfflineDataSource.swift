@@ -12,7 +12,7 @@ import CoreData
 protocol FavoritesOfflineDataSource {
     func getFavorites() throws -> [MovieEntity]
     func isFavorite(movie: MovieEntity) throws -> Bool
-    func addFavorite(movie: MovieEntity) throws
+    func addFavorite(movie: MovieEntity) async throws
     func removeFavorite(movie: MovieEntity) throws
 }
 
@@ -23,7 +23,9 @@ class DefaultFavoriteOfflineDataSource: FavoritesOfflineDataSource {
     
     private var managedObjectContext: NSManagedObjectContext {
         dataStack.mainContext
+        
     }
+    
     
     init(dataStack: CoreDataStack) {
         self.dataStack = dataStack
@@ -36,10 +38,13 @@ class DefaultFavoriteOfflineDataSource: FavoritesOfflineDataSource {
         })
     }
     
-    func addFavorite(movie: MovieEntity) throws {
+    func addFavorite(movie: MovieEntity) async throws {
         _ = movie.toCoreDataEntity(in: managedObjectContext)
-        try managedObjectContext.save()
-        dataStack.saveContext()
+//        try managedObjectContext.save()
+       await managedObjectContext.perform {
+           self.dataStack.saveContext()
+        }
+        
     }
     
     func removeFavorite(movie: MovieEntity) throws {
@@ -47,14 +52,13 @@ class DefaultFavoriteOfflineDataSource: FavoritesOfflineDataSource {
         fetchRequest.predicate = NSPredicate(format: "id_ = %d", movie.id ?? 0)
         let result = try managedObjectContext.fetch(fetchRequest)
         result.forEach({managedObjectContext.delete($0)})
-        try managedObjectContext.save()
+//        try managedObjectContext.save()
         dataStack.saveContext()
     }
     func isFavorite(movie: MovieEntity) throws -> Bool {
         let fetchRequest = CoreDataDTO.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id_ = %d", movie.id ?? 0)
         let result = try managedObjectContext.fetch(fetchRequest)
-        
         return !result.isEmpty
     }
 }

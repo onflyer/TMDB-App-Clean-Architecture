@@ -53,7 +53,10 @@ struct DetailView: View {
             if favoritesViewModel.isFavorite {
                 favoritesViewModel.removeFromFavoritesOffline(movieId: movieId, posterPath: viewModel.singleMovie?.posterPath ?? "N/A" , coreDataTitle: viewModel.singleMovie?.title ?? "N/A")
             } else {
-                favoritesViewModel.addToFavoritesOffline(movieId: movieId, posterPath: viewModel.singleMovie?.posterPath ?? "N/A" , coreDataTitle: viewModel.singleMovie?.title ?? "N/A")
+                Task {
+                   await favoritesViewModel.addToFavoritesOffline(movieId: movieId, posterPath: viewModel.singleMovie?.posterPath ?? "N/A" , coreDataTitle: viewModel.singleMovie?.title ?? "N/A")
+                }
+                
             }
             favoritesViewModel.isFavorite.toggle()
             
