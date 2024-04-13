@@ -18,17 +18,12 @@ class DefaultMoviesRepository: MovieListRepository {
     
     
     func getNowPlayingMovies(page: Int) async throws -> [MovieEntity] {
-        var movies: [MovieEntity] = []
-        do {
+        
             let data = try await moviesDatasource.getNowPlayingMovies(page: page)
             let nowPlayingMovies = data.map({
                 $0.toDomain()
             })
-        movies = nowPlayingMovies
-        } catch let error as AppError {
-            print(error)
-        }
-        return movies
+            return nowPlayingMovies
     }
     
     func getUpcomingMovies(page: Int) async -> Result<[MovieEntity], AppError> {

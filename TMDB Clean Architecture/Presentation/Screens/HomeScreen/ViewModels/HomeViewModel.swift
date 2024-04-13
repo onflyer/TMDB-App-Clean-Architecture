@@ -26,6 +26,7 @@ final class HomeViewModel: ViewModel {
     @Published var upcomingMovies: [MovieEntity] = []
     @Published var topRatedMovies: [MovieEntity] = []
     @Published var popularMovies: [MovieEntity] = []
+    @Published var appError: AppError?
     var page = 1
     
     // MARK: - Init -
@@ -50,10 +51,15 @@ extension HomeViewModel {
             } else {
                 state = .success
             }
+        } catch let error as AppError {
+            print(error)
+            self.appError = error
+           state = .error(error.localizedDescription)
         } catch {
-           print(error)
+            print(error)
             state = .error(error.localizedDescription)
         }
+        
     }
     
     func loadUpcomingMovies() async {
