@@ -10,12 +10,12 @@ import Foundation
 
 
 class MovieListMockRepository: MovieListRepository {
-    func getNowPlayingMovies(page: Int) async -> Result<[MovieEntity], AppError> {
+    func getNowPlayingMovies(page: Int) async throws -> [MovieEntity] {
         
             let response = [MovieEntity(id: 1, posterPath: "testPoster1", coreDataTitle: "title1"),
                             MovieEntity(id: 2, posterPath: "testPoster2", coreDataTitle: "title2"),
                             MovieEntity(id: 3, posterPath: "testPoster3", coreDataTitle: "title3")]
-            return .success(response)
+            return response
     }
     
     func getUpcomingMovies(page: Int) async -> Result<[MovieEntity], AppError> {
