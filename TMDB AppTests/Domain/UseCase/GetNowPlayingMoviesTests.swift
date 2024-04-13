@@ -10,8 +10,18 @@ import XCTest
 
 final class GetNowPlayingMoviesTests: XCTestCase {
 
-   
-
+    func test_nowPlayingMoviesUseCase() async {
+        let mock = MovieListMockRepository()
+        let sut = GetNowPlayingMoviesUseCaseImpl(repository: mock)
+        
+        let expectedResponse = [MovieEntity(id: 1, posterPath: "testPoster1", coreDataTitle: "title1"),
+                                MovieEntity(id: 2, posterPath: "testPoster2", coreDataTitle: "title2"),
+                                MovieEntity(id: 3, posterPath: "testPoster3", coreDataTitle: "title3")]
+        
+        let result = await sut.execute(page: 1)
+        
+        XCTAssertEqual(result, .success(expectedResponse))
+    }
 }
 
 
