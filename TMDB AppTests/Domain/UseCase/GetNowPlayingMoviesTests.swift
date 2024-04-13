@@ -18,9 +18,9 @@ final class GetNowPlayingMoviesTests: XCTestCase {
                                 MovieEntity(id: 2, posterPath: "testPoster2", coreDataTitle: "title2"),
                                 MovieEntity(id: 3, posterPath: "testPoster3", coreDataTitle: "title3")]
         
-        let result = await sut.execute(page: 1)
+        let result = try? await sut.execute(page: 1)
         
-        XCTAssertEqual(result, .success(expectedResponse))
+        XCTAssertEqual(result, expectedResponse)
     }
 }
 
