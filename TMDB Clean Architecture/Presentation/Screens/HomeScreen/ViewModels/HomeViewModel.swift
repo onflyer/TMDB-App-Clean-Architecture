@@ -40,19 +40,18 @@ final class HomeViewModel: ViewModel {
 
 extension HomeViewModel {
     func loadNowPlayingMovies() async {
-        state = .loading
-        let result = await getNowPlayingMoviesUseCase.execute(page: page)
         
-        switch result {
-        case .success(let data):
-            nowPlayingMovies.append(contentsOf: data)
+        do {
+            state = .loading
+            let result = try await getNowPlayingMoviesUseCase.execute(page: page)
+            nowPlayingMovies.append(contentsOf: result)
             if nowPlayingMovies.isEmpty {
                 state = .empty
             } else {
                 state = .success
             }
-        case .failure(let error):
-            print(error)
+        } catch {
+           print(error)
             state = .error(error.localizedDescription)
         }
     }
@@ -115,7 +114,6 @@ extension HomeViewModel {
         guard nowPlayingMovies.last?.id == currentItem.id else {return}
         page += 1
         await loadNowPlayingMovies()
-        
     }
     
     func loadMoreUpcomingMovies(currentItem: MovieEntity) async {
