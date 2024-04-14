@@ -10,31 +10,7 @@ import Foundation
 
 
 class MovieListMockRepository: MovieListRepository {
-    var movies: [MovieEntity]?
-    var movie: SingleMovieEntity?
-    var movieId: Int?
-    var error: AppError?
-    var page: Int?
     
-    func getMovies(page: Int) async throws -> [MovieEntity] {
-        if let error = error {
-            throw error
-        }
-        if let movies = movies {
-            return movies
-        }
-        fatalError("MovieListMockRepository not properly set up")
-    }
-    
-    func getMovie(movieId: Int) async throws -> SingleMovieEntity? {
-        if let error = error {
-            throw error
-        }
-        if let movie = movie {
-            return movie
-        }
-        fatalError("MovieListMockRepository not properly set up")
-    }
     
     func getNowPlayingMovies(page: Int) async throws -> [MovieEntity] {
        try await getMovies(page: page)
@@ -65,7 +41,37 @@ class MovieListMockRepository: MovieListRepository {
     }
     
     func getMovieById(movieId: Int) async throws -> SingleMovieEntity? {
-        try await getMovie(movieId: movieId)
+       try await getMovie(movieId: movieId)
+        
+    }
+    
+    //MARK: HELPERS
+    
+    var movies: [MovieEntity]?
+    var movie: SingleMovieEntity?
+    var movieId: Int?
+    var error: AppError?
+    var page: Int?
+    
+    func getMovies(page: Int) async throws -> [MovieEntity] {
+        if let error = error {
+            throw error
+        }
+        if let movies = movies {
+            return movies
+        }
+        fatalError("MovieListMockRepository not properly set up")
+    }
+    
+    func getMovie(movieId: Int) async throws -> SingleMovieEntity? {
+        
+        if let error = error {
+            throw error
+        }
+        if let movie = movie {
+            return movie
+        }
+        fatalError("MovieListMockRepository not properly set up")
     }
     
     
