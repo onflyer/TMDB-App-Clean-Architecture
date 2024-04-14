@@ -561,7 +561,7 @@
 				3BF09F7E2BA0F31900F59F3E /* Networking */,
 				3BF09FA32BA38EAA00F59F3E /* Mappers */,
 				3BF09F932BA1F40900F59F3E /* DTO Models */,
-				3BF09F9A2BA3679E00F59F3E /* DataSource */,
+				3BF09F9A2BA3679E00F59F3E /* Data Source */,
 				3BF09FAA2BA4889E00F59F3E /* Data Repository */,
 			);
 			path = Data;
@@ -618,13 +618,13 @@
 			path = "DTO Models";
 			sourceTree = "<group>";
 		};
-		3BF09F9A2BA3679E00F59F3E /* DataSource */ = {
+		3BF09F9A2BA3679E00F59F3E /* Data Source */ = {
 			isa = PBXGroup;
 			children = (
 				3BDD15DD2BAF70EA00F60554 /* Local */,
 				3BF09F9B2BA367B100F59F3E /* Remote */,
 			);
-			path = DataSource;
+			path = "Data Source";
 			sourceTree = "<group>";
 		};
 		3BF09F9B2BA367B100F59F3E /* Remote */ = {
@@ -685,7 +685,7 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		3BF09FD92BA86FB600F59F3E /* ReusableViews */ = {
+		3BF09FD92BA86FB600F59F3E /* Reusable Views */ = {
 			isa = PBXGroup;
 			children = (
 				3B4171A72B2327970093F7CE /* ShimmerEffectBox.swift */,
@@ -693,26 +693,26 @@
 				3BF09FDE2BA870B900F59F3E /* CustomListView.swift */,
 				3BDD15C42BAC70BA00F60554 /* AppTabView1.swift */,
 			);
-			path = ReusableViews;
+			path = "Reusable Views";
 			sourceTree = "<group>";
 		};
 		3BF236D22BAB01C7004E1D0E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				3BDD15C82BAC784900F60554 /* Views */,
-				3BF09FD92BA86FB600F59F3E /* ReusableViews */,
-				3BF236D32BAB0291004E1D0E /* ViewModelWrapper */,
+				3BF09FD92BA86FB600F59F3E /* Reusable Views */,
+				3BF236D32BAB0291004E1D0E /* ViewModel Wrapper */,
 				3BF09FD52BA86D6B00F59F3E /* Screens */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		3BF236D32BAB0291004E1D0E /* ViewModelWrapper */ = {
+		3BF236D32BAB0291004E1D0E /* ViewModel Wrapper */ = {
 			isa = PBXGroup;
 			children = (
 				3BF09FDC2BA8701800F59F3E /* ViewModel.swift */,
 			);
-			path = ViewModelWrapper;
+			path = "ViewModel Wrapper";
 			sourceTree = "<group>";
 		};
 		3BF236D92BAB0803004E1D0E /* DI Resolver */ = {
