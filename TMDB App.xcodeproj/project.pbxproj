@@ -269,10 +269,18 @@
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
+		3B0F6DD92BCC76820037A1FB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		3B2C2A7C2BC86505009869EE /* TMDB AppTests */ = {
 			isa = PBXGroup;
 			children = (
 				3B2C2A842BC86570009869EE /* Domain */,
+				3B0F6DD92BCC76820037A1FB /* Data */,
 			);
 			path = "TMDB AppTests";
 			sourceTree = "<group>";
@@ -321,9 +329,9 @@
 			children = (
 				3B8782B02AE42E140098C228 /* App */,
 				3B84EA972B9F7F4500EDBB0F /* Core */,
-				3BF09F7D2BA0EB4200F59F3E /* Data */,
-				3B84EA962B9F7F1200EDBB0F /* Domain */,
 				3BF236D22BAB01C7004E1D0E /* Presentation */,
+				3B84EA962B9F7F1200EDBB0F /* Domain */,
+				3BF09F7D2BA0EB4200F59F3E /* Data */,
 				3B87828D2AE4261D0098C228 /* Preview Content */,
 			);
 			path = "TMDB Clean Architecture";
