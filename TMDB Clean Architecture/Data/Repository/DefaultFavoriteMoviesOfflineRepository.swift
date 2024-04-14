@@ -16,13 +16,9 @@ class DefaultFavoriteMoviesOfflineRepository: FavoritesOfflineRepository {
     }
     
     
-    func getFavorites() -> Result<[MovieEntity], AppError> {
-        do {
+    func getFavorites() throws -> [MovieEntity] {
             let movies = try dataSource.getFavorites()
-            return .success(movies)
-        } catch {
-            return .failure(.localDataFetchError(error.localizedDescription))
-        }
+            return movies
     }
     
     func isFavorite(movie: MovieEntity) -> Bool {

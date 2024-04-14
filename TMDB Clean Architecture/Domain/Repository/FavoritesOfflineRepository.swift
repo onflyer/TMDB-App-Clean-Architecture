@@ -10,7 +10,7 @@ import Foundation
 protocol FavoritesOfflineRepository {
     
     /// Get all favorites movies from local storage
-    func getFavorites() -> Result<[MovieEntity], AppError>
+    func getFavorites() throws -> [MovieEntity]
     
     /// Check if movie is favorite or not
     func isFavorite(movie: MovieEntity) -> Bool

@@ -106,23 +106,22 @@ extension FavoritesViewModel {
 extension FavoritesViewModel {
     //MARK: CORE DATA FUNCTIONS
     func loadFavoritesFromCoreData() {
-        state = .loading
-        let result = getFavoritesOfflineUseCase.execute()
-        switch result {
-        case .success(let data):
-            if !data.isEmpty {
+        do {
+            state = .loading
+            let result = try getFavoritesOfflineUseCase.execute()
+            if !result.isEmpty {
                 state = .success
-                coreDataFavorites = data
+                coreDataFavorites = result
             } else {
                 state = .empty
             }
-        case .failure(let error):
+        } catch {
             print(error)
             state = .error(error.localizedDescription)
-            
         }
         coreDataFavorites.reverse()
     }
+    
     func isFavorite(movieId: Int, posterPath: String, coreDataTitle: String) {
         let movie: MovieEntity = MovieEntity(id: movieId, posterPath: posterPath, coreDataTitle: coreDataTitle)
         let result = checkFavoriteOfflineUseCase.execute(movie: movie)

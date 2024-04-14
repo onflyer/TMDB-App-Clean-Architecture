@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetFavoritesOfflineUseCase {
-    func execute() -> Result<[MovieEntity], AppError>
+    func execute() throws -> [MovieEntity]
 }
 
 class GetFavoritesOfflineUseCaseImpl: GetFavoritesOfflineUseCase {
@@ -18,7 +18,7 @@ class GetFavoritesOfflineUseCaseImpl: GetFavoritesOfflineUseCase {
         self.favoritesOfflineRepository = favoritesOfflineRepository
     }
     
-    func execute() -> Result<[MovieEntity], AppError> {
-        favoritesOfflineRepository.getFavorites()
+    func execute() throws -> [MovieEntity] {
+       try favoritesOfflineRepository.getFavorites()
     }
 }
