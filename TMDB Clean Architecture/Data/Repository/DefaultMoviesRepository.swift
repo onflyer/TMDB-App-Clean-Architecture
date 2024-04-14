@@ -60,14 +60,11 @@ class DefaultMoviesRepository: MovieListRepository {
             }
         }
         
-        func getMovieById(movieId: Int) async -> Result<SingleMovieEntity?, AppError> {
-            do {
+        func getMovieById(movieId: Int) async throws -> SingleMovieEntity? {
+            
                 let data = try await moviesDatasource.getMovieById(movieId: movieId)
                 let singleMovie = data?.toDomain()
-                return .success(singleMovie)
-            } catch {
-                print(error)
-                return .failure(.networkError(error.localizedDescription))
-            }
+                return singleMovie
+            
       }
 }

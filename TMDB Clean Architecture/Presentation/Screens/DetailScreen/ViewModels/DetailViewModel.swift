@@ -26,17 +26,16 @@ final class DetailViewModel: ViewModel {
 
 extension DetailViewModel {
     func loadMovieById(movieId: Int) async {
-        state = .loading
-        let result = await getMovieByIdUseCase.execute(movieId: movieId)
         
-        switch result {
-        case .success(let data):
-            singleMovie = data
+        do {
+            state = .loading
+            let result = try await getMovieByIdUseCase.execute(movieId: movieId)
+            singleMovie = result
             state = .success
-        case .failure(let error):
+        } catch {
             print(error)
             state = .error(error.localizedDescription)
         }
     }
-    
 }
+

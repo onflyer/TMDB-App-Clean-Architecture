@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetMovieByIdUseCase {
-    func execute(movieId: Int) async -> Result<SingleMovieEntity?, AppError>
+    func execute(movieId: Int) async throws -> SingleMovieEntity?
     
 }
 
@@ -19,7 +19,7 @@ class GetMoviebyIdUseCaseImpl: GetMovieByIdUseCase {
         self.repository = repository
     }
     
-    func execute(movieId: Int) async -> Result<SingleMovieEntity?, AppError> {
-        return await repository.getMovieById(movieId: movieId)
+    func execute(movieId: Int) async throws -> SingleMovieEntity? {
+        return try await repository.getMovieById(movieId: movieId)
     }
 }
