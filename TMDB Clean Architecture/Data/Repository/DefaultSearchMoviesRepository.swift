@@ -16,16 +16,12 @@ class DefaultSearchMoviesRepository: SearchMovieRepository {
     }
     
     
-    func searchMovie(query: String) async -> Result<[MovieEntity], AppError> {
-        do {
+    func searchMovie(query: String) async throws -> [MovieEntity] {
+       
             let data = try await moviesDatasource.searchMovie(query: query)
             let searchedMovies = data.map({
                 $0.toDomain()
             })
-            return .success(searchedMovies)
-        } catch {
-            print(error)
-            return .failure(.networkError(error.localizedDescription))
-        }
+            return searchedMovies
     }
 }

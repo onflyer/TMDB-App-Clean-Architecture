@@ -32,15 +32,12 @@ extension SearchViewModel {
             searchedMovies.removeAll()
             return
         }
-        state = .loading
-        let result = await searchMovieUseCase.execute(query: trimmedQuery)
-        
-        switch result {
-        case .success(let data):
-            searchedMovies = data
+        do {
+            state = .loading
+            let result = try await searchMovieUseCase.execute(query: trimmedQuery)
+            searchedMovies = result
             state = .success
-            
-        case .failure(let error):
+        } catch {
             print(error)
             state = .error(error.localizedDescription)
         }

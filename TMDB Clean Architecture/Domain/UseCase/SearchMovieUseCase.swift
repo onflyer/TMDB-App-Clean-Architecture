@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SearchMovieUseCase {
-    func execute(query: String) async -> Result<[MovieEntity],AppError>
+    func execute(query: String) async throws -> [MovieEntity]
 }
 
 class SearchMovieUseCaseImpl: SearchMovieUseCase {
@@ -18,7 +18,7 @@ class SearchMovieUseCaseImpl: SearchMovieUseCase {
         self.repository = repository
     }
     
-    func execute(query: String) async -> Result<[MovieEntity], AppError> {
-        return await repository.searchMovie(query: query)
+    func execute(query: String) async throws -> [MovieEntity] {
+        return try await repository.searchMovie(query: query)
     }
 }
