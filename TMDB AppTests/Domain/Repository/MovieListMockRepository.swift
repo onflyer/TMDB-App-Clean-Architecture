@@ -17,19 +17,11 @@ class MovieListMockRepository: MovieListRepository {
     }
     
     func getUpcomingMovies(page: Int) async throws -> [MovieEntity] {
-        let response = [MovieEntity(id: 1, posterPath: "testPoster1", coreDataTitle: "title1"),
-                        MovieEntity(id: 2, posterPath: "testPoster2", coreDataTitle: "title2"),
-                        MovieEntity(id: 3, posterPath: "testPoster3", coreDataTitle: "title3")
-        ]
-        return response
+        try await getMovies()
     }
     
     func getTopRatedMovies(page: Int) async throws -> [MovieEntity] {
-        let response = [MovieEntity(id: 1, posterPath: "testPoster1", coreDataTitle: "title1"),
-                        MovieEntity(id: 2, posterPath: "testPoster2", coreDataTitle: "title2"),
-                        MovieEntity(id: 3, posterPath: "testPoster3", coreDataTitle: "title3")
-        ]
-        return response
+        try await getMovies()
     }
     
     func getPopularMovies(page: Int) async -> Result<[MovieEntity], AppError> {
