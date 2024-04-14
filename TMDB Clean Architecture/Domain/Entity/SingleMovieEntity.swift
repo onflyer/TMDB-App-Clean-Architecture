@@ -79,3 +79,8 @@ struct MovieVideoEntity: Identifiable {
     let youtubeURL: URL?
 }
 
+extension SingleMovieEntity: Equatable {
+    static func ==(lhs: SingleMovieEntity, rhs: SingleMovieEntity) -> Bool {
+        return lhs.id == rhs.id && lhs.title == rhs.title
+    }
+}

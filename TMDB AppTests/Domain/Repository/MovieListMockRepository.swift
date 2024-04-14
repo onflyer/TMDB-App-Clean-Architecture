@@ -10,12 +10,34 @@ import Foundation
 
 
 class MovieListMockRepository: MovieListRepository {
+    var movies: [MovieEntity]?
+    var movie: SingleMovieEntity?
+    var movieId: Int?
+    var error: AppError?
+    var page: Int?
+    
+    func getMovies(page: Int) async throws -> [MovieEntity] {
+        if let error = error {
+            throw error
+        }
+        if let movies = movies {
+            return movies
+        }
+        fatalError("MovieListMockRepository not properly set up")
+    }
+    
+    func getMovie(movieId: Int) async throws -> SingleMovieEntity? {
+        if let error = error {
+            throw error
+        }
+        if let movie = movie {
+            return movie
+        }
+        fatalError("MovieListMockRepository not properly set up")
+    }
+    
     func getNowPlayingMovies(page: Int) async throws -> [MovieEntity] {
-        
-            let response = [MovieEntity(id: 1, posterPath: "testPoster1", coreDataTitle: "title1"),
-                            MovieEntity(id: 2, posterPath: "testPoster2", coreDataTitle: "title2"),
-                            MovieEntity(id: 3, posterPath: "testPoster3", coreDataTitle: "title3")]
-            return response
+       try await getMovies(page: page)
     }
     
     func getUpcomingMovies(page: Int) async throws -> [MovieEntity] {
@@ -43,8 +65,7 @@ class MovieListMockRepository: MovieListRepository {
     }
     
     func getMovieById(movieId: Int) async throws -> SingleMovieEntity? {
-        let movie = SingleMovieEntity.dummySingleMovie()
-        return movie
+        try await getMovie(movieId: movieId)
     }
     
     
