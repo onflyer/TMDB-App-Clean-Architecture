@@ -21,8 +21,8 @@ final class GetMovieByIdUseCaseTests: XCTestCase {
         let sut = GetMoviebyIdUseCaseImpl(repository: mock)
         let result = try? await sut.execute(movieId: expectedMovieToProvideId.first?.id ?? 0)
         
-        XCTAssertEqual(expectedMovieToProvideId.first?.id, expectedResponse.id)
-        XCTAssertEqual(expectedMovieToProvideId.first?.title, expectedResponse.title)
+        XCTAssertEqual(expectedMovieToProvideId.first?.id, result?.id)
+        XCTAssertEqual(expectedMovieToProvideId.first?.title, result?.title)
         
     }
     
