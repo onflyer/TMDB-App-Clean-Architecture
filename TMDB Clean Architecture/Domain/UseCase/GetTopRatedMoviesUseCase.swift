@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetTopRatedMoviesUseCase {
-    func execute(page: Int) async -> Result<[MovieEntity],AppError>
+    func execute(page: Int) async throws -> [MovieEntity]
 }
 
 class GetTopRatedMoviesUseCaseImpl: GetTopRatedMoviesUseCase {
@@ -18,7 +18,7 @@ class GetTopRatedMoviesUseCaseImpl: GetTopRatedMoviesUseCase {
         self.repository = repository
     }
     
-    func execute(page: Int) async -> Result<[MovieEntity], AppError> {
-        return await repository.getTopRatedMovies(page: page)
+    func execute(page: Int) async throws -> [MovieEntity] {
+        return try await repository.getTopRatedMovies(page: page)
     }
 }

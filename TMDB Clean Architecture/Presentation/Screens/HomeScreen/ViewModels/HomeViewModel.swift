@@ -85,18 +85,20 @@ extension HomeViewModel {
 
     
     func loadTopRatedMovies() async {
-        state = .loading
-        let result = await getTopRatedMoviesUseCase.execute(page: page)
-        
-        switch result {
-        case .success(let data):
-            topRatedMovies.append(contentsOf: data)
+        do {
+            state = .loading
+            let result = try await getTopRatedMoviesUseCase.execute(page: page)
+            topRatedMovies.append(contentsOf: result)
             if topRatedMovies.isEmpty {
                 state = .empty
             } else {
                 state = .success
             }
-        case .failure(let error):
+        } catch let error as AppError {
+            print(error)
+            self.appError = error
+           state = .error(error.localizedDescription)
+        } catch {
             print(error)
             state = .error(error.localizedDescription)
         }
