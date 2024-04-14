@@ -34,6 +34,7 @@ struct DetailView: View {
             .scrollIndicators(.hidden)
             .task {
                 favoritesViewModel.isFavorite(movieId: movieId, posterPath: viewModel.singleMovie?.posterPath ?? "N/A" , coreDataTitle: viewModel.singleMovie?.title ?? "N/A")
+                
                 await viewModel.loadMovieById(movieId: movieId)
                 await favoritesViewModel.loadFavoriteMovies()
             }
