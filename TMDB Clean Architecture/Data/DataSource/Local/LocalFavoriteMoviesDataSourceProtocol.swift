@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 // MARK: - FavoritesOfflineDataSource -
-protocol FavoritesOfflineDataSource {
+protocol LocalFavoriteMoviesDataSourceProtocol {
     func getFavorites() throws -> [MovieEntity]
     func isFavorite(movie: MovieEntity) throws -> Bool
     func addFavorite(movie: MovieEntity) async throws
@@ -18,17 +18,17 @@ protocol FavoritesOfflineDataSource {
 
 // MARK: - DefaultFavoritesOfflineDataSource -
 
-class DefaultFavoriteOfflineDataSource: FavoritesOfflineDataSource {
-    private let dataStack: CoreDataStack
+class DefaultLocalFavoriteMoviesDataSource: LocalFavoriteMoviesDataSourceProtocol {
+    private let coreDataService: CoreDataService
     
     private var managedObjectContext: NSManagedObjectContext {
-        dataStack.mainContext
+        coreDataService.mainContext
         
     }
     
     
-    init(dataStack: CoreDataStack) {
-        self.dataStack = dataStack
+    init(coreDataService: CoreDataService) {
+        self.coreDataService = coreDataService
     }
     
     func getFavorites() throws -> [MovieEntity] {
@@ -42,7 +42,7 @@ class DefaultFavoriteOfflineDataSource: FavoritesOfflineDataSource {
         _ = movie.toCoreDataEntity(in: managedObjectContext)
 //        try managedObjectContext.save()
        await managedObjectContext.perform {
-           self.dataStack.saveContext()
+           self.coreDataService.saveContext()
         }
         
     }
@@ -53,7 +53,7 @@ class DefaultFavoriteOfflineDataSource: FavoritesOfflineDataSource {
         let result = try managedObjectContext.fetch(fetchRequest)
         result.forEach({managedObjectContext.delete($0)})
 //        try managedObjectContext.save()
-        dataStack.saveContext()
+        coreDataService.saveContext()
     }
     func isFavorite(movie: MovieEntity) throws -> Bool {
         let fetchRequest = CoreDataDTO.fetchRequest()

@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol RequestProtocol {
+protocol URLComponentsProtocol {
     var path: String { get }
-    var requestType: RequestType { get }
+    var httpMethod: HTTPMethod { get }
     var headers: [String: String] { get }
     var params: [String: Any] { get }
     var urlParams: [String: String?] { get }
 }
 
-extension RequestProtocol {
+extension URLComponentsProtocol {
     var host: String {
         return APIConstants.baseUrl
     }
@@ -57,7 +57,7 @@ extension RequestProtocol {
         }
 
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = requestType.rawValue
+        urlRequest.httpMethod = httpMethod.rawValue
 
         if !headers.isEmpty {
             urlRequest.allHTTPHeaderFields = headers
@@ -67,7 +67,7 @@ extension RequestProtocol {
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: params)
         }
         
-       print("🚀 [REQUEST] [\(requestType.rawValue)] \(urlRequest), \(timeStamp)")
+       print("🚀 [REQUEST] [\(httpMethod.rawValue)] \(urlRequest), \(timeStamp)")
         return urlRequest
     }
 }

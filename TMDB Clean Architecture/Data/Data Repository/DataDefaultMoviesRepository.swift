@@ -8,11 +8,11 @@
 import Foundation
 
 
-class DefaultMoviesRepository: MovieListRepository {
+class DataDefaultMoviesRepository: MovieListRepository {
     
-    private let moviesDatasource: MovieDataSource
+    private let moviesDatasource: RemoteMovieDataSourceProtocol
     
-    init(moviesDatasource: MovieDataSource) {
+    init(moviesDatasource: RemoteMovieDataSourceProtocol) {
         self.moviesDatasource = moviesDatasource
     }
     

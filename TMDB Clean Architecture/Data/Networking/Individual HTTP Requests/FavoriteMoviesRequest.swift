@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FavoriteMoviesRequest : RequestProtocol {
+enum FavoriteMoviesRequest : URLComponentsProtocol {
     
     case getFavoriteMovies(page: Int)
     case postMovieToFavorites(movieId: Int)
@@ -57,7 +57,7 @@ enum FavoriteMoviesRequest : RequestProtocol {
         }
     }
     
-    var requestType: RequestType {
+    var httpMethod: HTTPMethod {
         switch self {
         case .getFavoriteMovies(_):
             return .GET

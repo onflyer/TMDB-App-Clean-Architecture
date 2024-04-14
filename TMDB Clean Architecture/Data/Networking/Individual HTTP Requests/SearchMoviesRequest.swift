@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SearchMoviesRequest: RequestProtocol {
+enum SearchMoviesRequest: URLComponentsProtocol {
     
     case searchMovies(query: String)
     
@@ -18,7 +18,7 @@ enum SearchMoviesRequest: RequestProtocol {
         }
     }
     
-    var requestType: RequestType {
+    var httpMethod: HTTPMethod {
         .GET
     }
     

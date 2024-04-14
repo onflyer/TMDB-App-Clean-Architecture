@@ -7,20 +7,20 @@
 
 import Foundation
 
-protocol SearchMoviesDataSource {
+protocol RemoteSearchMoviesDataSourceProtocol {
     func searchMovie(query: String) async throws -> [MovieDTO]
 }
 
-class DefaultSearchMoviesDataSource: SearchMoviesDataSource {
-    let requestManager: RequestManager
+class DefaultRemoteSearchMoviesDataSource: RemoteSearchMoviesDataSourceProtocol {
+    let networkService: NetworkServiceProtocol
     
-    init(requestManager: RequestManager) {
-        self.requestManager = requestManager
+    init(networkService: NetworkServiceProtocol) {
+        self.networkService = networkService
     }
     
     func searchMovie(query: String) async throws -> [MovieDTO] {
         let request = SearchMoviesRequest.searchMovies(query: query)
-        let response: MovieListDTO = try await requestManager.makeRequest(with: request)
+        let response: MovieListDTO = try await networkService.makeRequest(with: request)
         guard let unwrappedResponse = response.results else {
             print("error fetching Upcoming movies: NIL RESPONSE")
             return []

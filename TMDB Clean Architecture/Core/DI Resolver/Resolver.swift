@@ -39,14 +39,14 @@ class Resolver {
 // MARK: - Injecting Utils -
 extension Resolver {
     private func injectUtils() {
-        container.register(NetworkManager.self) { _ in
-            DefaultNetworkManager()
+        container.register(URLSessionProtocol.self) { _ in
+            DefaultURLSessionService()
         }.inObjectScope(.container)
-        container.register(RequestManager.self) { resolver in
-            DefaultRequestManager(networkManager: resolver.resolve(NetworkManager.self)!)
+        container.register(NetworkServiceProtocol.self) { resolver in
+            DefaultNetworkService(urlSession: resolver.resolve(URLSessionProtocol.self)!)
         }.inObjectScope(.container)
-        container.register(CoreDataStack.self) { _ in
-            CoreDataStack()
+        container.register(CoreDataService.self) { _ in
+            CoreDataService()
         }.inObjectScope(.container)
     }
 }
@@ -54,17 +54,17 @@ extension Resolver {
 // MARK: - Injecting DataSources -
 extension Resolver {
     private func injectDataSources() {
-        container.register(MovieDataSource.self) { resolver in
-            DefaultMovieDataSource(requestManager: resolver.resolve(RequestManager.self)!)
+        container.register(RemoteMovieDataSourceProtocol.self) { resolver in
+            DefaultRemoteMovieDataSource(networkService: resolver.resolve(NetworkServiceProtocol.self)!)
         }.inObjectScope(.container)
-        container.register(SearchMoviesDataSource.self) { resolver in
-            DefaultSearchMoviesDataSource(requestManager: resolver.resolve(RequestManager.self)!)
+        container.register(RemoteSearchMoviesDataSourceProtocol.self) { resolver in
+            DefaultRemoteSearchMoviesDataSource(networkService: resolver.resolve(NetworkServiceProtocol.self)!)
         }.inObjectScope(.container)
-        container.register(FavoriteMoviesDataSource.self) { resolver in
-            DefaultFavoriteMoviesDataSource(requestManager: resolver.resolve(RequestManager.self)!)
+        container.register(RemoteFavoriteMoviesDataSourceProtocol.self) { resolver in
+            DefaultRemoteFavoriteMoviesDataSource(networkService: resolver.resolve(NetworkServiceProtocol.self)!)
         }.inObjectScope(.container)
-        container.register(FavoritesOfflineDataSource.self) { resolver in
-            DefaultFavoriteOfflineDataSource(dataStack: resolver.resolve(CoreDataStack.self)!)
+        container.register(LocalFavoriteMoviesDataSourceProtocol.self) { resolver in
+            DefaultLocalFavoriteMoviesDataSource(coreDataService: resolver.resolve(CoreDataService.self)!)
         }.inObjectScope(.container)
     }
 }
@@ -74,16 +74,16 @@ extension Resolver {
     private func injectRepositories() {
         
         container.register(MovieListRepository.self) { resolver in
-            DefaultMoviesRepository(moviesDatasource: resolver.resolve(MovieDataSource.self)!)
+            DataDefaultMoviesRepository(moviesDatasource: resolver.resolve(RemoteMovieDataSourceProtocol.self)!)
         }.inObjectScope(.container)
         container.register(SearchMovieRepository.self) { resolver in
-            DefaultSearchMoviesRepository(moviesDatasource: resolver.resolve(SearchMoviesDataSource.self)!)
+            DataDefaultSearchMoviesRepository(moviesDatasource: resolver.resolve(RemoteSearchMoviesDataSourceProtocol.self)!)
         }.inObjectScope(.container)
         container.register(FavoritesRepository.self) { resolver in
-            DefaultFavoriteMoviesRepository(moviesDatasource: resolver.resolve(FavoriteMoviesDataSource.self)!)
+            DataDefaultFavoriteMoviesRepository(moviesDatasource: resolver.resolve(RemoteFavoriteMoviesDataSourceProtocol.self)!)
         }.inObjectScope(.container)
         container.register(FavoritesOfflineRepository.self) { resolver in
-            DefaultFavoriteMoviesOfflineRepository(dataSource: resolver.resolve(FavoritesOfflineDataSource.self)!)
+            DataDefaultFavoriteMoviesOfflineRepository(dataSource: resolver.resolve(LocalFavoriteMoviesDataSourceProtocol.self)!)
         }
     }
 }

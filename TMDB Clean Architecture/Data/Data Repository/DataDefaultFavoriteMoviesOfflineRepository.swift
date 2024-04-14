@@ -7,11 +7,11 @@
 
 import Foundation
 
-class DefaultFavoriteMoviesOfflineRepository: FavoritesOfflineRepository {
+class DataDefaultFavoriteMoviesOfflineRepository: FavoritesOfflineRepository {
     
-    private let dataSource: FavoritesOfflineDataSource
+    private let dataSource: LocalFavoriteMoviesDataSourceProtocol
     
-    init(dataSource: FavoritesOfflineDataSource) {
+    init(dataSource: LocalFavoriteMoviesDataSourceProtocol) {
         self.dataSource = dataSource
     }
     

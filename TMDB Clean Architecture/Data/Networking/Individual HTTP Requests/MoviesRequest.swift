@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MoviesRequest: RequestProtocol {
+enum MoviesRequest: URLComponentsProtocol {
     
     case getNowPlayingMovies(page: Int)
     case getUpcomingMovies(page: Int)
@@ -15,7 +15,7 @@ enum MoviesRequest: RequestProtocol {
     case getPopularMovies(page: Int)
     case getMovieById(movieId: Int)
     
-    var requestType: RequestType {
+    var httpMethod: HTTPMethod {
         .GET
     }
     

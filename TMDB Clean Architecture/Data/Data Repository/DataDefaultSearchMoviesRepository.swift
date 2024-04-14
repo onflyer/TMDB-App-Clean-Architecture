@@ -7,11 +7,11 @@
 
 import Foundation
 
-class DefaultSearchMoviesRepository: SearchMovieRepository {
+class DataDefaultSearchMoviesRepository: SearchMovieRepository {
     
-    private let moviesDatasource: SearchMoviesDataSource
+    private let moviesDatasource: RemoteSearchMoviesDataSourceProtocol
     
-    init(moviesDatasource: SearchMoviesDataSource) {
+    init(moviesDatasource: RemoteSearchMoviesDataSourceProtocol) {
         self.moviesDatasource = moviesDatasource
     }
     

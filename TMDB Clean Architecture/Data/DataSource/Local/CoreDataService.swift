@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-open class CoreDataStack {
+open class CoreDataService {
     public static let modelName = "TMDBAppDataModel"
     public static let model: NSManagedObjectModel = {
         let modelURL = Bundle.main.url(forResource: modelName, withExtension: "momd")!
@@ -23,7 +23,7 @@ open class CoreDataStack {
     }()
     
     public lazy var storeContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: CoreDataStack.modelName, managedObjectModel: CoreDataStack.model)
+        let container = NSPersistentContainer(name: CoreDataService.modelName, managedObjectModel: CoreDataService.model)
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

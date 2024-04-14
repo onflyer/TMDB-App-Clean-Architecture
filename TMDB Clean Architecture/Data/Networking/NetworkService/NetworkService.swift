@@ -1,5 +1,5 @@
 //
-//  RequestManager.swift
+//  NetworkService.swift
 //  TMDB App
 //
 //  Created by Aleksandar Milidrag on 3/13/24.
@@ -9,18 +9,18 @@ import Foundation
 
 // MARK: - Request Manager Protocol -
 
-protocol RequestManager {
-    var networkManager: NetworkManager { get }
-    var parser: DataParser { get }
-    func makeRequest<T: Decodable>(with requestData: RequestProtocol) async throws -> T
+protocol NetworkServiceProtocol {
+    var urlSession: URLSessionProtocol { get }
+    var parser: DataParserProtocol { get }
+    func makeRequest<T: Decodable>(with urlComponents: URLComponentsProtocol) async throws -> T
 }
 
 // MARK: - Default Request Manager
-class DefaultRequestManager: RequestManager {
-    let networkManager: NetworkManager
+class DefaultNetworkService: NetworkServiceProtocol {
+    let urlSession: URLSessionProtocol
 
-    init(networkManager: NetworkManager = DefaultNetworkManager()) {
-        self.networkManager = networkManager
+    init(urlSession: URLSessionProtocol = DefaultURLSessionService()) {
+        self.urlSession = urlSession
     }
 
     /// Makes a network request.
@@ -32,8 +32,8 @@ class DefaultRequestManager: RequestManager {
     /// - Important: The request data should conform to `RequestProtocol`.
     /// - SeeAlso: `RequestProtocol`
     /// - SeeAlso: `NetworkError`
-    func makeRequest<T: Decodable>(with requestData: RequestProtocol) async throws -> T {
-        let data = try await networkManager.makeRequest(with: requestData)
+    func makeRequest<T: Decodable>(with urlComponents: URLComponentsProtocol) async throws -> T {
+        let data = try await urlSession.makeRequest(with: urlComponents)
         let decoded: T = try parser.parse(data: data)
         return decoded
     }
@@ -41,8 +41,8 @@ class DefaultRequestManager: RequestManager {
 
 // MARK: - Returns Data Parser -
 
-extension RequestManager {
-    var parser: DataParser {
+extension NetworkServiceProtocol {
+    var parser: DataParserProtocol {
         return DefaultDataParser()
     }
 }

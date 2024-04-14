@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Protocol -
 
-protocol MovieDataSource {
+protocol RemoteMovieDataSourceProtocol {
     func getNowPlayingMovies(page: Int) async throws -> [MovieDTO]
     func getUpcomingMovies(page: Int) async throws -> [MovieDTO]
     func getTopRatedMovies(page: Int) async throws -> [MovieDTO]
@@ -20,17 +20,17 @@ protocol MovieDataSource {
 
 // MARK: - Implementation -
 
-class DefaultMovieDataSource: MovieDataSource {
+class DefaultRemoteMovieDataSource: RemoteMovieDataSourceProtocol {
     
-    private let requestManager: RequestManager
+    private let networkService: NetworkServiceProtocol
     
-    init(requestManager: RequestManager) {
-        self.requestManager = requestManager
+    init(networkService: NetworkServiceProtocol) {
+        self.networkService = networkService
     }
     
     func getNowPlayingMovies(page: Int) async throws -> [MovieDTO] {
         let request = MoviesRequest.getNowPlayingMovies(page: page)
-        let response: MovieListDTO = try await requestManager.makeRequest(with: request)
+        let response: MovieListDTO = try await networkService.makeRequest(with: request)
         guard let unwrappedResponse = response.results else {
             print("error fetching Now Playing movies: NIL RESPONSE")
             return []
@@ -40,7 +40,7 @@ class DefaultMovieDataSource: MovieDataSource {
     
     func getUpcomingMovies(page: Int) async throws -> [MovieDTO] {
         let request = MoviesRequest.getUpcomingMovies(page: page)
-        let response: MovieListDTO = try await requestManager.makeRequest(with: request)
+        let response: MovieListDTO = try await networkService.makeRequest(with: request)
         guard let unwrappedResponse = response.results else {
             print("error fetching Upcoming movies: NIL RESPONSE")
             return []
@@ -50,7 +50,7 @@ class DefaultMovieDataSource: MovieDataSource {
     
     func getTopRatedMovies(page: Int) async throws -> [MovieDTO] {
         let request = MoviesRequest.getTopRatedMovies(page: page)
-        let response: MovieListDTO = try await requestManager.makeRequest(with: request)
+        let response: MovieListDTO = try await networkService.makeRequest(with: request)
         guard let unwrappedResponse = response.results else {
             print("error fetching Top Rated movies: NIL RESPONSE")
             return []
@@ -60,7 +60,7 @@ class DefaultMovieDataSource: MovieDataSource {
     
     func getPopularMovies(page: Int) async throws -> [MovieDTO] {
         let request = MoviesRequest.getPopularMovies(page: page)
-        let response: MovieListDTO = try await requestManager.makeRequest(with: request)
+        let response: MovieListDTO = try await networkService.makeRequest(with: request)
         guard let unwrappedResponse = response.results else {
             print("error fetching popular movies: NIL RESPONSE")
             return []
@@ -70,7 +70,7 @@ class DefaultMovieDataSource: MovieDataSource {
     
     func getMovieById(movieId: Int) async throws -> SingleMovieDTO? {
         let request = MoviesRequest.getMovieById(movieId: movieId)
-        let response: SingleMovieDTO? = try await requestManager.makeRequest(with: request)
+        let response: SingleMovieDTO? = try await networkService.makeRequest(with: request)
         guard let unwrappedResponse = response else {
             print("error fetching movieByID movies: NIL RESPONSE")
             return nil

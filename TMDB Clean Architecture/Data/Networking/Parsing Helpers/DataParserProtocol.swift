@@ -8,11 +8,11 @@
 import Foundation
 
 
-protocol DataParser {
+protocol DataParserProtocol {
     func parse<T: Decodable>(data: Data) throws -> T
 }
 
-class DefaultDataParser: DataParser {
+class DefaultDataParser: DataParserProtocol {
     private var jsonDecoder: JSONDecoder
     init(jsonDecoder: JSONDecoder = JSONDecoder()) {
         self.jsonDecoder = jsonDecoder

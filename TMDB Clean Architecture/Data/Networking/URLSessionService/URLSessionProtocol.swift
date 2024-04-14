@@ -9,11 +9,11 @@ import Foundation
 
 /// The network manager protocol.
 /// It is responsible for making network requests.
-protocol NetworkManager {
-    func makeRequest(with requestData: RequestProtocol) async throws -> Data
+protocol URLSessionProtocol {
+    func makeRequest(with requestData: URLComponentsProtocol) async throws -> Data
 }
 
-class DefaultNetworkManager: NetworkManager {
+class DefaultURLSessionService: URLSessionProtocol {
     private let urlSession: URLSession
     
     init(urlSession: URLSession = URLSession.shared) {
@@ -28,7 +28,7 @@ class DefaultNetworkManager: NetworkManager {
     /// - Note: This method is asynchronous.
     /// - Important: The request data should conform to `RequestProtocol`.
     /// - SeeAlso: `RequestProtocol`
-    func makeRequest(with requestData: RequestProtocol) async throws -> Data {
+    func makeRequest(with requestData: URLComponentsProtocol) async throws -> Data {
         let request = try requestData.request()
         var responseStatusCode: Int?
         do {

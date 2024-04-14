@@ -8,7 +8,7 @@
 import Foundation
 
 
-protocol FavoriteMoviesDataSource {
+protocol RemoteFavoriteMoviesDataSourceProtocol {
     func getFavoriteMovies(page: Int) async throws -> [MovieDTO]
     func postMovieToFavorites(movieId: Int) async throws -> PostMovieToFavoritesResponseDTO
     func deleteMovieFromFavorites(movieId: Int) async throws -> PostMovieToFavoritesResponseDTO
@@ -17,17 +17,17 @@ protocol FavoriteMoviesDataSource {
 
 // MARK: - Implementation -
 
-class DefaultFavoriteMoviesDataSource: FavoriteMoviesDataSource {
+class DefaultRemoteFavoriteMoviesDataSource: RemoteFavoriteMoviesDataSourceProtocol {
     
-    private let requestManager: RequestManager
+    private let networkService: NetworkServiceProtocol
     
-    init(requestManager: RequestManager) {
-        self.requestManager = requestManager
+    init(networkService: NetworkServiceProtocol) {
+        self.networkService = networkService
     }
     
     func getFavoriteMovies(page: Int) async throws -> [MovieDTO] {
         let request = FavoriteMoviesRequest.getFavoriteMovies(page: page)
-        let response: MovieListDTO = try await requestManager.makeRequest(with: request)
+        let response: MovieListDTO = try await networkService.makeRequest(with: request)
         guard let unwrappedResponse = response.results else {
             print("error fetching Now Playing movies: NIL RESPONSE")
             return []
@@ -37,13 +37,13 @@ class DefaultFavoriteMoviesDataSource: FavoriteMoviesDataSource {
     
     func postMovieToFavorites(movieId: Int) async throws -> PostMovieToFavoritesResponseDTO {
         let request = FavoriteMoviesRequest.postMovieToFavorites(movieId: movieId)
-        let response: PostMovieToFavoritesResponseDTO = try await requestManager.makeRequest(with: request)
+        let response: PostMovieToFavoritesResponseDTO = try await networkService.makeRequest(with: request)
         return response
     }
     
     func deleteMovieFromFavorites(movieId: Int) async throws -> PostMovieToFavoritesResponseDTO {
         let request = FavoriteMoviesRequest.deleteMovieFromFavorites(movieId: movieId)
-        let response: PostMovieToFavoritesResponseDTO = try await requestManager.makeRequest(with: request)
+        let response: PostMovieToFavoritesResponseDTO = try await networkService.makeRequest(with: request)
         return response
     }
     
