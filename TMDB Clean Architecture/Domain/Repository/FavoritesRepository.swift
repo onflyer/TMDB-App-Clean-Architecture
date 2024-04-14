@@ -9,7 +9,7 @@ import Foundation
 
 protocol FavoritesRepository {
     
-    func getFavoriteMovies(page: Int) async -> Result<[MovieEntity],AppError>
+    func getFavoriteMovies(page: Int) async throws -> [MovieEntity]
     func postMovieToFavorites(mediaId: Int) async -> Result<PostMovieToFavoritesResponseEntity,AppError>
     func deleteMovieFromFavorites(mediaId: Int) async -> Result<PostMovieToFavoritesResponseEntity,AppError>
     

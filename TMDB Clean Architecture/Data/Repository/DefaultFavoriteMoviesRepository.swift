@@ -16,17 +16,14 @@ class DefaultFavoriteMoviesRepository: FavoritesRepository {
     }
     
     
-    func getFavoriteMovies(page: Int) async -> Result<[MovieEntity], AppError> {
-        do {
+    func getFavoriteMovies(page: Int) async throws -> [MovieEntity] {
+       
             let data = try await moviesDatasource.getFavoriteMovies(page: page)
             let favoriteMovies = data.map({
                 $0.toDomain()
             })
-            return .success(favoriteMovies)
-        } catch {
-            print(error)
-            return .failure(.networkError(error.localizedDescription))
-        }
+            return favoriteMovies
+       
     }
     
     func postMovieToFavorites(mediaId: Int) async -> Result<PostMovieToFavoritesResponseEntity,AppError> {

@@ -41,23 +41,19 @@ final class FavoritesViewModel: ViewModel {
 extension FavoritesViewModel {
     //MARK: NETWORK FUNCTIONS
     func loadFavoriteMovies() async {
+        do {
             state = .loading
-            let result = await getFavoritesUseCase.execute(page: page)
-            
-            switch result {
-            case .success(let data):
-                favoriteMovies = data
-                if favoriteMovies.isEmpty {
-                    state = .empty
-                } else {
-                    state = .success
-                }
-            case .failure(let error):
-                print(error)
-                state = .error(error.localizedDescription)
-            
+            let result = try await getFavoritesUseCase.execute(page: page)
+            favoriteMovies = result
+            if favoriteMovies.isEmpty {
+                state = .empty
+            } else {
+                state = .success
+            }
+        } catch {
+            print(error)
+            state = .error(error.localizedDescription)
         }
-        
     }
     
     func addToFavorites(movieId: Int) async {
