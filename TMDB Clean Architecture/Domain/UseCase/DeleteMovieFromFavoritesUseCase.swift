@@ -8,7 +8,7 @@
 import Foundation
 
 protocol DeleteMovieFromFavoritesUseCase {
-    func execute(mediaId: Int) async -> Result<PostMovieToFavoritesResponseEntity,AppError>
+    func execute(mediaId: Int) async throws -> PostMovieToFavoritesResponseEntity
 }
 
 class DeleteMovieFromFavoritesUseCaseImpl: DeleteMovieFromFavoritesUseCase {
@@ -18,7 +18,7 @@ class DeleteMovieFromFavoritesUseCaseImpl: DeleteMovieFromFavoritesUseCase {
         self.repository = repository
     }
     
-    func execute(mediaId: Int) async -> Result<PostMovieToFavoritesResponseEntity,AppError>  {
-         await repository.deleteMovieFromFavorites(mediaId: mediaId)
+    func execute(mediaId: Int) async throws -> PostMovieToFavoritesResponseEntity  {
+        try await repository.deleteMovieFromFavorites(mediaId: mediaId)
     }
 }

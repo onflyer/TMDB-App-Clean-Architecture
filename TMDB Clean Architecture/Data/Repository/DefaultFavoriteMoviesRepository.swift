@@ -33,15 +33,11 @@ class DefaultFavoriteMoviesRepository: FavoritesRepository {
             return postToFavoritesResponseEntity
     }
     
-    func deleteMovieFromFavorites(mediaId: Int) async -> Result<PostMovieToFavoritesResponseEntity, AppError> {
-        do {
+    func deleteMovieFromFavorites(mediaId: Int) async throws -> PostMovieToFavoritesResponseEntity {
+        
             let data = try await moviesDatasource.deleteMovieFromFavorites(movieId: mediaId)
             let deleteMovieFromFavoritesResponseEntity = data.toDomain()
-            return .success(deleteMovieFromFavoritesResponseEntity)
-        } catch {
-            print(error)
-            return .failure(.networkError(error.localizedDescription))
-        }
+            return deleteMovieFromFavoritesResponseEntity
     }
     
 }

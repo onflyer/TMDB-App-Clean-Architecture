@@ -68,17 +68,15 @@ extension FavoritesViewModel {
     }
     
     func deleteFromFavorites(movieId: Int) async {
-        let result = await deleteFavoriteMovieUseCase.execute(mediaId: movieId)
-        
-        switch result {
-        case .success(let response):
+        do {
+        let result = try await deleteFavoriteMovieUseCase.execute(mediaId: movieId)
             state = .success
-            print(response)
-            
-        case .failure(let error):
+        print(result)
+        } catch {
             print(error)
             state = .error(error.localizedDescription)
         }
+    
         favoriteMovies = favoriteMovies.filter {
             $0.id != movieId
         }
