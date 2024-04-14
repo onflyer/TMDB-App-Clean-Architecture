@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PostMovieToFavoritesUseCase {
-    func execute(mediaId: Int) async -> Result<PostMovieToFavoritesResponseEntity,AppError>
+    func execute(mediaId: Int) async throws -> PostMovieToFavoritesResponseEntity
 }
 
 class PostMovieToFavoriteUseCaseImpl: PostMovieToFavoritesUseCase {
@@ -18,8 +18,8 @@ class PostMovieToFavoriteUseCaseImpl: PostMovieToFavoritesUseCase {
         self.repository = repository
     }
     
-    func execute(mediaId: Int) async -> Result<PostMovieToFavoritesResponseEntity,AppError>  {
-         await repository.postMovieToFavorites(mediaId: mediaId)
+    func execute(mediaId: Int) async throws -> PostMovieToFavoritesResponseEntity  {
+        try await repository.postMovieToFavorites(mediaId: mediaId)
     }
 }
 
