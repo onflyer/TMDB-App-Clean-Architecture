@@ -35,7 +35,12 @@ final class GetMovieByIdUseCaseTests: XCTestCase {
         } catch let error as AppError {
             XCTAssertEqual(error, expectedError)
         }
+    }
+    
+    func test_getMovieByIdIsNil() async throws {
+        let mock = MovieListMockRepository()
+        let _ = GetMoviebyIdUseCaseImpl(repository: mock)
         
-        
+        XCTAssertEqual(nil, mock.movie)
     }
 }
