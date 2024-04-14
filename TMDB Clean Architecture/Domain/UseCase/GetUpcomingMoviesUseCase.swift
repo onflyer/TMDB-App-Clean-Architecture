@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetUpcomingMoviesUseCase {
-    func execute(page: Int) async -> Result<[MovieEntity],AppError>
+    func execute(page: Int) async throws -> [MovieEntity]
 }
 
 class GetUpcomingMoviesUseCaseImpl: GetUpcomingMoviesUseCase  {
@@ -18,7 +18,7 @@ class GetUpcomingMoviesUseCaseImpl: GetUpcomingMoviesUseCase  {
         self.repository = repository
     }
     
-    func execute(page: Int) async -> Result<[MovieEntity], AppError> {
-        return await repository.getUpcomingMovies(page: page)
+    func execute(page: Int) async throws -> [MovieEntity] {
+        return try await repository.getUpcomingMovies(page: page)
     }
 }

@@ -63,22 +63,26 @@ extension HomeViewModel {
     }
     
     func loadUpcomingMovies() async {
-        state = .loading
-        let result = await getUpcomingMoviesUseCase.execute(page: page)
-        
-        switch result {
-        case .success(let data):
-            upcomingMovies.append(contentsOf: data)
+        do {
+            state = .loading
+            let result = try await getUpcomingMoviesUseCase.execute(page: page)
+            upcomingMovies.append(contentsOf: result)
             if upcomingMovies.isEmpty {
                 state = .empty
             } else {
                 state = .success
             }
-        case .failure(let error):
+        } catch let error as AppError {
+            print(error)
+            self.appError = error
+           state = .error(error.localizedDescription)
+        } catch {
             print(error)
             state = .error(error.localizedDescription)
         }
+        
     }
+
     
     func loadTopRatedMovies() async {
         state = .loading
