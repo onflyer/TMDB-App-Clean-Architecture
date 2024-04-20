@@ -21,7 +21,7 @@ class SearchMovieUseCaseTests: XCTestCase {
         do {
             let result = try await sut.execute(query: "title")
             XCTAssertEqual(result.count, 3)
-            XCTAssertTrue(result.contains(where: { $0.id == 1 })) // John Doe
+            XCTAssertTrue(result.contains(where: { $0.id == 1 })) 
             XCTAssertTrue(result.contains(where: { $0.id == 3 }))
         } catch  {
             print(error)
