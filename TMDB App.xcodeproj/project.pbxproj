@@ -282,7 +282,8 @@
 		3B0F6DD92BCC76820037A1FB /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3B0F6E0C2BD3D7100037A1FB /* Networking */,
+				3B0F6E182BD3F7820037A1FB /* Remote */,
+				3B0F6E172BD3F77D0037A1FB /* Local */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -290,13 +291,36 @@
 		3B0F6E0C2BD3D7100037A1FB /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3B0F6E192BD3F7910037A1FB /* Mocks */,
+				3B0F6E132BD3E2050037A1FB /* NetworkServiceTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3B0F6E172BD3F77D0037A1FB /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		3B0F6E182BD3F7820037A1FB /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				3B0F6E0C2BD3D7100037A1FB /* Networking */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		3B0F6E192BD3F7910037A1FB /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
 				3B0F6E0D2BD3D7730037A1FB /* URLComponentsMock.swift */,
 				3B0F6E0F2BD3DD360037A1FB /* URLSessionMockService.swift */,
 				3B0F6E152BD3E43F0037A1FB /* DataParserMock.swift */,
 				3B0F6E112BD3DEA00037A1FB /* NetworkServiceMock.swift */,
-				3B0F6E132BD3E2050037A1FB /* NetworkServiceTests.swift */,
 			);
-			path = Networking;
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		3B2C2A7C2BC86505009869EE /* TMDB AppTests */ = {

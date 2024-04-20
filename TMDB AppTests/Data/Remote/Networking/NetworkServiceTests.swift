@@ -7,15 +7,16 @@
 
 import Foundation
 import XCTest
+@testable import TMDB_App
 
 
 class NetworkServiceTests: XCTestCase {
     
     func test_whenMockDataPassed_souldReturnProperResponse() async throws {
         
-        let urlComponentsMock = URLComponentsMock()
+        let urlComponentsMock = URLComponentsMock(httpMethod: .GET )
         let urlSessionMock = URLSessionMockService()
-        let encoder = JSONEncoder()
+        
         let parser = DataParserMock()
         
         let expectedData: String = "Response data"
@@ -36,7 +37,7 @@ class NetworkServiceTests: XCTestCase {
             case someError
         }
         
-        let urlComponentsMock = URLComponentsMock()
+        let urlComponentsMock = URLComponentsMock(httpMethod: .GET)
         let urlSessionMock = URLSessionMockService()
         let parser = DataParserMock()
         
