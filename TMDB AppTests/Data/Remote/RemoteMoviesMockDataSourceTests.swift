@@ -21,4 +21,20 @@ class RemoteMoviesMockDataSourceTests: XCTestCase {
         XCTAssertEqual(results, movies)
         
     }
+    
+    func test_getMoviesFailure() async throws {
+        let sut = RemoteMoviesMockDataSource()
+        let expectedError = NSError(domain: "network", code: 500)
+        sut.error = expectedError
+        
+       
+        
+        do {
+            let results = try await sut.getNowPlayingMovies(page: 1)
+            XCTFail("Expected to throw an error, but it did not")
+        } catch let error as NSError {
+            XCTAssertEqual(error, expectedError)
+        }
+        
+    }
 }
