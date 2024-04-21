@@ -52,7 +52,7 @@ class HomeScreenViewModelTests: XCTestCase {
     
     @MainActor func test_whenUseCaseGetsError_thenViewModelThrowsAnError() async {
          
-        let mock = GetNowPlayingMoviesMockUseCase()
+         let mock = GetNowPlayingMoviesMockUseCase()
          let mock1 = GetTopRatedMockUseCase()
          let mock2 = GetPopularMoviesMockUseCase()
          let mock3 = GetUpcomingMoviesMockUseCase()
