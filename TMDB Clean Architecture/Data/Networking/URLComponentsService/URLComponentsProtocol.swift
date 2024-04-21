@@ -8,8 +8,9 @@
 import Foundation
 
 protocol URLComponentsProtocol {
-    var path: String { get }
     var httpMethod: HTTPMethod { get }
+    var host : String { get }
+    var path: String { get }
     var headers: [String: String] { get }
     var params: [String: Any] { get }
     var urlParams: [String: String?] { get }
@@ -19,6 +20,10 @@ extension URLComponentsProtocol {
     var host: String {
         return APIConstants.baseUrl
     }
+    
+    var headers: [String: String] {
+        [:]
+    }
 
     var params: [String: Any] {
         [:]
@@ -27,11 +32,7 @@ extension URLComponentsProtocol {
     var urlParams: [String: String?] {
         [:]
     }
-
-    var headers: [String: String] {
-        [:]
-    }
-
+    
     func request() throws -> URLRequest {
         var components = URLComponents()
         components.scheme = "https"

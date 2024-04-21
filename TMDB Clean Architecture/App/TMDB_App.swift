@@ -14,10 +14,8 @@ struct TMDB_App: App {
         /// Injecting all dependencies
         Resolver.shared.injectModules()
     }
-    
-    
+
     var body: some Scene {
-        
         WindowGroup {
           ContainerView()
                 .preferredColorScheme(.dark)
