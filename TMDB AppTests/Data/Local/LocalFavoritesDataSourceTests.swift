@@ -82,5 +82,18 @@ class LocalFavoritesDataSourceTests: XCTestCase {
             XCTFail("Expected success, but got failure: \(error)")
         }
     }
+    // MARK: Helpers
+    private func makeSUT() -> DefaultLocalFavoriteMoviesDataSource {
+        let coreDataService = CoreDataMockService()
+        return DefaultLocalFavoriteMoviesDataSource(coreDataService: coreDataService)
+    }
+
+    private func makeCDMovie(from movie: MovieEntity, in context: NSManagedObjectContext) -> CoreDataDTO {
+        let cdMovie = CoreDataDTO(context: context)
+        cdMovie.id = movie.id
+        cdMovie.posterPath = movie.posterPath
+        cdMovie.title = movie.title
+        return cdMovie
+    }
 }
 
