@@ -114,7 +114,6 @@
 		3BF09FDD2BA8701800F59F3E /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FDC2BA8701800F59F3E /* ViewModel.swift */; };
 		3BF09FDF2BA870B900F59F3E /* CustomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF09FDE2BA870B900F59F3E /* CustomListView.swift */; };
 		3BF236D62BAB0701004E1D0E /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 3BF236D52BAB0701004E1D0E /* Swinject */; };
-		3BF236D82BAB0701004E1D0E /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3BF236D72BAB0701004E1D0E /* Swinject-Dynamic */; };
 		3BF236DB2BAB081E004E1D0E /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF236DA2BAB081E004E1D0E /* Resolver.swift */; };
 		3BF236DF2BAB1128004E1D0E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF236DE2BAB1128004E1D0E /* HomeViewModel.swift */; };
 		3BF236E52BAB1743004E1D0E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF236E42BAB1743004E1D0E /* HomeView.swift */; };
@@ -257,7 +256,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF236D62BAB0701004E1D0E /* Swinject in Frameworks */,
-				3BF236D82BAB0701004E1D0E /* Swinject-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,7 +871,6 @@
 			name = "TMDB App";
 			packageProductDependencies = (
 				3BF236D52BAB0701004E1D0E /* Swinject */,
-				3BF236D72BAB0701004E1D0E /* Swinject-Dynamic */,
 			);
 			productName = "TMDB App";
 			productReference = 3B8782842AE4261C0098C228 /* TMDB App.app */;
@@ -1337,11 +1334,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3BF236D42BAB0701004E1D0E /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
-		};
-		3BF236D72BAB0701004E1D0E /* Swinject-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3BF236D42BAB0701004E1D0E /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = "Swinject-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 
